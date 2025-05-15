@@ -1,0 +1,295 @@
+:root {
+    --font-primary: "Rubik", sans-serif;
+    --font-secondary: "Verdana", sans-serif;
+}
+
+/* General Parameters */
+html {
+    scroll-behavior: smooth;
+}
+body * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    transition: all 0.3s ease-in-out;
+}
+input,
+button,
+select,
+textarea {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+}
+a {
+    display: inline-block;
+}
+
+/* Fonts Utilities */
+.font-primary {
+    font-family: var(--font-primary) !important;
+    letter-spacing: 0.05em;
+}
+.font-secondary {
+    font-family: var(--font-secondary) !important;
+    letter-spacing: 0;
+}
+
+/* Text Utilities */
+.text-wrap {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: block;
+    word-break: break-word;
+}
+
+/* Transition Utilities */
+.transition-sm {
+    transition: all 0.3s ease;
+}
+
+/* Border Utilities */
+.border-none {
+    border: none;
+}
+.outline-none {
+    outline: none;
+}
+
+/* Width Utilities */
+.width-fit-content {
+    width: fit-content;
+}
+.width-max-content {
+    width: max-content;
+}
+.width-min-content {
+    width: min-content;
+}
+
+/* Truncate */
+.truncate-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Background Utilities */
+.background-fixed {
+    background-attachment: fixed;
+}
+
+/* Cursor Utilities */
+.cursor-pointer {
+    cursor: pointer;
+}
+.pointer-events-none {
+    pointer-events: none;
+}
+
+/* Margin Utilities */
+.sec-margin {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+/* Accent Colors */
+.color-accent-1 {
+    accent-color: #101010;
+}
+
+/* Heading Colors */
+.color-1 {
+    color: #101010;
+}
+.color-2 {
+    color: #3f3f3f;
+}
+
+/* Background Colors */
+.color-bg-1 {
+    background-color: #ffffff;
+}
+.color-bg-2 {
+    background-color: #f9f9f9;
+}
+
+/* Border Colors */
+.color-border-1 {
+    border-color: #eeeeee !important;
+}
+.color-border-2 {
+    border-color: #d9d9d9 !important;
+}
+
+/* Size Utilities */
+.size-12 {
+    font-size: 0.75rem;
+}
+.size-14 {
+    font-size: 0.875rem;
+}
+.size-16 {
+    font-size: 1rem;
+}
+.size-18 {
+    font-size: 1.125rem;
+}
+.size-20 {
+    font-size: 1.25rem;
+}
+.size-22 {
+    font-size: 1.375rem;
+}
+.size-24 {
+    font-size: 1.5rem;
+}
+.size-28 {
+    font-size: 1.75rem;
+}
+.size-32 {
+    font-size: 2rem;
+}
+.size-48 {
+    font-size: 3rem;
+}
+.size-64 {
+    font-size: 4rem;
+}
+.size-92 {
+    font-size: 5.75rem;
+}
+.size-96 {
+    font-size: 6rem;
+}
+
+@media screen and (min-width: 576px) {
+    .size-sm-12 {
+        font-size: 0.75rem;
+    }
+    .size-sm-14 {
+        font-size: 0.875rem;
+    }
+    .size-sm-16 {
+        font-size: 1rem;
+    }
+    .size-sm-18 {
+        font-size: 1.125rem;
+    }
+    .size-sm-20 {
+        font-size: 1.25rem;
+    }
+    .size-sm-22 {
+        font-size: 1.375rem;
+    }
+    .size-sm-24 {
+        font-size: 1.5rem;
+    }
+    .size-sm-28 {
+        font-size: 1.75rem;
+    }
+    .size-sm-32 {
+        font-size: 2rem;
+    }
+    .size-sm-48 {
+        font-size: 3rem;
+    }
+    .size-sm-64 {
+        font-size: 4rem;
+    }
+    .size-sm-92 {
+        font-size: 5.75rem;
+    }
+    .size-sm-96 {
+        font-size: 6rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .size-lg-12 {
+        font-size: 0.75rem;
+    }
+    .size-lg-14 {
+        font-size: 0.875rem;
+    }
+    .size-lg-16 {
+        font-size: 1rem;
+    }
+    .size-lg-18 {
+        font-size: 1.125rem;
+    }
+    .size-lg-20 {
+        font-size: 1.25rem;
+    }
+    .size-lg-22 {
+        font-size: 1.375rem;
+    }
+    .size-lg-24 {
+        font-size: 1.5rem;
+    }
+    .size-lg-28 {
+        font-size: 1.75rem;
+    }
+    .size-lg-32 {
+        font-size: 2rem;
+    }
+    .size-lg-48 {
+        font-size: 3rem;
+    }
+    .size-lg-64 {
+        font-size: 4rem;
+    }
+    .size-lg-92 {
+        font-size: 5.75rem;
+    }
+    .size-lg-96 {
+        font-size: 6rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .size-xxl-12 {
+        font-size: 0.75rem;
+    }
+    .size-xxl-14 {
+        font-size: 0.875rem;
+    }
+    .size-xxl-16 {
+        font-size: 1rem;
+    }
+    .size-xxl-18 {
+        font-size: 1.125rem;
+    }
+    .size-xxl-20 {
+        font-size: 1.25rem;
+    }
+    .size-xxl-22 {
+        font-size: 1.375rem;
+    }
+    .size-xxl-24 {
+        font-size: 1.5rem;
+    }
+    .size-xxl-28 {
+        font-size: 1.75rem;
+    }
+    .size-xxl-32 {
+        font-size: 2rem;
+    }
+    .size-xxl-48 {
+        font-size: 3rem;
+    }
+    .size-xxl-64 {
+        font-size: 4rem;
+    }
+    .size-xxl-92 {
+        font-size: 5.75rem;
+    }
+    .size-xxl-96 {
+        font-size: 6rem;
+    }
+}
