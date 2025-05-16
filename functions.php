@@ -40,6 +40,12 @@ require_once THEME_DIR . '/php/theme-settings/enqueue.php';
 require_once THEME_DIR . '/php/custom-fields/config.php';
 
 /*
+ * WordPress Theme Components - Functions of predefined components
+ */
+require_once THEME_DIR . '/php/theme-settings/components.php';
+
+
+/*
  * Custom Post Types
  */
 // require_once THEME_DIR . '/php/custom-post-types/config.php';

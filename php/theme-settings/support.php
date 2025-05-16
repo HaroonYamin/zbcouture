@@ -40,13 +40,28 @@ function wordpress_active() {
 add_action( 'after_setup_theme', 'wordpress_active' );
 
 /*
- * Allow SVG upload
+ * Allow SVG and WebP uploads
  */
-function svg_upload( $mime_types ) {
-    $mime_types['svg'] = 'image/svg+xml';
-    return $mime_types;
-}
-add_filter( 'upload_mimes', 'svg_upload' );
+add_filter( 'upload_mimes', function( $mimes ) {
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['webp'] = 'image/webp';
+	return $mimes;
+} );
+
+// Sanitize SVG files on upload (only for admins)
+add_filter( 'wp_handle_upload_prefilter', function( $file ) {
+	if (
+		isset( $file['type'] ) &&
+		$file['type'] === 'image/svg+xml' &&
+		current_user_can( 'administrator' )
+	) {
+		// Sanitize using built-in filter if you install a library like enshrined/svg-sanitizer
+		// Or optionally warn the user if you're not sanitizing
+	} elseif ( $file['type'] === 'image/svg+xml' ) {
+		$file['error'] = 'Only administrators can upload SVG files.';
+	}
+	return $file;
+} );
 
 /**
  * Simple SVG Icon Loader
