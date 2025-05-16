@@ -18,8 +18,12 @@ if (!defined('ABSPATH')) {
  */
 define('THEME_ASSETS', [
     'css' => [
-        'bootstrap' => [
-            'path' => '/lib/bootstrap/css/bootstrap.min.css',
+        'BeigeCulture' => [
+            'path' => '/assets/fonts/BeigeCulture/stylesheet.css',
+            'deps' => []
+        ],
+        'tailwind-output' => [
+            'path' => '/lib/tailwind/tailwind-output.css',
             'deps' => []
         ],
         'main' => [
@@ -30,10 +34,6 @@ define('THEME_ASSETS', [
     'js' => [
         'main' => [
             'path' => '/assets/js/custom.js',
-            'deps' => ['jquery']
-        ],
-        'bootstrap' => [
-            'path' => '/lib/bootstrap/js/bootstrap.min.js',
             'deps' => ['jquery']
         ]
     ]

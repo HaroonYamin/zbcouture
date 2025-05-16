@@ -1,16 +1,15 @@
-<?php
-    $site_logo = get_the_custom_logo() ?: '';
-    $main_menu = wp_nav_menu( ['theme_location' => 'main-menu'] );
-?>
+<div class="bg-(--tester-haroon)">
+    <h2>ADDS</h2>
+</div>
 
-<header id="header">
+<header id="header" class="bg-sky-900">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <div>
-                <?= $site_logo; ?>
+                <?= the_custom_logo(); ?>
             </div>
             <div>
-                <?php $main_menu; ?>
+                <?php wp_nav_menu( ['theme_location' => 'main-menu'] ); ?>
             </div>
         </div>
     </div>
