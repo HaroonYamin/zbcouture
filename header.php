@@ -10,4 +10,5 @@
 
 	<body <?php body_class(); ?>>
 		<?php wp_body_open(); ?>
+		<?php get_template_part( 'template-parts/header/banner' ); ?>
 		<?php get_template_part( 'template-parts/header/main' ); ?>

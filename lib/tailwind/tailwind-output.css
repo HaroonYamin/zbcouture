@@ -7,14 +7,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-900: oklch(39.1% 0.09 240.876);
-    --color-stone-100: oklch(97% 0.001 106.424);
-    --color-stone-200: oklch(92.3% 0.003 48.717);
-    --color-stone-400: oklch(70.9% 0.01 56.259);
-    --color-stone-500: oklch(55.3% 0.013 58.071);
     --color-stone-600: oklch(44.4% 0.011 73.639);
+    --color-white: #fff;
     --spacing: 0.25rem;
+    --font-weight-medium: 500;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -168,9 +165,6 @@
   }
 }
 @layer utilities {
-  .\@container {
-    container-type: inline-size;
-  }
   .col-12 {
     grid-column: 12;
   }
@@ -210,9 +204,6 @@
   .flex {
     display: flex;
   }
-  .table {
-    display: table;
-  }
   .size-16 {
     width: calc(var(--spacing) * 16);
     height: calc(var(--spacing) * 16);
@@ -220,17 +211,14 @@
   .w-24 {
     width: calc(var(--spacing) * 24);
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
-  .resize {
-    resize: both;
-  }
   .flex-row {
     flex-direction: row;
+  }
+  .justify-between {
+    justify-content: space-between;
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
@@ -248,27 +236,21 @@
   .bg-sky-900 {
     background-color: var(--color-sky-900);
   }
-  .bg-stone-100 {
-    background-color: var(--color-stone-100);
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
-  }
-  .py-\[4\] {
-    padding-block: 4;
-  }
   .text-center {
     text-align: center;
   }
-  .underline {
-    text-decoration-line: underline;
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  .text-white {
+    color: var(--color-white);
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -278,63 +260,11 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .hover\:bg-sky-500 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-sky-500);
-      }
-    }
-  }
-  .hover\:bg-stone-200 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-stone-200);
-      }
-    }
-  }
-  .hover\:bg-stone-400 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-stone-400);
-      }
-    }
-  }
-  .hover\:bg-stone-500 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-stone-500);
-      }
-    }
-  }
   .hover\:bg-stone-600 {
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-stone-600);
       }
-    }
-  }
-  .hover\:fill-sky-500 {
-    &:hover {
-      @media (hover: hover) {
-        fill: var(--color-sky-500);
-      }
-    }
-  }
-  .hover\:stroke-sky-500 {
-    &:hover {
-      @media (hover: hover) {
-        stroke: var(--color-sky-500);
-      }
-    }
-  }
-  .\@max-md\:flex-col {
-    @container (width < 28rem) {
-      flex-direction: column;
-    }
-  }
-  .\@md\:flex-row {
-    @container (width >= 28rem) {
-      flex-direction: row;
     }
   }
 }
@@ -363,10 +293,9 @@
   inherits: false;
   initial-value: solid;
 }
-@property --tw-outline-style {
+@property --tw-font-weight {
   syntax: "*";
   inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -430,7 +359,7 @@
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-border-style: solid;
-      --tw-outline-style: solid;
+      --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
