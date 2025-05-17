@@ -1,20 +1,5 @@
 # Node modules
-lib/node_modules/
+lib/tailwind/node_modules
 
-# Tailwind build output
-lib/tailwind/tailwind-output.css
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Optional: VSCode settings (if you don't want to share)
-.vscode/
-
-# Optional: OS-specific
-*.swp
+# Tailwind build input
+lib/tailwind/tailwind-input.css
