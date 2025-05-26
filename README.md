@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # WordPress Custom Theme Template
 
 A modern, flexible, and performance-optimized WordPress theme template designed for scalable web development.
@@ -29,6 +30,10 @@ theme/
 └── templates/
     └── block.php
 ```
+
+## Tailwind
+
+    npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch
 
 ## Features
 
@@ -104,8 +109,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-© 2024 Haroon Yamin. All rights reserved.
-=======
+# © 2024 Haroon Yamin. All rights reserved.
+
 # zbcouture
+
 This is the E-Commerce site for ZB Couture. This project is associated with Diginest. The client name is Zara Batool.
->>>>>>> 7b890aa91c60786b235c5074af40c98cf2f45049
+
+> > > > > > > 7b890aa91c60786b235c5074af40c98cf2f45049
