@@ -20,8 +20,10 @@ function wordpress_active() {
 	add_theme_support( 'custom-logo' );
 	register_nav_menus(
 		array(
-			'main-menu' => esc_html__( 'Main Menu', 'main' ),
-			'footer-menu' => esc_html__( 'Footer Menu', 'footer' ),
+			'left-header-menu' => esc_html__( 'Left Header Menu', 'main' ),
+			'right-header-menu' => esc_html__( 'Right Header Menu', 'main' ),
+			'brand-menu' => esc_html__( 'Brand Menu', 'footer' ),
+			'service-menu' => esc_html__( 'Service Menu', 'footer' ),
         )
 	);
 	add_theme_support(

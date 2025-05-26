@@ -11,7 +11,7 @@
 
 <section class="bg-primary">
     <div class="container mx-auto py-1 px-4">
-        <div class="flex flex-row justify-between">
+        <div class="flex flex-row items-center justify-between relative">
             <?php if( $social_media ) : ?>
                 <div class="flex flex-row gap-1">
                     <?php foreach( $social_media as $item ) :
@@ -39,7 +39,7 @@
             <?php endif; ?>
 
             <?php if( $text ) : ?>
-                <div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <p class="text-white font-medium"><?= $text; ?></p>
                 </div>
             <?php endif; ?>

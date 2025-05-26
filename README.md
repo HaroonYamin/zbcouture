@@ -84,6 +84,10 @@ To begin development with this theme:
 -   **LinkedIn:** [Haroon Yamin](https://www.linkedin.com/in/haroon-webdev/)
 -   **GitHub:** [github.com/haroonyamin](https://github.com/HaroonYamin)
 
+-   **Name:** Muhammad Asjad
+-   **Specialization:** Wordpress Development
+-   **GitHub:** [github.com/asjadakhtar](https://github.com/asjadakhtar)
+
 ## License
 
 This theme is licensed under the MIT License - see the LICENSE.md file for details.
