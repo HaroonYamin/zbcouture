@@ -2,4 +2,3 @@
 lib/tailwind/node_modules
 
 # Tailwind build input
-lib/tailwind/tailwind-input.css
