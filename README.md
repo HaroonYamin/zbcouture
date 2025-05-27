@@ -33,7 +33,7 @@ theme/
 
 ## Tailwind
 
-    npx @tailwindcss/cli -i ./lib/tailwind/tailwind-input.css -o ./lib/tailwind/tailwind-output.css --watch
+    npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind-output.css --watch
 
 ## Features
 

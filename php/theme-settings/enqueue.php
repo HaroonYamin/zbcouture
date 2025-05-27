@@ -23,7 +23,7 @@ define('THEME_ASSETS', [
             'deps' => []
         ],
         'tailwind-output' => [
-            'path' => '/lib/tailwind/tailwind-output.css',
+            'path' => '/assets/css/tailwind-output.css',
             'deps' => []
         ],
         'main' => [
