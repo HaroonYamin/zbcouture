@@ -12,9 +12,7 @@
 get_header(); ?>
 
 <main id="site-main" class="main-content <?php echo esc_attr(get_post_field('post_name', get_post())); ?>">
-    <div class="container">
         <?php the_content(); ?>
-    </div>
 </main>
 
 <?php get_footer(); ?>

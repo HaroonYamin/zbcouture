@@ -22,6 +22,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/BeigeCulture/stylesheet.css',
             'deps' => []
         ],
+        'swiper' => [
+            'path' => '/node_modules/swiper/swiper-bundle.min.css',
+            'deps' => []
+        ],
         'tailwind-output' => [
             'path' => '/assets/css/tailwind-output.css',
             'deps' => []
@@ -32,6 +36,10 @@ define('THEME_ASSETS', [
         ]
     ],
     'js' => [
+        'swiper' => [
+            'path' => '/node_modules/swiper/swiper-bundle.min.js',
+            'deps' => []
+        ],
         'main' => [
             'path' => '/assets/js/custom.js',
             'deps' => ['jquery']

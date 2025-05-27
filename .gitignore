@@ -1,2 +1,12 @@
-# Node modules
-node_modules
+# Ignore everything in node_modules
+node_modules/*
+
+# Unignore swiper directory
+!node_modules/swiper/
+
+# Ignore everything else in swiper (temporarily)
+node_modules/swiper/*
+
+# Unignore only the specific files you want
+!node_modules/swiper/swiper-bundle.min.css
+!node_modules/swiper/swiper-bundle.min.js
