@@ -15,7 +15,7 @@
             <div class="col-span-2">
                 <?php
                     if( $column_2['heading'] ) {
-                        echo '<h3 class="text-2xl font-bold mb-6">' . $column_2['heading'] . '</h3>';
+                        echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_2['heading'] . '</h3>';
                     }
                     wp_nav_menu( array( 'theme_location' => 'brand-menu' ) ); 
                 ?>
@@ -24,7 +24,7 @@
             <div class="col-span-2">
                 <?php
                     if( $column_3['heading'] ) {
-                        echo '<h3 class="text-2xl font-bold mb-6">' . $column_3['heading'] . '</h3>';
+                        echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_3['heading'] . '</h3>';
                     }
                     wp_nav_menu( array( 'theme_location' => 'service-menu' ) ); 
                 ?>
@@ -35,10 +35,10 @@
             <div class="col-span-4">
                 <?php
                     if( $column_4['heading'] ) {
-                        echo '<h3 class="text-2xl font-bold mb-6">' . $column_4['heading'] . '</h3>';
+                        echo '<h3 class="text-2xl font-medium italic mb-3 font-primary">' . $column_4['heading'] . '</h3>';
                     }
                     if( $column_4['content'] ) {
-                        echo '<p>' . $column_4['content'] . '</p>';
+                        echo '<p class="mb-6">' . $column_4['content'] . '</p>';
                     }
                     if( $column_4['enable'] ) {
                         echo do_shortcode( '[contact-form-7 id="d2fe9f1" title="Newsletter"]' );
