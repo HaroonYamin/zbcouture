@@ -18,6 +18,23 @@
 .header .menu-item a:hover {
     background-color: var(--color-hover);
 }
+#footer .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+#footer .menu a {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 4px 0;
+    border-radius: 4px;
+}
+#footer .menu a:hover,
+#footer .menu a:active {
+    text-decoration: underline;
+}
+
 .max-w-336px {
     max-width: 336px;
 }

@@ -15,9 +15,15 @@
         <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_1.png" alt="Gowns" class="w-full h-[540px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <div class="absolute bottom-0 left-0 text-white text-left px-4 py-2 z-20">
-          <span class="text-3xl font-primary font-normal">Gowns</span>
+
+        <!-- Text with white top border -->
+        <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
+          <div class="flex flex-col items-start">
+            <div class="mb-3 border-t border-white self-center"></div>
+            <span class="text-3xl font-primary font-normal tracking-wider">Gowns</span>
+          </div>
         </div>
+
       </div>
 
       <!-- Item 2 -->
@@ -25,9 +31,15 @@
         <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_2.png" alt="Mini Dresses" class="w-full h-[540px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <div class="absolute bottom-0 left-0 text-white text-left px-4 py-2 z-20">
-          <span class="text-3xl font-primary font-normal">Mini Dresses</span>
+
+        <!-- Text with white top border -->
+        <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
+          <div class="flex flex-col items-start">
+            <div class="mb-3 border-t border-white self-center"></div>
+            <span class="text-3xl font-primary font-normal tracking-wider">Mini Dresses</span>
+          </div>
         </div>
+
       </div>
 
       <!-- Item 3 -->
@@ -35,9 +47,15 @@
         <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_3.png" alt="Tops" class="w-full h-[540px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <div class="absolute bottom-0 left-0 text-white text-left px-4 py-2 z-20">
-          <span class="text-3xl font-primary font-normal">Tops</span>
+
+        <!-- Text with white top border -->
+        <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
+          <div class="flex flex-col items-start">
+            <div class="mb-3 border-t border-white self-center"></div>
+            <span class="text-3xl font-primary font-normal tracking-wider">Tops</span>
+          </div>
         </div>
+
       </div>
 
       <!-- Item 4 -->
@@ -48,8 +66,11 @@
         <div class="absolute inset-0 bg-black/30 z-10"></div>
 
         <!-- Text with white top border -->
-        <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 border-t border-white w-[273px]">
-          <span class="text-3xl font-primary font-normal">Accessories</span>
+        <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
+          <div class="flex flex-col items-start">
+            <div class="mb-3 border-t border-white self-center"></div>
+            <span class="text-3xl font-primary font-normal tracking-wider">Accessories</span>
+          </div>
         </div>
 
       </div>

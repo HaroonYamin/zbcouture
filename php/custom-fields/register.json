@@ -19,13 +19,19 @@
         "description": "This is the stories section of a webpage.",
         "template": "stories",
         "keywords": "stories, section, webpage"
-    }
-    ,
+    },
     {
         "name": "collections",
         "title": "Collections Section",
         "description": "This is the collections section of a webpage.",
         "template": "collections",
         "keywords": "collections, section, webpage"
+    },
+    {
+        "name": "process",
+        "title": "Process Section",
+        "description": "This is the process section of a webpage.",
+        "template": "process",
+        "keywords": "process, section, webpage"
     }
 ]
