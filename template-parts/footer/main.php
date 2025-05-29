@@ -9,7 +9,9 @@
     <div class="container">
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-3">
+                <?php
 
+                ?>
             </div>
 
             <div class="col-span-2">
