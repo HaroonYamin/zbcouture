@@ -4,7 +4,7 @@
     $cart = $icons['cart'];
 ?>
 
-<header class="absolute w-full z-10 header h-10 mt-8">
+<header class="absolute w-full z-20 header h-10 mt-8">
     <div class="container mx-auto">
         <div class="flex flex-row justify-between items-center px-4 relative">
             <div>
