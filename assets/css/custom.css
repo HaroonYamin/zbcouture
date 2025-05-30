@@ -34,6 +34,52 @@
 #footer .menu a:active {
     text-decoration: underline;
 }
+.newsletter-form p {
+    position: relative;
+}
+.newsletter-email {
+    width: 100%;
+    border: 1px solid #27221e;
+    color: #27221e;
+    padding: 16px 12px;
+    outline: none;
+    font-size: 16px;
+    line-height: 1;
+}
+.newsletter-form p::after {
+    content: "";
+    display: block;
+    background-color: #27221e;
+    background-image: url("../icons/arrow.svg");
+    background-size: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+.newsletter-submit {
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    z-index: 1;
+    opacity: 0;
+}
+.newsletter-form .wpcf7-spinner {
+    margin: 8px 0 0 0;
+    float: right;
+}
+.newsletter-form .wpcf7-not-valid-tip {
+    margin-top: 8px;
+}
+#footer .wpcf7-response-output {
+    margin: 0 !important;
+}
 
 .max-w-336px {
     max-width: 336px;
