@@ -12,7 +12,7 @@
     <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       <!-- Item 1 -->
       <div class="relative">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_1.png" alt="Gowns" class="w-full h-[540px] object-cover">
+        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_1.png" alt="Gowns" class="w-full h-[472px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
 
@@ -28,7 +28,7 @@
 
       <!-- Item 2 -->
       <div class="relative">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_2.png" alt="Mini Dresses" class="w-full h-[540px] object-cover">
+        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_2.png" alt="Mini Dresses" class="w-full h-[472px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
 
@@ -44,7 +44,7 @@
 
       <!-- Item 3 -->
       <div class="relative">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_3.png" alt="Tops" class="w-full h-[540px] object-cover">
+        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_3.png" alt="Tops" class="w-full h-[472px] object-cover">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
 
@@ -60,7 +60,7 @@
 
       <!-- Item 4 -->
       <div class="relative">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_4.png" alt="Accessories" class="w-full h-[540px] object-cover">
+        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_4.png" alt="Accessories" class="w-full h-[472px] object-cover">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10"></div>
