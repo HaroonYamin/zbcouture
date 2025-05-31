@@ -33,5 +33,40 @@
         "description": "This is the process section of a webpage.",
         "template": "process",
         "keywords": "process, section, webpage"
+    },
+    {
+        "name": "collection-stories",
+        "title": "Collection Stories Section",
+        "description": "This is the collection-stories section of a webpage.",
+        "template": "collection-stories",
+        "keywords": "collection-stories, section, webpage"
+    },
+    {
+        "name": "testimonials",
+        "title": "Testimonials Section",
+        "description": "This is the testimonials section of a webpage.",
+        "template": "testimonials",
+        "keywords": "testimonials, section, webpage"
+    },
+    {
+        "name": "quote",
+        "title": "Quote Section",
+        "description": "This is the quote section of a webpage.",
+        "template": "quote",
+        "keywords": "quote, section, webpage"
+    },
+    {
+        "name": "partners",
+        "title": "Partners Section",
+        "description": "This is the partners section of a webpage.",
+        "template": "partners",
+        "keywords": "partners, section, webpage"
+    },
+    {
+        "name": "consultaion",
+        "title": "Consultaion Section",
+        "description": "This is the consultaion section of a webpage.",
+        "template": "consultaion",
+        "keywords": "consultaion, section, webpage"
     }
 ]
