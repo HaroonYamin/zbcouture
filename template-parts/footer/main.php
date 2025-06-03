@@ -14,12 +14,12 @@
 
 <footer id="footer" class="mt-24 mb-9">
     <div class="container mx-auto px-5">
-        <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-3">
+        <div class="grid grid-cols-12 gap-x-6 gap-y-12">
+            <div class="xl:col-span-3 col-span-4">
                 <?php echo get_image( $site_logo, 'max-w-40' ); ?>
             </div>
 
-            <div class="col-span-2">
+            <div class="xl:col-span-2 col-span-4">
                 <?php
                     if( $column_2['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_2['heading'] . '</h3>';
@@ -28,7 +28,7 @@
                 ?>
             </div>
 
-            <div class="col-span-2">
+            <div class="xl:col-span-2 col-span-4">
                 <?php
                     if( $column_3['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_3['heading'] . '</h3>';
@@ -37,9 +37,9 @@
                 ?>
             </div>
 
-            <div class="col-span-1"></div>
+            <div class="col-span-1 xl:block hidden"></div>
 
-            <div class="col-span-4">
+            <div class="xl:col-span-4 col-span-6">
                 <?php
                     if( $column_4['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-3 font-primary">' . $column_4['heading'] . '</h3>';
