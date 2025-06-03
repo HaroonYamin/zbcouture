@@ -102,3 +102,4 @@ function enqueue_theme_assets() {
     // Localize Scripts
 }
 add_action('wp_enqueue_scripts', 'enqueue_theme_assets');
+
