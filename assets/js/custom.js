@@ -8,8 +8,7 @@ const swiper = new Swiper('.swiper-banner', {
         el: '.banner-pagination',
         clickable: true,
     },
-});
-
+}); 
 
 document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".card-swiper-1", {
@@ -54,7 +53,3 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
-
-
-
-

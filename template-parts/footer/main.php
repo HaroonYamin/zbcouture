@@ -21,7 +21,7 @@
 
             <div class="col-span-2">
                 <?php
-                    if( $column_2['heading'] ) {
+                    if( !empty($column_2['heading'])  ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_2['heading'] . '</h3>';
                     }
                     wp_nav_menu( array( 'theme_location' => 'brand-menu' ) ); 
