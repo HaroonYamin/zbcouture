@@ -14,21 +14,25 @@
 
 <footer id="footer" class="mt-24 mb-9">
     <div class="container mx-auto px-5">
-        <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-3">
-                <?php echo get_image( $site_logo, 'max-w-40' ); ?>
-            </div>
+        <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
+           <!-- Logo -->
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 flex justify-center lg:justify-start lg:items-start items-center text-center lg:text-left">
+    <?php echo get_image( $site_logo, 'w-32 lg:w-40 h-auto' ); ?>
+</div>
 
-            <div class="col-span-2">
+
+            <!-- Column 2 -->
+            <div class="col-span-12 sm:col-span-1 lg:col-span-2">
                 <?php
-                    if( $column_2['heading'] ) {
+                    if( !empty($column_2['heading']) ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_2['heading'] . '</h3>';
                     }
                     wp_nav_menu( array( 'theme_location' => 'brand-menu' ) ); 
                 ?>
             </div>
 
-            <div class="col-span-2">
+            <!-- Column 3 -->
+            <div class="col-span-12 sm:col-span-1 lg:col-span-2">
                 <?php
                     if( $column_3['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_3['heading'] . '</h3>';
@@ -37,9 +41,11 @@
                 ?>
             </div>
 
-            <div class="col-span-1"></div>
+            <!-- Spacer for large screens only -->
+            <div class="hidden lg:block lg:col-span-1"></div>
 
-            <div class="col-span-4">
+            <!-- Column 4 -->
+            <div class="col-span-12 sm:col-span-2 lg:col-span-4">
                 <?php
                     if( $column_4['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-3 font-primary">' . $column_4['heading'] . '</h3>';
@@ -55,41 +61,43 @@
         </div>
     </div>
 
-    <div class="border-b-1 border-gray-300 mb-6 mt-12"></div>
+    <div class="border-b border-gray-300 my-6"></div>
 
     <div class="container mx-auto px-5">
-        <div class="flex justify-between items-center">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <!-- Copyright -->
             <?php
                 if( $bottom['copywrite'] ) {
-                    echo '<p class="">' . $bottom['copywrite'] . '</p>';
+                    echo '<p class="text-center sm:text-left">' . $bottom['copywrite'] . '</p>';
                 }
             ?>
 
-            <div class="flex items-center gap-6">
-                <?php if(  $bottom['social_media'] ) :
+            <!-- Social Icons -->
+            <div class="flex items-center gap-4">
+                <?php if( $bottom['social_media'] ) :
                     foreach( $bottom['social_media'] as $item ) :
                         if( $item ) : ?>
                             <?php if( $item === 'fb' ) : ?>
-                                <a href="<?= $facebook; ?>" target="_blank">
-                                    <?= get_svg( 'footer_facebook', 'facebook', 'w-24' ); ?>
+                                <a href="<?= esc_url($facebook); ?>" target="_blank" rel="noopener">
+                                    <?= get_svg( 'footer_facebook', 'facebook', 'w-6 h-6' ); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if( $item === 'in' ) : ?>
-                                <a href="<?= $instagram; ?>" target="_blank">
-                                    <?= get_svg( 'footer_instagram', 'instagram', 'w-24' ); ?>
+                                <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener">
+                                    <?= get_svg( 'footer_instagram', 'instagram', 'w-6 h-6' ); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if( $item === 'x' ) : ?>
-                                <a href="<?= $instagram; ?>" target="_blank">
-                                    <?= get_svg( 'footer_twitter', 'twitter', 'w-24' ); ?>
+                                <a href="<?= esc_url($twitter); ?>" target="_blank" rel="noopener">
+                                    <?= get_svg( 'footer_twitter', 'twitter', 'w-6 h-6' ); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if( $item === 'li' ) : ?>
-                                <a href="<?= $linkedin; ?>" target="_blank">
-                                    <?= get_svg( 'footer_linkedin', 'linkedin', 'w-24' ); ?>
+                                <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener">
+                                    <?= get_svg( 'footer_linkedin', 'linkedin', 'w-6 h-6' ); ?>
                                 </a>
                             <?php endif; ?>
                         <?php endif;

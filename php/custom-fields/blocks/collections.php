@@ -14,10 +14,9 @@
     <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center">
       <!-- Repeat this block for each item -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_1.png"
-            alt="Gowns"
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
-
+        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_1.png'); ?>"
+          alt="Gowns"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
 
@@ -33,7 +32,7 @@
 
       <!-- Repeat similar items -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_2.png" 
+        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_2.png'); ?>" 
           alt="Mini Dresses" 
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
@@ -46,7 +45,7 @@
       </div>
 
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_3.png" 
+        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_3.png'); ?>" 
           alt="Tops" 
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
@@ -59,9 +58,10 @@
       </div>
 
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/05/image_4.png" 
+        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_4.png'); ?>" 
           alt="Accessories" 
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
+
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
         <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
           <div class="flex flex-col items-start">

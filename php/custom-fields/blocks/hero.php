@@ -1,12 +1,12 @@
 <section class="relative h-866px w-full bg-cover bg-center">
   <!-- 1. Swiper Background Banner (Bottom Layer) -->
   <div class="swiper swiper-banner absolute inset-0 h-full w-full overflow-hidden">
-      <div class="swiper-wrapper">
-          <!-- Background image slides -->
-          <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/05/banner-image.jpg');"></div>
-          <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/05/banner-image.jpg');"></div>
-          <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/05/banner-image.jpg');"></div>
-      </div>
+    <div class="swiper-wrapper">
+        <!-- Background image slides -->
+        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
+        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
+        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
+    </div>
   </div>
 
   <!-- 2. Overlay (Middle Layer) -->
@@ -30,4 +30,5 @@
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
     <div class="banner-pagination custom-pagination"></div>
   </div>
+  
 </section>
