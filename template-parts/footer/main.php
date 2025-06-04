@@ -14,6 +14,7 @@
 
 <footer id="footer" class="mt-24 mb-9">
     <div class="container mx-auto px-5">
+<<<<<<< HEAD
         <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
            <!-- Logo -->
 <div class="col-span-12 sm:col-span-2 lg:col-span-3 flex justify-center lg:justify-start lg:items-start items-center text-center lg:text-left">
@@ -23,6 +24,14 @@
 
             <!-- Column 2 -->
             <div class="col-span-12 sm:col-span-1 lg:col-span-2">
+=======
+        <div class="grid grid-cols-12 gap-x-6 gap-y-12">
+            <div class="xl:col-span-3 col-span-4">
+                <?php echo get_image( $site_logo, 'max-w-40' ); ?>
+            </div>
+
+            <div class="xl:col-span-2 col-span-4">
+>>>>>>> 807d87b5b0724e66dc5c5f051afb04c0dffa5755
                 <?php
 <<<<<<< HEAD
                     if( !empty($column_2['heading']) ) {
@@ -35,8 +44,12 @@
                 ?>
             </div>
 
+<<<<<<< HEAD
             <!-- Column 3 -->
             <div class="col-span-12 sm:col-span-1 lg:col-span-2">
+=======
+            <div class="xl:col-span-2 col-span-4">
+>>>>>>> 807d87b5b0724e66dc5c5f051afb04c0dffa5755
                 <?php
                     if( $column_3['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_3['heading'] . '</h3>';
@@ -45,11 +58,17 @@
                 ?>
             </div>
 
+<<<<<<< HEAD
             <!-- Spacer for large screens only -->
             <div class="hidden lg:block lg:col-span-1"></div>
 
             <!-- Column 4 -->
             <div class="col-span-12 sm:col-span-2 lg:col-span-4">
+=======
+            <div class="col-span-1 xl:block hidden"></div>
+
+            <div class="xl:col-span-4 col-span-6">
+>>>>>>> 807d87b5b0724e66dc5c5f051afb04c0dffa5755
                 <?php
                     if( $column_4['heading'] ) {
                         echo '<h3 class="text-2xl font-medium italic mb-3 font-primary">' . $column_4['heading'] . '</h3>';
