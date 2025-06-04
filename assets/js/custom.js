@@ -52,13 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bulletActiveClass: "collection-pagination-bullet-active",
     },
   });
-<<<<<<< HEAD
 });
-
-
-
-
-
 
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
@@ -83,6 +77,4 @@ document.addEventListener('click', function(event) {
         mobileMenu.style.display = 'none';
         mobileMenu.classList.add('hidden');
     }
-=======
->>>>>>> refs/remotes/origin/main
 });
