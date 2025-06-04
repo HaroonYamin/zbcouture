@@ -24,7 +24,11 @@
             <!-- Column 2 -->
             <div class="col-span-12 sm:col-span-1 lg:col-span-2">
                 <?php
+<<<<<<< HEAD
                     if( !empty($column_2['heading']) ) {
+=======
+                    if( !empty($column_2['heading'])  ) {
+>>>>>>> refs/remotes/origin/main
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . $column_2['heading'] . '</h3>';
                     }
                     wp_nav_menu( array( 'theme_location' => 'brand-menu' ) ); 

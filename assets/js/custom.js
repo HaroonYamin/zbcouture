@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bulletActiveClass: "collection-pagination-bullet-active",
     },
   });
+<<<<<<< HEAD
 });
 
 
@@ -82,4 +83,6 @@ document.addEventListener('click', function(event) {
         mobileMenu.style.display = 'none';
         mobileMenu.classList.add('hidden');
     }
+=======
+>>>>>>> refs/remotes/origin/main
 });
