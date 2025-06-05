@@ -54,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+
+
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     
@@ -65,7 +68,6 @@ function toggleMobileMenu() {
         mobileMenu.classList.add('hidden');
     }
 }
-
 // Close menu when clicking outside
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobile-menu');

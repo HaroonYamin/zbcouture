@@ -1256,6 +1256,11 @@
       justify-content: center;
     }
   }
+  .xl\:justify-start {
+    @media (width >= 80rem) {
+      justify-content: flex-start;
+    }
+  }
   .xl\:justify-items-center {
     @media (width >= 80rem) {
       justify-items: center;
