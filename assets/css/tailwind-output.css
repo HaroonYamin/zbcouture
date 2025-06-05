@@ -290,12 +290,9 @@
   .col-span-6 {
     grid-column: span 6 / span 6;
   }
-<<<<<<< HEAD
   .col-span-12 {
     grid-column: span 12 / span 12;
   }
-=======
->>>>>>> 807d87b5b0724e66dc5c5f051afb04c0dffa5755
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -395,12 +392,9 @@
   .hidden {
     display: none;
   }
-<<<<<<< HEAD
-=======
   .inline-block {
     display: inline-block;
   }
->>>>>>> 11743c025beb7d2f2ebefd3be5ec33261ec426ba
   .table {
     display: table;
   }
@@ -618,10 +612,6 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
-<<<<<<< HEAD
-  .gap-x-6 {
-    column-gap: calc(var(--spacing) * 6);
-=======
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
@@ -650,17 +640,13 @@
       margin-inline-start: calc(calc(var(--spacing) * 15) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 15) * calc(1 - var(--tw-space-x-reverse)));
     }
->>>>>>> 11743c025beb7d2f2ebefd3be5ec33261ec426ba
   }
   .gap-y-12 {
     row-gap: calc(var(--spacing) * 12);
   }
-<<<<<<< HEAD
-=======
   .gap-y-16 {
     row-gap: calc(var(--spacing) * 16);
   }
->>>>>>> 11743c025beb7d2f2ebefd3be5ec33261ec426ba
   .overflow-hidden {
     overflow: hidden;
   }
@@ -1391,31 +1377,6 @@
   .xl\:overflow-visible {
     @media (width >= 80rem) {
       overflow: visible;
-    }
-  }
-  .xl\:col-span-1 {
-    @media (width >= 80rem) {
-      grid-column: span 1 / span 1;
-    }
-  }
-  .xl\:col-span-2 {
-    @media (width >= 80rem) {
-      grid-column: span 2 / span 2;
-    }
-  }
-  .xl\:col-span-3 {
-    @media (width >= 80rem) {
-      grid-column: span 3 / span 3;
-    }
-  }
-  .xl\:col-span-4 {
-    @media (width >= 80rem) {
-      grid-column: span 4 / span 4;
-    }
-  }
-  .xl\:block {
-    @media (width >= 80rem) {
-      display: block;
     }
   }
 }
