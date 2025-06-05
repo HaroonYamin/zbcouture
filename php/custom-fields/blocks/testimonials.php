@@ -1,37 +1,15 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/main
 <section class="bg-[#F5F5F0] sm:py-48 py-32 sm:my-32 my-16">
   <div class="container mx-auto px-6">
     <!-- Header -->
     <div class="text-center mb-12">
       <p class="uppercase sm:text-base text-sm font-normal tracking-widest text-[#27221E] mb-6">Testimonials</p>
-<<<<<<< HEAD
-=======
-=======
-<section class="bg-[#F5F5F0] py-48 my-32">
-  <div class="container mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <p class="uppercase text-base font-normal tracking-widest text-[#27221E] mb-6">Testimonials</p>
->>>>>>> f62036564e95b40b2e6cb379438672fff5f33071
->>>>>>> refs/remotes/origin/main
       <h2 class="text-3xl lg:text-5xl font-normal italic font-primary text-[#27221E] max-w-[290px] m-auto">Real Love, Real Stories</h2>
     </div>
 
     <!-- Content Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <!-- Images -->
-<<<<<<< HEAD
       <div class="relative w-full flex justify-center">
-=======
-<<<<<<< HEAD
-      <div class="w-full flex justify-center">
-=======
-      <div class="relative w-full flex justify-center">
->>>>>>> f62036564e95b40b2e6cb379438672fff5f33071
->>>>>>> refs/remotes/origin/main
         <div class="relative">
           <img
             src="<?php echo home_url('/wp-content/uploads/2025/05/image-8.png'); ?>"
@@ -41,56 +19,22 @@
           <img
             src="<?php echo home_url('/wp-content/uploads/2025/05/image-9.png'); ?>"
             alt="Wedding Couple 2"
-<<<<<<< HEAD
             class="w-[193px] h-[195px] object-cover absolute -bottom-30 -right-30 hidden lg:block"
-=======
-<<<<<<< HEAD
-            class="w-[193px] h-[195px] object-cover absolute -bottom-10 -right-10 hidden lg:block"
-=======
-            class="w-[193px] h-[195px] object-cover absolute -bottom-30 -right-30"
->>>>>>> f62036564e95b40b2e6cb379438672fff5f33071
->>>>>>> refs/remotes/origin/main
           />
         </div>
-
       </div>
 
       <!-- Testimonial Text -->
-<<<<<<< HEAD
       <div class="lg:text-left text-center">
         <p class="sm:text-2xl text-lg font-normal text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
-=======
-<<<<<<< HEAD
-      <div class="lg:text-left lg:text-left text-center">
-        <p class="sm:text-2xl text-lg font-normal text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
-=======
-      <div class="text-left">
-        <p class="text-2xl font-normal text-[#27221E] mb-6 max-w-[648px]">
->>>>>>> f62036564e95b40b2e6cb379438672fff5f33071
->>>>>>> refs/remotes/origin/main
           “I’m so happy with my gorgeous dress! Zahra has made my dream come true.
           I’ll be wearing a piece of art, so unique and beautiful. I also really
           appreciated Zahra’s communication along the entire process, from the
           first message, and her efforts to make things easy and comfortable for me”
         </p>
         <p class="italic font-primary text-2xl font-normal text-[#27221E] mb-1">Jennifer Ritz</p>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/main
         <p class="text-base font-medium text-[#535353]">NYC Wedding</p>
       </div>
     </div>
   </div>
-<<<<<<< HEAD
 </section>
-=======
-</section>
-=======
-        <p class="text-base font-meduim text-[#535353]">NYC Wedding</p>
-      </div>
-    </div>
-  </div>
-</section>
->>>>>>> f62036564e95b40b2e6cb379438672fff5f33071
->>>>>>> refs/remotes/origin/main
