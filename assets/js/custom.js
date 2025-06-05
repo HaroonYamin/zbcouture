@@ -80,3 +80,4 @@ document.addEventListener('click', function(event) {
         mobileMenu.classList.add('hidden');
     }
 });
+});
