@@ -18,7 +18,7 @@
             <!-- Logo -->
             <div class="xl:col-span-3 col-span-4 flex justify-center xl:justify-start">
                 <?php $image_url = wp_get_attachment_image_src($site_logo, 'full'); ?>
-                <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-32 lg:w-40 h-fit">
+                <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-32 lg:w-40" style="height: fit-content;">
             </div>
 
             <!-- Column 2 -->
