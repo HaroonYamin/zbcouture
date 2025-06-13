@@ -14,7 +14,7 @@
       
       <!-- Item 1 -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_1.png'); ?>" 
+        <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_7.png" 
           alt="Gowns"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
@@ -28,7 +28,7 @@
 
       <!-- Item 2 -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_2.png'); ?>" 
+        <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_2.png" 
           alt="Mini Dresses"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
@@ -42,7 +42,7 @@
 
       <!-- Item 3 -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_3.png'); ?>" 
+        <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_3.png" 
           alt="Tops"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
@@ -56,7 +56,7 @@
 
       <!-- Item 4 -->
       <div class="relative w-full lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden">
-        <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_4.png'); ?>" 
+        <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_4.png" 
           alt="Accessories"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2"/>
         <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>

@@ -8,13 +8,13 @@
         <div class="swiper card-swiper-1 h-full">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_5.png'); ?>" alt="Symphony of Peony" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_5.png" alt="Symphony of Peony" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_5.png'); ?>" alt="Symphony of Peony 2" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_5.png" alt="Symphony of Peony 2" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_5.png'); ?>" alt="Symphony of Peony 3" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_5.png" alt="Symphony of Peony 3" class="w-full h-full object-cover"/>
             </div>
           </div>
           <div class="absolute inset-0 bg-black/20 z-10"></div>
@@ -31,13 +31,13 @@
         <div class="swiper card-swiper-2 h-full">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_6.png'); ?>" alt="Symphony of Rose" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_6.png" alt="Symphony of Rose" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_6.png'); ?>" alt="Symphony of Rose 2" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_6.png" alt="Symphony of Rose 2" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_6.png'); ?>" alt="Symphony of Rose 3" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_6.png" alt="Symphony of Rose 3" class="w-full h-full object-cover"/>
             </div>
           </div>
           <div class="absolute inset-0 bg-black/20 z-10"></div>
@@ -54,13 +54,13 @@
         <div class="swiper card-swiper-3 h-full">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_7.png'); ?>" alt="Symphony of Poppy" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_7.png" alt="Symphony of Poppy" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_7.png'); ?>" alt="Symphony of Poppy 2" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_7.png" alt="Symphony of Poppy 2" class="w-full h-full object-cover"/>
             </div>
             <div class="swiper-slide">
-              <img src="<?php echo home_url('/wp-content/uploads/2025/05/image_7.png'); ?>" alt="Symphony of Poppy 3" class="w-full h-full object-cover"/>
+              <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_7.png" alt="Symphony of Poppy 3" class="w-full h-full object-cover"/>
             </div>
           </div>
           <div class="absolute inset-0 bg-black/20 z-10"></div>

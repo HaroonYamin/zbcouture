@@ -12,12 +12,12 @@
       <div class="relative w-full flex justify-center">
         <div class="relative">
           <img
-            src="<?php echo home_url('/wp-content/uploads/2025/05/image-8.png'); ?>"
+            src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image-8.png"
             alt="Wedding Couple"
             class="w-[298px] h-[348px] object-cover"
           />
           <img
-            src="<?php echo home_url('/wp-content/uploads/2025/05/image-9.png'); ?>"
+            src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image-9.png"
             alt="Wedding Couple 2"
             class="w-[193px] h-[195px] object-cover absolute -bottom-30 -right-30 hidden lg:block"
           />
