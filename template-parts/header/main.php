@@ -99,29 +99,3 @@
     </div> 
 </header>
 
-<script>
-function toggleMobileMenu() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
-        mobileMenu.style.display = 'block';
-        mobileMenu.classList.remove('hidden');
-    } else {
-        mobileMenu.style.display = 'none';
-        mobileMenu.classList.add('hidden');
-    }
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const toggleButton = document.getElementById('mobile-menu-toggle');
-    
-    if (mobileMenu && toggleButton && 
-        !toggleButton.contains(event.target) && 
-        !mobileMenu.contains(event.target)) {
-        mobileMenu.style.display = 'none';
-        mobileMenu.classList.add('hidden');
-    }
-});
-</script>
