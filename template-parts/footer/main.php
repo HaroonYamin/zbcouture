@@ -26,7 +26,9 @@
                     if (!empty($column_2['heading'])) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . esc_html($column_2['heading']) . '</h3>';
                     }
-                    wp_nav_menu(array('theme_location' => 'brand-menu'));
+                    if( $column_2['enable'] ) {
+                        wp_nav_menu(array('theme_location' => 'brand-menu'));
+                    }
                 ?>
             </div>
 
@@ -36,7 +38,9 @@
                     if (!empty($column_3['heading'])) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . esc_html($column_3['heading']) . '</h3>';
                     }
-                    wp_nav_menu(array('theme_location' => 'service-menu'));
+                    if( $column_3['enable'] ) {
+                        wp_nav_menu(array('theme_location' => 'service-menu'));
+                    }
                 ?>
             </div>
 
