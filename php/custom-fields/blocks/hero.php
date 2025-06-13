@@ -3,9 +3,15 @@
   <div class="swiper swiper-banner absolute inset-0 h-full w-full overflow-hidden">
     <div class="swiper-wrapper">
         <!-- Background image slides -->
-        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
-        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
-        <div class="swiper-slide bg-center bg-cover h-full w-full" style="background-image: url('<?php echo home_url('/wp-content/uploads/2025/05/banner-image.jpg'); ?>');"></div>
+        <div class="swiper-slide bg-center bg-cover h-full w-full" 
+            style="background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/banner-image-scaled.jpg');">
+        </div>
+        <div class="swiper-slide bg-center bg-cover h-full w-full" 
+            style="background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/banner-image-scaled.jpg');">
+        </div>
+        <div class="swiper-slide bg-center bg-cover h-full w-full" 
+            style="background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/banner-image-scaled.jpg');">
+        </div>
     </div>
   </div>
 
