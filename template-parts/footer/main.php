@@ -1,11 +1,11 @@
 <?php
     $site_logo = get_field('site_logo', 'option');
-    $column_2 = get_field('column_2', 'option');
-    $column_3 = get_field('column_3', 'option');
-    $column_4 = get_field('column_4', 'option');
-    $bottom = get_field('bottom', 'option');
+    $column_2 = get_field('column_2', 'option') ?: [];
+    $column_3 = get_field('column_3', 'option') ?: [];
+    $column_4 = get_field('column_4', 'option') ?: [];
+    $bottom = get_field('bottom', 'option') ?: [];
 
-    $global_social_media = get_field('global_social_media', 'option');
+    $global_social_media = get_field('global_social_media', 'option') ?: [];
     $facebook = $global_social_media['facebook'] ?? '';
     $instagram = $global_social_media['instagram'] ?? '';
     $twitter = $global_social_media['twitter'] ?? '';
@@ -75,31 +75,31 @@
             <div class="flex items-center gap-4">
                 <?php
                     if (!empty($bottom['social_media'])) :
-                        foreach ($bottom['social_media'] as $item) :
-                            if ($item === 'fb' && $facebook) : ?>
-                                <a href="<?= esc_url($facebook); ?>" target="_blank" rel="noopener">
+                        foreach ($bottom['social_media'] as $item) : ?>
+                            <?php if ($item === 'fb' && $facebook) : ?>
+                                <a href="<?= esc_url($facebook); ?>" target="_blank" rel="noopener noreferrer">
                                     <?= get_svg('footer_facebook', 'facebook', 'w-6 h-6'); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($item === 'in' && $instagram) : ?>
-                                <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener">
+                                <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener noreferrer">
                                     <?= get_svg('footer_instagram', 'instagram', 'w-6 h-6'); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($item === 'x' && $twitter) : ?>
-                                <a href="<?= esc_url($twitter); ?>" target="_blank" rel="noopener">
+                                <a href="<?= esc_url($twitter); ?>" target="_blank" rel="noopener noreferrer">
                                     <?= get_svg('footer_twitter', 'twitter', 'w-6 h-6'); ?>
                                 </a>
                             <?php endif; ?>
 
                             <?php if ($item === 'li' && $linkedin) : ?>
-                                <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener">
+                                <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer">
                                     <?= get_svg('footer_linkedin', 'linkedin', 'w-6 h-6'); ?>
                                 </a>
-                            <?php endif;
-                        endforeach;
+                            <?php endif; ?>
+                        <?php endforeach;
                     endif;
                 ?>
             </div>
