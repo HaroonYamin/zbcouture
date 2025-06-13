@@ -17,7 +17,8 @@
         <div class="grid grid-cols-12 gap-x-6 gap-y-12">
             <!-- Logo -->
             <div class="xl:col-span-3 col-span-4 flex justify-center xl:justify-start">
-                <?php echo get_image($site_logo, '', 'w-32 lg:w-40 h-12'); ?>
+                <?php $image_url = wp_get_attachment_image_src($image_id, 'full'); ?>
+                <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-32 lg:w-40 h-12">
             </div>
 
             <!-- Column 2 -->
