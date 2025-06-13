@@ -1,7 +1,7 @@
 <?php
     $global_social_media = get_field('global_social_media', 'option');
-    $facebook = $global_social_media['facebook'];
-    $instagram = $global_social_media['instagram'];
+    $facebook = $global_social_media['facebook'] ?: '';
+    $instagram = $global_social_media['instagram'] ?: false;
     $twitter = $global_social_media['twitter'];
 
     $banner = get_field('header_banner', 'option');
