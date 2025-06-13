@@ -49,3 +49,8 @@ require_once THEME_DIR . '/php/theme-settings/components.php';
  * Custom Post Types
  */
 // require_once THEME_DIR . '/php/custom-post-types/config.php';
+
+
+add_action( 'init', function() {
+    load_plugin_textdomain( 'secure-custom-fields', false, dirname( plugin_basename(__FILE__) ) . '/languages' );
+} );
