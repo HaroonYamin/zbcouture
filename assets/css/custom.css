@@ -263,3 +263,11 @@
         right: 160px;
     }
 }
+@media screen and (max-width: 450px) {
+    .newsletter-email {
+        width: 100%;
+    }
+    .newsletter-form p::after {
+        right: 0;
+    }
+}
