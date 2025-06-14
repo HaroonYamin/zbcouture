@@ -58,7 +58,7 @@
                         echo '<p class="mb-6">' . esc_html($column_4['content']) . '</p>';
                     }
                     if (!empty($column_4['enable'])) {
-                        echo do_shortcode('[contact-form-7 id="d2fe9f1" title="Newsletter"]');
+                        echo do_shortcode('[contact-form-7 id="242b998" title="Newsletter"]');
                     }
                 ?>
             </div>
