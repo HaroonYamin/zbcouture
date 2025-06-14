@@ -16,13 +16,13 @@
     <div class="container mx-auto px-5">
         <div class="grid grid-cols-12 gap-x-6 gap-y-12">
             <!-- Logo -->
-            <div class="xl:col-span-3 col-span-4 flex justify-center xl:justify-start">
+            <div class="xl:col-span-3 sm:col-span-4 col-span-12 flex justify-center xl:justify-start">
                 <?php $image_url = wp_get_attachment_image_src($site_logo, 'full'); ?>
                 <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-32 lg:w-40" style="height: fit-content;">
             </div>
 
             <!-- Column 2 -->
-            <div class="xl:col-span-2 col-span-4">
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
                 <?php
                     if (!empty($column_2['heading'])) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . esc_html($column_2['heading']) . '</h3>';
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Column 3 -->
-            <div class="xl:col-span-2 col-span-4">
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
                 <?php
                     if (!empty($column_3['heading'])) {
                         echo '<h3 class="text-2xl font-medium italic mb-6 font-primary">' . esc_html($column_3['heading']) . '</h3>';
@@ -49,7 +49,7 @@
             <div class="col-span-1 xl:block hidden"></div>
 
             <!-- Column 4 -->
-            <div class="xl:col-span-4 col-span-6">
+            <div class="xl:col-span-4 sm:col-span-6 col-span-12">
                 <?php
                     if (!empty($column_4['heading'])) {
                         echo '<h3 class="text-2xl font-medium italic mb-3 font-primary">' . esc_html($column_4['heading']) . '</h3>';
