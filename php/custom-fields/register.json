@@ -82,5 +82,12 @@
         "description": "This is the about section of a webpage.",
         "template": "about",
         "keywords": "about, section, webpage"
+    },
+    {
+        "name": "journey",
+        "title": "Journey Section",
+        "description": "This is the journey section of a webpage.",
+        "template": "journey",
+        "keywords": "journey, section, webpage"
     }
 ]
