@@ -75,5 +75,12 @@
         "description": "This is the bridal-story section of a webpage.",
         "template": "bridal-story",
         "keywords": "bridal-story, section, webpage"
+    },
+    {
+        "name": "about",
+        "title": "About Section",
+        "description": "This is the about section of a webpage.",
+        "template": "about",
+        "keywords": "about, section, webpage"
     }
 ]
