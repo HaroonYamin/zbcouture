@@ -95,7 +95,18 @@
     line-height: normal;
 }
 
-@keyframes pagination {
+
+
+.swiper-pagination-bullet {
+  background: rgba(217, 217, 217, 0.2);
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #ffffff;
+}
+
+
+/* @keyframes pagination {
     0% {
         width: 0%;
     }
@@ -145,7 +156,7 @@
     background-color: #fff;
     z-index: 2;
     animation: pagination 3.1s ease-in-out infinite forwards;
-}
+} */
 
 /* collection-stories pagination */
 @keyframes pagination {
