@@ -89,5 +89,12 @@
         "description": "This is the journey section of a webpage.",
         "template": "journey",
         "keywords": "journey, section, webpage"
+    },
+    {
+        "name": "designer",
+        "title": "Designer Section",
+        "description": "This is the designer section of a webpage.",
+        "template": "designer",
+        "keywords": "designer, section, webpage"
     }
 ]

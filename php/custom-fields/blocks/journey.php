@@ -13,10 +13,10 @@
       <!-- Card 1 -->
       <div class="bg-[#FFFFFF] border border-[#D1D1D1] py-[55px] px-[60px] w-full max-w-[560px]">
         <h3 class="text-2xl font-medium mb-[20px] text-black">Shop In-Person</h3>
-        <p class="text-black text-lg mb-8">
+        <p class="text-black text-lg mb-[20px]">
           Visit our private boutique in New Jersey for a personalized, playful dress discovery experience. Exclusively by appointment.
         </p>
-        <a href="#" class="font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
+        <a href="#" class="inline-block font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
          Book Your Visit
       </a>
       </div>
@@ -24,10 +24,10 @@
       <!-- Card 2 -->
       <div class="bg-[#FFFFFF] border border-[#D1D1D1] py-[55px] px-[60px] w-full max-w-[560px]">
         <h3 class="text-2xl font-medium mb-[20px]">Shop from Anywhere</h3>
-        <p class="text-black text-lg mb-8">
+        <p class="text-black text-lg mb-[20px]">
           Not nearby? No worries. We start with a 30-minute consultation call to get to know your style, event, and vision then guide you through every step, remotely.
         </p>
-        <a href="#" class="font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
+        <a href="#" class="inline-block font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
          Book Free Consultation
       </a>
       </div>
