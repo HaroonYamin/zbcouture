@@ -68,5 +68,12 @@
         "description": "This is the consultaion section of a webpage.",
         "template": "consultaion",
         "keywords": "consultaion, section, webpage"
+    },
+    {
+        "name": "bridal-story",
+        "title": "Bridal Story Section",
+        "description": "This is the bridal-story section of a webpage.",
+        "template": "bridal-story",
+        "keywords": "bridal-story, section, webpage"
     }
 ]

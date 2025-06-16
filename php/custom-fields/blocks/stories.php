@@ -1,4 +1,4 @@
-<section class="bg-[#F5F5F0] py-16 text-center">
+<section class="py-16 text-center">
   <div class="container mx-auto px-4">
     <h2 class="text-[#27221E] sm:text-4xl text-3xl font-primary font-normal mb-6">
       Hand Painted <span class="italic">Love Stories</span>
