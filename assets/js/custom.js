@@ -74,3 +74,18 @@ document.addEventListener('click', function(event) {
         mobileMenu.classList.add('hidden');
     }
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleBtn");
+    const moreText = document.getElementById("moreText");
+
+    toggleBtn.addEventListener("click", function () {
+      const isHidden = moreText.classList.contains("hidden");
+
+      moreText.classList.toggle("hidden");
+      toggleBtn.textContent = isHidden ? "Read Less" : "Read More";
+    });
+  });

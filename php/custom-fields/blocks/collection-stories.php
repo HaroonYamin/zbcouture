@@ -33,7 +33,7 @@
             <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
             <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Peony</span></h2>
           </div>
-          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5"></div>
+          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
             <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
             <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Rose</span></h2>
           </div>
-          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5"></div>
+          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
         </div>
       </div>
 
@@ -79,7 +79,7 @@
             <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
             <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Poppy</span></h2>
           </div>
-          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5"></div>
+          <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
         </div>
       </div>
 
