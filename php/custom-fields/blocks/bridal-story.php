@@ -6,15 +6,15 @@
 
   <!-- Content -->
   <div class="relative z-10 max-w-3xl text-center">
-    <h2 class="text-[40px] font-normal font-primary italic mb-8 max-w-[600px] mx-auto">
+    <h2 class="sm:text-[40px] text-[36px] font-normal font-primary italic sm:mb-8 mb-[21px] max-w-[600px] mx-auto">
       Walk Down the Aisle in a Dreamy Hand-Painted Love Story
     </h2>
 
-    <p class="text-xl font-light text-white/80 mb-[22px] max-w-[650px] mx-auto">
+    <p class="sm:text-xl text-[16px] font-light text-white/80 mb-[22px] max-w-[650px] mx-auto">
       Sustainable luxury that stands out in a sea of traditional white gowns. ZB Couture dresses aren’t just garments, they’re wearable emotions.
     </p>
 
-    <p class="text-xl font-light text-white/80 max-w-[600px] mx-auto mb-[44px]">
+    <p class="sm:text-xl text-[16px] font-light text-white/80 max-w-[600px] mx-auto sm:mb-[44px] mb-[37px]">
       Each creation is a made-to-order masterpiece, featuring nature-inspired florals hand-painted onto sumptuous silks and fine fabrics. With romantic shades of lavender, rose, and plum, every dress is an invitation to radiate elegance. Whether you’re saying “I do” or making a grand entrance, your ZB Couture gown will echo your inner beauty with poise, grace, and effortless charm.
     </p>
 

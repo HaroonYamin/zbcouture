@@ -11,7 +11,7 @@
     <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
       
       <!-- Card 1 -->
-      <div class="bg-[#FFFFFF] border border-[#D1D1D1] py-[55px] px-[60px] w-full max-w-[560px]">
+      <div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]">
         <h3 class="text-2xl font-medium mb-[20px] text-black">Shop In-Person</h3>
         <p class="text-black text-lg mb-[20px]">
           Visit our private boutique in New Jersey for a personalized, playful dress discovery experience. Exclusively by appointment.
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-[#FFFFFF] border border-[#D1D1D1] py-[55px] px-[60px] w-full max-w-[560px]">
+      <div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]">
         <h3 class="text-2xl font-medium mb-[20px]">Shop from Anywhere</h3>
         <p class="text-black text-lg mb-[20px]">
           Not nearby? No worries. We start with a 30-minute consultation call to get to know your style, event, and vision then guide you through every step, remotely.
