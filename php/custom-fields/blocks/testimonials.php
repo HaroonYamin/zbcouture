@@ -19,7 +19,7 @@
           <img
             src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image-9.png"
             alt="Wedding Couple 2"
-            class="sm:w-[193px] sm:h-[195px] w-[140px] h-[140px] object-cover absolute sm:bottom-[120px] sm:right-[120px] -bottom-[40px] -right-[50px]"
+            class="sm:w-[193px] sm:h-[195px] w-[140px] h-[140px] object-cover absolute  -bottom-[40px] -right-[50px]"
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-<section class="py-24 w-full">
+<section class="sm:py-24 py-12 w-full">
   <div class="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-start lg:items-center lg:justify-between gap-12">
     
     <!-- Left Content -->
