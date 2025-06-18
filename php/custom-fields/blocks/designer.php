@@ -4,7 +4,7 @@
 
   <!-- Left Image -->
     <div class="sm:flex justify-center hidden">
-      <img src="http://localhost/zahrabatool/wp-content/uploads/2025/06/designer.png" alt="Model in dress" class="sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover">
+      <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/designer.png" alt="Model in dress" class="sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover">
     </div>
     
     <!-- Right Content -->
@@ -22,7 +22,7 @@
       </p>
 
       <div class="flex justify-center sm:hidden mt-[24px]">
-        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/06/designer.png" alt="Model in dress" class="sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover">
+        <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/designer.png" alt="Model in dress" class="sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover">
       </div>
 
 

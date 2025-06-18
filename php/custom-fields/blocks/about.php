@@ -29,7 +29,7 @@
     <!-- Right Image -->
     <div class="w-full flex justify-center">
       <img 
-        src="http://localhost/zahrabatool/wp-content/uploads/2025/06/luxe.png" 
+        src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/luxe.png" 
         alt="Model in dress" 
         class="w-full sm:w-[576px] h-auto sm:h-[860px] object-cover"
       >

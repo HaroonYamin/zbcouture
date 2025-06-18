@@ -4,10 +4,11 @@
     <div class="swiper-wrapper">
         <!-- Background image slides -->
         <div class="swiper-slide h-full w-full bg-cover bg-center bg-no-repeat" 
-            style="background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/banner-image-scaled.jpg');">
+            style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/05/banner-image.jpg');">
         </div>
+
         <div class="swiper-slide h-full w-full bg-cover bg-center bg-no-repeat" 
-            style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/06/slide-2.jpg');">
+            style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/06/slide-2.jpg');">
         </div>
     </div>
   </div>
