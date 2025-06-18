@@ -14,42 +14,36 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".card-swiper-1", {
     loop: true,
     autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
+      delay: 2600,
+      disableOnInteraction: false,
     },
     pagination: {
       el: ".card-swiper-1 .swiper-pagination",
       clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
     },
   });
 
   new Swiper(".card-swiper-2", {
     loop: true,
     autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
+      delay: 2600,
+      disableOnInteraction: false,
     },
     pagination: {
       el: ".card-swiper-2 .swiper-pagination",
       clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
     },
   });
 
   new Swiper(".card-swiper-3", {
     loop: true,
     autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
+      delay: 2600,
+      disableOnInteraction: false,
     },
     pagination: {
       el: ".card-swiper-3 .swiper-pagination",
       clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
     },
   });
 });
@@ -80,3 +74,18 @@ document.addEventListener('click', function(event) {
         mobileMenu.classList.add('hidden');
     }
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleBtn");
+    const moreText = document.getElementById("moreText");
+
+    toggleBtn.addEventListener("click", function () {
+      const isHidden = moreText.classList.contains("hidden");
+
+      moreText.classList.toggle("hidden");
+      toggleBtn.textContent = isHidden ? "Read Less" : "Read More";
+    });
+  });
