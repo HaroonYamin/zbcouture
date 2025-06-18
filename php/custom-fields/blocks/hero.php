@@ -5,7 +5,7 @@
             
             <!-- Slide 1 -->
             <div class="swiper-slide h-full w-full bg-cover bg-center bg-no-repeat relative" 
-                style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/05/banner-image.jpg');">
+                style="background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/05/banner-image.jpg');">
 
             <!-- Overlay (Middle Layer) -->
             <div class="absolute inset-0 bg-black/40 z-10"></div>
