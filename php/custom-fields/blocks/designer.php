@@ -13,7 +13,7 @@
         ZB COUTURE STORY
       </p>
 
-      <h2 class="text-[40px] font-primary font-normal max-w-[517px] italic">
+      <h2 class="text-[40px] font-primary font-normal max-w-[517px] italic leading-tight">
         Unforgettable Dresses for Life’s Most Magical Moments
       </h2>
 
@@ -21,7 +21,7 @@
         Meet Zahra Batool, <span class="sm:text-[24px] text-[16px]">ZB Couture’s Designer</span>
       </p>
 
-      <div class="flex justify-center sm:hidden mt-[24px]">
+      <div class="justify-center sm:hidden mt-[24px]">
         <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/designer.png" alt="Model in dress" class="sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover">
       </div>
 

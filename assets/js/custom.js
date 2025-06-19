@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".card-swiper-2", {
     loop: true,
     autoplay: {
-      delay: 2600,
+      delay: 2900,
       disableOnInteraction: false,
     },
     pagination: {
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".card-swiper-3", {
     loop: true,
     autoplay: {
-      delay: 2600,
+      delay: 3400,
       disableOnInteraction: false,
     },
     pagination: {
