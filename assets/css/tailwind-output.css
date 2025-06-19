@@ -50,6 +50,7 @@
     --color-primary: #211a1d;
     --color-hover: rgba(0, 0, 0, 0.3);
     --font-primary: "BeigeCulture";
+    --font-secondary: "Avenir";
   }
 }
 @layer base {
@@ -868,6 +869,9 @@
   }
   .font-primary {
     font-family: var(--font-primary);
+  }
+  .font-secondary {
+    font-family: var(--font-secondary);
   }
   .text-2xl {
     font-size: var(--text-2xl);
