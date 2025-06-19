@@ -50,7 +50,6 @@
     --color-primary: #211a1d;
     --color-hover: rgba(0, 0, 0, 0.3);
     --font-primary: "BeigeCulture";
-    --font-secondary: "Avenir";
   }
 }
 @layer base {

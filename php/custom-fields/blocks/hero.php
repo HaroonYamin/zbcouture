@@ -50,7 +50,23 @@
 
                 <!-- Mobile Background -->
                 <div class="h-full w-full bg-cover bg-center bg-no-repeat relative block sm:hidden" 
-                    style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/06/4343.png');">
+                    style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/06/1212.jpg'); center center;">
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+                    <!-- Foreground -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center h-full text-center text-white px-4 z-20">
+                    <h1 class="sm:text-[48px] text-[36px] font-primary font-normal max-w-[490px] lh-normal italic">
+                        Wear the story only you could inspire
+                    </h1>
+                    <p class="sm:mt-6 mt-[12px] sm:text-[20px] text-[16px] font-normal max-w-[490px]">
+                        Zahra paints each gown by hand, turning your love, energy, and essence into a once-in-a-lifetime creation.
+                    </p>
+                    <a href="#" class="font-medium text-[16px] mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black">
+                        Book a Private Consultation
+                    </a>
+                    </div>
                 </div>
             </div>
         </div>
