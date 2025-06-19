@@ -18,9 +18,9 @@
       <!-- Flex/Grid container -->
       <div class="flex xl:grid xl:grid-cols-3 sm:gap-6 gap-4 xl:justify-items-center whitespace-nowrap mt-[50px]">
         
-      <!-- Card 2 -->
+      <!-- Card 1 -->
           <div class="relative group overflow-hidden sm:w-[425px] w-[290px] sm:h-[619px] h-[500px] shrink-0 xl:shrink">
-            <div class="swiper card-swiper-2 h-full">
+            <div class="swiper card-swiper-1 h-full">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_5.png" alt="Symphony of peony" class="w-full h-full object-cover"/>

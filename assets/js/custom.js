@@ -11,42 +11,38 @@ const swiper = new Swiper('.swiper-banner', {
 }); 
 
 document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".card-swiper-1", {
-    loop: true,
-    autoplay: {
-      delay: 2600,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-1 .swiper-pagination",
-      clickable: true,
-    },
-  });
+  const swiperConfigs = [
+    { selector: ".card-swiper-1", delay: 0 },
+    { selector: ".card-swiper-2", delay: 5000 / 3 },
+    { selector: ".card-swiper-3", delay: 5000 * 2 / 3 },
+  ];
 
-  new Swiper(".card-swiper-2", {
-    loop: true,
-    autoplay: {
-      delay: 2900,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-2 .swiper-pagination",
-      clickable: true,
-    },
-  });
+  swiperConfigs.forEach(({ selector, delay }) => {
+    setTimeout(() => {
+      const swiperEl = document.querySelector(selector);
+      if (!swiperEl) return;
 
-  new Swiper(".card-swiper-3", {
-    loop: true,
-    autoplay: {
-      delay: 3400,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-3 .swiper-pagination",
-      clickable: true,
-    },
+      new Swiper(selector, {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: `${selector} .swiper-pagination`,
+          clickable: true,
+        },
+        on: {
+          init: () => {
+            swiperEl.classList.add("initialized");
+          }
+        }
+      });
+    }, delay);
   });
 });
+
+
 
 
 
