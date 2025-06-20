@@ -14,9 +14,9 @@
     
 
     <!-- Scroll Wrapper -->
-    <div class="overflow-x-auto xl:overflow-visible scroll-smooth">
+    <div class="overflow-x-auto xl:overflow-visible scroll-smooth touch-auto sm:touch-none">
       <!-- Flex/Grid container -->
-      <div class="flex xl:grid xl:grid-cols-3 sm:gap-6 gap-4 xl:justify-items-center whitespace-nowrap mt-[50px]">
+      <div class="flex xl:grid xl:grid-cols-3 sm:gap-6 gap-4 xl:gap-12 xl:justify-items-center mt-[50px]">
         
         <!-- Card 1 -->
         <div class="relative group overflow-hidden sm:w-[425px] w-[290px] sm:h-[619px] h-[500px] shrink-0 xl:shrink">

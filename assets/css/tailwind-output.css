@@ -619,6 +619,9 @@
   .animate-pulse {
     animation: var(--animate-pulse);
   }
+  .touch-auto {
+    touch-action: auto;
+  }
   .resize {
     resize: both;
   }
@@ -703,6 +706,9 @@
   }
   .overflow-y-auto {
     overflow-y: auto;
+  }
+  .overflow-y-hidden {
+    overflow-y: hidden;
   }
   .scroll-smooth {
     scroll-behavior: smooth;
@@ -1301,6 +1307,11 @@
       max-width: var(--container-sm);
     }
   }
+  .sm\:touch-none {
+    @media (width >= 40rem) {
+      touch-action: none;
+    }
+  }
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1605,6 +1616,16 @@
   .xl\:justify-items-center {
     @media (width >= 80rem) {
       justify-items: center;
+    }
+  }
+  .xl\:gap-6 {
+    @media (width >= 80rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
+  .xl\:gap-12 {
+    @media (width >= 80rem) {
+      gap: calc(var(--spacing) * 12);
     }
   }
   .xl\:space-x-10 {

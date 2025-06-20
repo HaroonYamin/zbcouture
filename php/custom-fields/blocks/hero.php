@@ -50,7 +50,7 @@
 
                 <!-- Mobile Background -->
                 <div class="h-full w-full bg-cover bg-center bg-no-repeat relative block sm:hidden" 
-                    style="background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/06/1212.jpg'); center center;">
+                    style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/06/1212.jpg'); center center;">
                     
                     <!-- Overlay -->
                     <div class="absolute inset-0 bg-black/40 z-10"></div>
