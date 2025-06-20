@@ -327,6 +327,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
   }
@@ -806,6 +809,9 @@
   .bg-fixed {
     background-attachment: fixed;
   }
+  .bg-scroll {
+    background-attachment: scroll;
+  }
   .bg-center {
     background-position: center;
   }
@@ -829,6 +835,9 @@
   }
   .p-\[32px\] {
     padding: 32px;
+  }
+  .px-0 {
+    padding-inline: calc(var(--spacing) * 0);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -949,6 +958,10 @@
   }
   .text-\[40px\] {
     font-size: 40px;
+  }
+  .leading-\[1\.3\] {
+    --tw-leading: 1.3;
+    line-height: 1.3;
   }
   .leading-\[1\.43\] {
     --tw-leading: 1.43;
@@ -1335,6 +1348,11 @@
   .sm\:gap-6 {
     @media (width >= 40rem) {
       gap: calc(var(--spacing) * 6);
+    }
+  }
+  .sm\:bg-fixed {
+    @media (width >= 40rem) {
+      background-attachment: fixed;
     }
   }
   .sm\:px-4 {

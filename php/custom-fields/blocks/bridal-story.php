@@ -1,11 +1,15 @@
-<section class="relative h-screen bg-cover bg-center bg-fixed text-white flex items-center justify-center px-4"
-         style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/06/dress.jpg');">
+<section class="relative h-screen text-white flex items-center justify-center px-4 overflow-hidden">
   
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/40 z-0"></div>
+  <!-- Section-Scoped Parallax Background -->
+  <div class="absolute inset-0 z-0 bg-cover bg-center" 
+       style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/06/dress.jpg'); background-attachment: fixed;">
+  </div>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-3xl text-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+  <!-- Foreground Content -->
+   <div class="relative z-10 max-w-3xl text-center">
     <h2 class="sm:text-[40px] text-[36px] font-normal font-primary italic sm:mb-8 mb-[21px] max-w-[600px] mx-auto">
       Walk Down the Aisle in a Dreamy Hand-Painted Love Story
     </h2>
@@ -22,4 +26,5 @@
         Find Your Dream Dress
       </a>
   </div>
+
 </section>

@@ -1,5 +1,5 @@
 <section class="sm:py-32 py-16">
-  <div class="container mx-auto sm:px-4 pl-4">
+  <div class="container mx-auto sm:px-4 px-0">
 
     <!-- Heading -->
     <div class="text-center">
@@ -35,9 +35,9 @@
             <div class="absolute inset-0 bg-black/20 z-10"></div>
             <div class="absolute bottom-5 left-5 text-white z-20">
               <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
-              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Peony</span></h2>
+              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal mb-2">Symphony <span class="italic">of Peony</span></h2>
             </div>
-            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
+            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-4 mb-2"></div>
           </div>
         </div>
 
@@ -58,9 +58,9 @@
             <div class="absolute inset-0 bg-black/20 z-10"></div>
             <div class="absolute bottom-5 left-5 text-white z-20">
               <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
-              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Rose</span></h2>
+              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal mb-2">Symphony <span class="italic">of Rose</span></h2>
             </div>
-            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
+            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-4 mb-2"></div>
           </div>
         </div>
 
@@ -81,9 +81,9 @@
             <div class="absolute inset-0 bg-black/20 z-10"></div>
             <div class="absolute bottom-5 left-5 text-white z-20">
               <p class="uppercase sm:text-base text-sm font-medium tracking-widest">Collection</p>
-              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal">Symphony <span class="italic">of Poppy</span></h2>
+              <h2 class="sm:text-[40px] text-[32px] font-primary font-normal mb-2">Symphony <span class="italic">of Poppy</span></h2>
             </div>
-            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-5 mb-2"></div>
+            <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-4 mb-2"></div>
           </div>
         </div>
 
