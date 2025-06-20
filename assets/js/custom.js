@@ -10,6 +10,8 @@ const swiper = new Swiper('.swiper-banner', {
     },
 }); 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Swipers with staggered delays
   const swiperConfigs = [
