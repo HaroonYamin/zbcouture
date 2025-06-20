@@ -11,6 +11,7 @@ const swiper = new Swiper('.swiper-banner', {
 }); 
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Swipers with staggered delays
   const swiperConfigs = [
     { selector: ".card-swiper-1", delay: 0 },
     { selector: ".card-swiper-2", delay: 5000 / 3 },
@@ -44,6 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollWrapper = document.querySelector('.overflow-x-auto');
+    const scrollRightBtn = document.getElementById('scroll-arrow-right');
+    const scrollLeftBtn = document.getElementById('scroll-arrow-left');
+
+    const scrollAmount = 320; // Adjust as needed based on card width
+
+    scrollRightBtn?.addEventListener('click', () => {
+      scrollWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    scrollLeftBtn?.addEventListener('click', () => {
+      scrollWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  });
 
 
 
