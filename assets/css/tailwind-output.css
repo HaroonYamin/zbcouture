@@ -1548,6 +1548,11 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
+  .xl\:pointer-events-auto {
+    @media (width >= 80rem) {
+      pointer-events: auto;
+    }
+  }
   .xl\:col-span-2 {
     @media (width >= 80rem) {
       grid-column: span 2 / span 2;
