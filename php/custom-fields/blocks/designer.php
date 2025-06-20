@@ -28,16 +28,16 @@
 
       <!-- Wrap the paragraph and button in a container -->
       <div id="readMoreContainer">
-        <p class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.43] font-normal mt-[18px] max-w-[517px]">
+        <p class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.3] font-light mt-[18px] max-w-[517px]">
           I make bridal gowns and formal dresses for the modern woman who wants it all impeccably crafted, sustainably luxurious designs that honor herself and Mother Nature. My journey as an artist began with crayons and coloring paper and took me right through to a bachelor of arts in textile design and post-grad study at New York’s Fashion Institute of Technology. 
         </p>
 
-        <p class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.43] font-normal max-w-[517px]">
+        <p class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.3] font-light max-w-[517px]">
           Through it all, I always knew that I wanted my designs to empower women, giving them the confidence to step into the spotlight and shine at their weddings and other major life moments. I studied everything from design and drap... 
         </p>
 
         <!-- Hidden text -->
-        <p id="moreText" class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.43] font-normal max-w-[517px] hidden mt-2">
+        <p id="moreText" class="sm:text-[20px] text-[18px] text-[#27221E] leading-[1.3] font-light max-w-[517px] hidden mt-2">
         ing to pattern making and garment construction, and I’ve honed my skills in hand painting, embroidery, and embellishment. I’m passionate about creating dresses that are not only beautiful but also tell a story, reflecting the unique personality and style.
         </p>
 

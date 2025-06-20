@@ -1,5 +1,6 @@
-<section class="relative h-screen bg-cover bg-center bg-fixed text-white flex items-center justify-center px-4"
+<section class="relative h-screen bg-cover bg-center bg-scroll sm:bg-fixed text-white flex items-center justify-center px-4"
          style="background-image: url('<?php echo home_url(); ?>/wp-content/uploads/2025/06/dress.jpg');">
+
   
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black/40 z-0"></div>
