@@ -103,3 +103,28 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleBtn.textContent = isHidden ? "Read Less" : "Read More";
     });
   });
+
+
+
+
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('mainImage');
+
+    thumbnails.forEach(function (thumbnail) {
+        thumbnail.addEventListener('click', function () {
+            mainImage.src = this.src;
+            mainImage.alt = this.alt;
+
+            thumbnails.forEach(function (thumb) {
+                thumb.classList.remove('border-black', 'opacity-100');
+                thumb.classList.add('border-gray-300', 'opacity-60');
+            });
+
+            this.classList.remove('border-gray-300', 'opacity-60');
+            this.classList.add('border-black', 'opacity-100');
+        });
+    });
+});

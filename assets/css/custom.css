@@ -114,6 +114,18 @@
   background: #ffffff;
 }
 
+/* Hide scrollbar for all scrollable thumbnails */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+
+
 .mobile-nav-menu a {
     display: block;
     padding: 8px 0;
