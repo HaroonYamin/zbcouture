@@ -10,50 +10,58 @@ const swiper = new Swiper('.swiper-banner', {
     },
 }); 
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
-  new Swiper(".card-swiper-1", {
-    loop: true,
-    autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-1 .swiper-pagination",
-      clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
-    },
-  });
+  // Initialize Swipers with staggered delays
+  const swiperConfigs = [
+    { selector: ".card-swiper-1", delay: 0 },
+    { selector: ".card-swiper-2", delay: 5000 / 3 },
+    { selector: ".card-swiper-3", delay: 5000 * 2 / 3 },
+  ];
 
-  new Swiper(".card-swiper-2", {
-    loop: true,
-    autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-2 .swiper-pagination",
-      clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
-    },
-  });
+  swiperConfigs.forEach(({ selector, delay }) => {
+    setTimeout(() => {
+      const swiperEl = document.querySelector(selector);
+      if (!swiperEl) return;
 
-  new Swiper(".card-swiper-3", {
-    loop: true,
-    autoplay: {
-        delay: 2600,
-        disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".card-swiper-3 .swiper-pagination",
-      clickable: true,
-      bulletClass: "collection-pagination-bullet",
-      bulletActiveClass: "collection-pagination-bullet-active",
-    },
+      new Swiper(selector, {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: `${selector} .swiper-pagination`,
+          clickable: true,
+        },
+        on: {
+          init: () => {
+            swiperEl.classList.add("initialized");
+          }
+        }
+      });
+    }, delay);
   });
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollWrapper = document.querySelector('.overflow-x-auto');
+    const scrollRightBtn = document.getElementById('scroll-arrow-right');
+    const scrollLeftBtn = document.getElementById('scroll-arrow-left');
+
+    const scrollAmount = 320; // Adjust as needed based on card width
+
+    scrollRightBtn?.addEventListener('click', () => {
+      scrollWrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    scrollLeftBtn?.addEventListener('click', () => {
+      scrollWrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  });
 
 
 
@@ -80,3 +88,18 @@ document.addEventListener('click', function(event) {
         mobileMenu.classList.add('hidden');
     }
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleBtn");
+    const moreText = document.getElementById("moreText");
+
+    toggleBtn.addEventListener("click", function () {
+      const isHidden = moreText.classList.contains("hidden");
+
+      moreText.classList.toggle("hidden");
+      toggleBtn.textContent = isHidden ? "Read Less" : "Read More";
+    });
+  });
