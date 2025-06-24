@@ -114,7 +114,7 @@
   background: #ffffff;
 }
 
-/* Hide scrollbar for all scrollable thumbnails */
+/* Hide scrollbar for all scrollable thumbnails stories*/
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -123,6 +123,15 @@
   scrollbar-width: none;
 }
 
+
+/* Hide scrollbar for all scrollable thumbnails main collection */
+.custom-scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.custom-scroll-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 
 

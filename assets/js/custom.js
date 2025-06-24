@@ -158,3 +158,84 @@ const toggles = document.querySelectorAll('#faqAccordion .faq-toggle');
       }
     });
   });
+
+
+
+// Product slider functionality Main Collection
+// This script assumes you have a slider with id 'product-slider' and buttons to scroll left and right
+const slider = document.getElementById("product-slider");
+const scrollLeftBtn = document.getElementById("scrollLeftBtn");
+const scrollRightBtn = document.getElementById("scrollRightBtn");
+
+// Scroll distance (card width + gap)
+const scrollDistance = 328; // 320px card + 8px gap
+
+function scrollLeft() {
+    slider.scrollBy({ 
+        left: -scrollDistance, 
+        behavior: "smooth" 
+    });
+}
+
+function scrollRight() {
+    slider.scrollBy({ 
+        left: scrollDistance, 
+        behavior: "smooth" 
+    });
+}
+
+// Add event listeners
+scrollLeftBtn.addEventListener('click', scrollLeft);
+scrollRightBtn.addEventListener('click', scrollRight);
+
+// Optional: Update arrow visibility based on scroll position
+function updateArrows() {
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+    
+    // Hide/show left arrow
+    if (slider.scrollLeft <= 0) {
+        scrollLeftBtn.style.opacity = '0.5';
+    } else {
+        scrollLeftBtn.style.opacity = '1';
+    }
+    
+    // Hide/show right arrow
+    if (slider.scrollLeft >= maxScroll) {
+        scrollRightBtn.style.opacity = '0.5';
+    } else {
+        scrollRightBtn.style.opacity = '1';
+    }
+}
+
+// Initial arrow state
+updateArrows();
+
+// Update arrows on scroll
+slider.addEventListener('scroll', updateArrows);
+
+// Optional: Touch/swipe support for mobile
+let isDown = false;
+let startX;
+let scrollLeftPos;
+
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeftPos = slider.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeftPos - walk;
+});
