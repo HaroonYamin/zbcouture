@@ -457,8 +457,8 @@
   .table {
     display: table;
   }
-  .h-4 {
-    height: calc(var(--spacing) * 4);
+  .h-5 {
+    height: calc(var(--spacing) * 5);
   }
   .h-6 {
     height: calc(var(--spacing) * 6);
@@ -496,6 +496,9 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-0 {
+    max-height: calc(var(--spacing) * 0);
+  }
   .max-h-\[29px\] {
     max-height: 29px;
   }
@@ -511,8 +514,11 @@
   .max-h-\[54px\] {
     max-height: 54px;
   }
-  .w-4 {
-    width: calc(var(--spacing) * 4);
+  .max-h-\[500px\] {
+    max-height: 500px;
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
   }
   .w-6 {
     width: calc(var(--spacing) * 6);
@@ -525,9 +531,6 @@
   }
   .w-\[20px\] {
     width: 20px;
-  }
-  .w-\[90px\] {
-    width: 90px;
   }
   .w-\[120px\] {
     width: 120px;
@@ -598,6 +601,12 @@
   .max-w-\[530px\] {
     max-width: 530px;
   }
+  .max-w-\[550px\] {
+    max-width: 550px;
+  }
+  .max-w-\[555px\] {
+    max-width: 555px;
+  }
   .max-w-\[560px\] {
     max-width: 560px;
   }
@@ -655,6 +664,9 @@
   }
   .animate-pulse {
     animation: var(--animate-pulse);
+  }
+  .cursor-not-allowed {
+    cursor: not-allowed;
   }
   .cursor-pointer {
     cursor: pointer;
@@ -789,9 +801,6 @@
   .rounded-\[4px\] {
     border-radius: 4px;
   }
-  .rounded-\[6px\] {
-    border-radius: 6px;
-  }
   .rounded-\[12px\] {
     border-radius: 12px;
   }
@@ -822,6 +831,12 @@
   }
   .border-\[\#D1D1D1\] {
     border-color: #D1D1D1;
+  }
+  .border-\[\#D9D9D9\] {
+    border-color: #D9D9D9;
+  }
+  .border-\[\#E5E5E5\] {
+    border-color: #E5E5E5;
   }
   .border-black {
     border-color: var(--color-black);
@@ -931,6 +946,9 @@
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
+  .px-\[12px\] {
+    padding-inline: 12px;
+  }
   .px-\[13px\] {
     padding-inline: 13px;
   }
@@ -961,6 +979,9 @@
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
   }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
@@ -969,6 +990,9 @@
   }
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
+  }
+  .py-\[6px\] {
+    padding-block: 6px;
   }
   .py-\[7px\] {
     padding-block: 7px;
@@ -984,6 +1008,12 @@
   }
   .py-\[108px\] {
     padding-block: 108px;
+  }
+  .pt-4 {
+    padding-top: calc(var(--spacing) * 4);
+  }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
   }
   .pl-4 {
     padding-left: calc(var(--spacing) * 4);
@@ -1126,6 +1156,9 @@
   .text-\[\#868686\] {
     color: #868686;
   }
+  .text-\[\#CCCCCC\] {
+    color: #CCCCCC;
+  }
   .text-black {
     color: var(--color-black);
   }
@@ -1177,6 +1210,11 @@
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-all {
+    transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }

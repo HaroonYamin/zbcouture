@@ -1,3 +1,4 @@
+// Custom JavaScript for the website
 const swiper = new Swiper('.swiper-banner', {
     loop: true,
     autoplay: {
@@ -11,7 +12,9 @@ const swiper = new Swiper('.swiper-banner', {
 }); 
 
 
-
+// Initialize Swipers with staggered delays
+// This script assumes you have three swipers with classes 'card-swiper-1', 'card-swiper-2', and 'card-swiper-3'
+// Ensure you have the Swiper library included in your project
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Swipers with staggered delays
   const swiperConfigs = [
@@ -46,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
+// Smooth scrolling for horizontal card swipers
+// This script assumes you have a wrapper with class 'overflow-x-auto' and buttons with ids 'scroll-arrow-right' and 'scroll-arrow-left'
+// Ensure you have the buttons in your HTML
 document.addEventListener("DOMContentLoaded", function () {
     const scrollWrapper = document.querySelector('.overflow-x-auto');
     const scrollRightBtn = document.getElementById('scroll-arrow-right');
@@ -91,7 +96,9 @@ document.addEventListener('click', function(event) {
 
 
 
-
+// Toggle "Read More" functionality
+// This script assumes you have a button with id 'toggleBtn' and a div with id 'moreText'
+// Ensure you have the 'moreText' div in your HTML with the class 'hidden'
 document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("toggleBtn");
     const moreText = document.getElementById("moreText");
@@ -104,11 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
-
-
-
-
+// Image gallery functionality
+// This script assumes you have images with the class 'thumbnail' and an image with id 'mainImage'
+// Ensure you have the main image element in your HTML
   document.addEventListener('DOMContentLoaded', function () {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.getElementById('mainImage');
@@ -128,3 +133,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+// FAQ Accordion functionality
+const toggles = document.querySelectorAll('#faqAccordion .faq-toggle');
+
+  toggles.forEach((button) => {
+    button.addEventListener('click', () => {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.toggle-icon');
+      const isOpen = content.classList.contains('max-h-[500px]');
+
+      // Close all
+      document.querySelectorAll('#faqAccordion .faq-content').forEach((el) => {
+        el.style.maxHeight = null;
+        el.classList.remove('max-h-[500px]');
+      });
+      document.querySelectorAll('#faqAccordion .toggle-icon').forEach((i) => i.textContent = '+');
+
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.add('max-h-[500px]');
+        icon.textContent = '−';
+      }
+    });
+  });

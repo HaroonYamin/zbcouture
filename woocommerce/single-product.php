@@ -43,7 +43,7 @@ get_header( 'shop' ); ?>
                     </div>
 
                     <!-- Thumbnail Gallery -->
-                    <div class="overflow-x-auto whitespace-nowrap scrollbar-hide -mx-2 px-2">
+                    <div class="max-w-[550px] overflow-x-auto whitespace-nowrap scrollbar-hide">
                         <div class="inline-flex gap-2">
                             <!-- Main thumbnail -->
                             <?php if ( $main_image ) : ?>
@@ -51,7 +51,7 @@ get_header( 'shop' ); ?>
                                     <img src="<?php echo esc_url( $main_image[0] ); ?>" 
                                         alt="<?php the_title_attribute(); ?>" 
                                         style="width: 90px; height: 131px;" 
-                                        class="thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5] rounded-[6px]">
+                                        class="thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5]">
                                 </div>
                             <?php endif; ?>
 
@@ -62,7 +62,7 @@ get_header( 'shop' ); ?>
                                     <img src="<?php echo esc_url( $gallery_image[0] ); ?>" 
                                         alt="Product Image"
                                         style="width: 90px; height: 131px;" 
-                                        class="thumbnail object-cover cursor-pointer border-2 border-gray-300 hover:border-black opacity-60 bg-[#F5F5F5] rounded-[6px]">
+                                        class="thumbnail object-cover cursor-pointer border-2 border-gray-300 hover:border-black opacity-60 bg-[#F5F5F5]">
                                 </div>
                             <?php endforeach; ?>
                         </div>
@@ -101,12 +101,12 @@ get_header( 'shop' ); ?>
                                   $size = $variation_obj->get_attribute( 'size' );
 
                                   if ( $size && ! in_array( $size, $added_sizes ) ) {
-                                      echo '<button class="size-option py-[7px] px-[13px] border rounded-[4px] border-[#8B8B8B] text-base hover:border-black focus:border-black focus:bg-black focus:text-white transition-colors" data-size="' . esc_attr( $size ) . '">' . esc_html( $size ) . '</button>';
+                                      echo '<button class="size-option py-[6px] px-[12px] border rounded-[4px] border-[#8B8B8B] text-base hover:border-black focus:border-black focus:bg-black focus:text-white transition-colors" data-size="' . esc_attr( $size ) . '">' . esc_html( $size ) . '</button>';
                                       $added_sizes[] = $size;
                                   }
                               }
                           } else {
-                              echo '<button class="size-option py-[7px] px-[13px] rounded-[4px] border border-[#8B8B8B] text-base hover:border-black focus:border-black focus:bg-black focus:text-white transition-colors" data-size="0">0</button>';
+                              echo '<button class="size-option py-[6px] px-[12px] rounded-[4px] border border-[#8B8B8B] text-base hover:border-black focus:border-black focus:bg-black focus:text-white transition-colors" data-size="0">0</button>';
                           }
                           ?>
                       </div>
@@ -172,6 +172,68 @@ get_header( 'shop' ); ?>
 
     </div>
 </section>
+
+
+
+
+
+
+
+<section class="py-10">
+  <div class="container mx-auto px-4">
+    <div class="max-w-[550px] text-[#252525]" id="faqAccordion">
+
+      <!-- FAQ Item -->
+      <div class="py-4">
+        <button type="button" class="faq-toggle flex justify-between items-center w-full text-left text-[24px] font-medium text-black">
+          Description
+          <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-relaxed text-black">
+          <div class="pt-4">
+            Lorem ipsum dolor sit amet consectetur. Dolor adipiscing commodo pellentesque lectus. Neque enim tristique a vulputate non ut habitant. A pretium ut rhoncus non nibh. At tortor varius cursus iaculis vitae aenean. Nullam massa eget ut placerat amet diam. 
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="py-4">
+        <button type="button" class="faq-toggle flex justify-between items-center w-full text-left text-[24px] font-medium text-black">
+          Delivery Policy
+          <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-relaxed text-black">
+          <div class="pt-4">
+            Delivery is handled by our trusted courier partners and typically takes 3–5 business days...
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Item -->
+      <div class="py-4">
+        <button type="button" class="faq-toggle flex justify-between items-center w-full text-left text-[24px] font-medium">
+          How it works
+          <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+        </button>
+        <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-relaxed text-black">
+          <div class="pt-4">
+            Select your product, choose size, and complete the booking — our team will get in touch...
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Link -->
+      <div class="py-4 flex justify-between items-center cursor-pointer">
+        <span class="text-[24px] font-medium text-black">Size Guide</span>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
 
