@@ -10,20 +10,17 @@ function get_image($image_id, $class = "") {
     }
     
     $alt = get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: '';
-    $unique_id = 'img_' . $image_id . '_' . uniqid();
     
     return sprintf(
-        '<div class="relative %s">
-            <div id="skeleton_%s" class="absolute inset-0 bg-gray-200 animate-pulse rounded"></div>
-            <img id="%s" src="%s" alt="%s" class="w-full h-full object-cover opacity-0 transition-opacity duration-300" 
-                 loading="lazy" onload="hideImageSkeleton(\'%s\')" />
+        '<div class="image-with-skeleton relative %s" data-image-id="%d">
+            <div class="skeleton-loader absolute inset-0 bg-gray-200 animate-pulse rounded"></div>
+            <img src="%s" alt="%s" class="w-full h-full object-cover transition-opacity duration-300" 
+                 loading="lazy" style="opacity: 0;" />
         </div>',
         esc_attr($class),
-        $unique_id,
-        $unique_id,
+        $image_id,
         esc_url($image[0]),
-        esc_attr($alt),
-        $unique_id
+        esc_attr($alt)
     );
 }
 
