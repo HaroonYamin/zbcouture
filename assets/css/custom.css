@@ -35,6 +35,14 @@
     text-decoration: underline;
 }
 
+.truncate-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .newsletter-form p {
     position: relative;
 }
@@ -95,23 +103,20 @@
     line-height: normal;
 }
 
-
-
 .swiper-pagination-bullet {
-  background: rgba(217, 217, 217, 0.2);
-  opacity: 1;
+    background: rgba(217, 217, 217, 0.2);
+    opacity: 1;
 }
 .swiper-pagination-bullet-active {
-  background: #ffffff;
+    background: #ffffff;
 }
-
 
 .collection-pagination-bullet {
-  background: rgba(217, 217, 217, 0.2);
-  opacity: 1;
+    background: rgba(217, 217, 217, 0.2);
+    opacity: 1;
 }
-.collection-pagination-bullet-active { 
-  background: #ffffff;
+.collection-pagination-bullet-active {
+    background: #ffffff;
 }
 
 .mobile-nav-menu a {
