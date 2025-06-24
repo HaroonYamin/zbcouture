@@ -1,5 +1,5 @@
 <?php
-function get_image($image_id, $class = "") {
+function get_image($image_id, $class = "", $img="w-full h-full object-cover transition-opacity duration-300") {
     if (!$image_id) {
         return '<div class="' . esc_attr($class) . ' bg-gray-200 animate-pulse rounded"></div>';
     }
@@ -14,13 +14,14 @@ function get_image($image_id, $class = "") {
     return sprintf(
         '<div class="image-with-skeleton relative %s" data-image-id="%d">
             <div class="skeleton-loader absolute inset-0 bg-gray-200 animate-pulse rounded"></div>
-            <img src="%s" alt="%s" class="w-full h-full object-cover transition-opacity duration-300" 
+            <img src="%s" alt="%s" class="%s" 
                  loading="lazy" style="opacity: 0;" />
         </div>',
         esc_attr($class),
         $image_id,
         esc_url($image[0]),
-        esc_attr($alt)
+        esc_attr($alt),
+        esc_attr($img)
     );
 }
 
