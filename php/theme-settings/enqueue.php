@@ -25,7 +25,7 @@ define('THEME_ASSETS', [
         'Avenir' => [
             'path' => '/assets/fonts/Avenir/stylesheet.css',
             'deps' => []
-        ]
+        ],
         'swiper' => [
             'path' => '/node_modules/swiper/swiper-bundle.min.css',
             'deps' => []
