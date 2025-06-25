@@ -54,13 +54,13 @@ get_header( 'shop' );
 
 					<div class="group w-full">
 						<!-- Product Image -->
-						<a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden rounded-lg">
+						<a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
 							<?php if ( $product_image ) : ?>
 								<img src="<?php echo esc_url( $product_image[0] ); ?>"
 										alt="<?php the_title_attribute(); ?>"
-										class="object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] transition-transform duration-300 group-hover:scale-105" />
+										class="object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px]" />
 							<?php else : ?>
-								<div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500 rounded-lg">
+								<div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
 									No Image
 								</div>
 							<?php endif; ?>

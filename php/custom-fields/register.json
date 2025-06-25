@@ -96,5 +96,12 @@
         "description": "This is the designer section of a webpage.",
         "template": "designer",
         "keywords": "designer, section, webpage"
+    },
+    {
+        "name": "main-collection",
+        "title": "Main Collection Section",
+        "description": "This is the main-collection section of a webpage.",
+        "template": "main-collection",
+        "keywords": "main-collection, section, webpage"
     }
 ]
