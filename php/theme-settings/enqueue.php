@@ -22,6 +22,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/BeigeCulture/stylesheet.css',
             'deps' => []
         ],
+        'Avenir' => [
+            'path' => '/assets/fonts/Avenir/stylesheet.css',
+            'deps' => []
+        ],
         'swiper' => [
             'path' => '/node_modules/swiper/swiper-bundle.min.css',
             'deps' => []
