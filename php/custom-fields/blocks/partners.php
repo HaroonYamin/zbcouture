@@ -1,14 +1,28 @@
-<section class="py-8">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-[#27221E] text-xl font-light mb-[40px]">Featured in</h2>
+<?php
+    $enable = get_field('enable');
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 xl:flex xl:flex-row xl:items-center xl:justify-center lg:gap-6 gap-12 xl:space-x-10">
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_10.png" alt="Tatler" class="h-auto max-h-[40px] w-auto max-w-[130px] object-contain mx-auto" />
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_11.png" alt="The Knot" class="h-auto max-h-[54px] w-auto max-w-[146px] object-contain mx-auto" />
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_12.png" alt="Vogue" class="h-auto max-h-[29px] w-auto max-w-[107px] object-contain mx-auto" />
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_13.png" alt="WeddingWire" class="h-auto max-h-[38px] w-auto max-w-[147px] object-contain mx-auto" />
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_14.png" alt="Nearlywed" class="h-auto max-h-[40px] w-auto max-w-[204px] object-contain mx-auto" />
-      <img src="https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/06/image_15.png" alt="Belle" class="h-auto max-h-[37px] w-auto max-w-[130px] object-contain mx-auto" />
+    if( !$enable ) {
+        return;
+    }
+
+    $title = get_field('title');
+    $gallery = get_field('gallery');
+?>
+
+<section class="py-8">
+    <div class="container mx-auto px-4 text-center">
+        <?php if( $title ) : ?>
+            <h2 class="text-[#27221E] text-xl font-light mb-[40px]"><?= $title; ?></h2>
+        <?php endif; ?>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-x-20 gap-y-8">
+            <?php if( $gallery ) :
+                foreach( $gallery as $image ) :
+                    if( $image ) : 
+                        echo get_image($image, '', 'h-full max-h-24 w-full object-contain');
+                    endif;
+                endforeach;
+            endif; ?>
+        </div>
     </div>
-  </div>
 </section>
