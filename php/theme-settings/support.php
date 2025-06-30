@@ -89,3 +89,5 @@ function get_svg($icon_name, $class = '') {
     
     return $svg_content;
 }
+
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
