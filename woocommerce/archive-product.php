@@ -4,6 +4,48 @@ defined( 'ABSPATH' ) || exit;
 echo '<!-- Archive-product.php loaded -->'; // Debug line
 
 get_header( 'shop' );
+
+// Get current sort order
+$current_orderby = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', 'menu_order' ) );
+
+// Get current category filter
+$current_category = '';
+if ( is_product_category() ) {
+    $current_category = get_queried_object()->slug;
+} elseif ( isset( $_GET['product_cat'] ) ) {
+    $current_category = wc_clean( $_GET['product_cat'] );
+}
+
+// Get category name for display
+$category_name = 'All Categories';
+if ( $current_category ) {
+    $category_term = get_term_by( 'slug', $current_category, 'product_cat' );
+    if ( $category_term ) {
+        $category_name = $category_term->name;
+    }
+}
+
+// Get sort options - using WooCommerce's default catalog ordering options
+$sort_labels = apply_filters( 'woocommerce_catalog_orderby', array(
+    'menu_order' => __( 'Default sorting', 'woocommerce' ),
+    'popularity' => __( 'Sort by popularity', 'woocommerce' ),
+    'rating'     => __( 'Sort by average rating', 'woocommerce' ),
+    'date'       => __( 'Sort by latest', 'woocommerce' ),
+    'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
+    'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
+) );
+
+// Simplify labels for display
+$simple_sort_labels = array(
+    'menu_order' => 'Default',
+    'popularity' => 'Popularity',
+    'rating' => 'Average rating',
+    'date' => 'Latest',
+    'price' => 'Price: low to high',
+    'price-desc' => 'Price: high to low'
+);
+
+$current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple_sort_labels[ $current_orderby ] : 'Default';
 ?>
 
 <!-- archive-product.php (or equivalent template) -->
@@ -23,12 +65,58 @@ get_header( 'shop' );
 		<div class="flex items-center justify-between mb-8 text-sm text-gray-600">
 			<div class="flex items-center gap-16">
 
-				<div class="flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878]">Sort by:</p> <span class="text-[#121212] font-medium text-[16px]">Latest</span>
+				<!-- Sort Dropdown -->
+				<div class="relative flex items-center gap-2">
+					<p class="font-medium text-[16px] text-[#797878]">Sort by:</p> 
+					<div class="relative">
+						<button id="sort-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
+							<span id="current-sort"><?php echo esc_html( $current_sort_label ); ?></span>
+						</button>
+						<div id="sort-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
+							<?php foreach ( $simple_sort_labels as $key => $label ) : ?>
+								<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>" 
+								   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_orderby === $key ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+									<?php echo esc_html( $label ); ?>
+								</a>
+							<?php endforeach; ?>
+						</div>
+					</div>
 				</div>
 				
-				<div class="flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878]">Filter by:</p> <span class="text-[#121212] font-medium text-[16px]">Gowns</span>
+				<!-- Category Filter Dropdown -->
+				<div class="relative flex items-center gap-2">
+					<p class="font-medium text-[16px] text-[#797878]">Filter by:</p> 
+					<div class="relative">
+						<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
+							<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
+						</button>
+						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
+							<!-- All Categories Option -->
+							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
+							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+								All Categories
+							</a>
+							<?php
+							$product_categories = get_terms( array(
+								'taxonomy' => 'product_cat',
+								'hide_empty' => true,
+								'exclude' => array( get_option( 'default_product_cat' ) ), // Exclude uncategorized
+							) );
+							
+							if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) :
+								foreach ( $product_categories as $category ) :
+							?>
+								<a href="<?php echo esc_url( add_query_arg( 'product_cat', $category->slug ) ); ?>" 
+								   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_category === $category->slug ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+									<?php echo esc_html( $category->name ); ?>
+									<span class="text-xs text-gray-400 ml-1">(<?php echo $category->count; ?>)</span>
+								</a>
+							<?php 
+								endforeach;
+							endif;
+							?>
+						</div>
+					</div>
 				</div>
 
 			</div>
@@ -49,16 +137,14 @@ get_header( 'shop' );
 						global $product;
 						$product_id = $product->get_id();
 						$product_link = get_permalink( $product_id );
-						$product_image = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'medium' );
+						$product_image = get_post_thumbnail_id( $product_id );
 					?>
 
 					<div class="group w-full">
 						<!-- Product Image -->
 						<a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
 							<?php if ( $product_image ) : ?>
-								<img src="<?php echo esc_url( $product_image[0] ); ?>"
-										alt="<?php the_title_attribute(); ?>"
-										class="object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px]" />
+								<?= get_image($product_image, 'object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
 							<?php else : ?>
 								<div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
 									No Image
@@ -73,7 +159,7 @@ get_header( 'shop' );
 							</a>
 						</h3>
 
-						<!-- Product Price (Optional) -->
+						<!-- Product Price -->
 						<div class="mt-2">
 							<?php echo $product->get_price_html(); ?>
 						</div>
@@ -105,5 +191,58 @@ get_header( 'shop' );
 		</div>
 	</div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Sort dropdown functionality
+    const sortBtn = document.getElementById('sort-dropdown-btn');
+    const sortDropdown = document.getElementById('sort-dropdown');
+
+    // Category dropdown functionality
+    const categoryBtn = document.getElementById('category-dropdown-btn');
+    const categoryDropdown = document.getElementById('category-dropdown');
+
+    // Toggle sort dropdown
+    sortBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        sortDropdown.classList.toggle('hidden');
+        
+        // Close category dropdown if open
+        categoryDropdown.classList.add('hidden');
+    });
+
+    // Toggle category dropdown
+    categoryBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        categoryDropdown.classList.toggle('hidden');
+        
+        // Close sort dropdown if open
+        sortDropdown.classList.add('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!sortBtn.contains(e.target) && !sortDropdown.contains(e.target)) {
+            sortDropdown.classList.add('hidden');
+        }
+        
+        if (!categoryBtn.contains(e.target) && !categoryDropdown.contains(e.target)) {
+            categoryDropdown.classList.add('hidden');
+        }
+    });
+
+    // Close dropdowns on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            sortDropdown.classList.add('hidden');
+            categoryDropdown.classList.add('hidden');
+        }
+    });
+});
+</script>
 
 <?php get_footer( 'shop' ); ?>

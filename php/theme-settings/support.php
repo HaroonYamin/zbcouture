@@ -89,3 +89,37 @@ function get_svg($icon_name, $class = '') {
     
     return $svg_content;
 }
+
+// Remove the WooCommerce styles
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+// Convert WooCommerce variation dropdown to buttons
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'hy_convert_variation_dropdown_to_buttons', 20, 2 );
+function hy_convert_variation_dropdown_to_buttons( $html, $args ) {
+    if ( ! isset( $args['options'], $args['attribute'] ) ) return $html;
+    
+    $options   = $args['options'];
+    $attribute = $args['attribute'];
+    $product   = $args['product'];
+    $name      = esc_attr( $attribute );
+    $id        = esc_attr( $attribute );
+    $selected  = isset( $args['selected'] ) ? $args['selected'] : '';
+
+    if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
+        $attributes = $product->get_variation_attributes();
+        $options    = $attributes[ $attribute ];
+    }
+
+    if ( empty( $options ) ) return $html;
+
+    $buttons = '<div class="hy-variation-buttons" data-attribute_name="attribute_' . esc_attr( $attribute ) . '">';
+    foreach ( $options as $option ) {
+        $selected_class = sanitize_title( $selected ) === sanitize_title( $option ) ? ' selected' : '';
+        $buttons .= '<button type="button" class="hy-variation-button' . $selected_class . '" data-value="' . esc_attr( $option ) . '">' . esc_html( $option ) . '</button>';
+    }
+    $buttons .= '</div>';
+
+    // Hide original dropdown (for fallback/accessibility)
+    $html = '<div class="hy-hidden-dropdown" style="display:none;">' . $html . '</div>' . $buttons;
+    return $html;
+}
