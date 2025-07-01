@@ -17,7 +17,7 @@
     <div class="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-start lg:items-center lg:justify-between gap-12">
         <div class="w-full text-left">
             <?php if( $label ) : ?>
-                <h5 class="uppercase tracking-wide text-[12px] sm:text-sm text-[#6D6D6D] font-normal mb-[15px]">
+                <h5 class="uppercase tracking-wide text-[14px] sm:text-sm text-[#6D6D6D] font-secondary mb-[15px]">
                     <?= $label; ?>
                 </h5>
             <?php endif; ?>
@@ -29,20 +29,20 @@
             <?php endif; ?>
 
             <?php if( $first ) : ?>
-                <p class="text-[18px] sm:text-[20px] text-[#121212] leading-[1.43] font-light mt-[18px] max-w-[414px]">
+                <p class="text-[20px] sm:text-[20px] text-[#121212] leading-[1.43] font-secondary mt-[18px] max-w-[414px]">
                     <?= $first; ?>
                 </p>
             <?php endif; ?>
 
             <?php if( $second ) : ?>
-                <p class="text-[18px] sm:text-[20px] text-[#121212] leading-[1.43] font-light mt-[18px] mb-[22px] sm:mb-[44px] max-w-[414px]">
+                <p class="text-[20px] sm:text-[20px] text-[#121212] leading-[1.43] font-secondary mt-[18px] mb-[22px] sm:mb-[44px] max-w-[414px]">
                     <?= $second; ?>
                 </p>
             <?php endif; ?>
 
             <?php if( $button ) : ?>
             <a href="<?= $button['url']; ?>" 
-                class="inline-block font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[54px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
+                class="inline-block font-medium text-[16px] font-secondary bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[54px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
                 target="<?= $button['target']; ?>">
                 
                 <?= $button['title']; ?>

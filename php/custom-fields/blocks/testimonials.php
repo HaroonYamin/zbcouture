@@ -58,7 +58,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class="relative w-full flex sm:justify-center justify-start">
                 <div class="relative">
-                    <?php if( $images[0] ) :
+                    <?php if( !empty($images) && $images[0] ) :
                         $image_1 = wp_get_attachment_image_src($images[0], 'full'); ?>
                         <img
                         src="<?= $image_1[0]; ?>"
@@ -66,7 +66,7 @@
                         class="sm:w-[298px] sm:h-[348px] w-[250px] h-[320px] object-cover"/>
                     <?php endif; ?>
 
-                    <?php if( $images[1] ) :
+                    <?php if( !empty($images) && $images[1] ) :
                         $image_2 = wp_get_attachment_image_src($images[1], 'full'); ?>
                         <img
                         src="<?= $image_2[0]; ?>"
@@ -90,7 +90,16 @@
                 <?php if( $role ) : ?>
                     <p class="text-base font-medium text-[#535353]"><?= $role; ?></p>
                 <?php endif; ?>
+
+
+                <a href="<?= get_permalink(); ?>" 
+                    class="inline-block font-medium text-[16px] mt-[20px] border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
+                    Read More
+                </a>
+
             </div>
+
+            
         </div>
     </div>
 </section>

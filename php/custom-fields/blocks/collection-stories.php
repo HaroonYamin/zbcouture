@@ -64,15 +64,18 @@
                                         <?php if ( $products ) :
                                             foreach ( $products as $product ) :
                                                 $thumbnail_id = get_post_thumbnail_id( $product->ID );
+                                                $product_url = get_permalink( $product->ID );
                                                 
                                                 echo '<div class="swiper-slide">';
-                                                    echo get_image( $thumbnail_id, 'w-full h-full object-cover' );
+                                                    echo '<a href="' . $product_url . '" class="block w-full h-full cursor-pointer relative z-10">';
+                                                        echo get_image( $thumbnail_id, 'w-full h-full object-cover' );
+                                                    echo '</a>';
                                                 echo '</div>';
                                             endforeach;
                                         endif; ?>
                                     </div>
-                                    <div class="absolute inset-0 bg-black/20 z-10"></div>
-                                        <div class="absolute bottom-5 left-5 text-white z-20">
+                                    <div class="absolute inset-0 bg-black/20 z-5 pointer-events-none"></div>
+                                        <div class="absolute bottom-5 left-5 text-white z-20 pointer-events-none">
                                             <?php if( $name ) : ?>
                                                 <h5 class="uppercase sm:text-base text-sm font-medium tracking-widest"><?= $name; ?></h5>
                                             <?php endif; ?>
