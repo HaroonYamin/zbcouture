@@ -9,7 +9,6 @@
 ?>
 
 <section class="relative h-screen w-full">
-    <!-- 1. Swiper Background Banner (Bottom Layer) -->
     <div class="swiper swiper-banner absolute inset-0 h-full w-full overflow-hidden">
         <div class="swiper-wrapper">
             <?php
