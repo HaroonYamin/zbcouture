@@ -3,6 +3,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+$currect_id = get_queried_object_id();
+
 get_header( 'shop' ); ?>
 
 <section class="py-8 lg:py-16">
@@ -77,12 +79,9 @@ get_header( 'shop' ); ?>
                             Share
                         </button>
 
-                        <button class="flex items-center gap-2 text-base font-medium text-black font-secondary">
-                            <svg class="w-[20px] h-[20px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-                            Add to wishlist
-                        </button>
+                        <div class="my-wishlist-btn">
+                            <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
+                        </div>
 
                         <button class="flex items-center gap-2 text-base font-medium text-black font-secondary">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,28 +91,49 @@ get_header( 'shop' ); ?>
                         </button>
                     </div>
 
-                    <!-- Product Details -->
+                    <?php
+                        $features = get_field('features');
+                        $material_and_content = $features['material_and_content'];
+                        $care = $features['care'];
+                        $size_and_fit = $features['size_and_fit'];
+                        $made_to_order = $features['made_to_order'];
+                        $rush_orders = $features['rush_orders'];
+                    ?>
                     <div class="mt-12 max-w-[424px]">
-                        <div class="mb-[24px]">
-                            <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Material and Content</h3>
-                            <p class="text-base text-[#252525] font-normal font-secondary">100% Silk and Linen, Silk Lining</p>
-                        </div>
-                        <div class="mb-[24px]">
-                            <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Care</h3>
-                            <p class="text-base text-[#252525] font-normal font-secondary">Eco or green dry cleaners are recommended as these use chemicals which are less aggressive for the environment. Do not use harsh chemicals.</p>
-                        </div>
-                        <div class="mb-[24px]">
-                            <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Size and Fit</h3>
-                            <p class="text-base text-[#252525] font-normal font-secondary">Model is 5' 7" and is wearing size 4</p>
-                        </div>
-                        <div class="mb-[24px]">
-                            <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Made to Order</h3>
-                            <p class="text-base text-[#252525] font-normal font-secondary">Made in NYC</p>
-                        </div>
-                        <div class="mb-[24px]">
-                            <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Rush Orders</h3>
-                            <p class="text-base text-[#252525] font-normal font-secondary">Items Required earlier than 16 weeks</p>
-                        </div>
+                        <?php if( $material_and_content ) : ?>
+                            <div class="mb-[24px]">
+                                <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Material and Content</h3>
+                                <p class="text-base text-[#252525] font-normal font-secondary"><?= $material_and_content; ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if( $care ) : ?>
+                            <div class="mb-[24px]">
+                                <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Care</h3>
+                                <p class="text-base text-[#252525] font-normal font-secondary"><?= $care; ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if( $size_and_fit ) : ?>
+                            <div class="mb-[24px]">
+                                <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Size and Fit</h3>
+                                <p class="text-base text-[#252525] font-normal font-secondary"><?= $size_and_fit; ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if( $made_to_order ) : ?>
+                            <div class="mb-[24px]">
+                                <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Made to Order</h3>
+                                <p class="text-base text-[#252525] font-normal font-secondary"><?= $made_to_order; ?></p>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if( $rush_orders ) : ?>
+                            <div class="mb-[24px]">
+                                <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Rush Orders</h3>
+                                <p class="text-base text-[#252525] font-normal font-secondary"><?= $rush_orders; ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -126,42 +146,50 @@ get_header( 'shop' ); ?>
     <div class="container mx-auto px-4">
         <div class="max-w-[550px] text-[#252525] font-secondary" id="faqAccordion">
 
-        <!-- FAQ Items -->
-        <div class="py-4">
-            <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black">
-            Description
-            <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
-            </button>
-            <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-            <div class="pt-4">
-                Lorem ipsum dolor sit amet consectetur...
+        <?php if( get_the_content() ) : ?>
+            <div class="py-4">
+                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                    Description
+                <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                <div class="pt-4">
+                    <!-- woocommerce product description -->
+                    <?php the_content(); ?>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
+        <?php endif; ?>
 
-        <div class="py-4">
-            <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black">
-            Delivery Policy
-            <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
-            </button>
-            <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-            <div class="pt-4">
-                Delivery is handled by our trusted courier partners...
-            </div>
-            </div>
-        </div>
+        <?php $global_product_page_content = get_field('global_product_page_content', 'option'); ?>
 
-        <div class="py-4">
-            <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium">
-            How it works
-            <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
-            </button>
-            <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-            <div class="pt-4">
-                Select your product, choose size, and complete the booking...
+        <?php if( $global_product_page_content['delivery_policy'] ) : ?>
+            <div class="py-4">
+                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                    Delivery Policy
+                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                    <div class="pt-4">
+                        <?= $global_product_page_content['delivery_policy']; ?>
+                    </div>
+                </div>
             </div>
+        <?php endif; ?>
+
+        <?php if( $global_product_page_content['how_it_works'] ) : ?>
+            <div class="py-4">
+                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
+                    How it works
+                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                </button>
+                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                    <div class="pt-4">
+                        <?= $global_product_page_content['how_it_works']; ?>
+                    </div>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <div class="py-4 flex justify-between items-center cursor-pointer">
             <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
@@ -170,6 +198,87 @@ get_header( 'shop' ); ?>
             </svg>
         </div>
 
+        </div>
+    </div>
+</section>
+
+<section class="mt-44 pb-14">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-medium text-[#27221E] mb-8">You May Also Like</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <?php $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 4,
+                'orderby' => 'rand',
+                'post_status' => 'publish',
+                'post__not_in' => array( $currect_id ),
+            );
+
+            $product_cats = wp_get_post_terms( $currect_id, 'product_cat' );
+            if ( $product_cats && ! is_wp_error( $product_cats ) ) {
+                $cat_ids = array();
+                foreach( $product_cats as $cat ) {
+                    $cat_ids[] = $cat->term_id;
+                }
+                
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 4,
+                    'post_status' => 'publish',
+                    'post__not_in' => array( $currect_id ),
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'term_id',
+                            'terms'    => $cat_ids,
+                        ),
+                    ),
+                );
+            }
+
+            $related_products = new WP_Query( $args );
+
+            if( $related_products->have_posts() ) : 
+                while( $related_products->have_posts() ) : 
+                    $related_products->the_post(); 
+
+                    global $product;
+                    $product_id = $product->get_id();
+                    $product_link = get_permalink( $product_id );
+                    $product_image = get_post_thumbnail_id( $product_id ); ?>
+    
+                    <div class="group w-full">
+                        <!-- Product Image -->
+                        <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
+                            <?php if ( $product_image ) : ?>
+                                <?= get_image($product_image, 'object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
+                            <?php else : ?>
+                                <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
+                                    No Image
+                                </div>
+                            <?php endif; ?>
+                        </a>
+        
+                        <!-- Product Title -->
+                        <h3 class="mt-4 text-[#27221E] font-medium text-[20px] leading-tight">
+                            <a href="<?php echo esc_url( $product_link ); ?>" class="hover:underline">
+                                <?php the_title(); ?>
+                            </a>
+                        </h3>
+        
+                        <!-- Product Price -->
+                        <div class="mt-2">
+                            <?php echo $product->get_price_html(); ?>
+                        </div>
+                    </div>
+    
+                <?php endwhile; ?>
+            <?php else : ?>
+                <div class="col-span-full text-center pb-4">
+                    <p class="text-gray-500">No products found.</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
