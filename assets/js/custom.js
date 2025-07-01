@@ -29,6 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Variation Button
+jQuery(document).ready(function ($) {
+    $(".hy-variation-button").on("click", function () {
+        var $button = $(this);
+        var value = $button.data("value");
+        var $wrapper = $button.closest(".hy-variation-buttons");
+        var attribute = $wrapper.data("attribute_name");
+
+        // Set the value in the original select
+        var $select = $('select[name="' + attribute + '"]');
+        $select.val(value).trigger("change");
+
+        // Highlight selected button
+        $wrapper.find(".hy-variation-button").removeClass("selected");
+        $button.addClass("selected");
+    });
+});
+
 // Banner Swiper
 const bannerSwiper = new Swiper(".swiper-banner", {
     loop: true,
@@ -138,22 +156,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Image gallery functionality
 document.addEventListener("DOMContentLoaded", function () {
-    const thumbnails = document.querySelectorAll(".thumbnail");
-    const mainImage = document.getElementById("mainImage");
+    const thumbnailContainers = document.querySelectorAll(".thumbnail");
+    const mainImageContainer = document.querySelector("#mainImage");
+    const mainImage = mainImageContainer ? mainImageContainer.querySelector("img") : null;
 
-    if (mainImage && thumbnails.length > 0) {
-        thumbnails.forEach(function (thumbnail) {
-            thumbnail.addEventListener("click", function () {
-                mainImage.src = this.src;
-                mainImage.alt = this.alt;
+    if (mainImage && thumbnailContainers.length > 0) {
+        // Set the first thumbnail as active and load its image into main view on page load
+        const firstThumbnail = thumbnailContainers[0];
+        const firstThumbnailImg = firstThumbnail.querySelector("img");
+        if (firstThumbnailImg && mainImage.src === "undefined") {
+            mainImage.src = firstThumbnailImg.src;
+            mainImage.alt = firstThumbnailImg.alt;
 
-                thumbnails.forEach(function (thumb) {
-                    thumb.classList.remove("border-black", "opacity-100");
-                    thumb.classList.add("border-gray-300", "opacity-60");
-                });
+            // Make first thumbnail active
+            firstThumbnail.classList.remove("border-gray-300", "opacity-60");
+            firstThumbnail.classList.add("border-black", "opacity-100");
+        }
 
-                this.classList.remove("border-gray-300", "opacity-60");
-                this.classList.add("border-black", "opacity-100");
+        thumbnailContainers.forEach(function (thumbnailContainer) {
+            thumbnailContainer.addEventListener("click", function () {
+                const thumbnailImg = this.querySelector("img");
+
+                if (thumbnailImg) {
+                    // Update main image
+                    mainImage.src = thumbnailImg.src;
+                    mainImage.alt = thumbnailImg.alt;
+
+                    // Remove active state from all thumbnails
+                    thumbnailContainers.forEach(function (container) {
+                        container.classList.remove("border-black", "opacity-100");
+                        container.classList.add("border-gray-300", "opacity-60");
+                    });
+
+                    // Add active state to clicked thumbnail container
+                    this.classList.remove("border-gray-300", "opacity-60");
+                    this.classList.add("border-black", "opacity-100");
+                }
             });
         });
     }
