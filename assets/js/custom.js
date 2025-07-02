@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Variation Button
+// Variation Button HY
 jQuery(document).ready(function ($) {
     $(".hy-variation-button").on("click", function () {
         var $button = $(this);
@@ -45,6 +45,29 @@ jQuery(document).ready(function ($) {
         $wrapper.find(".hy-variation-button").removeClass("selected");
         $button.addClass("selected");
     });
+});
+
+// Shared Button HY
+document.addEventListener("DOMContentLoaded", function () {
+    const shareButton = document.getElementById("hy-share-button");
+    if (shareButton && navigator.share) {
+        shareButton.addEventListener("click", async function () {
+            const title = shareButton.dataset.title;
+            const url = shareButton.dataset.url;
+
+            try {
+                await navigator.share({
+                    title: title,
+                    url: url,
+                });
+            } catch (err) {
+                console.error("Share failed:", err.message);
+            }
+        });
+    } else if (shareButton) {
+        // Optionally hide the button or show fallback
+        // shareButton.style.display = 'none';
+    }
 });
 
 // Banner Swiper
