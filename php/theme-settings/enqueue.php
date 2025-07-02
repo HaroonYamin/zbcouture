@@ -44,6 +44,10 @@ define('THEME_ASSETS', [
             'path' => '/node_modules/swiper/swiper-bundle.min.js',
             'deps' => []
         ],
+        'shared-btn' => [
+            'path' => '/assets/js/shared-button.js',
+            'deps' => ['jquery']
+        ],
         'main' => [
             'path' => '/assets/js/custom.js',
             'deps' => ['jquery']
