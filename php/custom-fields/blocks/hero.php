@@ -37,14 +37,14 @@
                                 <?php endif; ?>
 
                                 <?php if( $paragraph ) : ?>
-                                    <p class="sm:mt-6 mt-[12px] sm:text-[20px] text-[16px] font-normal max-w-[490px]">
+                                    <p class="sm:mt-6 mt-[12px] sm:text-xl text-[16px] font-secondary max-w-[490px]">
                                         <?= $paragraph; ?>
                                     </p>
                                 <?php endif; ?>
 
                                 <?php if( $button ) : ?>
                                     <a href="<?= $button['url']; ?>" 
-                                        class="font-medium text-[16px] mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
+                                        class="font-medium text-base font-secondary mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
                                         target="<?= $button['target']; ?>">
                                         
                                         <?= $button['title']; ?>

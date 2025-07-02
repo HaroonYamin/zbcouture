@@ -4,20 +4,23 @@
     gap: 4px;
     list-style: none;
 }
+
 .header .menu-item a {
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: inherit; 
     font-size: 18px;
     font-weight: 500;
     padding: 6px 18px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.1s ease-in-out;
+    transition: background-color 0.1s ease-in-out, color 0.2s ease-in-out;
 }
+
 .header .menu-item a:hover {
     background-color: var(--color-hover);
 }
+
 #footer .menu {
     display: flex;
     flex-direction: column;
@@ -251,6 +254,17 @@
 }
 .my-wishlist-btn .yith-wcwl-add-to-wishlist-button {
     gap: 6px !important;
+=======
+
+.hover-icons {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.image-container:hover .hover-icons {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media screen and (max-width: 640px) {

@@ -27,20 +27,20 @@
         <?php endif; ?>
 
         <?php if( $first ) : ?>
-            <p class="sm:text-xl text-[16px] font-light text-white/80 mb-[22px] max-w-[650px] mx-auto">
+            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 mb-[22px] max-w-[650px] mx-auto">
                 <?= $first; ?>
             </p>
         <?php endif; ?>
 
         <?php if( $second ) : ?>
-            <p class="sm:text-xl text-[16px] font-light text-white/80 max-w-[600px] mx-auto sm:mb-[44px] mb-[37px]">
+            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 max-w-[650px] mx-auto sm:mb-[44px] mb-[37px]">
                 <?= $second; ?>
             </p>
         <?php endif; ?>
 
         <?php if( $button) : ?>
             <a href="<?= $button['url']; ?>" 
-                class="font-medium text-[16px] bg-white/10 border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
+                class="font-medium text-[16px] font-secondary bg-white/10 border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
                 target="<?= $button['target']; ?>">
                 <?= $button['title']; ?>
             </a>
