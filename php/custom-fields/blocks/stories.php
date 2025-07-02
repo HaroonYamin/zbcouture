@@ -18,11 +18,11 @@
                         
                         <div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>">
                             <?php if( $card['title'] ) : ?>
-                                <h3 class="text-xl font-medium mb-2"><?= $card['title']; ?></h3>
+                                <h3 class="text-xl font-medium font-secondary mb-2"><?= $card['title']; ?></h3>
                             <?php endif; ?>
 
                             <?php if( $card['paragraph'] ) : ?>
-                                <p class="text-base font-light"><?= $card['paragraph']; ?></p>
+                                <p class="text-base font-light font-secondary"><?= $card['paragraph']; ?></p>
                             <?php endif; ?>
                         </div>
 

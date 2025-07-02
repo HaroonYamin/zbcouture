@@ -14,7 +14,7 @@
 
         <div class="text-center mb-12">
             <?php if( $label ) : ?>
-                <p class="uppercase sm:text-base text-sm font-normal tracking-widest text-[#27221E] mb-6"><?= $label; ?></p>
+                <p class="uppercase sm:text-base text-sm font-normal font-secondary tracking-widest text-[#27221E] mb-6"><?= $label; ?></p>
             <?php endif; ?>
 
             <?php if( $heading ) : ?>
@@ -76,9 +76,9 @@
                 </div>
             </div>
 
-            <div class="text-left mt-[32px]">
+            <div class="text-left lg:mt-[32px] mt-[64px]">
                 <?php if( $paragraph ) : ?>
-                    <p class="sm:text-2xl text-lg font-normal text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
+                    <p class="sm:text-2xl text-lg font-normal font-secondary text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
                         <?= $paragraph; ?>
                     </p>
                 <?php endif; ?>
@@ -88,12 +88,12 @@
                 <?php endif; ?>
 
                 <?php if( $role ) : ?>
-                    <p class="text-base font-medium text-[#535353]"><?= $role; ?></p>
+                    <p class="text-base font-medium font-secondary text-[#535353]"><?= $role; ?></p>
                 <?php endif; ?>
 
 
                 <a href="<?= get_permalink(); ?>" 
-                    class="inline-block font-medium text-[16px] mt-[20px] border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
+                    class="inline-block font-medium font-secondary text-[16px] mt-[20px] border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
                     Read More
                 </a>
 

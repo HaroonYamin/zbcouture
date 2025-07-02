@@ -141,17 +141,23 @@ document.addEventListener("click", function (event) {
 
 // Toggle "Read More" functionality
 document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("toggleBtn");
-    const moreText = document.getElementById("moreText");
+    const toggleBtn = document.getElementById('toggleBtn');
+  const readMoreText = document.getElementById('readMoreText');
 
-    if (toggleBtn && moreText) {
-        toggleBtn.addEventListener("click", function () {
-            const isHidden = moreText.classList.contains("hidden");
+  let isOpen = false;
 
-            moreText.classList.toggle("hidden");
-            toggleBtn.textContent = isHidden ? "Read Less" : "Read More";
-        });
+  toggleBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      readMoreText.classList.remove('max-h-0');
+      readMoreText.classList.add('max-h-[1000px]');
+      toggleBtn.textContent = 'Read Less';
+    } else {
+      readMoreText.classList.add('max-h-0');
+      readMoreText.classList.remove('max-h-[1000px]');
+      toggleBtn.textContent = 'Read More';
     }
+  });
 });
 
 // Image gallery functionality
