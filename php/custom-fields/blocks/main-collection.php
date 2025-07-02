@@ -47,7 +47,13 @@
                         <img src="http://localhost/zahrabatool/wp-content/uploads/2025/06/lavender.png" 
                             alt="Lavender Love"
                             class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
-                        
+
+                        <!-- 🟡 10% OFF Badge - Hidden by default, visible on hover -->
+                        <div class="absolute top-4 left-4 bg-white text-[#27221E] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider 
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md z-10">
+                            10% Off
+                        </div>
+
                         <!-- Hover Icons - Top Right -->
                         <div class="absolute top-4 right-4 flex flex-col gap-2 hover-icons">
                             <!-- Share Icon -->
@@ -66,10 +72,12 @@
                         </div>
                     </div>
                 </a>
+
                 <h3 class="mt-4 text-[#27221E] font-medium text-[20px] font-secondary">
                     <a href="#" class="hover:underline">Lavender Love</a>
                 </h3>
             </div>
+
 
           <!-- Product Card 2 -->
           <div class="flex-shrink-0 w-[320px]">
