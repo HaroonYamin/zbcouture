@@ -1,7 +1,3 @@
-<?php
-get_header();
-?>
-
 
 <section class="py-16">
   <div class="container mx-auto px-4">
@@ -46,17 +42,42 @@ get_header();
       <div id="product-slider" class="flex gap-8 overflow-x-auto custom-scroll-hide pb-4">
           <!-- Product Card 1 -->
           <div class="flex-shrink-0 w-[320px]">
-              <a href="#">
-                  <div class="w-[320px] h-[435px] bg-gray-200">
-                      <img src="http://localhost/zahrabatool/wp-content/uploads/2025/06/lavender.png" 
+                <a href="#" class="block">
+                    <div class="w-[320px] h-[435px] bg-gray-200 relative group image-container overflow-hidden">
+                        <img src="http://localhost/zahrabatool/wp-content/uploads/2025/06/lavender.png" 
                             alt="Lavender Love"
-                            class="object-cover w-full h-full" />
-                  </div>
-              </a>
-              <h3 class="mt-4 text-[#27221E] font-medium text-[20px] font-secondary">
-                  <a href="#" class="hover:underline">Lavender Love</a>
-              </h3>
-          </div>
+                            class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" />
+
+                        <!-- 🟡 10% OFF Badge - Hidden by default, visible on hover -->
+                        <div class="absolute top-4 left-4 bg-white text-[#27221E] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider 
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md z-10">
+                            10% Off
+                        </div>
+
+                        <!-- Hover Icons - Top Right -->
+                        <div class="absolute top-4 right-4 flex flex-col gap-2 hover-icons">
+                            <!-- Share Icon -->
+                            <button class="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors duration-200">
+                                <svg class="w-[20px] h-[20px] text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                                </svg>
+                            </button>
+                            
+                            <!-- Heart Icon -->
+                            <button class="p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-[20px] h-[20px] text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+
+                <h3 class="mt-4 text-[#27221E] font-medium text-[20px] font-secondary">
+                    <a href="#" class="hover:underline">Lavender Love</a>
+                </h3>
+            </div>
+
 
           <!-- Product Card 2 -->
           <div class="flex-shrink-0 w-[320px]">
@@ -137,8 +158,3 @@ get_header();
       </div>
   </div>
 </section>
-
-
-
-
-<?php get_footer(); ?>

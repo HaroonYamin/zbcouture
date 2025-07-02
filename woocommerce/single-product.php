@@ -3,12 +3,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$currect_id = get_queried_object_id();
+$current_id = get_queried_object_id();
 
 get_header( 'shop' ); ?>
 
-<section class="py-8 lg:py-16">
-    <div class="container mx-auto px-4">
+<section class="my-8 lg:my-16">
+    <div class="container mx-auto px-4 mt-[160px]">
 
         <?php while ( have_posts() ) : the_post(); ?>
             <?php
@@ -88,12 +88,14 @@ get_header( 'shop' ); ?>
 
                     <?php
                         $features = get_field('features');
-                        $material_and_content = $features['material_and_content'];
-                        $care = $features['care'];
-                        $size_and_fit = $features['size_and_fit'];
-                        $made_to_order = $features['made_to_order'];
-                        $rush_orders = $features['rush_orders'];
+
+                        $material_and_content = $features['material_and_content'] ?? null;
+                        $care = $features['care'] ?? null;
+                        $size_and_fit = $features['size_and_fit'] ?? null;
+                        $made_to_order = $features['made_to_order'] ?? null;
+                        $rush_orders = $features['rush_orders'] ?? null;
                     ?>
+
                     <div class="mt-12 max-w-[424px]">
                         <?php if( $material_and_content ) : ?>
                             <div class="mb-[24px]">
@@ -158,7 +160,8 @@ get_header( 'shop' ); ?>
 
         <?php $global_product_page_content = get_field('global_product_page_content', 'option'); ?>
 
-        <?php if( $global_product_page_content['delivery_policy'] ) : ?>
+        <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
+
             <div class="py-4">
                 <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
                     Delivery Policy
@@ -172,7 +175,7 @@ get_header( 'shop' ); ?>
             </div>
         <?php endif; ?>
 
-        <?php if( $global_product_page_content['how_it_works'] ) : ?>
+        <?php if( $global_product_page_content && !empty($global_product_page_content['how_it_works']) ) : ?>
             <div class="py-4">
                 <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
                     How it works
@@ -207,10 +210,10 @@ get_header( 'shop' ); ?>
                 'posts_per_page' => 4,
                 'orderby' => 'rand',
                 'post_status' => 'publish',
-                'post__not_in' => array( $currect_id ),
+                'post_not_in' => array( $current_id ),
             );
 
-            $product_cats = wp_get_post_terms( $currect_id, 'product_cat' );
+            $product_cats = wp_get_post_terms( $current_id, 'product_cat' );
             if ( $product_cats && ! is_wp_error( $product_cats ) ) {
                 $cat_ids = array();
                 foreach( $product_cats as $cat ) {
@@ -221,7 +224,7 @@ get_header( 'shop' ); ?>
                     'post_type' => 'product',
                     'posts_per_page' => 4,
                     'post_status' => 'publish',
-                    'post__not_in' => array( $currect_id ),
+                    'post_not_in' => array( $current_id ),
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'product_cat',

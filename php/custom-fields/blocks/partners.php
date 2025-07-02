@@ -15,12 +15,15 @@
             <h2 class="text-[#27221E] text-xl font-light mb-[40px]"><?= $title; ?></h2>
         <?php endif; ?>
 
-        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-x-20 gap-y-8">
+        <!-- Responsive layout: scroll below lg, grid on lg and up -->
+        <div class="flex lg:grid lg:grid-cols-6 gap-x-10 lg:gap-x-20 gap-y-8 overflow-x-auto lg:overflow-visible pb-2">
             <?php if( $gallery ) :
                 foreach( $gallery as $image ) :
-                    if( $image ) : 
-                        echo get_image($image, '', 'h-full max-h-24 w-full object-contain');
-                    endif;
+                    if( $image ) : ?>
+                        <div class="shrink-0 w-[146px] h-[54px] flex items-center justify-center">
+                            <?= get_image($image, '', 'h-[54px] max-h-24 w-[146px] object-contain'); ?>
+                        </div>
+                    <?php endif;
                 endforeach;
             endif; ?>
         </div>

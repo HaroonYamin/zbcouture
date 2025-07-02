@@ -14,7 +14,7 @@
     <div class="container mx-auto px-4">
 
         <?php if( $label ) : ?>
-            <h5 class="text-sm font-normal uppercase tracking-widest text-[#27221E] mb-[25px] text-center"><?= $label; ?></h5>
+            <h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center"><?= $label; ?></h5>
         <?php endif; ?>
 
         <?php if( $heading ) : ?>
@@ -33,18 +33,18 @@
 
                         <div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]">
                             <?php if( $title ) : ?>
-                                <h3 class="text-2xl font-medium mb-[20px] text-black"><?= $title; ?></h3>
+                                <h3 class="text-2xl font-medium font-secondary mb-[20px] text-black"><?= $title; ?></h3>
                             <?php endif; ?>
 
                             <?php if( $paragraph ) : ?>
-                                <p class="text-black text-lg mb-[20px]">
+                                <p class="text-black text-lg font-secondary mb-[20px]">
                                     <?= $paragraph; ?>
                                 </p>
                             <?php endif; ?>
 
                             <?php if( $button ) : ?>
                                 <a href="<?= $button['url']; ?>" 
-                                    class="inline-block font-medium text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
+                                    class="inline-block font-medium text-base font-secondary bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
                                     target="<?= $button['target']; ?>">
 
                                     <?= $button['title']; ?>

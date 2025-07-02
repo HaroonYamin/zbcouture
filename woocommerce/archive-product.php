@@ -54,12 +54,12 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
   <div class="container mx-auto px-4">
 
 		<!-- Breadcrumb -->
-		<div class="text-sm text-[#797878] mb-4 font-medium mt-16">
+		<div class="text-sm text-[#797878] mb-4 font-medium font-secondary mt-16">
 			<a href="<?php echo home_url(); ?>" class="hover:underline">Home</a> / <span>Shop</span>
 		</div>
 
 		<!-- Page Title -->
-		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]">Shop</h1>
+		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]">Shop</h1>
 
 		<!-- Sort & Filter -->
 		<div class="flex items-center justify-between mb-8 text-sm text-gray-600">
@@ -67,12 +67,12 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 				<!-- Sort Dropdown -->
 				<div class="relative flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878]">Sort by:</p> 
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p> 
 					<div class="relative">
-						<button id="sort-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
+						<button id="sort-dropdown-btn" class="text-[#121212] font-secondary font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
 							<span id="current-sort"><?php echo esc_html( $current_sort_label ); ?></span>
 						</button>
-						<div id="sort-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
+						<div id="sort-dropdown" class="font-secondary absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
 							<?php foreach ( $simple_sort_labels as $key => $label ) : ?>
 								<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>" 
 								   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_orderby === $key ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
@@ -85,15 +85,15 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 				
 				<!-- Category Filter Dropdown -->
 				<div class="relative flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878]">Filter by:</p> 
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p> 
 					<div class="relative">
-						<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
+						<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors font-secondary">
 							<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
 						</button>
-						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
+						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max font-secondary">
 							<!-- All Categories Option -->
 							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
-							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 font-secondary<?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
 								All Categories
 							</a>
 							<?php
@@ -122,13 +122,13 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 			</div>
 
 			<div>
-				<p class="font-medium text-[16px] text-[#797878]"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
+				<p class="font-medium text-[16px] text-[#797878] font-secondary"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
 			</div>
 
 		</div>
 
 		<!-- Product Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 my-[99px]">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-[99px]">
 
 			<?php if ( wc_get_loop_prop( 'total' ) ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -144,7 +144,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						<!-- Product Image -->
 						<a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
 							<?php if ( $product_image ) : ?>
-								<?= get_image($product_image, 'object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
+								<?= get_image($product_image, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
 							<?php else : ?>
 								<div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
 									No Image
@@ -153,7 +153,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						</a>
 
 						<!-- Product Title -->
-						<h3 class="mt-4 text-[#27221E] font-medium text-[20px] leading-tight">
+						<h3 class="mt-4 text-[#27221E] font-medium text-[20px] leading-tight font-secondary">
 							<a href="<?php echo esc_url( $product_link ); ?>" class="hover:underline">
 								<?php the_title(); ?>
 							</a>
@@ -183,7 +183,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 			$current_showing = min( $paged * $per_page, $total );
 			$max_pages = wc_get_loop_prop( 'total_pages' );
 			?>
-			<p class="font-medium text-[16px] text-[#797878]">Showing <?php echo $current_showing; ?> of <?php echo $total; ?> Products</p>
+			<p class="font-medium text-[16px] text-[#797878] font-secondary">Showing <?php echo $current_showing; ?> of <?php echo $total; ?> Products</p>
 			
 			<?php if ( $paged < $max_pages ) : ?>
 				<a href="<?php echo get_pagenum_link( $paged + 1 ); ?>" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out">Load More</a>
