@@ -8,7 +8,7 @@
 .header .menu-item a {
     display: block;
     text-decoration: none;
-    color: inherit; 
+    color: inherit;
     font-size: 18px;
     font-weight: 500;
     padding: 6px 18px;
@@ -264,6 +264,20 @@
 .image-container:hover .hover-icons {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* YITH */
+.yith-text-none .yith-wcwl-add-to-wishlist-button__label {
+    display: none;
+}
+.yith-text-none svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke-width: 2px;
+    stroke: #000;
+}
+.yith-wcwl-add-to-wishlist-button--added {
+    fill: #000 !important;
 }
 
 @media screen and (max-width: 640px) {
