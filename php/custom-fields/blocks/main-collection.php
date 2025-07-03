@@ -38,15 +38,24 @@
     <div class="relative">
         <div id="product-slider" class="flex gap-8 overflow-x-auto custom-scroll-hide pb-4">
             <?php $args = array(
-                'post_type' => 'product',
-                'status' => 'publish',
+                'post_type'      => 'product',
+                'post_status'    => 'publish',
                 'posts_per_page' => -1,
-                'category' => $category
+                'tax_query'      => array(
+                    array(
+                        'taxonomy'         => 'product_cat',
+                        'field'            => 'id',
+                        'terms'            => $category,
+                        'include_children' => true,
+                        'operator'         => 'IN',
+                    ),
+                ),
             );
             $loop = new WP_Query( $args );
 
             if(  $loop->have_posts() ) :
                 while( $loop->have_posts() ) : $loop->the_post();
+                    global $product;
                     $image_id = get_post_thumbnail_id();
                     $link = get_the_permalink();
                     $title = get_the_title();
@@ -85,6 +94,10 @@
                         <h3 class="mt-4 text-[#27221E] font-medium text-[20px] font-secondary">
                             <a href="#" class="hover:underline"><?= $title; ?></a>
                         </h3>
+
+                        <div class="mt-2">
+							<?php echo $product->get_price_html(); ?>
+						</div>
                     </div>
                 <?php endwhile;
             endif; ?>

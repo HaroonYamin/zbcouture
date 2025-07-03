@@ -211,6 +211,12 @@
     margin-bottom: 16px;
     font-size: 22px;
 }
+.price:has(ins) del {
+    font-size: 16px;
+}
+.price ins {
+    text-decoration: none;
+}
 
 /* WooCommerce Add to Cart Button */
 .single_add_to_cart_button,

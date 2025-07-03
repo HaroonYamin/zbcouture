@@ -1,17 +1,30 @@
 <?php
+    $enable = get_field('enable');
 
+    if( !$enable ) {
+        return;
+    }
+
+    $breadcrumbs = get_field('breadcrumbs');
+    $title = get_field('title') ?: get_the_title();
 ?>
 
 <section class="py-16">
   <div class="container mx-auto px-4">
-
-		<!-- Breadcrumb -->
 		<div class="text-sm text-[#797878] mb-4 font-medium mt-16">
-			<a href="<?php echo home_url(); ?>" class="hover:underline">Home</a> / <span>Collections</span>
-		</div>
+            <?php if ( !empty($breadcrumbs) ) : ?>
+                <?php foreach ( $breadcrumbs as $single ) : ?>
+                    <?php if ( !empty($single) ) : ?>
+                        <a href="<?= esc_url($single['link']['url']); ?>" class="hover:underline" target="<?= esc_attr($single['link']['target'] ?? '_self'); ?>">
+                            <?= esc_html($single['link']['title']); ?>
+                        </a>
+                        /
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <span><?= esc_html($title); ?></span>
+        </div>
 
-		<!-- Page Title -->
-		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]">Collections</h1>
-
+		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]"><?= $title; ?></h1>
 	</div>
 </section>
