@@ -21,19 +21,28 @@
 
     <div class="relative z-10 max-w-3xl text-center">
         <?php if( $heading ) : ?>
-            <h2 class="sm:text-[40px] text-[36px] font-normal font-primary italic sm:mb-8 mb-[21px] max-w-[600px] mx-auto">
+            <h2 class="sm:text-[40px] text-[36px] font-normal font-primary italic sm:mb-8 mb-[21px] max-w-[600px] mx-auto"
+                data-aos="fade-up"
+                data-aos-delay="100"
+            >
                 <?= $heading; ?>
             </h2>
         <?php endif; ?>
 
         <?php if( $first ) : ?>
-            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 mb-[22px] max-w-[650px] mx-auto">
+            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 mb-[22px] max-w-[650px] mx-auto"
+                data-aos="fade-up"
+                data-aos-delay="200"
+            >
                 <?= $first; ?>
             </p>
         <?php endif; ?>
 
         <?php if( $second ) : ?>
-            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 max-w-[650px] mx-auto sm:mb-[44px] mb-[37px]">
+            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 max-w-[650px] mx-auto sm:mb-[44px] mb-[37px]"
+                data-aos="fade-up"
+                data-aos-delay="300"
+            >
                 <?= $second; ?>
             </p>
         <?php endif; ?>
@@ -41,7 +50,10 @@
         <?php if( $button) : ?>
             <a href="<?= $button['url']; ?>" 
                 class="font-medium text-[16px] font-secondary bg-white/10 border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
-                target="<?= $button['target']; ?>">
+                target="<?= $button['target']; ?>"
+                data-aos="fade-up"
+                data-aos-delay="400"
+            >
                 <?= $button['title']; ?>
             </a>
         <?php endif; ?>

@@ -14,9 +14,14 @@
             <?php if( $cards ) :
                 foreach( $cards as $i => $card ) :
                     if( $card ) :
-                        $border = $i % 4 !== 0 ? 'md:border-l border-[#D1D1D1]' : ''; ?>
+                        $border = $i % 4 !== 0 ? 'md:border-l border-[#D1D1D1]' : '';
+                        $delay = 100 * $i; // Stagger delay by 100ms per card
+                        ?>
                         
-                        <div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>">
+                        <div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>"
+                             data-aos="fade-up" 
+                             data-aos-delay="<?= $delay; ?>">
+                             
                             <?php if( $card['title'] ) : ?>
                                 <h3 class="text-xl font-medium font-secondary mb-2"><?= $card['title']; ?></h3>
                             <?php endif; ?>

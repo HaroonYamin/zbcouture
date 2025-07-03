@@ -1,105 +1,101 @@
 <?php
-    $enable = get_field('enable');
+$enable = get_field('enable');
+$label = get_field('label');
+$heading = get_field('heading');
 
-    if ( !$enable ) {
-        return;
-    }
-
-    $label = get_field('label');
-    $heading = get_field('heading');
+if( !$enable ) return;
 ?>
 
 <section class="bg-[#F5F5F0] sm:py-48 py-12 sm:my-32 my-16">
-    <div class="container mx-auto px-6">
+  <div class="container mx-auto px-6">
 
-        <div class="text-center mb-12">
-            <?php if( $label ) : ?>
-                <p class="uppercase sm:text-base text-sm font-normal font-secondary tracking-widest text-[#27221E] mb-6"><?= $label; ?></p>
-            <?php endif; ?>
+    <!-- Section Heading -->
+    <div class="text-center mb-12">
+      <?php if( $label ) : ?>
+        <p class="uppercase sm:text-base text-sm font-normal font-secondary tracking-widest text-[#27221E] mb-6"
+           data-aos="fade-up" data-aos-delay="50"><?= $label; ?></p>
+      <?php endif; ?>
 
-            <?php if( $heading ) : ?>
-                <h2 class="text-3xl lg:text-5xl font-normal italic font-primary text-[#27221E] max-w-[290px] m-auto"><?= $heading; ?></h2>
-            <?php endif; ?>
-        </div>
+      <?php if( $heading ) : ?>
+        <h2 class="text-3xl lg:text-5xl font-normal italic font-primary text-[#27221E] max-w-[290px] m-auto"
+            data-aos="fade-up" data-aos-delay="100"><?= $heading; ?></h2>
+      <?php endif; ?>
+    </div>
 
+    <!-- Query Testimonials -->
+    <?php
+    $args = array(
+      'post_type'      => 'testimonials',
+      'posts_per_page' => -1,
+      'order'          => 'DESC',
+      'meta_query'     => array(
+        array(
+          'key'     => '_is_featured',
+          'value'   => '1',
+          'compare' => '='
+        )
+      )
+    );
+
+    $query = new WP_Query($args);
+    ?>
+
+    <?php if( $query->have_posts() ) : ?>
+      <?php while( $query->have_posts() ) : $query->the_post(); ?>
         <?php
-            $args = array(
-                'post_type' => 'testimonials',
-                'posts_per_page' => -1,
-                'order' => 'DESC',
-                'meta_query'     => array(
-                    array(
-                        'key'     => '_is_featured',
-                        'value'   => '1',
-                        'compare' => '=',
-                    ),
-                ),
-            );
-
-            $query = new WP_Query( $args );
-
-            $images = array();
-            $paragraph = '';
-            $customer = '';
-            $role = '';
-
-            if( $query->have_posts() ) :
-                while( $query->have_posts() ) : $query->the_post();
-                    $images = get_field('gallery', get_the_ID());
-
-                    $section = get_field('section', get_the_ID());
-                    $paragraph = $section['quotation'];
-                    $customer = get_the_title( get_the_ID() );
-                    $role = $section['role'];
-                endwhile;
-            endif;
+        $post_id   = get_the_ID();
+        $images    = get_field('gallery', $post_id);
+        $section   = get_field('section', $post_id);
+        $paragraph = $section['quotation'] ?? '';
+        $role      = $section['role'] ?? '';
+        $customer  = get_the_title($post_id);
+        $permalink = get_permalink($post_id);
         ?>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="relative w-full flex sm:justify-center justify-start">
-                <div class="relative">
-                    <?php if( !empty($images) && $images[0] ) :
-                        $image_1 = wp_get_attachment_image_src($images[0], 'full'); ?>
-                        <img
-                        src="<?= $image_1[0]; ?>"
-                        alt="<?= $customer; ?>"
-                        class="sm:w-[298px] sm:h-[348px] w-[250px] h-[320px] object-cover"/>
-                    <?php endif; ?>
+        <!-- Testimonial Block -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+          <!-- Image Side -->
+          <div class="relative w-full flex sm:justify-center justify-start" data-aos="zoom-in" data-aos-delay="200">
+            <div class="relative">
+              <?php if( !empty($images[0]) ) :
+                $image_1 = wp_get_attachment_image_src($images[0], 'full'); ?>
+                <img src="<?= esc_url($image_1[0]); ?>" alt="<?= esc_attr($customer); ?>"
+                     class="sm:w-[298px] sm:h-[348px] w-[250px] h-[320px] object-cover"/>
+              <?php endif; ?>
 
-                    <?php if( !empty($images) && $images[1] ) :
-                        $image_2 = wp_get_attachment_image_src($images[1], 'full'); ?>
-                        <img
-                        src="<?= $image_2[0]; ?>"
-                        alt="<?= $customer; ?>"
-                        class="sm:w-[193px] sm:h-[195px] w-[140px] h-[140px] object-cover absolute sm:bottom-[-100px] sm:right-[-100px] -bottom-[40px] -right-[50px]"/>
-                    <?php endif; ?>
-                </div>
+              <?php if( !empty($images[1]) ) :
+                $image_2 = wp_get_attachment_image_src($images[1], 'full'); ?>
+                <img src="<?= esc_url($image_2[0]); ?>" alt="<?= esc_attr($customer); ?>"
+                     class="sm:w-[193px] sm:h-[195px] w-[140px] h-[140px] object-cover absolute sm:bottom-[-100px] sm:right-[-100px] -bottom-[40px] -right-[50px]"/>
+              <?php endif; ?>
             </div>
+          </div>
 
-            <div class="text-left lg:mt-[32px] mt-[64px]">
-                <?php if( $paragraph ) : ?>
-                    <p class="sm:text-2xl text-lg font-normal font-secondary text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
-                        <?= $paragraph; ?>
-                    </p>
-                <?php endif; ?>
+          <!-- Text Side -->
+          <div class="text-left lg:mt-[32px] mt-[64px]" data-aos="fade-left" data-aos-delay="300">
+            <?php if( $paragraph ) : ?>
+              <p class="sm:text-2xl text-lg font-normal font-secondary text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
+                <?= $paragraph; ?>
+              </p>
+            <?php endif; ?>
 
-                <?php if( $customer ) : ?>
-                    <p class="italic font-primary text-2xl font-normal text-[#27221E] mb-1"><?= $customer; ?></p>
-                <?php endif; ?>
+            <?php if( $customer ) : ?>
+              <p class="italic font-primary text-2xl font-normal text-[#27221E] mb-1"><?= $customer; ?></p>
+            <?php endif; ?>
 
-                <?php if( $role ) : ?>
-                    <p class="text-base font-medium font-secondary text-[#535353]"><?= $role; ?></p>
-                <?php endif; ?>
+            <?php if( $role ) : ?>
+              <p class="text-base font-medium font-secondary text-[#535353]"><?= $role; ?></p>
+            <?php endif; ?>
 
-
-                <a href="<?= get_permalink(); ?>" 
-                    class="inline-block font-medium font-secondary text-[16px] mt-[20px] border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
-                    Read More
-                </a>
-
-            </div>
-
-            
+            <!-- Read More Button -->
+            <a href="<?= esc_url($permalink); ?>" 
+               class="inline-block font-medium font-secondary text-[16px] mt-[20px] border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">
+              Read More
+            </a>
+          </div>
         </div>
-    </div>
+      <?php endwhile; wp_reset_postdata(); ?>
+    <?php endif; ?>
+
+  </div>
 </section>
