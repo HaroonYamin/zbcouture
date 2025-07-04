@@ -103,5 +103,12 @@
         "description": "This is the main-collection section of a webpage.",
         "template": "main-collection",
         "keywords": "main-collection, section, webpage"
+    },
+    {
+        "name": "title",
+        "title": "Title Section",
+        "description": "This is the title section of a webpage.",
+        "template": "title",
+        "keywords": "title, section, webpage"
     }
 ]
