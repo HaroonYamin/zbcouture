@@ -1,6 +1,7 @@
 <?php 
     // Get header icons from ACF Options page (used in mobile)
     $icons = get_field('header_icons', 'option'); 
+    $wishlist = $icons['wishlist'];
     $account = $icons['account']; 
     $cart = $icons['cart']; 
 
@@ -12,9 +13,9 @@
     $svg_stroke = $white_header ? '#FFFFFF' : '#0F0F0F';
 
     // Get logos from ACF Options page
-    $black_logo = get_field('black_logo', 'option');
-    $white_logo = get_field('white_logo', 'option');
-    $logo = $white_header ? $white_logo : $black_logo;
+    $logos = get_field('header_logos', 'option');
+    $black_logo = $logos['black_logo'];
+    $white_logo = $logos['white_logo'];
 ?> 
 
 <header class="absolute w-full z-20 header h-10 mt-8 <?= $text_class; ?>"> 
@@ -29,11 +30,13 @@
             <!-- Logo (Center) -->
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-[202px] w-[120px]"> 
                 <a href="<?= home_url(); ?>" class="block w-full h-auto">
-                    <?php if( !empty($logo['url']) ) : ?>
-                        <img src="<?= esc_url($logo['url']); ?>" alt="Site Logo" class="w-full h-auto">
-                    <?php else: ?>
-                        <?= the_custom_logo(); ?>
-                    <?php endif; ?>
+                    <?php
+                        if( $white_header ) {
+                            echo get_image( $white_logo, 'w-full h-auto' );
+                        } else {
+                            echo get_image( $black_logo, 'w-full h-auto' );
+                        }
+                    ?>
                 </a>
             </div>
  
@@ -43,22 +46,33 @@
                 <div> 
                     <?php wp_nav_menu(['theme_location' => 'right-header-menu']); ?> 
                 </div> 
-                <div class="flex flex-row gap-1"> 
-                    <a href="#" class="hover:bg-hover block p-1 rounded"> 
-                        <!-- Account SVG -->
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21.5V19.5C20 18.4391 19.5786 17.4217 18.8284 16.6716C18.0783 15.9214 17.0609 15.5 16 15.5H8C6.93913 15.5 5.92172 15.9214 5.17157 16.6716C4.42143 17.4217 4 18.4391 4 19.5V21.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 11.5C14.2091 11.5 16 9.70914 16 7.5C16 5.29086 14.2091 3.5 12 3.5C9.79086 3.5 8 5.29086 8 7.5C8 9.70914 9.79086 11.5 12 11.5Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a> 
-                    <a href="#" class="hover:bg-hover block p-1 rounded"> 
-                        <!-- Cart SVG -->
-                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6 2.5L3 6.5V20.5C3 21.0304 3.21071 21.5391 3.58579 21.9142C3.96086 22.2893 4.46957 22.5 5 22.5H19C19.5304 22.5 20.0391 22.2893 20.4142 21.9142C20.7893 21.5391 21 21.0304 21 20.5V6.5L18 2.5H6Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 6.5H21" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 10.5C16 11.5609 15.5786 12.5783 14.8284 13.3284C14.0783 14.0786 13.0609 14.5 12 14.5C10.9391 14.5 9.92172 14.0786 9.17157 13.3284C8.42143 12.5783 8 11.5609 8 10.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a> 
+                <div class="flex flex-row gap-1.5"> 
+                    <?php if( $wishlist ) : ?> 
+                        <a href="<?= $wishlist; ?>" class="hover:bg-hover block p-1 rounded"> 
+                            <svg width="24" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.3671 3.84172C16.9415 3.41589 16.4361 3.0781 15.8799 2.84763C15.3237 2.61716 14.7275 2.49854 14.1254 2.49854C13.5234 2.49854 12.9272 2.61716 12.371 2.84763C11.8147 3.0781 11.3094 3.41589 10.8838 3.84172L10.0004 4.72506L9.11709 3.84172C8.25735 2.98198 7.09129 2.49898 5.87542 2.49898C4.65956 2.49898 3.4935 2.98198 2.63376 3.84172C1.77401 4.70147 1.29102 5.86753 1.29102 7.08339C1.29102 8.29925 1.77401 9.46531 2.63376 10.3251L10.0004 17.6917L17.3671 10.3251C17.7929 9.89943 18.1307 9.39407 18.3612 8.83785C18.5917 8.28164 18.7103 7.68546 18.7103 7.08339C18.7103 6.48132 18.5917 5.88514 18.3612 5.32893C18.1307 4.77271 17.7929 4.26735 17.3671 3.84172Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a> 
+                    <?php endif; ?> 
+
+                    <?php if( $account ) : ?> 
+                        <a href="<?= $account; ?>" class="hover:bg-hover block p-1 rounded"> 
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 21.5V19.5C20 18.4391 19.5786 17.4217 18.8284 16.6716C18.0783 15.9214 17.0609 15.5 16 15.5H8C6.93913 15.5 5.92172 15.9214 5.17157 16.6716C4.42143 17.4217 4 18.4391 4 19.5V21.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 11.5C14.2091 11.5 16 9.70914 16 7.5C16 5.29086 14.2091 3.5 12 3.5C9.79086 3.5 8 5.29086 8 7.5C8 9.70914 9.79086 11.5 12 11.5Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a> 
+                    <?php endif; ?> 
+
+                    <?php if( $cart ) : ?>
+                        <a href="<?= $cart; ?>" class="hover:bg-hover block p-1 rounded"> 
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2.5L3 6.5V20.5C3 21.0304 3.21071 21.5391 3.58579 21.9142C3.96086 22.2893 4.46957 22.5 5 22.5H19C19.5304 22.5 20.0391 22.2893 20.4142 21.9142C20.7893 21.5391 21 21.0304 21 20.5V6.5L18 2.5H6Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 6.5H21" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 10.5C16 11.5609 15.5786 12.5783 14.8284 13.3284C14.0783 14.0786 13.0609 14.5 12 14.5C10.9391 14.5 9.92172 14.0786 9.17157 13.3284C8.42143 12.5783 8 11.5609 8 10.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    <?php endif; ?> 
                 </div> 
             </div>
 
@@ -73,22 +87,31 @@
 
             <!-- Mobile Icons -->
             <div class="lg:hidden flex flex-row gap-1 ml-auto">
+                <?php if( $wishlist ) : ?> 
+                    <a href="<?= $wishlist; ?>" class="hover:bg-hover block p-1 rounded"> 
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.3671 3.84172C16.9415 3.41589 16.4361 3.0781 15.8799 2.84763C15.3237 2.61716 14.7275 2.49854 14.1254 2.49854C13.5234 2.49854 12.9272 2.61716 12.371 2.84763C11.8147 3.0781 11.3094 3.41589 10.8838 3.84172L10.0004 4.72506L9.11709 3.84172C8.25735 2.98198 7.09129 2.49898 5.87542 2.49898C4.65956 2.49898 3.4935 2.98198 2.63376 3.84172C1.77401 4.70147 1.29102 5.86753 1.29102 7.08339C1.29102 8.29925 1.77401 9.46531 2.63376 10.3251L10.0004 17.6917L17.3671 10.3251C17.7929 9.89943 18.1307 9.39407 18.3612 8.83785C18.5917 8.28164 18.7103 7.68546 18.7103 7.08339C18.7103 6.48132 18.5917 5.88514 18.3612 5.32893C18.1307 4.77271 17.7929 4.26735 17.3671 3.84172Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a> 
+                <?php endif; ?> 
+
                 <?php if( $account ) : ?> 
-                    <a href="#" class="hover:bg-hover block p-1 rounded"> 
-                        <!-- Account SVG -->
+                    <a href="<?= $account; ?>" class="hover:bg-hover block p-1 rounded"> 
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 21.5V19.5C20 18.4391 19.5786 17.4217 18.8284 16.6716C18.0783 15.9214 17.0609 15.5 16 15.5H8C6.93913 15.5 5.92172 15.9214 5.17157 16.6716C4.42143 17.4217 4 18.4391 4 19.5V21.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M12 11.5C14.2091 11.5 16 9.70914 16 7.5C16 5.29086 14.2091 3.5 12 3.5C9.79086 3.5 8 5.29086 8 7.5C8 9.70914 9.79086 11.5 12 11.5Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a> 
-                    <a href="#" class="hover:bg-hover block p-1 rounded"> 
-                        <!-- Cart SVG -->
+                <?php endif; ?> 
+
+                <?php if( $cart ) : ?>
+                    <a href="<?= $cart; ?>" class="hover:bg-hover block p-1 rounded"> 
                         <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 2.5L3 6.5V20.5C3 21.0304 3.21071 21.5391 3.58579 21.9142C3.96086 22.2893 4.46957 22.5 5 22.5H19C19.5304 22.5 20.0391 22.2893 20.4142 21.9142C20.7893 21.5391 21 21.0304 21 20.5V6.5L18 2.5H6Z" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M3 6.5H21" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M16 10.5C16 11.5609 15.5786 12.5783 14.8284 13.3284C14.0783 14.0786 13.0609 14.5 12 14.5C10.9391 14.5 9.92172 14.0786 9.17157 13.3284C8.42143 12.5783 8 11.5609 8 10.5" stroke="<?= $svg_stroke; ?>" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </a> 
+                    </a>
                 <?php endif; ?> 
             </div>
         </div>
