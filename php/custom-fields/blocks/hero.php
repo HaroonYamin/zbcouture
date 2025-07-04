@@ -31,13 +31,21 @@
                             <!-- Foreground Content (Top Layer) -->
                             <div class="absolute inset-0 flex flex-col items-center justify-center h-full text-center text-white px-4 z-20">
                                 <?php if( $title ) : ?>
-                                    <h1 class="sm:text-[48px] text-[36px] font-primary font-normal max-w-[490px] lh-normal italic">
+                                    <h1 
+                                        class="sm:text-[48px] text-[36px] font-primary font-normal max-w-[490px] lh-normal italic"
+                                        data-aos="fade-up"
+                                        data-aos-delay="100"
+                                    >
                                         <?= $title; ?>
                                     </h1>
                                 <?php endif; ?>
 
                                 <?php if( $paragraph ) : ?>
-                                    <p class="sm:mt-6 mt-[12px] sm:text-xl text-[16px] font-secondary max-w-[490px]">
+                                    <p 
+                                        class="sm:mt-6 mt-[12px] sm:text-xl text-[16px] font-secondary max-w-[490px]"
+                                        data-aos="fade-up"
+                                        data-aos-delay="200"
+                                    >
                                         <?= $paragraph; ?>
                                     </p>
                                 <?php endif; ?>
@@ -45,8 +53,10 @@
                                 <?php if( $button ) : ?>
                                     <a href="<?= $button['url']; ?>" 
                                         class="font-medium text-base font-secondary mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
-                                        target="<?= $button['target']; ?>">
-                                        
+                                        target="<?= $button['target']; ?>"
+                                        data-aos="fade-up"
+                                        data-aos-delay="300"
+                                    >
                                         <?= $button['title']; ?>
                                     </a>
                                 <?php endif; ?>
@@ -63,5 +73,4 @@
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <div class="banner-pagination"></div>
     </div>
-  
 </section>

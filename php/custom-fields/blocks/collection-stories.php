@@ -17,11 +17,17 @@
 
     <div class="text-center">
       <?php if( $label ) : ?>
-        <h5 class="text-base font-normal font-secondary uppercase tracking-widest text-[#27221E] mb-[25px] text-center"><?= $label; ?></h5>
+        <h5 class="text-base font-normal font-secondary uppercase tracking-widest text-[#27221E] mb-[25px] text-center"
+            data-aos="fade-up"
+            data-aos-delay="50">
+          <?= $label; ?>
+        </h5>
       <?php endif; ?>
 
       <?php if( $heading ) : ?>
-        <h2 class="text-[40px] font-normal font-primary leading-tight text-[#27221E] max-w-[530px] mx-auto text-center">
+        <h2 class="text-[40px] font-normal font-primary leading-tight text-[#27221E] max-w-[530px] mx-auto text-center"
+            data-aos="fade-up"
+            data-aos-delay="100">
           <?= $heading; ?>
         </h2>
       <?php endif; ?>
@@ -29,7 +35,9 @@
       <?php if( $button ) : ?>
         <a href="<?= $button['url']; ?>" 
            class="inline-block mt-[25px] font-medium font-secondary text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[36px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
-           target="<?= $button['target']; ?>">
+           target="<?= $button['target']; ?>"
+           data-aos="fade-up"
+           data-aos-delay="150">
           <?= $button['title']; ?>
         </a>
       <?php endif; ?>
@@ -42,7 +50,7 @@
       <div class="flex xl:justify-center gap-[16px] mt-[50px] w-max xl:w-full">
 
         <?php if( $collection ) :
-          foreach( $collection as $collect ) :
+          foreach( $collection as $i => $collect ) :
             if( $collect ) :
               $term = get_term( $collect, 'product_cat' );
 
@@ -57,9 +65,14 @@
                   ),
                 ),
               );
-              $products = get_posts( $args ); ?>
+              $products = get_posts( $args );
+              $delay = 200 + ($i * 100); // stagger delay
+        ?>
 
-              <div class="relative group overflow-hidden sm:w-[425px] w-[290px] sm:h-[619px] h-[500px] shrink-0">
+              <div class="relative group overflow-hidden sm:w-[425px] w-[290px] sm:h-[619px] h-[500px] shrink-0"
+                   data-aos="zoom-in"
+                   data-aos-delay="<?= $delay; ?>">
+
                 <div class="swiper card-swiper-1 h-full pointer-events-none xl:pointer-events-auto">
                   <div class="swiper-wrapper">
                     <?php if ( $products ) :
@@ -74,7 +87,9 @@
                       endforeach;
                     endif; ?>
                   </div>
+
                   <div class="absolute inset-0 bg-black/20 z-5 pointer-events-none"></div>
+
                   <div class="absolute bottom-5 left-5 text-white z-20 pointer-events-none">
                     <?php if( $name ) : ?>
                       <h5 class="uppercase sm:text-base text-sm font-medium font-secondary tracking-widest"><?= $name; ?></h5>
@@ -84,11 +99,13 @@
                       <h2 class="sm:text-[40px] text-[32px] font-primary font-normal mb-2"><?= $term->name; ?></h2>
                     <?php endif; ?>
                   </div>
+
                   <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-4 mb-2"></div>
                 </div>
               </div>
 
-            <?php endif;
+        <?php
+            endif;
           endforeach;
         endif; ?>
       </div>
@@ -109,6 +126,7 @@
           </svg>
         </button>
       </div>
+
     </div>
   </div>
 </section>
