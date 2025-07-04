@@ -339,10 +339,10 @@ table.wishlist_table {
     align-items: flex-start;
 }
 .woocommerce-MyAccount-navigation {
-    width: calc(25% - 15px);
+    width: calc(30% - 15px);
 }
 .woocommerce-MyAccount-content {
-    width: calc(75% - 15px);
+    width: calc(70% - 15px);
 }
 .woocommerce-MyAccount-navigation ul {
     display: flex;
@@ -350,7 +350,7 @@ table.wishlist_table {
 }
 .woocommerce-MyAccount-navigation-link a {
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     padding: 8px 14px;
     border-radius: 4px;
