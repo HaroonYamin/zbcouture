@@ -688,8 +688,8 @@ body.no-scroll {
 .modal-image {
     width: 500px;
     height: 750px;
-    object-fit: contain;
-    border-radius: 8px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .close {

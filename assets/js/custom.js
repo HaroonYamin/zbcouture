@@ -1,14 +1,14 @@
+"use strict";
+// Custom JavaScript for the website
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   AOS.init({
     duration: 1000,
     once: true
   });
 });
-
-
-
-"use strict";
-// Custom JavaScript for the website
 
 // Image with Skeleton Loader
 document.addEventListener("DOMContentLoaded", function () {
