@@ -1,11 +1,11 @@
+/* Header */
 .header .menu {
     display: flex;
     align-items: center;
     gap: 4px;
     list-style: none;
 }
-
-.header .menu-item a {
+.header .menu-item > a {
     display: block;
     text-decoration: none;
     color: inherit;
@@ -16,11 +16,86 @@
     cursor: pointer;
     transition: background-color 0.1s ease-in-out, color 0.2s ease-in-out;
 }
-
-.header .menu-item a:hover {
+.header .menu-item > a:hover {
     background-color: var(--color-hover);
 }
+.header.white-nav .menu-item > a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.header .sub-menu {
+    appearance: none;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 100%;
+    left: -18px;
+    width: max-content;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 14px;
+}
+.header .menu-item:hover .sub-menu {
+    opacity: 1;
+    max-height: 1000px;
+    appearance: auto;
+    transform: translateX(18px);
+}
+.header .sub-menu .menu-item > a {
+    all: unset;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: #000 !important;
+}
+.header .sub-menu .menu-item > a:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+.header .menu-item-acf {
+    position: relative;
+    margin-top: 16px;
+}
+.header .menu-item-acf::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+.header .menu-item-acf img {
+    max-width: 300px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.header .menu-item-acf h3,
+.header .menu-item-acf p {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+.header .menu-item-acf h3 {
+    padding: 0 24px 42px 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.header .menu-item-acf p {
+    padding: 42px 24px 0 24px;
+}
 
+/* Footer */
 #footer .menu {
     display: flex;
     flex-direction: column;
@@ -306,6 +381,25 @@ table.wishlist_table {
     font-size: 20px;
     font-weight: 500;
 }
+.wishlist_table.mobile .item-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    row-gap: 8px !important;
+}
+.wishlist_table.mobile .product-thumbnail {
+    max-width: 576px !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+.wishlist_table.mobile .product-add-to-cart {
+    background-color: #000 !important;
+    border-radius: 4px !important;
+    color: #fff !important;
+}
+.wishlist_table.mobile .product-add-to-cart {
+    padding: 6px !important;
+}
 
 /* Cart Page */
 .wc-block-cart .wc-block-components-main {
@@ -327,6 +421,16 @@ table.wishlist_table {
 /* Checkout Page */
 .wp-block-woocommerce-checkout .wc-block-components-title {
     font-weight: 600;
+}
+.is-medium table.wc-block-cart-items .wc-block-cart-items__row,
+.is-mobile table.wc-block-cart-items .wc-block-cart-items__row,
+.is-small table.wc-block-cart-items .wc-block-cart-items__row {
+    grid-template-columns: 110px 50% !important;
+}
+.is-medium table.wc-block-cart-items .wc-block-cart-items__row > *,
+.is-mobile table.wc-block-cart-items .wc-block-cart-items__row > *,
+.is-small table.wc-block-cart-items .wc-block-cart-items__row > * {
+    width: fit-content;
 }
 
 /* My Account Page */
@@ -379,7 +483,7 @@ table.wishlist_table {
 .woocommerce-MyAccount-content .woocommerce-Address-title {
     margin-bottom: 8px;
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: space-between;
 }
 .woocommerce-MyAccount-content .woocommerce-Address-title h2 {
@@ -458,7 +562,13 @@ table.wishlist_table {
     color: crimson;
     margin-bottom: 14px;
 }
-
+@media screen and (max-width: 992px) {
+    .wc-block-components-checkout-place-order-button,
+    .wc-block-cart__submit-button,
+    .single_add_to_cart_button {
+        padding: 14px;
+    }
+}
 @media screen and (max-width: 640px) {
     .banner-pagination
         .custom-pagination

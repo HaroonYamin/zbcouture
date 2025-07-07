@@ -136,21 +136,33 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 					<?php
 						global $product;
 						$product_id = $product->get_id();
+						$product_title = get_the_title( $product_id );
 						$product_link = get_permalink( $product_id );
 						$product_image = get_post_thumbnail_id( $product_id );
 					?>
 
 					<div class="group w-full">
 						<!-- Product Image -->
-						<a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
-							<?php if ( $product_image ) : ?>
-								<?= get_image($product_image, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
-							<?php else : ?>
-								<div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
-									No Image
+						 <div class="image-container relative">
+							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
+								 <?php if ( $product_image ) : ?>
+									 <?= get_image($product_image, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
+								 <?php else : ?>
+									 <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
+										 No Image
+									 </div>
+								 <?php endif; ?>
+							 </a>
+							<div class="absolute top-4 right-4 flex flex-col gap-2 hover-icons">
+								<div class="p-2 bg-white rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-200">
+									<?php hy_shared_btn( $product_title, $product_link, '', '' ); ?>
 								</div>
-							<?php endif; ?>
-						</a>
+
+								<div class="p-2 bg-white rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-200 yith-text-none">
+									<?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
+								</div>
+							</div>
+						</div>
 
 						<!-- Product Title -->
 						<h3 class="mt-4 text-[#27221E] font-medium text-[20px] leading-tight font-secondary">
