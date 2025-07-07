@@ -152,12 +152,6 @@
 .mobile-nav-menu a:hover {
     color: #666;
     background-color: #f9f9f9;
-    padding-left: 10px;
-    transition: all 0.2s ease;
-}
-
-.mobile-nav-menu li:last-child a {
-    border-bottom: none;
 }
 
 #mobile-menu {
