@@ -10,5 +10,7 @@ node_modules/swiper/*
 # Unignore only the specific files you want
 !node_modules/swiper/swiper-bundle.min.css
 !node_modules/swiper/swiper-bundle.min.js
+!node_modules/aos/dist/aos.css
+!node_modules/aos/dist/aos.js
 
 .git

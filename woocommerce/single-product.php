@@ -47,13 +47,26 @@ get_header( 'shop' ); ?>
                     <div class="main-product-image overflow-hidden">
                         <?php if ( $main_image ) : ?>
                             <div id="mainImage">
-                                <?= get_image($main_image, 'object-cover w-[550px] h-[750px]'); ?>
+                                <?php 
+                                // Get the image with onclick event
+                                $image_html = get_image($main_image, 'object-cover w-[550px] h-[750px]');
+                                // Add onclick event to the image
+                                $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
+                                echo $image_html;
+                                ?>
                             </div>
                         <?php else : ?>
                             <div class="w-[550px] h-[750px] bg-gray-200 flex items-center justify-center text-gray-500">
-                              No Image Available
+                                No Image Available
                             </div>
                         <?php endif; ?>
+                    </div>
+                    <!-- Modal -->
+                    <div id="imageModal" class="modal">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <div class="modal-content">
+                            <img id="modalImage" class="modal-image" src="" alt="Zoomed Image">
+                        </div>
                     </div>
                 </div>
 
