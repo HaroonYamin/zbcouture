@@ -123,3 +123,90 @@ function hy_convert_variation_dropdown_to_buttons( $html, $args ) {
     $html = '<div class="hy-hidden-dropdown" style="display:none;">' . $html . '</div>' . $buttons;
     return $html;
 }
+
+// Add ACF Menu Item
+add_filter('wp_nav_menu_objects', 'add_acf_to_menu_items', 10, 2);
+
+function add_acf_to_menu_items($items, $args) {
+    if (!function_exists('get_field')) {
+        return $items;
+    }
+    
+    $new_items = array();
+    $acf_items = array();
+    
+    foreach ($items as $item) {
+        $new_items[] = $item;
+        
+        // Get ACF fields for this menu item
+        $menu_data = get_field('hy_menu', $item);
+        
+        // Check if fields exist and are not empty
+        if ($menu_data && 
+            (!empty($menu_data['image']) || !empty($menu_data['title']) || !empty($menu_data['subtitle']))) {
+            
+            // Create custom menu item with all required properties
+            $custom_item = new stdClass();
+            $custom_item->ID = 'acf-' . $item->ID;
+            $custom_item->db_id = 0;
+            $custom_item->menu_item_parent = $item->ID;
+            $custom_item->object_id = 0;
+            $custom_item->object = 'custom';
+            $custom_item->type = 'custom';
+            $custom_item->type_label = 'Custom';
+            $custom_item->title = '';
+            $custom_item->url = '#';
+            $custom_item->target = '';
+            $custom_item->attr_title = '';
+            $custom_item->description = '';
+            $custom_item->classes = array('menu-item-acf');
+            $custom_item->xfn = '';
+            $custom_item->menu_order = 9999;
+            
+            // Store ACF data
+            $custom_item->acf_image = $menu_data['image'];
+            $custom_item->acf_title = $menu_data['title'];
+            $custom_item->acf_subtitle = $menu_data['subtitle'];
+            
+            // Store for later to add at end
+            $acf_items[] = $custom_item;
+        }
+    }
+    
+    // Add ACF items at the end
+    return array_merge($new_items, $acf_items);
+}
+
+// Custom walker to display ACF fields
+add_filter('wp_nav_menu_args', 'use_acf_walker');
+
+function use_acf_walker($args) {
+    $args['walker'] = new ACF_Walker();
+    return $args;
+}
+
+class ACF_Walker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $class_names = join(' ', $classes);
+        
+        $output .= '<li class="' . $class_names . '">';
+        
+        // Check if this is our ACF item
+        if (in_array('menu-item-acf', $classes)) {
+            // Display ACF content only if fields exist
+            if (!empty($item->acf_image)) {
+                $output .= '<img src="' . $item->acf_image['url'] . '" alt="' . $item->acf_image['alt'] . '">';
+            }
+			if (!empty($item->acf_title)) {
+				$output .= '<h3>' . $item->acf_title . '</h3>';
+			}
+			if (!empty($item->acf_subtitle)) {
+				$output .= '<p>' . $item->acf_subtitle . '</p>';
+			}
+        } else {
+            // Regular menu item
+            $output .= '<a href="' . $item->url . '">' . $item->title . '</a>';
+        }
+    }
+}
