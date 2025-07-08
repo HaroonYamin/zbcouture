@@ -51,6 +51,7 @@ define('THEME_ASSETS', [
         'shared-btn' => [
             'path' => '/assets/js/shared-button.js',
             'deps' => ['jquery']
+        ],
         'aos' => [
             'path' => '/node_modules/aos/dist/aos.js',
             'deps' => []
@@ -61,6 +62,7 @@ define('THEME_ASSETS', [
         ]
     ]
 ]);
+
 
 
 

@@ -1,14 +1,14 @@
+"use strict";
+// Custom JavaScript for the website
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   AOS.init({
     duration: 1000,
     once: true
   });
 });
-
-
-
-"use strict";
-// Custom JavaScript for the website
 
 // Image with Skeleton Loader
 document.addEventListener("DOMContentLoaded", function () {
@@ -342,5 +342,98 @@ document.addEventListener("DOMContentLoaded", function () {
             const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeftPos - walk;
         });
+    }
+});
+
+
+
+
+
+
+// Off-canvas size guide functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sizeGuideBtn = document.getElementById('sizeGuideBtn');
+    const sizeGuideBtn2 = document.getElementById('sizeGuideBtn2');
+    const offcanvas = document.getElementById('sizeGuideOffcanvas');
+    const overlay = document.getElementById('sizeGuideOverlay');
+    const panel = document.getElementById('sizeGuidePanel');
+    const closeBtn = document.getElementById('closeSizeGuide');
+
+    function openOffcanvas() {
+        offcanvas.classList.add('visible');
+        document.body.classList.add('no-scroll');
+
+        // Trigger slide-in animation after delay
+        setTimeout(() => {
+            offcanvas.classList.add('show-panel');
+        }, 10);
+    }
+
+    function closeOffcanvas() {
+        offcanvas.classList.remove('show-panel');
+
+        // Wait for transition to end before hiding completely
+        setTimeout(() => {
+            offcanvas.classList.remove('visible');
+            document.body.classList.remove('no-scroll');
+        }, 300);
+    }
+
+    // Event bindings
+    if (sizeGuideBtn) sizeGuideBtn.addEventListener('click', openOffcanvas);
+    if (sizeGuideBtn2) sizeGuideBtn2.addEventListener('click', openOffcanvas);
+    if (closeBtn) closeBtn.addEventListener('click', closeOffcanvas);
+    if (overlay) overlay.addEventListener('click', closeOffcanvas);
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && offcanvas.classList.contains('visible')) {
+            closeOffcanvas();
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+// Image Zoom Modal functionality
+function openModal(imageElement) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    // Set modal image source to clicked image
+    modalImage.src = imageElement.src;
+    modalImage.alt = imageElement.alt;
+    
+    // Show modal
+    modal.style.display = 'block';
+    
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside the image
+document.getElementById('imageModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
     }
 });
