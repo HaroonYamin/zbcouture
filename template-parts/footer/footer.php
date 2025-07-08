@@ -12,7 +12,8 @@
     $linkedin = $global_social_media['linkedin'] ?? '';
 ?>
 
-<footer id="footer" class="mt-24 mb-9">
+<footer id="footer" class="lg:mt-24 mt-12 mb-9">
+    <?php if( !is_checkout() ) : ?>
     <div class="container mx-auto px-5">
         <div class="grid grid-cols-12 gap-x-6 gap-y-12">
             <!-- Logo -->
@@ -64,6 +65,7 @@
             </div>
         </div>
     </div>
+    <?php endif; ?>
 
     <div class="border-b border-gray-300 my-6"></div>
 
@@ -71,43 +73,46 @@
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
             <!-- Copyright -->
             <?php
+                $alignment = is_checkout() ? 'text-center w-full' : 'sm:text-left';
                 if (!empty($bottom['copywrite'])) {
-                    echo '<p class="text-center sm:text-left">' . esc_html($bottom['copywrite']) . '</p>';
+                    echo '<p class="text-center ' . $alignment . '">' . esc_html($bottom['copywrite']) . '</p>';
                 }
             ?>
 
             <!-- Social Icons -->
-            <div class="flex items-center gap-4">
-                <?php
-                    if (!empty($bottom['social_media'])) :
-                        foreach ($bottom['social_media'] as $item) : ?>
-                            <?php if ($item === 'fb' && $facebook) : ?>
-                                <a href="<?= esc_url($facebook); ?>" target="_blank" rel="noopener noreferrer">
-                                    <?= get_svg('footer_facebook', 'facebook', 'w-6 h-6'); ?>
-                                </a>
-                            <?php endif; ?>
+            <?php if( !is_checkout() ) : ?>
+                <div class="flex items-center justify-between gap-4">
+                    <?php
+                        if (!empty($bottom['social_media'])) :
+                            foreach ($bottom['social_media'] as $item) : ?>
+                                <?php if ($item === 'fb' && $facebook) : ?>
+                                    <a href="<?= esc_url($facebook); ?>" target="_blank" rel="noopener noreferrer">
+                                        <?= get_svg('footer_facebook', 'facebook', 'w-6 h-6'); ?>
+                                    </a>
+                                <?php endif; ?>
 
-                            <?php if ($item === 'in' && $instagram) : ?>
-                                <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener noreferrer">
-                                    <?= get_svg('footer_instagram', 'instagram', 'w-6 h-6'); ?>
-                                </a>
-                            <?php endif; ?>
+                                <?php if ($item === 'in' && $instagram) : ?>
+                                    <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener noreferrer">
+                                        <?= get_svg('footer_instagram', 'instagram', 'w-6 h-6'); ?>
+                                    </a>
+                                <?php endif; ?>
 
-                            <?php if ($item === 'x' && $twitter) : ?>
-                                <a href="<?= esc_url($twitter); ?>" target="_blank" rel="noopener noreferrer">
-                                    <?= get_svg('footer_twitter', 'twitter', 'w-6 h-6'); ?>
-                                </a>
-                            <?php endif; ?>
+                                <?php if ($item === 'x' && $twitter) : ?>
+                                    <a href="<?= esc_url($twitter); ?>" target="_blank" rel="noopener noreferrer">
+                                        <?= get_svg('footer_twitter', 'twitter', 'w-6 h-6'); ?>
+                                    </a>
+                                <?php endif; ?>
 
-                            <?php if ($item === 'li' && $linkedin) : ?>
-                                <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer">
-                                    <?= get_svg('footer_linkedin', 'linkedin', 'w-6 h-6'); ?>
-                                </a>
-                            <?php endif; ?>
-                        <?php endforeach;
-                    endif;
-                ?>
-            </div>
+                                <?php if ($item === 'li' && $linkedin) : ?>
+                                    <a href="<?= esc_url($linkedin); ?>" target="_blank" rel="noopener noreferrer">
+                                        <?= get_svg('footer_linkedin', 'linkedin', 'w-6 h-6'); ?>
+                                    </a>
+                                <?php endif; ?>
+                            <?php endforeach;
+                        endif;
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </footer>
