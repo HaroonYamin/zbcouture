@@ -21,7 +21,9 @@
       <div class="hidden xl:block xl:basis-1/10"></div>
 
       <!-- Col 2: Text content -->
-      <div class="w-full xl:basis-2/4 text-left">
+      <div class="w-full xl:basis-2/4 text-left"
+           data-aos="fade-right"
+           data-aos-delay="100">
         <?php if( $label ) : ?>
           <h5 class="uppercase tracking-wide text-sm text-[#6D6D6D] font-secondary mb-[15px]">
             <?= $label; ?>
@@ -56,7 +58,9 @@
       </div>
 
       <!-- Col 3: Image -->
-      <div class="w-full lg:basis-3/6 flex lg:justify-center">
+      <div class="w-full lg:basis-3/6 flex lg:justify-center"
+           data-aos="fade-left"
+           data-aos-delay="300">
         <?php
           if( $image ) {
               echo get_image($image, 'w-full sm:w-[576px] h-auto sm:h-[860px] object-cover');
@@ -67,4 +71,3 @@
     </div>
   </div>
 </section>
-

@@ -14,24 +14,33 @@
     <div class="container mx-auto px-4">
 
         <?php if( $label ) : ?>
-            <h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center"><?= $label; ?></h5>
+            <h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center" 
+                data-aos="fade-up" 
+                data-aos-delay="50"><?= $label; ?></h5>
         <?php endif; ?>
 
         <?php if( $heading ) : ?>
-            <h2 class="text-[40px] font-light font-primary italic leading-tight text-[#27221E] mb-[47px] max-w-[530px] mx-auto text-center">
+            <h2 class="text-[40px] font-light font-primary italic leading-tight text-[#27221E] mb-[47px] max-w-[530px] mx-auto text-center"
+                data-aos="fade-up" 
+                data-aos-delay="100">
                 <?= $heading; ?>
             </h2>
         <?php endif; ?>
 
         <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
             <?php if( $cards ) :
-                foreach( $cards as $card ) :
+                foreach( $cards as $i => $card ) :
                     if( $card ) :
                         $title = $card['title'];
                         $paragraph = $card['paragraph'];
-                        $button = $card['button']; ?>
+                        $button = $card['button'];
+                        $delay = 200 + ($i * 100); // 200ms, 300ms, 400ms...
+                        ?>
 
-                        <div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]">
+                        <div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]"
+                             data-aos="fade-up"
+                             data-aos-delay="<?= $delay; ?>">
+                             
                             <?php if( $title ) : ?>
                                 <h3 class="text-2xl font-medium font-secondary mb-[20px] text-black"><?= $title; ?></h3>
                             <?php endif; ?>
