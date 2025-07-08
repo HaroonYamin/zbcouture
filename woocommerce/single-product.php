@@ -26,9 +26,9 @@ get_header( 'shop' ); ?>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
-                <div class="space-y-4 flex gap-3">
+                <div class="space-y-4 flex gap-3 flex-col-reverse sm:flex-row">
                     <div class="max-w-[550px] overflow-x-auto whitespace-nowrap scrollbar-hide">
-                        <div class="flex flex-col gap-3 overflow-auto">
+                        <div class="flex sm:flex-col gap-3 overflow-auto">
                             <?php if ( $main_image ) : ?>
                                 <div class="flex-shrink-0">
                                     <?= get_image($main_image, 'thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
