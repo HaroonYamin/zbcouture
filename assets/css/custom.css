@@ -870,11 +870,25 @@ body.no-scroll {
 #legal-page a:hover {
     text-decoration: none;
 }
+#col-legal-page h3 {
+    font-size: 1.325rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 1rem 0 0.5rem 0;
+}
+#col-legal-page img {
+    margin: 2rem 0;
+}
+
 @media screen and (max-width: 1024px) {
     #legal-page h1 {
         font-size: 2.5rem;
     }
     #legal-page h2 {
         font-size: 1.75rem;
+    }
+    #col-legal-page p,
+    #legal-page p {
+        font-size: 1.125rem;
     }
 }

@@ -11,21 +11,21 @@
 <section class="lg:mt-[120px] mt-12 py-12">
     <div class="max-w-[1024px] mx-auto px-5">
         <div class="flex gap-x-6 gap-y-12 sm:flex-row flex-col">
-            <div class="w-2/6">
+            <div class="sm:w-2/6 w-full">
                 <div class="sticky top-5">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :
                             $title = $single['content']['title'];
                             if( !$title ) { return; } ?>
                             <a href="<?= '#legal-link-' . $i; ?>">
-                                <h2 class="text-xl font-semibold py-3 px-4 hover:bg-neutral-50 rounded-sm"><?= $title; ?></h2>
+                                <h2 class="text-xl font-semibold py-3 sm:px-4 hover:bg-neutral-50 rounded-sm"><?= $title; ?></h2>
                             </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
 
-            <div class="w-4/6">
+            <div class="sm:w-4/6 w-full">
                 <div class="mt-2">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :

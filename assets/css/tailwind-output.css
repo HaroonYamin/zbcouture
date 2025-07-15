@@ -1850,6 +1850,16 @@
       height: 860px;
     }
   }
+  .sm\:w-2\/6 {
+    @media (width >= 40rem) {
+      width: calc(2/6 * 100%);
+    }
+  }
+  .sm\:w-4\/6 {
+    @media (width >= 40rem) {
+      width: calc(4/6 * 100%);
+    }
+  }
   .sm\:w-\[48\%\] {
     @media (width >= 40rem) {
       width: 48%;
