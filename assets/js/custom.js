@@ -1,6 +1,24 @@
 "use strict";
 // Custom JavaScript for the website
 
+jQuery(document).ready(function ($) {
+    $('a[href^="#legal-link-"]').on("click", function (e) {
+        e.preventDefault();
+
+        const target = $(this).attr("href");
+        const offset = $(target).offset()?.top;
+
+        if (offset !== undefined) {
+            $("html, body").animate(
+                {
+                    scrollTop: offset - 28, // Adjust for header offset
+                },
+                600
+            );
+        }
+    });
+});
+
 const swiper = new Swiper(".hy-swiper-product", {
     direction: "horizontal",
     slidesPerView: "auto",

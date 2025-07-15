@@ -117,5 +117,12 @@
         "description": "This is the editor section of a webpage.",
         "template": "editor",
         "keywords": "editor, section, webpage"
+    },
+    {
+        "name": "legal",
+        "title": "Legal Section",
+        "description": "This is the legal section of a webpage.",
+        "template": "legal",
+        "keywords": "legal, section, webpage"
     }
 ]

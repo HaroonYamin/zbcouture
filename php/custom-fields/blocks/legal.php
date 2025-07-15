@@ -1,0 +1,57 @@
+<?php
+    $sections = get_field('sections');
+
+    if( empty( $sections ) ) {
+        return;
+    }
+
+    $last_key = array_key_last($sections);
+?>
+
+<section class="lg:mt-[120px] mt-12 py-12">
+    <div class="max-w-[1024px] mx-auto px-5">
+        <div class="flex gap-x-6 gap-y-12 sm:flex-row flex-col">
+            <div class="w-2/6">
+                <div class="sticky top-5">
+                    <?php foreach( $sections as $i => $single ) :
+                        if( $single ) :
+                            $title = $single['content']['title'];
+                            if( !$title ) { return; } ?>
+                            <a href="<?= '#legal-link-' . $i; ?>">
+                                <h2 class="text-xl font-semibold py-3 px-4 hover:bg-neutral-50 rounded-sm"><?= $title; ?></h2>
+                            </a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="w-4/6">
+                <div class="mt-2">
+                    <?php foreach( $sections as $i => $single ) :
+                        if( $single ) :
+                            $title = $single['content']['title'];
+                            $editor = $single['editor'];
+                            if( !$title ) { return; } ?>
+    
+                                <div id="<?= 'legal-link-' . $i; ?>">
+                                    <h2 class="text-2xl font-semibold"><?= $title; ?></h2>
+            
+                                    <div class="flex gap-x-10">
+                                        <?php if( $editor ) : ?>
+                                            <div id="col-legal-page">
+                                                <?= $editor; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+    
+                                <?= $i !== $last_key ? '<div class="my-8 h-px bg-gray-300 w-full"></div>' : ''; ?>
+    
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
