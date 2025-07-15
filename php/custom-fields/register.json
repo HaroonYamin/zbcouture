@@ -110,5 +110,12 @@
         "description": "This is the title section of a webpage.",
         "template": "title",
         "keywords": "title, section, webpage"
+    },
+    {
+        "name": "editor",
+        "title": "Editor Section",
+        "description": "This is the editor section of a webpage.",
+        "template": "editor",
+        "keywords": "editor, section, webpage"
     }
 ]
