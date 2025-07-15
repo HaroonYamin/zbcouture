@@ -70,7 +70,7 @@
         <?php endif; ?>
 
         <button id="toggleBtn"
-          class="inline-block font-medium text-[16px] mt-[20px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
+          class="inline-block font-medium text-[16px] mt-[20px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition cursor-pointer"
           data-aos="fade-up" data-aos-delay="300">
           Read More
         </button>
