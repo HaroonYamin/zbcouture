@@ -2,7 +2,7 @@
 /**
  * Theme Functions and Definitions
  *
- * @package YourThemeName
+ * @package ZB Couture
  * @version 1.0.0
  * @author Haroon Yamin
  * @link https://www.linkedin.com/in/haroon-webdev/
