@@ -44,7 +44,6 @@ require_once THEME_DIR . '/php/custom-fields/config.php';
  */
 require_once THEME_DIR . '/php/theme-settings/components.php';
 
-
 /*
  * Custom Post Types
  */

@@ -26,6 +26,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/Avenir/stylesheet.css',
             'deps' => []
         ],
+        'aos' => [
+            'path' => '/node_modules/aos/dist/aos.css',
+            'deps' => []
+        ],
         'swiper' => [
             'path' => '/node_modules/swiper/swiper-bundle.min.css',
             'deps' => []
@@ -44,9 +48,17 @@ define('THEME_ASSETS', [
             'path' => '/node_modules/swiper/swiper-bundle.min.js',
             'deps' => []
         ],
+        'aos' => [
+            'path' => '/node_modules/aos/dist/aos.js',
+            'deps' => []
+        ],
         'shared-btn' => [
             'path' => '/assets/js/shared-button.js',
             'deps' => ['jquery']
+        ],
+        'aos' => [
+            'path' => '/node_modules/aos/dist/aos.js',
+            'deps' => []
         ],
         'main' => [
             'path' => '/assets/js/custom.js',

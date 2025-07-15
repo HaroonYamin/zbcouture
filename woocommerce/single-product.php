@@ -26,9 +26,9 @@ get_header( 'shop' ); ?>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
-                <div class="space-y-4 flex gap-3">
+                <div class="space-y-4 flex gap-3 flex-col-reverse sm:flex-row">
                     <div class="max-w-[550px] overflow-x-auto whitespace-nowrap scrollbar-hide">
-                        <div class="flex flex-col gap-3 overflow-auto">
+                        <div class="flex sm:flex-col gap-3 overflow-auto">
                             <?php if ( $main_image ) : ?>
                                 <div class="flex-shrink-0">
                                     <?= get_image($main_image, 'thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
@@ -47,13 +47,26 @@ get_header( 'shop' ); ?>
                     <div class="main-product-image overflow-hidden">
                         <?php if ( $main_image ) : ?>
                             <div id="mainImage">
-                                <?= get_image($main_image, 'object-cover w-[550px] h-[750px]'); ?>
+                                <?php 
+                                // Get the image with onclick event
+                                $image_html = get_image($main_image, 'object-cover w-[550px] h-[750px]');
+                                // Add onclick event to the image
+                                $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
+                                echo $image_html;
+                                ?>
                             </div>
                         <?php else : ?>
                             <div class="w-[550px] h-[750px] bg-gray-200 flex items-center justify-center text-gray-500">
-                              No Image Available
+                                No Image Available
                             </div>
                         <?php endif; ?>
+                    </div>
+                    <!-- Modal -->
+                    <div id="imageModal" class="modal">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <div class="modal-content">
+                            <img id="modalImage" class="modal-image" src="" alt="Zoomed Image">
+                        </div>
                     </div>
                 </div>
 
@@ -78,7 +91,7 @@ get_header( 'shop' ); ?>
                             <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
                         </div>
 
-                        <button class="flex items-center gap-2 text-base font-medium text-black font-secondary">
+                        <button id="sizeGuideBtn" class="flex items-center gap-2 text-base font-medium text-black font-secondary cursor-pointer">
                             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5563 1.41421C16.3374 0.633165 17.6037 0.633165 18.3848 1.41421L22.6274 5.65685C23.4085 6.4379 23.4085 7.70423 22.6274 8.48528L8.48527 22.6274C7.70422 23.4085 6.43789 23.4085 5.65684 22.6274L1.4142 18.3848C0.633153 17.6037 0.633154 16.3374 1.4142 15.5563L15.5563 1.41421ZM16.2634 3.53553C16.654 3.14501 17.2871 3.14501 17.6777 3.53553L20.5061 6.36396C20.8966 6.75449 20.8966 7.38765 20.5061 7.77817L19.799 7.07107C19.4085 6.68054 18.7753 6.68054 18.3848 7.07107C17.9942 7.46159 17.9942 8.09476 18.3848 8.48528L19.0919 9.19239L17.6777 10.6066L15.5563 8.48528C15.1658 8.09476 14.5326 8.09476 14.1421 8.48528C13.7516 8.87581 13.7516 9.50897 14.1421 9.89949L16.2634 12.0208L14.8492 13.435L14.1421 12.7279C13.7516 12.3374 13.1184 12.3374 12.7279 12.7279C12.3374 13.1184 12.3374 13.7516 12.7279 14.1421L13.435 14.8492L12.0208 16.2635L9.89948 14.1421C9.50896 13.7516 8.87579 13.7516 8.48527 14.1421C8.09475 14.5327 8.09475 15.1658 8.48527 15.5563L10.6066 17.6777L9.19238 19.0919L8.48527 18.3848C8.09475 17.9943 7.46158 17.9943 7.07106 18.3848C6.68053 18.7753 6.68053 19.4085 7.07106 19.799L7.77816 20.5061C7.38764 20.8966 6.75447 20.8966 6.36395 20.5061L3.53552 17.6777C3.145 17.2871 3.145 16.654 3.53552 16.2635L16.2634 3.53553Z" fill="#0F0F0F"/>
                             </svg>
@@ -189,7 +202,7 @@ get_header( 'shop' ); ?>
             </div>
         <?php endif; ?>
 
-        <div class="py-4 flex justify-between items-center cursor-pointer">
+        <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
             <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -280,5 +293,53 @@ get_header( 'shop' ); ?>
         </div>
     </div>
 </section>
+
+
+
+<!-- Size Guide Off-canvas - Working Version -->
+<div id="sizeGuideOffcanvas" class="offcanvas-container">
+    <!-- Overlay -->
+    <div class="offcanvas-overlay" id="sizeGuideOverlay"></div>
+    
+    <!-- Off-canvas Panel -->
+    <div class="offcanvas-panel" id="sizeGuidePanel">
+        
+        <!-- Header -->
+        <div class="offcanvas-header">
+            <h2 class="text-2xl font-medium text-[#252525] font-secondary">Size Guide</h2>
+            <button id="closeSizeGuide" class="close-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Content -->
+        <div class="offcanvas-content">
+            
+            <!-- Size Chart -->
+            <div class="content-section">
+                <h3 class="text-xl font-medium text-[#252525] font-secondary">Size Chart</h3>
+                <div class="bg-gray-50 mt-6 mb-6 rounded-lg">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/chart.jpg" 
+                        alt="Size Chart" 
+                        class="w-full h-auto rounded-md">
+                </div>
+            </div>
+            
+            <!-- Measurement Guide -->
+            <div class="content-section">
+                <h3 class="text-xl font-medium text-[#252525] font-secondary">How to Measure</h3>
+                <div class="bg-gray-50 mt-6 rounded-lg">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/size.jpg" 
+                         alt="Measurement Guide" 
+                         class="w-[500px] h-[475px] rounded-md">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
 
 <?php get_footer( 'shop' ); ?>
