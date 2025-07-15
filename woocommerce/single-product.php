@@ -26,18 +26,18 @@ get_header( 'shop' ); ?>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
-                <div class="space-y-4 flex gap-3 flex-col-reverse sm:flex-row">
-                    <div class="max-w-[550px] overflow-x-auto whitespace-nowrap scrollbar-hide">
-                        <div class="flex sm:flex-col gap-3 overflow-auto">
+                <div class="flex gap-3 flex-col-reverse sm:flex-row">
+                    <div class="swiper hy-swiper-product max-h-[750px]">
+                        <div class="swiper-wrapper">
                             <?php if ( $main_image ) : ?>
-                                <div class="flex-shrink-0">
+                                <div class="swiper-slide">
                                     <?= get_image($main_image, 'thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
                                 </div>
                             <?php endif; ?>
 
                             <?php foreach ( $gallery_ids as $gallery_id ) : ?>
                                 <?php $gallery_image = wp_get_attachment_image_src( $gallery_id, 'full' ); ?>
-                                <div class="flex-shrink-0">
+                                <div class="swiper-slide">
                                     <?= get_image($gallery_id, 'thumbnail object-cover cursor-pointer border-2 border-gray-300 hover:border-black opacity-60 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
                                 </div>
                             <?php endforeach; ?>
@@ -49,7 +49,7 @@ get_header( 'shop' ); ?>
                             <div id="mainImage">
                                 <?php 
                                 // Get the image with onclick event
-                                $image_html = get_image($main_image, 'object-cover w-[550px] h-[750px]');
+                                $image_html = get_image($main_image, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
                                 // Add onclick event to the image
                                 $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
                                 echo $image_html;
@@ -74,7 +74,7 @@ get_header( 'shop' ); ?>
                     <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
 
                     <?php if ( $product->get_short_description() ) : ?>
-                        <div class="text-gray-600 text-sm leading-relaxed">
+                        <div class="text-gray-600 sm:text-xl text-lg leading-relaxed">
                             <?php echo $product->get_short_description(); ?>
                         </div>
                     <?php endif; ?>
@@ -84,7 +84,7 @@ get_header( 'shop' ); ?>
                         <?php woocommerce_template_single_add_to_cart(); ?>
                     </div>
 
-                    <div class="flex items-center gap-6 text-sm">
+                    <div class="flex sm:items-center sm:flex-row flex-col gap-6 text-sm">
                         <?php hy_shared_btn( get_the_title(), get_permalink() ); ?>
 
                         <div class="my-wishlist-btn">
@@ -163,8 +163,7 @@ get_header( 'shop' ); ?>
                 <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
                 </button>
                 <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                <div class="pt-4">
-                    <!-- woocommerce product description -->
+                <div class="pt-4 sm:text-xl text-lg">
                     <?php the_content(); ?>
                 </div>
                 </div>
@@ -181,7 +180,7 @@ get_header( 'shop' ); ?>
                     <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                 </button>
                 <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                    <div class="pt-4">
+                    <div class="pt-4 sm:text-xl text-lg">
                         <?= $global_product_page_content['delivery_policy']; ?>
                     </div>
                 </div>
@@ -195,7 +194,7 @@ get_header( 'shop' ); ?>
                     <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                 </button>
                 <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                    <div class="pt-4">
+                    <div class="pt-4 sm:text-xl text-lg">
                         <?= $global_product_page_content['how_it_works']; ?>
                     </div>
                 </div>
@@ -316,26 +315,27 @@ get_header( 'shop' ); ?>
         
         <!-- Content -->
         <div class="offcanvas-content">
-            
-            <!-- Size Chart -->
-            <div class="content-section">
-                <h3 class="text-xl font-medium text-[#252525] font-secondary">Size Chart</h3>
-                <div class="bg-gray-50 mt-6 mb-6 rounded-lg">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/chart.jpg" 
-                        alt="Size Chart" 
-                        class="w-full h-auto rounded-md">
+            <?php $global_product_page_size_chart = get_field('global_product_page_size_chart', 'option');
+            $chart_img = $global_product_page_size_chart['image_1'];
+            $chart_img_2 = $global_product_page_size_chart['image_2'];
+
+            if( $chart_img ) : ?>
+                <div class="content-section">
+                    <h3 class="text-xl font-medium text-[#252525] font-secondary">Size Chart</h3>
+                    <div class="bg-gray-50 mt-6 mb-6 rounded-lg">
+                        <?= get_image($chart_img, 'w-full h-auto rounded-md') ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
             
-            <!-- Measurement Guide -->
-            <div class="content-section">
-                <h3 class="text-xl font-medium text-[#252525] font-secondary">How to Measure</h3>
-                <div class="bg-gray-50 mt-6 rounded-lg">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/size.jpg" 
-                         alt="Measurement Guide" 
-                         class="w-[500px] h-[475px] rounded-md">
+            <?php if( $chart_img_2 ) : ?>
+                <div class="content-section">
+                    <h3 class="text-xl font-medium text-[#252525] font-secondary">How to Measure</h3>
+                    <div class="bg-gray-50 mt-6">
+                        <?= get_image($chart_img_2, 'w-full h-auto') ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
             
         </div>
     </div>

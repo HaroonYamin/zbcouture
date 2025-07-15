@@ -206,6 +206,26 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+.hy-scroll {
+    overflow-y: scroll;
+    cursor: grab;
+}
+.hy-scroll:active {
+    cursor: grabbing;
+}
+.hy-swiper-product {
+    overflow: hidden !important;
+    margin: 0 !important;
+}
+.hy-swiper-product .swiper-slide {
+    height: auto !important;
+    width: auto !important;
+}
+@media screen and (max-width: 639px) {
+    .hy-swiper-product {
+        width: 100% !important;
+    }
+}
 
 /* Hide scrollbar for all scrollable thumbnails main collection */
 .custom-scroll-hide::-webkit-scrollbar {
@@ -587,9 +607,8 @@ table.wishlist_table {
         width: 100%;
     }
     .woocommerce-MyAccount-content label {
-    font-size: 16px;
-}
-
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -599,13 +618,9 @@ table.wishlist_table {
     .newsletter-form p::after {
         right: 6px;
     }
-    
 }
 
-
-
 /* Off-canvas Container */
-
 
 .offcanvas-container.active {
     display: block;
@@ -645,7 +660,6 @@ table.wishlist_table {
 .offcanvas-container.active .offcanvas-panel {
     transform: translateX(0);
 }
-
 
 .offcanvas-container {
     position: fixed;
@@ -718,11 +732,11 @@ table.wishlist_table {
     .offcanvas-panel {
         max-width: 100%;
     }
-    
+
     .offcanvas-header {
         padding: 16px;
     }
-    
+
     .offcanvas-content {
         padding: 16px;
     }
@@ -750,22 +764,6 @@ body.no-scroll {
 .offcanvas-panel::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .main-product-image {
     overflow: hidden;
@@ -819,11 +817,19 @@ body.no-scroll {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes zoomIn {
-    from { transform: translate(-50%, -50%) scale(0.7); }
-    to { transform: translate(-50%, -50%) scale(1); }
+    from {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
