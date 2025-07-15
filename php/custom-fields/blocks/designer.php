@@ -57,14 +57,14 @@
       <div id="readMoreContainer">
         <?php if( $first ) : ?>
           <p class="sm:text-[20px] text-[18px] text-[#27221E] font-light leading-[1.3] font-secondary mt-[18px] max-w-[517px]"
-             data-aos="fade-up" data-aos-delay="200">
+            data-aos="fade-up" data-aos-delay="200">
             <?= $first; ?>
           </p>
         <?php endif; ?>
 
         <?php if( $second ) : ?>
-          <p class="sm:text-[20px] text-[18px] text-[#27221E] font-light leading-[1.3] font-secondary max-w-[517px] truncate-4"
-             data-aos="fade-up" data-aos-delay="250">
+          <p id="secondPara" class="sm:text-[20px] text-[18px] text-[#27221E] font-light leading-[1.3] font-secondary max-w-[517px] truncate-4"
+            data-aos="fade-up" data-aos-delay="250">
             <?= $second; ?>
           </p>
         <?php endif; ?>
@@ -76,7 +76,6 @@
         </button>
       </div>
     </div>
-
     <!-- Col 1: Empty space on large screens -->
     <div class="hidden xl:block xl:basis-1/10"></div>
 

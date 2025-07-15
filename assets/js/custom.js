@@ -172,25 +172,18 @@ document.addEventListener("click", function (event) {
 });
 
 // Toggle "Read More" functionality
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById('toggleBtn');
-  const readMoreText = document.getElementById('readMoreText');
+ document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleBtn");
+    const paragraph = document.getElementById("secondPara");
 
-  let isOpen = false;
+    let expanded = false;
 
-  toggleBtn.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (isOpen) {
-      readMoreText.classList.remove('max-h-0');
-      readMoreText.classList.add('max-h-[1000px]');
-      toggleBtn.textContent = 'Read Less';
-    } else {
-      readMoreText.classList.add('max-h-0');
-      readMoreText.classList.remove('max-h-[1000px]');
-      toggleBtn.textContent = 'Read More';
-    }
+    toggleBtn.addEventListener("click", function () {
+      paragraph.classList.toggle("truncate-4");
+      expanded = !expanded;
+      toggleBtn.innerText = expanded ? "Read Less" : "Read More";
+    });
   });
-});
 
 // Image gallery functionality
 document.addEventListener("DOMContentLoaded", function () {

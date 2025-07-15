@@ -30,10 +30,6 @@ define('THEME_ASSETS', [
             'path' => '/node_modules/swiper/swiper-bundle.min.css',
             'deps' => []
         ],
-        'aos' => [
-            'path' => '/node_modules/aos/dist/aos.css',
-            'deps' => []
-        ],
         'tailwind-output' => [
             'path' => '/assets/css/tailwind-output.css',
             'deps' => []
@@ -51,18 +47,13 @@ define('THEME_ASSETS', [
         'shared-btn' => [
             'path' => '/assets/js/shared-button.js',
             'deps' => ['jquery']
-        'aos' => [
-            'path' => '/node_modules/aos/dist/aos.js',
-            'deps' => []
         ],
         'main' => [
             'path' => '/assets/js/custom.js',
-            'deps' => ['jquery', 'aos']
+            'deps' => ['jquery']
         ]
     ]
 ]);
-
-
 
 /**
  * Enqueue stylesheet with proper version control
@@ -121,5 +112,3 @@ function enqueue_theme_assets() {
 add_action('wp_enqueue_scripts', 'enqueue_theme_assets');
 
 add_theme_support( 'woocommerce' );
-
-
