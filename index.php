@@ -11,7 +11,7 @@
 
 get_header(); ?>
 
-<main id="site-main" class="main-content <?php echo esc_attr(get_post_field('post_name', get_post())); ?>">
+<main id="site-main" class="main-content overflow-hidden <?php echo esc_attr(get_post_field('post_name', get_post())); ?>">
         <?php the_content(); ?>
 </main>
 
