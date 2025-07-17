@@ -145,5 +145,19 @@
         "description": "This is the badge section of a webpage.",
         "template": "badge",
         "keywords": "Badge, section, webpage"
+    },
+    {
+        "name": "form",
+        "title": "Form Section",
+        "description": "This is the form section of a webpage.",
+        "template": "form",
+        "keywords": "form, section, webpage"
+    },
+    {
+        "name": "contact",
+        "title": "Contact Section",
+        "description": "This is the contact section of a webpage.",
+        "template": "contact",
+        "keywords": "contact, section, webpage"
     }
 ]

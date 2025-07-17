@@ -964,6 +964,7 @@ body.no-scroll {
     flex-wrap: wrap;
     gap: 20px;
     font-family: Arial, sans-serif;
+    font-family: var(--font-secondary);
 }
 
 .hy-form-row {
@@ -1013,6 +1014,28 @@ body.no-scroll {
 
 .hy-form-wrapper input[type="submit"]:hover {
     background-color: #000;
+}
+#hy-contact-map iframe {
+    width: 100% !important;
+}
+form:has(.hy-form-wrapper) .wpcf7-response-output {
+    width: fit-content;
+    margin: 40px auto 0;
+}
+#hy-contact-stock h3 {
+    font-size: 24px;
+    margin: 8px 0 16px 0;
+    font-weight: 600;
+}
+#hy-contact-stock p {
+    margin: 16px 0;
+    font-size: 18px;
+}
+#hy-contact-stock a {
+    text-decoration: underline;
+}
+#hy-contact-stock a:hover {
+    text-decoration: none;
 }
 
 /* Responsive */
