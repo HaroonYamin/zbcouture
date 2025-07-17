@@ -122,7 +122,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 z-50 bg-white text-black overflow-y-auto" style="display: none;">
+    <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 z-50 bg-white text-black overflow-y-auto w-full max-w-[300px] shadow" style="display: none;">
         <div class="flex justify-end p-4">
             <button onclick="toggleMobileMenu()" class="hover:text-gray-500 text-3xl font-bold">
                 &times;
