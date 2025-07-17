@@ -216,9 +216,23 @@ add_action('woocommerce_before_add_to_cart_quantity', 'custom_quantity_minus_but
 add_action('woocommerce_after_add_to_cart_quantity', 'custom_quantity_plus_button');
 
 function custom_quantity_minus_button() {
-    echo '<div class="quantity-wrapper"><button type="button" class="qty-btn qty-minus">-</button>';
+    global $product;
+    if ( ! $product->is_sold_individually() ) {
+        echo '<div class="quantity-wrapper"><button type="button" class="qty-btn qty-minus">-</button>';
+    }
 }
 
 function custom_quantity_plus_button() {
-    echo '<button type="button" class="qty-btn qty-plus">+</button></div>';
+    global $product;
+    if ( ! $product->is_sold_individually() ) {
+        echo '<button type="button" class="qty-btn qty-plus">+</button></div>';
+    }
+}
+
+// Single Page
+add_filter('woocommerce_hide_invisible_variations', '__return_false');
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'change_add_to_cart_text');
+function change_add_to_cart_text() {
+    return 'Book an Appointment';
 }
