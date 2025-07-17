@@ -124,5 +124,26 @@
         "description": "This is the legal section of a webpage.",
         "template": "legal",
         "keywords": "legal, section, webpage"
+    },
+    {
+        "name": "text-img",
+        "title": "Text Image Section",
+        "description": "This is the text with image section of a webpage.",
+        "template": "text-img",
+        "keywords": "text, img, image, section, webpage"
+    },
+    {
+        "name": "text-img-reverse",
+        "title": "Text Image Reverse Section",
+        "description": "This is the text with image Reverse section of a webpage.",
+        "template": "text-img-reverse",
+        "keywords": "text, img, image, reverse, section, webpage"
+    },
+    {
+        "name": "badge",
+        "title": "Badge Section",
+        "description": "This is the badge section of a webpage.",
+        "template": "badge",
+        "keywords": "Badge, section, webpage"
     }
 ]

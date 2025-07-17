@@ -210,3 +210,15 @@ class ACF_Walker extends Walker_Nav_Menu {
         }
     }
 }
+
+// Single Page Quantity controller
+add_action('woocommerce_before_add_to_cart_quantity', 'custom_quantity_minus_button');
+add_action('woocommerce_after_add_to_cart_quantity', 'custom_quantity_plus_button');
+
+function custom_quantity_minus_button() {
+    echo '<div class="quantity-wrapper"><button type="button" class="qty-btn qty-minus">-</button>';
+}
+
+function custom_quantity_plus_button() {
+    echo '<button type="button" class="qty-btn qty-plus">+</button></div>';
+}

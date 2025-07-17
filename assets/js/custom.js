@@ -17,6 +17,21 @@ jQuery(document).ready(function ($) {
             );
         }
     });
+
+    // Quanity controller for single page
+    $(".qty-minus").on("click", function () {
+        var $input = $(this).siblings(".quantity").find("input.qty");
+        var val = parseInt($input.val()) || 1;
+        if (val > 1) {
+            $input.val(val - 1).trigger("change");
+        }
+    });
+
+    $(".qty-plus").on("click", function () {
+        var $input = $(this).siblings(".quantity").find("input.qty");
+        var val = parseInt($input.val()) || 1;
+        $input.val(val + 1).trigger("change");
+    });
 });
 
 const swiper = new Swiper(".hy-swiper-product", {
