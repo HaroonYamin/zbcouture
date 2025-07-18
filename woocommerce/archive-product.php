@@ -62,7 +62,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="200">Shop</h1>
 
 		<!-- Sort & Filter -->
-		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600" data-aos="fade-in" data-aos-delay="400">
+		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600 relative z-50" data-aos="fade-in" data-aos-delay="400">
 			<div class="flex flex-wrap items-center gap-x-16 gap-y-3">
 
 				<!-- Sort Dropdown -->
