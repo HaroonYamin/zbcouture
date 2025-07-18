@@ -54,14 +54,13 @@
                                 <?php endif; ?>
 
                                 <?php if( $button ) : ?>
-                                    <a href="<?= $button['url']; ?>" 
-                                        class="font-medium text-base font-secondary mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
-                                        target="<?= $button['target']; ?>"
-                                        data-aos="fade-up"
-                                        data-aos-delay="500"
-                                    >
-                                        <?= $button['title']; ?>
-                                    </a>
+                                    <div data-aos="fade-up" data-aos-delay="500">
+                                        <a href="<?= $button['url']; ?>" 
+                                            class="font-medium text-base font-secondary mt-6 bg-transparent border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black block"
+                                            target="<?= $button['target']; ?>">
+                                            <?= $button['title']; ?>
+                                        </a>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                         </div>

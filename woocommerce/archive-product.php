@@ -54,15 +54,15 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
   <div class="container mx-auto px-4">
 
 		<!-- Breadcrumb -->
-		<div class="text-sm text-[#797878] mb-4 font-medium font-secondary mt-16">
+		<div class="text-sm text-[#797878] mb-4 font-medium font-secondary mt-16" data-aos="fade-in">
 			<a href="<?php echo home_url(); ?>" class="hover:underline">Home</a> / <span>Shop</span>
 		</div>
 
 		<!-- Page Title -->
-		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]">Shop</h1>
+		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="200">Shop</h1>
 
 		<!-- Sort & Filter -->
-		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600">
+		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600" data-aos="fade-in" data-aos-delay="400">
 			<div class="flex flex-wrap items-center gap-x-16 gap-y-3">
 
 				<!-- Sort Dropdown -->
@@ -130,8 +130,9 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		<!-- Product Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-y-12 sm:my-[99px] mt-32px mb-[99px]">
 
-			<?php if ( wc_get_loop_prop( 'total' ) ) : ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php if ( wc_get_loop_prop( 'total' ) ) : 
+				$i = 0;
+				while ( have_posts() ) : the_post(); ?>
 
 					<?php
 						global $product;
@@ -141,7 +142,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						$product_image = get_post_thumbnail_id( $product_id );
 					?>
 
-					<div class="group w-full">
+					<div class="group w-full" data-aos="zoom-in" data-aos-delay="<?= $i * 100; ?>">
 						<!-- Product Image -->
 						 <div class="image-container relative">
 							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
@@ -177,7 +178,8 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						</div>
 					</div>
 
-				<?php endwhile; ?>
+				<?php $i++;
+				endwhile; ?>
 			<?php else : ?>
 				<div class="col-span-full text-center py-16">
 					<p class="text-gray-500">No products found.</p>
