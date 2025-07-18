@@ -9,9 +9,9 @@
     $title = get_field('title') ?: get_the_title();
 ?>
 
-<section class="py-16">
+<section class="pt-16">
   <div class="container mx-auto px-4">
-		<div class="text-sm text-[#797878] mb-4 font-medium mt-16">
+		<div class="text-sm text-[#797878] mb-4 font-medium mt-16" data-aos="fade-in" data-aos-delay="0">
             <?php if ( !empty($breadcrumbs) ) : ?>
                 <?php foreach ( $breadcrumbs as $single ) : ?>
                     <?php if ( !empty($single) ) : ?>
@@ -25,6 +25,6 @@
             <span><?= esc_html($title); ?></span>
         </div>
 
-		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]"><?= $title; ?></h1>
+		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="500"><?= $title; ?></h1>
 	</div>
 </section>

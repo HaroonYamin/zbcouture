@@ -47,7 +47,7 @@
 
                 <a href="<?= esc_url($term_link); ?>" 
                    class="relative w-full sm:w-[48%] md:w-[30%] lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden block"
-                   data-aos="zoom-in-up" data-aos-delay="<?= $delay; ?>">
+                   data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="<?= $delay; ?>">
                     <?= get_image( $thumbnail_id, 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2' ); ?>
 
                     <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>

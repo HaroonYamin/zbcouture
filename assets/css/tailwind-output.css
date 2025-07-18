@@ -389,9 +389,6 @@
   .my-24 {
     margin-block: calc(var(--spacing) * 24);
   }
-  .my-\[99px\] {
-    margin-block: 99px;
-  }
   .my-\[140px\] {
     margin-block: 140px;
   }
@@ -774,9 +771,6 @@
   .flex-shrink {
     flex-shrink: 1;
   }
-  .flex-shrink-0 {
-    flex-shrink: 0;
-  }
   .shrink-0 {
     flex-shrink: 0;
   }
@@ -922,9 +916,6 @@
   .gap-y-3 {
     row-gap: calc(var(--spacing) * 3);
   }
-  .gap-y-5 {
-    row-gap: calc(var(--spacing) * 5);
-  }
   .gap-y-8 {
     row-gap: calc(var(--spacing) * 8);
   }
@@ -936,6 +927,12 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-visible {
+    overflow: visible;
+  }
+  .overflow-visible\! {
+    overflow: visible !important;
   }
   .overflow-x-auto {
     overflow-x: auto;
@@ -1214,6 +1211,9 @@
   }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
+  }
+  .pt-16 {
+    padding-top: calc(var(--spacing) * 16);
   }
   .pb-0 {
     padding-bottom: calc(var(--spacing) * 0);
@@ -1806,6 +1806,11 @@
       height: 350px;
     }
   }
+  .sm\:h-\[435px\] {
+    @media (width >= 40rem) {
+      height: 435px;
+    }
+  }
   .sm\:h-\[619px\] {
     @media (width >= 40rem) {
       height: 619px;
@@ -1921,9 +1926,9 @@
       justify-content: center;
     }
   }
-  .sm\:gap-4 {
+  .sm\:overflow-hidden {
     @media (width >= 40rem) {
-      gap: calc(var(--spacing) * 4);
+      overflow: hidden;
     }
   }
   .sm\:bg-fixed {
@@ -2131,6 +2136,11 @@
       margin-block: calc(var(--spacing) * 24);
     }
   }
+  .lg\:my-\[140px\] {
+    @media (width >= 64rem) {
+      margin-block: 140px;
+    }
+  }
   .lg\:mt-0 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 0);
@@ -2239,11 +2249,6 @@
   .lg\:justify-center {
     @media (width >= 64rem) {
       justify-content: center;
-    }
-  }
-  .lg\:gap-4 {
-    @media (width >= 64rem) {
-      gap: calc(var(--spacing) * 4);
     }
   }
   .lg\:gap-16 {

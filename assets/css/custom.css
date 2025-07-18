@@ -393,16 +393,6 @@ form.cart:has(.quantity-wrapper) {
 .my-wishlist-btn .yith-wcwl-add-to-wishlist-button {
     gap: 6px !important;
 }
-.hover-icons {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-}
-
-.image-container:hover .hover-icons {
-    opacity: 1;
-    transform: translateY(0);
-}
 .yith-text-none .yith-wcwl-add-to-wishlist-button__label {
     display: none;
 }
@@ -1042,5 +1032,21 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
 @media (max-width: 768px) {
     .hy-form-row.half {
         width: 100%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .hover-icons {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    .image-container:hover .hover-icons {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media screen and (max-width: 640px) {
+    .mobile-overflow-visible {
+        overflow: visible !important;
     }
 }

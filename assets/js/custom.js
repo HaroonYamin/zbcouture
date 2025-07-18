@@ -54,9 +54,29 @@ const swiper = new Swiper(".hy-swiper-product", {
 
 document.addEventListener("DOMContentLoaded", function () {
     AOS.init({
-        duration: 1000,
+        duration: 1500,
         once: true,
     });
+});
+
+const swiperCollection = new Swiper(".hy-collection-swiper", {
+    slidesPerView: 1.2,
+    spaceBetween: 20,
+    breakpoints: {
+        560: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        1275: {
+            slidesPerView: 4.5,
+        },
+    },
+    navigation: {
+        nextEl: ".hy-arrow-right",
+        prevEl: ".hy-arrow-left",
+    },
 });
 
 // Image with Skeleton Loader
