@@ -128,7 +128,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		</div>
 
 		<!-- Product Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-y-12 sm:my-[99px] mt-32px mb-[99px]">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-y-12 sm:mt-[99px] mt-32px mb-12">
 
 			<?php if ( wc_get_loop_prop( 'total' ) ) : 
 				$i = 0;
@@ -206,12 +206,49 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 	</div>
 </section>
 
-<?php $enable = get_field('enable', 'option');
+<?php $stories = get_field('hy_global_stories', 'option');
+$enable = $stories['enable'];
+if( $enable ) :
+    $cards = $stories['cards']; ?>
+
+	<section class="py-16 text-center">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 text-[#27221E]">
+				<?php if( $cards ) :
+					foreach( $cards as $i => $card ) :
+						if( $card ) :
+							$border = $i % 4 !== 0 ? 'md:border-l border-[#D1D1D1]' : '';
+							$delay = 100 * $i; // Stagger delay by 100ms per card
+							?>
+							
+							<div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>"
+								data-aos="fade-up" 
+								data-aos-delay="<?= $delay; ?>">
+								
+								<?php if( $card['title'] ) : ?>
+									<h3 class="text-xl font-medium font-secondary mb-2"><?= $card['title']; ?></h3>
+								<?php endif; ?>
+
+								<?php if( $card['paragraph'] ) : ?>
+									<p class="text-base font-light font-secondary"><?= $card['paragraph']; ?></p>
+								<?php endif; ?>
+							</div>
+
+						<?php endif;
+					endforeach;
+				endif; ?>
+			</div>
+		</div>
+	</section>
+<?php endif; ?>
+
+<?php $journey = get_field('hy_global_journey', 'option');
+$enable = $journey['enable'];
 if( $enable ) :
 
-    $label = get_field('label', 'option');
-    $heading = get_field('heading', 'option');
-    $cards = get_field('cards', 'option'); ?>
+    $label = $journey['label'];
+    $heading = $journey['heading'];
+    $cards = $journey['cards']; ?>
 
 	<section class="bg-[#F5F5F3] py-24">
 		<div class="container mx-auto px-4">
