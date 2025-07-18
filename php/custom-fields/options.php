@@ -41,4 +41,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'parent_slug'   => 'theme-settings',
 		'menu_slug'     => 'theme-footer',
 	) );
+
+	// Subpage: Footer
+	acf_add_options_sub_page( array(
+		'page_title'    => 'Section Settings',
+		'menu_title'    => 'Sections',
+		'parent_slug'   => 'theme-settings',
+		'menu_slug'     => 'theme-sections',
+	) );
 }
