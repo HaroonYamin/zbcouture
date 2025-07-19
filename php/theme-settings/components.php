@@ -192,6 +192,16 @@ class HY_UI {
             $text
         );
     }
+    public function section_heading( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<h2 class="sm:text-[40px] text-4xl leading-[1.21em] font-primary italic %s">%s</h2>',
+            $class,
+            $text
+        );
+    }
 
     // Paragraph
     public function paragraph( $text, $class = '' ) {

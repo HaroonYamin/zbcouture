@@ -6,7 +6,7 @@
     }
 
     $slideshow = get_field('slideshow');
-    $hy = new HY_UI();
+    $ui = new HY_UI();
 ?>
 
 <section class="relative sm:h-[calc(100vh-62px)] h-[calc(100vh-78px)]">
@@ -36,15 +36,15 @@
                             <div class="absolute inset-0 flex flex-col items-center sm:justify-center justify-end h-full text-center text-white px-4 z-20">
                                 <div class="swiper-banner-content mb-24 sm:mb-0">
                                     <?php if( $title ) : ?>
-                                        <?= $hy->main_heading( $title ); ?>
+                                        <?= $ui->main_heading( $title ); ?>
                                     <?php endif; ?>
     
                                     <?php if( $paragraph ) : ?>
-                                        <?= $hy->paragraph( $paragraph, 'sm:mt-6 mt-3' ); ?>
+                                        <?= $ui->paragraph( $paragraph, 'sm:mt-6 mt-3' ); ?>
                                     <?php endif; ?>
     
                                     <?php if( $button ) : ?>
-                                        <?= $hy->button( $button['title'], $button['url'], $button['target'], 'mt-7' ); ?>
+                                        <?= $ui->button( $button['title'], $button['url'], $button['target'], 'mt-7' ); ?>
                                     <?php endif; ?>
                                 </div>
                             </div>

@@ -10,52 +10,41 @@
     $first = get_field('paragraph')['first'];
     $second = get_field('paragraph')['second'];
     $button = get_field('button');
+
+    $ui = new HY_UI();
 ?>
 
 <section class="relative h-screen bg-cover bg-center sm:bg-fixed bg-scroll text-white flex items-center justify-center px-4"
+    data-aos="fade-in"
     <?php if( $image ) : ?>
         style="background-image: url('<?= $image; ?>');"
     <?php endif; ?> >
   
-    <div class="absolute inset-0 bg-black/40 z-0"></div>
+    <div class="absolute inset-0 sm:bg-black/40 bg-black/60 z-0"></div>
 
     <div class="relative z-10 max-w-3xl text-center">
         <?php if( $heading ) : ?>
-            <h2 class="sm:text-[40px] text-[36px] font-normal font-primary italic sm:mb-8 mb-[21px] max-w-[600px] mx-auto"
-                data-aos="fade-up"
-                data-aos-delay="100"
-            >
-                <?= $heading; ?>
-            </h2>
+            <div data-aos="fade-up" data-aos-delay="500">
+                <?= $ui->section_heading( $heading, 'sm:mb-8 mb-8 max-w-[600px] mx-auto' ); ?>
+            </div>
         <?php endif; ?>
 
         <?php if( $first ) : ?>
-            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 mb-[22px] max-w-[650px] mx-auto"
-                data-aos="fade-up"
-                data-aos-delay="200"
-            >
-                <?= $first; ?>
-            </p>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <?= $ui->paragraph( $first, 'text-white/80 mb-[22px] max-w-[650px] mx-auto' ); ?>
+            </div>
         <?php endif; ?>
 
         <?php if( $second ) : ?>
-            <p class="sm:text-xl text-[16px] font-normal font-secondary text-white/80 max-w-[650px] mx-auto sm:mb-[44px] mb-[37px]"
-                data-aos="fade-up"
-                data-aos-delay="300"
-            >
-                <?= $second; ?>
-            </p>
+            <div data-aos="fade-up" data-aos-delay="700">
+                <?= $ui->paragraph( $second, 'text-white/80 max-w-[650px] mx-auto sm:mb-[44px] mb-[37px]' ); ?>
+            </div>
         <?php endif; ?>
 
         <?php if( $button) : ?>
-            <a href="<?= $button['url']; ?>" 
-                class="font-medium text-[16px] font-secondary bg-white/10 border border-white rounded-[12px] text-white px-8 py-[12px] hover:bg-gray-200 transition hover:text-black"
-                target="<?= $button['target']; ?>"
-                data-aos="fade-up"
-                data-aos-delay="400"
-            >
-                <?= $button['title']; ?>
-            </a>
+            <div data-aos="fade-up" data-aos-delay="800">
+                <?= $ui->button( $button['title'], $button['url'], $button['target'] ); ?>
+            </div>
         <?php endif; ?>
     </div>
 </section>
