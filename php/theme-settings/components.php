@@ -202,6 +202,26 @@ class HY_UI {
             $text
         );
     }
+    public function title( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<h3 class="sm:text-3xl text-2xl font-medium font-secondary %s">%s</h3>',
+            $class,
+            $text
+        );
+    }
+    public function small_title( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<h4 class="text-xl font-medium font-secondary %s">%s</h4>',
+            $class,
+            $text
+        );
+    }
 
     // Paragraph
     public function paragraph( $text, $class = '' ) {
@@ -210,6 +230,16 @@ class HY_UI {
         
         return sprintf(
             '<p class="sm:text-xl text-base font-secondary max-w-[490px] %s">%s</p>',
+            $class,
+            $text
+        );
+    }
+    public function small_paragraph( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<p class="text-base font-light font-secondary %s">%s</p>',
             $class,
             $text
         );

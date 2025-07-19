@@ -6,6 +6,7 @@
     }
 
     $cards = get_field('cards');
+    $ui = new HY_UI();
 ?>
 
 <section class="py-16 text-center">
@@ -15,19 +16,18 @@
                 foreach( $cards as $i => $card ) :
                     if( $card ) :
                         $border = $i % 4 !== 0 ? 'md:border-l border-[#D1D1D1]' : '';
-                        $delay = 100 * $i; // Stagger delay by 100ms per card
-                        ?>
+                        $delay = 200 * $i; ?>
                         
                         <div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>"
                              data-aos="fade-up" 
                              data-aos-delay="<?= $delay; ?>">
                              
                             <?php if( $card['title'] ) : ?>
-                                <h3 class="text-xl font-medium font-secondary mb-2"><?= $card['title']; ?></h3>
+                                <?= $ui->small_title( $card['title'], 'mb-2' ); ?>
                             <?php endif; ?>
 
                             <?php if( $card['paragraph'] ) : ?>
-                                <p class="text-base font-light font-secondary"><?= $card['paragraph']; ?></p>
+                                <?= $ui->small_paragraph( $card['paragraph'] ); ?>
                             <?php endif; ?>
                         </div>
 
