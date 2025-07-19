@@ -476,18 +476,12 @@ form.cart:has(.quantity-wrapper) {
     transition: color 0.5s ease-in-out;
     overflow: hidden;
 }
-.btn-aware:hover {
-    color: #000;
-}
-.btn-aware:active {
-    background-color: #fff;
-}
+
 .btn-aware-circle {
     position: absolute;
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background-color: #fff;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.5s ease-out;
     z-index: -1;
@@ -495,6 +489,20 @@ form.cart:has(.quantity-wrapper) {
 }
 .btn-aware:hover .btn-aware-circle {
     transform: translate(-50%, -50%) scale(1);
+}
+.btn-aware-white:hover {
+    color: #000;
+}
+.btn-aware-white:active,
+.btn-aware-white .btn-aware-circle {
+    background-color: #fff;
+}
+.btn-aware-black:hover {
+    color: #fff;
+}
+.btn-aware-black:active,
+.btn-aware-black .btn-aware-circle {
+    background-color: #000;
 }
 
 /* WISHLIST */

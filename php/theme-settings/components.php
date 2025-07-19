@@ -52,7 +52,7 @@ function hy_shared_btn( $title, $url, $text = 'Check out this amazing content!',
         return '';
     }
     ?>
-    <button class="hy-share-button flex items-center gap-2 text-base font-medium text-black font-secondary cursor-pointer"
+    <button class="hy-share-button flex items-center gap-2 text-base font-medium text-black cursor-pointer"
             data-title="<?= esc_attr( $title ); ?>"
             data-url="<?= esc_url( $url ); ?>"
             data-text="<?= esc_attr( $text ); ?>">
@@ -161,15 +161,32 @@ function hy_share_modal_container() {
 }
 
 class HY_UI {
-    public function button( $title, $url, $target = '_blank', $class = '' ) {
+    public function button( $title, $url, $target = '', $class = '' ) {
         $title = esc_html( $title );
         $url = esc_url( $url );
-        $target = in_array( $target, ['_blank', '_self', '_parent', '_top'] ) ? $target : '_blank';
         $class = esc_attr( $class );
         
         return sprintf(
             '<div class="btn-aware-wrapper relative inline-block">
-                <a href="%s" target="%s" class="btn-aware relative inline-block px-8 py-3 text-base font-medium text-white border border-white rounded-xl overflow-hidden backdrop-blur-[2px] z-10 %s">
+                <a href="%s" target="%s" class="btn-aware btn-aware-white relative inline-block px-8 py-3 text-base font-medium border border-white rounded-xl overflow-hidden backdrop-blur-[2px] z-10 %s">
+                    %s
+                    <span class="btn-aware-circle"></span>
+                </a>
+            </div>',
+            $url,
+            $target,
+            $class,
+            $title
+        );
+    }
+    public function black_button( $title, $url, $target = '', $class = '' ) {
+        $title = esc_html( $title );
+        $url = esc_url( $url );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<div class="btn-aware-wrapper relative inline-block">
+                <a href="%s" target="%s" class="btn-aware btn-aware-black relative inline-block px-8 py-3 text-base font-medium border border-black rounded-xl overflow-hidden backdrop-blur-[2px] z-10 %s">
                     %s
                     <span class="btn-aware-circle"></span>
                 </a>
@@ -207,7 +224,7 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<h3 class="sm:text-3xl text-2xl font-medium font-secondary %s">%s</h3>',
+            '<h3 class="text-2xl font-medium %s">%s</h3>',
             $class,
             $text
         );
@@ -217,7 +234,17 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<h4 class="text-xl font-medium font-secondary %s">%s</h4>',
+            '<h4 class="text-xl font-medium %s">%s</h4>',
+            $class,
+            $text
+        );
+    }
+    public function label( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<h5 class="uppercase tracking-widest text-sm %s">%s</h5>',
             $class,
             $text
         );
@@ -229,7 +256,7 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<p class="sm:text-xl text-base font-secondary max-w-[490px] %s">%s</p>',
+            '<p class="sm:text-xl text-base max-w-[490px] %s">%s</p>',
             $class,
             $text
         );
@@ -239,7 +266,7 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<p class="text-base font-light font-secondary %s">%s</p>',
+            '<p class="text-base font-light %s">%s</p>',
             $class,
             $text
         );

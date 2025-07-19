@@ -8,23 +8,18 @@
     $label = get_field('label');
     $heading = get_field('heading');
     $cards = get_field('cards');
+    $ui = new HY_UI();
 ?>
 
 <section class="bg-[#F5F5F3] py-24">
     <div class="container mx-auto px-4">
 
         <?php if( $label ) : ?>
-            <h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center" 
-                data-aos="fade-up" 
-                data-aos-delay="50"><?= $label; ?></h5>
+            <?= $ui->label( $label, 'text-[#27221E] mb-4 text-center' ) ?>
         <?php endif; ?>
 
         <?php if( $heading ) : ?>
-            <h2 class="text-[40px] font-light font-primary italic leading-tight text-[#27221E] mb-[47px] max-w-[530px] mx-auto text-center"
-                data-aos="fade-up" 
-                data-aos-delay="100">
-                <?= $heading; ?>
-            </h2>
+            <?= $ui->section_heading(  $heading, 'sm:mb-8 mb-8 text-[#27221E] max-w-[530px] mx-auto text-center' ); ?>
         <?php endif; ?>
 
         <div class="flex flex-col md:flex-row justify-center items-stretch gap-8">
@@ -42,22 +37,15 @@
                              data-aos-delay="<?= $delay; ?>">
                              
                             <?php if( $title ) : ?>
-                                <h3 class="text-2xl font-medium font-secondary mb-[20px] text-black"><?= $title; ?></h3>
+                                <?= $ui->title( $title, 'mb-5' ); ?>
                             <?php endif; ?>
 
                             <?php if( $paragraph ) : ?>
-                                <p class="text-black text-lg font-secondary mb-[20px]">
-                                    <?= $paragraph; ?>
-                                </p>
+                                <?= $ui->small_paragraph( $paragraph, 'text-black text-lg mb-5' ); ?>
                             <?php endif; ?>
 
                             <?php if( $button ) : ?>
-                                <a href="<?= $button['url']; ?>" 
-                                    class="inline-block font-medium text-base font-secondary bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
-                                    target="<?= $button['target']; ?>">
-
-                                    <?= $button['title']; ?>
-                                </a>
+                                <?= $ui->black_button( $button['title'], $button['url'], $button['target'] ); ?>
                             <?php endif; ?>
                         </div>
 
