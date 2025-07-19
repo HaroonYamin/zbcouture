@@ -181,4 +181,27 @@ class HY_UI {
         );
     }
 
+    // Headings
+    public function main_heading( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<h1 class="sm:text-5xl text-4xl text-center font-primary font-normal max-w-[490px] lh-normal italic %s">%s</h1>',
+            $class,
+            $text
+        );
+    }
+
+    // Paragraph
+    public function paragraph( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<p class="sm:text-xl text-base font-secondary max-w-[490px] %s">%s</p>',
+            $class,
+            $text
+        );
+    }
 }
