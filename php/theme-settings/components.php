@@ -159,3 +159,26 @@ function hy_share_modal_container() {
     </div>
     <?php
 }
+
+class HY_UI {
+    public function button( $title, $url, $target = '_blank', $class = '' ) {
+        $title = esc_html( $title );
+        $url = esc_url( $url );
+        $target = in_array( $target, ['_blank', '_self', '_parent', '_top'] ) ? $target : '_blank';
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<div class="btn-aware-wrapper relative inline-block">
+                <a href="%s" target="%s" class="btn-aware relative inline-block px-8 py-3 text-base font-medium text-white border border-white rounded-xl overflow-hidden backdrop-blur-[2px] z-10 %s">
+                    %s
+                    <span class="btn-aware-circle"></span>
+                </a>
+            </div>',
+            $url,
+            $target,
+            $class,
+            $title
+        );
+    }
+
+}
