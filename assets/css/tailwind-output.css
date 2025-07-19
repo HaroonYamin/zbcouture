@@ -1252,6 +1252,9 @@
   .text-left {
     text-align: left;
   }
+  .align-middle {
+    vertical-align: middle;
+  }
   .font-primary {
     font-family: var(--font-primary);
   }
