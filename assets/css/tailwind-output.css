@@ -616,6 +616,9 @@
   .h-\[calc\(100vh-62px\)\] {
     height: calc(100vh - 62px);
   }
+  .h-\[calc\(100vh-78px\)\] {
+    height: calc(100vh - 78px);
+  }
   .h-\[calc\(100vh-80px\)\] {
     height: calc(100vh - 80px);
   }
@@ -1866,6 +1869,11 @@
   .sm\:h-\[860px\] {
     @media (width >= 40rem) {
       height: 860px;
+    }
+  }
+  .sm\:h-\[calc\(100vh-62px\)\] {
+    @media (width >= 40rem) {
+      height: calc(100vh - 62px);
     }
   }
   .sm\:w-1\/2 {
