@@ -33,8 +33,8 @@
                             <div class="absolute inset-0 bg-black/40 z-10"></div>
                         
                             <!-- Foreground Content (Top Layer) -->
-                            <div class="absolute inset-0 flex flex-col items-center justify-center h-full text-center text-white px-4 z-20">
-                                <div class="swiper-banner-content">
+                            <div class="absolute inset-0 flex flex-col items-center sm:justify-center justify-end h-full text-center text-white px-4 z-20">
+                                <div class="swiper-banner-content mb-24 sm:mb-0">
                                     <?php if( $title ) : ?>
                                         <h1 class="sm:text-[48px] text-[36px] font-primary font-normal max-w-[490px] lh-normal italic">
                                             <?= $title; ?>
@@ -61,7 +61,7 @@
         </div>
     </div>
     <!-- Positioned Pagination -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 slider-timer">
+    <div class="absolute sm:bottom-8 bottom-5 left-1/2 transform -translate-x-1/2 z-10 slider-timer">
         <div class="banner-pagination slider-timer"></div>
     </div>
 </section>
