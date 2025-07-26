@@ -10,6 +10,7 @@
     $button = get_field('button');
     $name = get_field('collection_name');
     $collection = get_field('collections');
+    $ui = new HY_UI();
 ?>
 
 <section class="sm:py-32 py-16">
@@ -17,29 +18,17 @@
 
     <div class="text-center">
       <?php if( $label ) : ?>
-        <h5 class="text-base font-normal font-secondary uppercase tracking-widest text-[#27221E] mb-[25px] text-center"
-            data-aos="fade-up"
-            data-aos-delay="50">
-          <?= $label; ?>
-        </h5>
+        <?= $ui->label( $label, 'text-[#27221E] mb-4 text-center' ) ?>
       <?php endif; ?>
 
       <?php if( $heading ) : ?>
-        <h2 class="text-[40px] font-normal font-primary leading-tight text-[#27221E] max-w-[530px] mx-auto text-center"
-            data-aos="fade-up"
-            data-aos-delay="100">
-          <?= $heading; ?>
-        </h2>
+        <?= $ui->section_heading(  $heading, 'text-[#27221E] max-w-[530px] mx-auto text-center' ); ?>
       <?php endif; ?>
 
       <?php if( $button ) : ?>
-        <a href="<?= $button['url']; ?>" 
-           class="inline-block mt-[25px] font-medium font-secondary text-[16px] bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[36px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
-           target="<?= $button['target']; ?>"
-           data-aos="fade-up"
-           data-aos-delay="150">
-          <?= $button['title']; ?>
-        </a>
+        <div class="mt-6">
+          <?= $ui->black_button( $button['title'], $button['url'], $button['target'] ); ?>
+        </div>
       <?php endif; ?>
     </div>
 
