@@ -9,6 +9,8 @@
     $heading = get_field('heading');
     $button = get_field('button');
     $collection = get_field('collections');
+    $ui = new HY_UI();
+
 ?>
 
 <section class="text-center py-[108px] px-4">
@@ -19,10 +21,9 @@
         <?php endif; ?>
 
         <?php if( $heading ) : ?>
-            <h2 class="sm:text-5xl text-3xl font-primary font-light mt-5 mb-6"
-                data-aos="fade-up" data-aos-delay="100">
-                <?= $heading; ?>
-            </h2>
+            <div class="font-primary font-light sm:my-6 my-0 mx-auto max-w-[600px]" data-aos="fade-up" data-aos-delay="100">
+                <?= $ui->main_heading(  $heading ); ?>
+            </div>
         <?php endif; ?>
 
         <?php if( $button ) : ?>
@@ -35,7 +36,7 @@
         <?php endif; ?>
 
         <!-- Flex Layout with Gap -->
-        <div class="mt-16 flex flex-wrap justify-center gap-[16px]">
+        <div class="sm:mt-16 mt-12 flex flex-wrap justify-center gap-[16px]">
         <?php if( $collection ) :
             foreach( $collection as $i => $collect ) :
             if( $collect ) :
@@ -50,7 +51,7 @@
                    data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="<?= $delay; ?>">
                     <?= get_image( $thumbnail_id, 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2' ); ?>
 
-                    <div class="absolute inset-0 bg-black/30 z-10 w-full h-full"></div>
+                    <div class="absolute inset-0 bg-black/30 hover:bg-black/0 transition-all duration-400 z-10 w-full h-full"></div>
 
                     <?php if( $term->name ) : ?>
                         <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">

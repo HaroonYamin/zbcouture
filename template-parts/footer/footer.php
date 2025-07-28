@@ -17,9 +17,9 @@
     <div class="container mx-auto px-5">
         <div class="grid grid-cols-12 gap-x-6 gap-y-12">
             <!-- Logo -->
-            <div class="xl:col-span-3 sm:col-span-4 col-span-12 flex justify-center xl:justify-start">
+            <div class="xl:col-span-3 sm:col-span-4 col-span-12 flex justify-start">
                 <?php $image_url = wp_get_attachment_image_src($site_logo, 'full'); ?>
-                <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-32 lg:w-40" style="height: fit-content;">
+                <img src="<?php echo esc_url($image_url[0]); ?>" alt="Site logo" class="w-50 lg:w-40" style="height: fit-content;">
             </div>
 
             <!-- Column 2 -->

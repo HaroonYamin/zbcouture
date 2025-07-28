@@ -7,6 +7,8 @@
 
     $title = get_field('title');
     $gallery = get_field('gallery');
+    $ui = new HY_UI();
+
 ?>
 
 <section class="py-8">
