@@ -11,6 +11,7 @@
     $sub_heading = get_field('sub_heading');
     $first = get_field('paragraph')['first'];
     $second = get_field('paragraph')['second'];
+    $ui = new HY_UI();
 ?>
 
 <section class="sm:py-24 py-[54px] w-full">
@@ -26,17 +27,15 @@
     <!-- Text Area -->
     <div class="w-full xl:basis-2/6 text-left">
       <?php if( $label ) : ?>
-        <h5 class="uppercase tracking-wide sm:text-sm text-[12px] text-[#6D6D6D] font-secondary mb-[24px]"
+        <div class="sm:text-sm text-[12px] text-[#6D6D6D] font-secondary mb-6"
              data-aos="fade-up" data-aos-delay="50">
-          <?= $label; ?>
-        </h5>
+          <?= $ui->label( $label ) ?>
+        </div>
       <?php endif; ?>
 
       <?php if( $heading ) : ?>
-        <h2 class="text-[40px] font-primary font-normal max-w-[517px] italic leading-tight"
-            data-aos="fade-up" data-aos-delay="100">
-          <?= $heading; ?>
-        </h2>
+
+        <?= $ui->section_heading(  $heading, 'text-[40px] font-primary font-normal max-w-[517px]' ); ?>
       <?php endif; ?>
 
       <?php if( $sub_heading ) : ?>
@@ -56,17 +55,15 @@
       <!-- Paragraphs and Button -->
       <div id="readMoreContainer">
         <?php if( $first ) : ?>
-          <p class="sm:text-[20px] text-[18px] text-[#27221E] font-light leading-[1.3] font-secondary mt-[18px] max-w-[517px]"
-            data-aos="fade-up" data-aos-delay="200">
-            <?= $first; ?>
-          </p>
+          <div class="text-[#27221E] font-light leading-[1.3] font-secondary mt-[18px] max-w-[517px]" data-aos="fade-up" data-aos-delay="200">
+            <?= $ui->paragraph( $first ); ?>
+          </div>
         <?php endif; ?>
 
         <?php if( $second ) : ?>
-          <p id="secondPara" class="sm:text-[20px] text-[18px] text-[#27221E] font-light leading-[1.3] font-secondary max-w-[517px] truncate-4"
-            data-aos="fade-up" data-aos-delay="250">
-            <?= $second; ?>
-          </p>
+          <div id="secondPara" class="text-[#27221E] font-light leading-[1.3] font-secondary max-w-[517px] truncate-4" data-aos="fade-up" data-aos-delay="250">
+            <?= $ui->paragraph( $second ); ?>
+          </div>
         <?php endif; ?>
 
         <button id="toggleBtn"

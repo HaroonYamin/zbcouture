@@ -249,15 +249,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* UI INTERACTIONS */
 document.addEventListener("DOMContentLoaded", function () {
-    // Read more toggle
+    // Read more toggle with smooth animation
     const toggleBtn = document.getElementById("toggleBtn");
     const paragraph = document.getElementById("secondPara");
     let expanded = false;
 
     toggleBtn?.addEventListener("click", function () {
-        paragraph.classList.toggle("truncate-4");
+        if (expanded) {
+            // Collapsing
+            paragraph.classList.add("truncate-4");
+            paragraph.classList.remove("expanded");
+            toggleBtn.innerText = "Read More";
+        } else {
+            // Expanding
+            paragraph.classList.remove("truncate-4");
+            paragraph.classList.add("expanded");
+            toggleBtn.innerText = "Read Less";
+        }
         expanded = !expanded;
-        toggleBtn.innerText = expanded ? "Read Less" : "Read More";
     });
 
     // FAQ Accordion

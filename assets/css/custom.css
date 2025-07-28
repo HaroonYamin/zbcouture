@@ -234,12 +234,19 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
 
 /* UTILITY CLASSES */
 .truncate-4 {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    -webkit-box-orient: vertical;
+    max-height: 5.2em; /* Approximately 4 lines */
     overflow: hidden;
-    text-overflow: ellipsis;
+    transition: max-height 1s ease-out, opacity 1s ease-out;
+}
+.expanded {
+    max-height: 1000px !important; /* Large enough value */
+}
+.expanded::after {
+    opacity: 0;
+}
+
+#secondPara {
+    transition: max-height 0.6s ease-out, opacity 0.4s ease-out;
 }
 .max-w-336px {
     max-width: 336px;

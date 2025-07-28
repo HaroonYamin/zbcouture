@@ -78,9 +78,7 @@ if( !$enable ) return;
                 <!-- Text Side -->
                 <div class="text-left lg:mt-[32px] mt-[64px] slide-content">
                   <?php if( $paragraph ) : ?>
-                    <p class="sm:text-2xl text-lg font-normal font-secondary text-[#27221E] mb-6 max-w-[648px] mx-auto lg:mx-0">
-                      <?= $paragraph; ?>
-                    </p>
+                    <?= $ui->large_paragraph(  $paragraph, 'max-w-[648px] font-normal font-secondary mx-auto lg:mx-0' ); ?>
                   <?php endif; ?>
 
                   <?php if( $customer ) : ?>
