@@ -439,3 +439,116 @@ document.addEventListener("DOMContentLoaded", function () {
         }, delay);
     });
 });
+
+
+// Testimonials Swiper with fade effect
+document.addEventListener('DOMContentLoaded', function() {
+  const swiper = new Swiper('.testimonials-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: false,
+    speed: 800,
+    effect: 'slide',
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    on: {
+      slideChangeTransitionStart: function () {
+        // Reset all slides to initial state
+        const allSlides = this.slides;
+        allSlides.forEach(slide => {
+          const image = slide.querySelector('.slide-image');
+          const content = slide.querySelector('.slide-content');
+          
+          if (image) {
+            image.style.transform = 'scale(0.8)';
+            image.style.opacity = '0';
+            image.style.transitionDelay = '0s';
+          }
+          if (content) {
+            content.style.transform = 'translateX(50px)';
+            content.style.opacity = '0';
+            content.style.transitionDelay = '0s';
+          }
+        });
+      },
+      slideChangeTransitionEnd: function () {
+        // Animate active slide with AOS-like timing
+        const activeSlide = this.slides[this.activeIndex];
+        if (activeSlide) {
+          const image = activeSlide.querySelector('.slide-image');
+          const content = activeSlide.querySelector('.slide-content');
+          
+          // Image zoom-in animation (like AOS zoom-in with delay 200ms)
+          setTimeout(() => {
+            if (image) {
+              image.style.transform = 'scale(1)';
+              image.style.opacity = '1';
+            }
+          }, 200);
+          
+          // Text fade-left animation (like AOS fade-left with delay 300ms)
+          setTimeout(() => {
+            if (content) {
+              content.style.transform = 'translateX(0)';
+              content.style.opacity = '1';
+            }
+          }, 300);
+        }
+      }
+    }
+  });
+
+  // Arrow click handlers
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('#testimonial-arrow-left')) {
+      e.preventDefault();
+      
+      const arrow = e.target.closest('#testimonial-arrow-left');
+      arrow.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        arrow.style.transform = 'scale(1)';
+      }, 150);
+      
+      swiper.slidePrev();
+    }
+    
+    if (e.target.closest('#testimonial-arrow-right')) {
+      e.preventDefault();
+      
+      const arrow = e.target.closest('#testimonial-arrow-right');
+      arrow.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        arrow.style.transform = 'scale(1)';
+      }, 150);
+      
+      swiper.slideNext();
+    }
+  });
+
+  // Initialize first slide with AOS-like animations
+  setTimeout(() => {
+    const firstSlide = document.querySelector('.swiper-slide-active');
+    if (firstSlide) {
+      const image = firstSlide.querySelector('.slide-image');
+      const content = firstSlide.querySelector('.slide-content');
+      
+      // Image zoom-in with delay 200ms
+      setTimeout(() => {
+        if (image) {
+          image.style.transform = 'scale(1)';
+          image.style.opacity = '1';
+        }
+      }, 200);
+      
+      // Text fade-left with delay 300ms  
+      setTimeout(() => {
+        if (content) {
+          content.style.transform = 'translateX(0)';
+          content.style.opacity = '1';
+        }
+      }, 300);
+    }
+  }, 100);
+});
