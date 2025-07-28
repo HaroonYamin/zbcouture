@@ -261,6 +261,16 @@ class HY_UI {
             $text
         );
     }
+    public function large_paragraph( $text, $class = '' ) {
+        $text = esc_html( $text );
+        $class = esc_attr( $class );
+        
+        return sprintf(
+            '<p class="sm:text-2xl text-lg mb-6 max-w-[648px] %s">%s</p>',
+            $class,
+            $text
+        );
+    }
     public function small_paragraph( $text, $class = '' ) {
         $text = esc_html( $text );
         $class = esc_attr( $class );
