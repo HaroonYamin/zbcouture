@@ -149,68 +149,68 @@ get_header( 'shop' ); ?>
             </div>
         <?php endwhile; ?>
 
-    </div>
-</section>
+         <!-- Product Description -->
+        <div class="pt-4">
+            <div class="max-w-[610px] text-[#252525] font-secondary" id="faqAccordion">
 
-<section class="py-10">
-    <div class="container mx-auto px-4">
-        <div class="max-w-[550px] text-[#252525] font-secondary" id="faqAccordion">
-
-        <?php if( get_the_content() ) : ?>
-            <div class="py-4">
-                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
-                    Description
-                <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
-                </button>
-                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                <div class="pt-4 sm:text-xl text-lg">
-                    <?php the_content(); ?>
-                </div>
-                </div>
-            </div>
-        <?php endif; ?>
-
-        <?php $global_product_page_content = get_field('global_product_page_content', 'option'); ?>
-
-        <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
-
-            <div class="py-4">
-                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
-                    Delivery Policy
-                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
-                </button>
-                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+            <?php if( get_the_content() ) : ?>
+                <div class="py-4">
+                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                        Description
+                    <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
                     <div class="pt-4 sm:text-xl text-lg">
-                        <?= $global_product_page_content['delivery_policy']; ?>
+                        <?php the_content(); ?>
+                    </div>
                     </div>
                 </div>
-            </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <?php if( $global_product_page_content && !empty($global_product_page_content['how_it_works']) ) : ?>
-            <div class="py-4">
-                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
-                    How it works
-                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
-                </button>
-                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                    <div class="pt-4 sm:text-xl text-lg">
-                        <?= $global_product_page_content['how_it_works']; ?>
+            <?php $global_product_page_content = get_field('global_product_page_content', 'option'); ?>
+
+            <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
+
+                <div class="py-4">
+                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                        Delivery Policy
+                        <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                        <div class="pt-4 sm:text-xl text-lg">
+                            <?= $global_product_page_content['delivery_policy']; ?>
+                        </div>
                     </div>
                 </div>
+            <?php endif; ?>
+
+            <?php if( $global_product_page_content && !empty($global_product_page_content['how_it_works']) ) : ?>
+                <div class="py-4">
+                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
+                        How it works
+                        <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                        <div class="pt-4 sm:text-xl text-lg">
+                            <?= $global_product_page_content['how_it_works']; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
+                <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
             </div>
-        <?php endif; ?>
 
-        <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
-            <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-        </div>
-
+            </div>
         </div>
     </div>
 </section>
+
+
 
 <section class="mt-44 pb-14">
     <div class="container mx-auto px-4">
