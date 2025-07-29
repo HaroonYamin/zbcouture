@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Read more toggle with smooth animation
     const toggleBtn = document.getElementById("toggleBtn");
+    const toggleTitle = document.querySelector(".readme-title");
     const paragraph = document.getElementById("secondPara");
     let expanded = false;
 
@@ -259,12 +260,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // Collapsing
             paragraph.classList.add("truncate-4");
             paragraph.classList.remove("expanded");
-            toggleBtn.innerText = "Read More";
+            toggleTitle.innerText = "Read More";
         } else {
             // Expanding
             paragraph.classList.remove("truncate-4");
             paragraph.classList.add("expanded");
-            toggleBtn.innerText = "Read Less";
+            toggleTitle.innerText = "Read Less";
         }
         expanded = !expanded;
     });
