@@ -27,40 +27,51 @@ get_header( 'shop' ); ?>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
                 <div class="flex gap-3 flex-col-reverse sm:flex-row">
-                    <div class="swiper hy-swiper-product max-h-[750px]">
+                    <!-- Vertical Thumbnail Swiper -->
+                    <div class="swiper hy-swiper-product max-h-[750px] sm:max-w-[90px]">
                         <div class="swiper-wrapper">
                             <?php if ( $main_image ) : ?>
                                 <div class="swiper-slide">
-                                    <?= get_image($main_image, 'thumbnail object-cover cursor-pointer border-2 border-black opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
+                                    <?= get_image($main_image, 'thumbnail object-cover cursor-pointer opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
                                 </div>
                             <?php endif; ?>
 
                             <?php foreach ( $gallery_ids as $gallery_id ) : ?>
-                                <?php $gallery_image = wp_get_attachment_image_src( $gallery_id, 'full' ); ?>
                                 <div class="swiper-slide">
-                                    <?= get_image($gallery_id, 'thumbnail object-cover cursor-pointer border-2 border-gray-300 hover:border-black opacity-60 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
+                                    <?= get_image($gallery_id, 'thumbnail object-cover cursor-pointer opacity-60 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
                     </div>
 
-                    <div class="main-product-image overflow-hidden">
-                        <?php if ( $main_image ) : ?>
-                            <div id="mainImage">
-                                <?php 
-                                // Get the image with onclick event
-                                $image_html = get_image($main_image, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
-                                // Add onclick event to the image
-                                $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
-                                echo $image_html;
-                                ?>
-                            </div>
-                        <?php else : ?>
-                            <div class="w-[550px] h-[750px] bg-gray-200 flex items-center justify-center text-gray-500">
-                                No Image Available
-                            </div>
-                        <?php endif; ?>
+                    <!-- Main Image Swiper -->
+                    <div class="swiper hy-swiper-main main-product-image overflow-hidden w-full sm:max-w-[550px] sm:h-[750px]">
+                        <div class="swiper-wrapper">
+                            <?php if ( $main_image ) : ?>
+                                <div class="swiper-slide">
+                                    <div id="mainImage">
+                                        <?php 
+                                        $image_html = get_image($main_image, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
+                                        $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
+                                        echo $image_html;
+                                        ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php foreach ( $gallery_ids as $gallery_id ) : ?>
+                                <div class="swiper-slide">
+                                    <?php 
+                                    $image_html = get_image($gallery_id, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
+                                    $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
+                                    echo $image_html;
+                                    ?>
+                                </div>
+                            <?php endforeach; ?>
+
+                        </div>
                     </div>
+
                     <!-- Modal -->
                     <div id="imageModal" class="modal">
                         <span class="close" onclick="closeModal()">&times;</span>
@@ -69,6 +80,8 @@ get_header( 'shop' ); ?>
                         </div>
                     </div>
                 </div>
+
+
 
                 <div class="space-y-6">
                     <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
@@ -87,7 +100,7 @@ get_header( 'shop' ); ?>
                     <div class="flex sm:items-center sm:flex-row flex-col gap-6 text-sm">
                         <?php hy_shared_btn( get_the_title(), get_permalink() ); ?>
 
-                        <div class="my-wishlist-btn">
+                        <div class="my-wishlist-btn hover:bg-[rgba(0,0,0,0.05)] transition-all duration-300 p-2 rounded">
                             <?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
                         </div>
 

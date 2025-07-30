@@ -95,124 +95,198 @@ document.addEventListener("click", function (event) {
     }
 });
 
-/* PRODUCT FUNCTIONALITY */
-document.addEventListener("DOMContentLoaded", function () {
-    // Share button functionality
-    const shareButton = document.getElementById("hy-share-button");
-    if (shareButton && navigator.share) {
-        shareButton.addEventListener("click", async function () {
-            const title = shareButton.dataset.title;
-            const url = shareButton.dataset.url;
-            try {
-                await navigator.share({ title: title, url: url });
-            } catch (err) {
-                console.error("Share failed:", err.message);
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Share Button
+    const shareBtn = document.getElementById("hy-share-button");
+    shareBtn?.addEventListener("click", async () => {
+        try {
+            await navigator.share({ title: shareBtn.dataset.title, url: shareBtn.dataset.url });
+        } catch (err) {
+            console.error("Share failed:", err.message);
+        }
+    });
+
+    // Image Gallery: Manual Fallback (in case Swiper isn't used)
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const mainImg = document.querySelector("#mainImage img");
+
+    if (mainImg && thumbnails.length) {
+        const setActive = (el) => {
+            mainImg.src = el.src;
+            mainImg.alt = el.alt;
+            thumbnails.forEach(t => t.classList.replace("border-black", "border-gray-300"));
+            thumbnails.forEach(t => t.classList.replace("opacity-100", "opacity-60"));
+            el.closest(".thumbnail").classList.replace("border-gray-300", "border-black");
+            el.closest(".thumbnail").classList.replace("opacity-60", "opacity-100");
+        };
+
+        setActive(thumbnails[0].querySelector("img"));
+        thumbnails.forEach(t => t.addEventListener("click", () => setActive(t.querySelector("img"))));
+    }
+
+    // Function to update thumbnail active state
+    const updateThumbnailActive = (activeIndex) => {
+        const thumbSlides = document.querySelectorAll(".hy-swiper-product .swiper-slide img");
+        
+        thumbSlides.forEach((img, index) => {
+            // Force remove all border and opacity classes first
+            img.classList.remove("border-gray-300", "border-black", "opacity-60", "opacity-100");
+            
+            if (index === activeIndex) {
+                // Active thumbnail styling
+                img.classList.add("border-black", "opacity-100");
+                // Also add border-2 if not present
+                if (!img.classList.contains("border-2")) {
+                    img.classList.add("border-2");
+                }
+            } else {
+                // Inactive thumbnail styling
+                img.classList.add("border-gray-300", "opacity-60");
+                // Also add border-2 if not present
+                if (!img.classList.contains("border-2")) {
+                    img.classList.add("border-2");
+                }
             }
         });
-    }
+    };
 
-    // Image gallery functionality
-    const thumbnailContainers = document.querySelectorAll(".thumbnail");
-    const mainImageContainer = document.querySelector("#mainImage");
-    const mainImage = mainImageContainer ? mainImageContainer.querySelector("img") : null;
+    // Swiper for Thumbnails & Main Image
+    const thumbSwiper = new Swiper(".hy-swiper-product", {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        direction: window.innerWidth < 640 ? 'horizontal' : 'vertical', // sm: breakpoint Tailwind style
+        freeMode: true,
+        watchSlidesProgress: true,
+        mousewheel: true,
+        breakpoints: {
+            640: { direction: 'vertical' }, // sm and up = vertical
+            0: { direction: 'horizontal' }, // xs = horizontal
+        },
+    });
 
-    if (mainImage && thumbnailContainers.length > 0) {
-        const firstThumbnail = thumbnailContainers[0];
-        const firstThumbnailImg = firstThumbnail.querySelector("img");
-        if (firstThumbnailImg && mainImage.src === "undefined") {
-            mainImage.src = firstThumbnailImg.src;
-            mainImage.alt = firstThumbnailImg.alt;
-            firstThumbnail.classList.remove("border-gray-300", "opacity-60");
-            firstThumbnail.classList.add("border-black", "opacity-100");
+    const mainSwiper = new Swiper(".hy-swiper-main", {
+        spaceBetween: 10,
+        thumbs: {
+            swiper: thumbSwiper,
+        },
+        // Add slide change event listener
+        on: {
+            slideChange: function() {
+                // Add small delay to ensure swiper has updated
+                setTimeout(() => {
+                    updateThumbnailActive(this.activeIndex);
+                    // Also sync thumbnail swiper to show the active thumbnail
+                    thumbSwiper.slideTo(this.activeIndex);
+                }, 10);
+            },
+            init: function() {
+                // Set initial active thumbnail with delay
+                setTimeout(() => {
+                    updateThumbnailActive(this.activeIndex);
+                }, 100);
+            }
         }
+    });
 
-        thumbnailContainers.forEach(function (thumbnailContainer) {
-            thumbnailContainer.addEventListener("click", function () {
-                const thumbnailImg = this.querySelector("img");
-                if (thumbnailImg) {
-                    mainImage.src = thumbnailImg.src;
-                    mainImage.alt = thumbnailImg.alt;
+    // Sync thumbnail swiper with main swiper clicks
+    thumbSwiper.on('tap', function(swiper, event) {
+        const clickedSlide = event.target.closest('.swiper-slide');
+        if (clickedSlide) {
+            const slideIndex = Array.from(clickedSlide.parentNode.children).indexOf(clickedSlide);
+            // Update main swiper to show corresponding image
+            mainSwiper.slideTo(slideIndex);
+            // Update thumbnail styling
+            updateThumbnailActive(slideIndex);
+        }
+    });
 
-                    thumbnailContainers.forEach(function (container) {
-                        container.classList.remove("border-black", "opacity-100");
-                        container.classList.add("border-gray-300", "opacity-60");
-                    });
-
-                    this.classList.remove("border-gray-300", "opacity-60");
-                    this.classList.add("border-black", "opacity-100");
-                }
-            });
+    // Also handle direct thumbnail clicks (for better compatibility)
+    document.querySelectorAll('.hy-swiper-product .swiper-slide img').forEach((img, index) => {
+        img.addEventListener('click', () => {
+            mainSwiper.slideTo(index);
+            updateThumbnailActive(index);
         });
-    }
+    });
 
-    // Product slider horizontal scrolling
+    // Product Slider with Arrow Scroll
     const slider = document.getElementById("product-slider");
-    const scrollLeftBtn = document.getElementById("scrollLeftBtn");
-    const scrollRightBtn = document.getElementById("scrollRightBtn");
+    const leftBtn = document.getElementById("scrollLeftBtn");
+    const rightBtn = document.getElementById("scrollRightBtn");
+    const scrollAmt = 328;
 
-    if (slider && scrollLeftBtn && scrollRightBtn) {
-        const scrollDistance = 328;
+    if (slider && leftBtn && rightBtn) {
+        const update = () => {
+            const max = slider.scrollWidth - slider.clientWidth;
+            leftBtn.style.opacity = slider.scrollLeft <= 0 ? "0.5" : "1";
+            rightBtn.style.opacity = slider.scrollLeft >= max ? "0.5" : "1";
+        };
 
-        function scrollLeft() {
-            slider.scrollBy({ left: -scrollDistance, behavior: "smooth" });
-        }
+        leftBtn.onclick = () => slider.scrollBy({ left: -scrollAmt, behavior: "smooth" });
+        rightBtn.onclick = () => slider.scrollBy({ left: scrollAmt, behavior: "smooth" });
+        slider.addEventListener("scroll", update);
+        update();
 
-        function scrollRight() {
-            slider.scrollBy({ left: scrollDistance, behavior: "smooth" });
-        }
-
-        function updateArrows() {
-            const maxScroll = slider.scrollWidth - slider.clientWidth;
-            scrollLeftBtn.style.opacity = slider.scrollLeft <= 0 ? "0.5" : "1";
-            scrollRightBtn.style.opacity = slider.scrollLeft >= maxScroll ? "0.5" : "1";
-        }
-
-        scrollLeftBtn.addEventListener("click", scrollLeft);
-        scrollRightBtn.addEventListener("click", scrollRight);
-        slider.addEventListener("scroll", updateArrows);
-        updateArrows();
-
-        // Mouse drag support
-        let isDown = false;
-        let startX;
-        let scrollLeftPos;
-
-        slider.addEventListener("mousedown", (e) => {
+        let isDown = false, startX, scrollLeftStart;
+        slider.addEventListener("mousedown", e => {
             isDown = true;
             startX = e.pageX - slider.offsetLeft;
-            scrollLeftPos = slider.scrollLeft;
+            scrollLeftStart = slider.scrollLeft;
         });
-
-        slider.addEventListener("mouseleave", () => {
-            isDown = false;
-        });
-        slider.addEventListener("mouseup", () => {
-            isDown = false;
-        });
-
-        slider.addEventListener("mousemove", (e) => {
+        ["mouseleave", "mouseup"].forEach(e => slider.addEventListener(e, () => isDown = false));
+        slider.addEventListener("mousemove", e => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeftPos - walk;
+            slider.scrollLeft = scrollLeftStart - (x - startX) * 2;
         });
     }
 
-    // Horizontal card scrolling
-    const scrollWrapper = document.querySelector(".overflow-x-auto");
-    const scrollRightBtn2 = document.getElementById("scroll-arrow-right");
-    const scrollLeftBtn2 = document.getElementById("scroll-arrow-left");
-    const scrollAmount = 320;
-
-    scrollRightBtn2?.addEventListener("click", () => {
-        scrollWrapper.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    });
-
-    scrollLeftBtn2?.addEventListener("click", () => {
-        scrollWrapper.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    });
+    // Horizontal Card Scroll (Generic Cards)
+    const scrollWrap = document.querySelector(".overflow-x-auto");
+    document.getElementById("scroll-arrow-right")?.addEventListener("click", () => scrollWrap?.scrollBy({ left: 320, behavior: "smooth" }));
+    document.getElementById("scroll-arrow-left")?.addEventListener("click", () => scrollWrap?.scrollBy({ left: -320, behavior: "smooth" }));
 });
+
+
+
+
+
+
+/* MODAL FUNCTIONALITY */
+function openModal(imageElement) {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    modalImage.src = imageElement.src;
+    modalImage.alt = imageElement.alt;
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+document.getElementById("imageModal")?.addEventListener("click", function (event) {
+    if (event.target === this) {
+        closeModal();
+    }
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+
+
 
 /* IMAGE & LOADING FUNCTIONALITY */
 document.addEventListener("DOMContentLoaded", function () {
@@ -295,33 +369,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/* MODAL FUNCTIONALITY */
-function openModal(imageElement) {
-    const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    modalImage.src = imageElement.src;
-    modalImage.alt = imageElement.alt;
-    modal.style.display = "block";
-    document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-    const modal = document.getElementById("imageModal");
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-}
-
-document.getElementById("imageModal")?.addEventListener("click", function (event) {
-    if (event.target === this) {
-        closeModal();
-    }
-});
-
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        closeModal();
-    }
-});
 
 /* OFFCANVAS FUNCTIONALITY */
 document.addEventListener("DOMContentLoaded", function () {
