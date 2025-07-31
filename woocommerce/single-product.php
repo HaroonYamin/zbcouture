@@ -26,62 +26,125 @@ get_header( 'shop' ); ?>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
-                <div class="flex gap-3 flex-col-reverse sm:flex-row">
-                    <!-- Vertical Thumbnail Swiper -->
-                    <div class="swiper hy-swiper-product max-h-[750px] sm:max-w-[90px]">
-                        <div class="swiper-wrapper">
-                            <?php if ( $main_image ) : ?>
-                                <div class="swiper-slide">
-                                    <?= get_image($main_image, 'thumbnail object-cover cursor-pointer opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
-                                </div>
-                            <?php endif; ?>
+                <div class="flex flex-col">
 
-                            <?php foreach ( $gallery_ids as $gallery_id ) : ?>
-                                <div class="swiper-slide">
-                                    <?= get_image($gallery_id, 'thumbnail object-cover cursor-pointer opacity-60 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
-                                </div>
-                            <?php endforeach; ?>
+                    <div class="flex gap-3 flex-col-reverse sm:flex-row">
+                        <!-- Vertical Thumbnail Swiper -->
+                        <div class="swiper hy-swiper-product w-full max-h-[750px] sm:max-w-[90px]">
+                            <div class="swiper-wrapper">
+                                <?php if ( $main_image ) : ?>
+                                    <div class="swiper-slide">
+                                        <?= get_image($main_image, 'thumbnail object-cover cursor-pointer opacity-100 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php foreach ( $gallery_ids as $gallery_id ) : ?>
+                                    <div class="swiper-slide">
+                                        <?= get_image($gallery_id, 'thumbnail object-cover cursor-pointer opacity-60 bg-[#F5F5F5] w-[90px] h-[131px]'); ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Main Image Swiper -->
-                    <div class="swiper hy-swiper-main main-product-image overflow-hidden w-full sm:max-w-[550px] sm:h-[750px]">
-                        <div class="swiper-wrapper">
-                            <?php if ( $main_image ) : ?>
-                                <div class="swiper-slide">
-                                    <div id="mainImage">
+                        <!-- Main Image Swiper -->
+                        <div class="swiper hy-swiper-main main-product-image overflow-hidden w-full sm:h-[750px]">
+                            <div class="swiper-wrapper">
+                                <?php if ( $main_image ) : ?>
+                                    <div class="swiper-slide">
+                                        <div id="mainImage">
+                                            <?php 
+                                            $image_html = get_image($main_image, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
+                                            $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
+                                            echo $image_html;
+                                            ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php foreach ( $gallery_ids as $gallery_id ) : ?>
+                                    <div class="swiper-slide">
                                         <?php 
-                                        $image_html = get_image($main_image, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
+                                        $image_html = get_image($gallery_id, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
                                         $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
                                         echo $image_html;
                                         ?>
                                     </div>
-                                </div>
-                            <?php endif; ?>
+                                <?php endforeach; ?>
 
-                            <?php foreach ( $gallery_ids as $gallery_id ) : ?>
-                                <div class="swiper-slide">
-                                    <?php 
-                                    $image_html = get_image($gallery_id, 'object-cover w-full h-auto sm:max-w-[550px] sm:h-[750px]');
-                                    $image_html = str_replace('<img', '<img onclick="openModal(this)" style="cursor: pointer;"', $image_html);
-                                    echo $image_html;
-                                    ?>
-                                </div>
-                            <?php endforeach; ?>
+                            </div>
+                        </div>
 
+                        <!-- Modal -->
+                        <div id="imageModal" class="modal">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <div class="modal-content">
+                                <img id="modalImage" class="modal-image" src="" alt="Zoomed Image">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Modal -->
-                    <div id="imageModal" class="modal">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <div class="modal-content">
-                            <img id="modalImage" class="modal-image" src="" alt="Zoomed Image">
+
+                    <!-- Product Description -->
+                    <div class="mt-18 hidden lg:block">
+                        <div class="max-w-[660px] text-[#252525] font-secondary" id="faqAccordion">
+
+                        <?php if( get_the_content() ) : ?>
+                            <div class="py-4">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                                    Description
+                                <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
+                                </button>
+                                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                                <div class="pt-4 sm:text-xl text-lg">
+                                    <?php the_content(); ?>
+                                </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php $global_product_page_content = get_field('global_product_page_content', 'option'); ?>
+
+                        <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
+
+                            <div class="py-4">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                                    Delivery Policy
+                                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                                </button>
+                                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                                    <div class="pt-4 sm:text-xl text-lg">
+                                        <?= $global_product_page_content['delivery_policy']; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if( $global_product_page_content && !empty($global_product_page_content['how_it_works']) ) : ?>
+                            <div class="py-4">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
+                                    How it works
+                                    <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
+                                </button>
+                                <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
+                                    <div class="pt-4 sm:text-xl text-lg">
+                                        <?= $global_product_page_content['how_it_works']; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
+                            <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+
                         </div>
                     </div>
                 </div>
 
-
+                
 
                 <div class="space-y-6">
                     <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
@@ -159,11 +222,13 @@ get_header( 'shop' ); ?>
                         <?php endif; ?>
                     </div>
                 </div>
+
+
             </div>
         <?php endwhile; ?>
 
          <!-- Product Description -->
-        <div class="pt-4">
+        <div class="pt-4 lg:hidden block">
             <div class="max-w-[610px] text-[#252525] font-secondary" id="faqAccordion">
 
             <?php if( get_the_content() ) : ?>
