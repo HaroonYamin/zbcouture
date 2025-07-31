@@ -412,7 +412,7 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
 }
 .variations {
     width: 100%;
-    margin-bottom: 36px;
+    margin-bottom: 12px;
 }
 .variations tr {
     display: flex;
