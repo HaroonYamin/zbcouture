@@ -36,17 +36,18 @@
         <!-- Center Logo -->
         <?php $checkout_align = is_checkout() ? 'my-3' : ''; ?>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 sm:w-[202px] w-[120px] <?= $checkout_align; ?>"> 
-            <a href="<?= home_url(); ?>" class="block w-full h-auto">
-                <img 
-                  src="<?= $white_header ? $white_logo['url'] : $black_logo['url']; ?>"
-                  data-white="<?= $white_logo['url']; ?>"
-                  data-black="<?= $black_logo['url']; ?>"
-                  data-sticky="<?= $sticky_logo['url']; ?>"
-                  class="w-16 h-auto header-logo smooth-logo-transition"
-                  alt="Site Logo"
-                />
-            </a>
-        </div>
+    <a href="<?= home_url(); ?>" class="block w-full h-auto">
+        <img 
+            src="<?= $white_header ? $white_logo['url'] : $black_logo['url']; ?>"
+            data-white="<?= $white_logo['url']; ?>"
+            data-black="<?= $black_logo['url']; ?>"
+            data-sticky="<?= $sticky_logo['url']; ?>"
+            class="header-logo logo-consistent-dimensions"
+            alt="<?= get_bloginfo('name'); ?>"
+            loading="eager"
+        />
+    </a>
+</div>
 
         <!-- Right Menu & Icons (Desktop) -->
         <?php if( !is_checkout() ) : ?>
@@ -314,3 +315,27 @@ html {
     }
   }
 </script>
+
+
+
+
+<style>
+
+/* Desktop logo dimensions */
+@media (min-width: 640px) {
+    .logo-consistent-dimensions {
+        width: 202px !important;
+        height: 48px !important; /* 12 * 4px = 48px (h-12 equivalent) */
+    }
+}
+
+/* Mobile logo dimensions */
+@media (max-width: 639px) {
+    .logo-consistent-dimensions {
+        width: 120px !important;
+        height: 30px !important; /* Proportional height for mobile */
+    }
+}
+
+
+</style>
