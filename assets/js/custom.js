@@ -468,9 +468,9 @@ if (progressSelectors.length > 0) {
 document.addEventListener("DOMContentLoaded", function () {
     const swiperConfigs = [
         { selector: ".card-swiper-1", delay: 0 },
-        { selector: ".card-swiper-2", delay: 5000 / 3 },
-        { selector: ".card-swiper-3", delay: (5000 * 2) / 3 },
-    ];
+        { selector: ".card-swiper-2", delay: 1500 },     // 1.5 second baad
+        { selector: ".card-swiper-3", delay: 3000 },     // 3 second baad
+    ]
 
     swiperConfigs.forEach(({ selector, delay }) => {
         setTimeout(() => {
