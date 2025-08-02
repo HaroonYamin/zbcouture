@@ -20,7 +20,7 @@ get_header();
     <div class="grid md:grid-cols-2 items-center gap-8 mb-16"> 
       <!-- Left Text --> 
       <div> 
-        <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6"> 
+        <h1 class="text-4xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6 font-primary"> 
           A Dream Wedding Dress Journey with Zahra 
         </h1> 
         <p class="text-xl font-medium text-gray-800"> 
@@ -70,7 +70,7 @@ get_header();
  
         <!-- Client Name --> 
         <div class="mb-8"> 
-          <h3 class="text-2xl font-bold text-gray-900 mb-2">Jennifer Ritz</h3> 
+          <h3 class="text-2xl font-bold text-gray-900 mb-2 font-primary">Jennifer Ritz</h3> 
           <p class="text-gray-600">NYC Wedding</p> 
         </div> 
  
@@ -96,7 +96,7 @@ get_header();
   <!-- Final Quote Section --> 
   <section class="py-24"> 
     <div class="max-w-4xl mx-auto px-4 text-center"> 
-      <blockquote class="text-2xl sm:text-3xl font-medium text-gray-900 leading-relaxed mb-8"> 
+      <blockquote class="text-2xl sm:text-5xl font-medium text-gray-900 leading-relaxed mb-8 font-primary"> 
         "Working with Zahra was like having a fairy godmother. She didn't just create a dress; 
         she created a dream." 
       </blockquote> 
@@ -107,7 +107,7 @@ get_header();
   <!-- Call to Action --> 
   <section class="bg-[#F5F5F0] py-16"> 
     <div class="max-w-4xl mx-auto px-4 text-center"> 
-      <h3 class="text-2xl font-bold text-gray-900 mb-4">Ready to Create Your Dream Dress?</h3> 
+      <h3 class="text-2xl font-bold text-gray-900 mb-4 font-primary">Ready to Create Your Dream Dress?</h3> 
       <p class="text-lg text-gray-700 mb-8">Let's bring your vision to life, just like we did for Jennifer.</p> 
       <a href="#" 
           class="inline-block font-medium text-[16px] mt-3 font-secondary border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition">

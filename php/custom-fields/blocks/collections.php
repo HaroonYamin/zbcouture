@@ -14,14 +14,14 @@
 ?>
 
 <section class="text-center py-[108px] px-4">
-    <div class="container mx-auto">
+    <div class="max-w-screen-2xl mx-auto">
         <?php if( $label ) : ?>
             <p class="uppercase text-base font-secondary text-[#27221E] tracking-widest"
                data-aos="fade-up" data-aos-delay="50"><?= $label; ?></p>
         <?php endif; ?>
 
         <?php if( $heading ) : ?>
-            <div class="font-primary font-light sm:my-6 my-0 mx-auto max-w-[600px]" data-aos="fade-up" data-aos-delay="100">
+            <div class="font-primary font-light sm:my-6 my-0 flex justify-center" data-aos="fade-up" data-aos-delay="100">
                 <?= $ui->main_heading(  $heading ); ?>
             </div>
         <?php endif; ?>
@@ -47,7 +47,7 @@
                 ?>
 
                 <a href="<?= esc_url($term_link); ?>" 
-                   class="relative w-full sm:w-[48%] md:w-[30%] lg:w-[315px] h-auto lg:h-[472px] group overflow-hidden block"
+                   class="relative sm:w-[48%] md:w-[30%] lg:w-[362px] lg:h-[550px] h-auto w-full group overflow-hidden block"
                    data-aos="zoom-in-up" data-aos-duration="700" data-aos-delay="<?= $delay; ?>">
                     <?= get_image( $thumbnail_id, 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2' ); ?>
 

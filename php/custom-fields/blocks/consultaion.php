@@ -11,7 +11,7 @@
 
 ?>
 
-<section class="bg-[#f3f3ef] flex items-center justify-center sm:my-32 my-16 sm:py-32 py-16">
+<section class="bg-[#f3f3ef] flex items-center justify-center mb-8 sm:mt-32 mt-16 sm:py-32 py-16">
     <div class="container text-center px-4">
         <?php if( $heading ) : ?>
             <div class="text-[#212121] max-w-[523px] mx-auto" data-aos="fade-up" data-aos-delay="50">

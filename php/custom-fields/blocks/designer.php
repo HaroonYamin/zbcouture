@@ -70,7 +70,7 @@
         <div data-aos="fade-up" data-aos-delay="300">
             <div class="btn-aware-wrapper relative inline-block">
                 <button id="toggleBtn" class="btn-aware btn-aware-black relative inline-block px-8 py-3 text-base font-medium border border-black rounded-xl overflow-hidden backdrop-blur-[2px] z-10 cursor-pointer mt-4">
-                    <span class="readme-title">Read Me</span>
+                    <span class="readme-title">Read More</span>
                     <span class="btn-aware-circle"></span>
                 </button>
             </div>
