@@ -637,9 +637,6 @@
   .w-50 {
     width: calc(var(--spacing) * 50);
   }
-  .w-64 {
-    width: calc(var(--spacing) * 64);
-  }
   .w-\[90px\] {
     width: 90px;
   }
