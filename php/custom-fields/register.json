@@ -159,5 +159,12 @@
         "description": "This is the contact section of a webpage.",
         "template": "contact",
         "keywords": "contact, section, webpage"
+    },
+    {
+        "name": "blog",
+        "title": "Blog Section",
+        "description": "This is the blog section of a webpage.",
+        "template": "blog",
+        "keywords": "blog, section, webpage"
     }
 ]
