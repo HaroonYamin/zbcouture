@@ -56,7 +56,7 @@
                     <?php if( $term->name ) : ?>
                         <div class="absolute bottom-0 text-white text-left px-4 py-2 z-20 w-full">
                             <div class="flex flex-col items-start">
-                                <div class="mb-3 border-t border-white sm:w-[272px] w-[320px]"></div>
+                                <div class="mb-3 border-t border-white w-full max-w-[320px]"></div>
                                 <span class="text-3xl font-primary font-normal tracking-wider"><?= $term->name; ?></span>
                             </div>
                         </div>

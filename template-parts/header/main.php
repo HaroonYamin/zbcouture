@@ -215,7 +215,7 @@ html {
 /* Mobile logo dimensions */
 @media (max-width: 639px) {
     .logo-consistent-dimensions {
-        width: 120px !important;
+        width: 104px !important;
         height: 30px !important; 
     }
 }

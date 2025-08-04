@@ -18,7 +18,7 @@
 
                         <div class="xl:w-1/4 sm:w-1/2 w-full">
                             <div class="sm:px-5" data-aos="fade-up" data-aos-delay="<?= $i * 200; ?>">
-                                <h3 class="text-[#27221E] text-2xl/tight font-semibold mb-4 text-center max-w-3xs mx-auto"><?= $title; ?></h3>
+                                <h3 class="text-[#27221E] text-2xl/tight font-meduim mb-4 text-center mx-auto"><?= $title; ?></h3>
                                 <p class="text-[#27221E] text-lg font-light mb-4 text-center"><?= $paragraph; ?></p>
                             </div>
                         </div>

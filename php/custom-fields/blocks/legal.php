@@ -18,7 +18,7 @@
                             $title = $single['content']['title'];
                             if( !$title ) { return; } ?>
                             <a href="<?= '#legal-link-' . $i; ?>" data-aos="fade-in" data-aos-delay="<?= $i * 200; ?>">
-                                <h2 class="text-xl font-semibold py-3 sm:px-4 hover:bg-neutral-50 rounded-sm"><?= $title; ?></h2>
+                                <h2 class="text-xl font-medium py-3 sm:px-4 hover:bg-neutral-50 rounded-sm"><?= $title; ?></h2>
                             </a>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -34,9 +34,9 @@
                             if( !$title ) { return; } ?>
     
                                 <div id="<?= 'legal-link-' . $i; ?>" data-aos="fade-in">
-                                    <h2 class="text-2xl font-semibold"><?= $title; ?></h2>
+                                    <h2 class="text-2xl font-medium"><?= $title; ?></h2>
             
-                                    <div class="flex gap-x-10">
+                                    <div class="flex gap-x-10 legal-image-editor">
                                         <?php if( $editor ) : ?>
                                             <div id="col-legal-page">
                                                 <?= $editor; ?>

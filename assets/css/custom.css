@@ -923,19 +923,19 @@ body.no-scroll {
 }
 #legal-page h1 {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.2;
     margin: 2rem 0 1.5rem 0;
 }
 #legal-page h2 {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.2;
     margin: 1.5rem 0 1.5rem 0;
 }
 #legal-page h3 {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.4;
     margin: 1rem 0 0.5rem 0;
 }
@@ -956,12 +956,16 @@ body.no-scroll {
 }
 #col-legal-page h3 {
     font-size: 1.325rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.4;
     margin: 1rem 0 0.5rem 0;
 }
 #col-legal-page img {
     margin: 2rem 0;
+}
+.legal-image-editor img {
+    width: 600px;
+    height: 750px;
 }
 #text-img-editor h2 {
     font-family: var(--font-primary);
