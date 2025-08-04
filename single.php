@@ -101,7 +101,7 @@ get_header();
   <!-- Final Quote Section --> 
   <section class="py-24"> 
     <div class="max-w-3xl mx-auto px-4 text-center"> 
-      <blockquote class="text-2xl sm:text-3xl font-medium text-gray-900 leading-relaxed mb-6"> 
+      <blockquote class="text-2xl font-medium text-gray-900 leading-relaxed mb-6"> 
         "Working with Zahra was like having a fairy godmother. She didn't just create a dress; 
         she created a dream." 
       </blockquote> 
