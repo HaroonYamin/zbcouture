@@ -963,10 +963,10 @@ body.no-scroll {
 #col-legal-page img {
     margin: 2rem 0;
 }
-.legal-image-editor img {
+/* .legal-image-editor img {
     width: 600px;
     height: 750px;
-}
+} */
 #text-img-editor h2 {
     font-family: var(--font-primary);
     font-size: 40px;
