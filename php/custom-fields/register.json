@@ -166,5 +166,12 @@
         "description": "This is the blog section of a webpage.",
         "template": "blog",
         "keywords": "blog, section, webpage"
+    },
+    {
+        "name": "instagram",
+        "title": "Instagram Section",
+        "description": "This is the Instagram section of a webpage.",
+        "template": "instagram",
+        "keywords": "instagram, section, webpage"
     }
 ]
