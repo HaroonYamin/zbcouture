@@ -6,7 +6,7 @@
         <!-- Page Header -->
         <div class="text-center mb-16">
             <p class="text-sm font-medium text-gray-600 mb-4">Stories & Inspiration</p>
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight mb-6 font-primary">
+            <h1 class="text-4xl sm:text-5xl font-meduim text-gray-900 leading-tight mb-6 font-primary">
                 Our Blog
             </h1>
             <p class="text-xl text-gray-700 max-w-2xl mx-auto">
@@ -62,19 +62,19 @@
                     </div>
                     
                     <!-- Title -->
-                    <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                    <h3 class="text-lg font-medium text-gray-900 mb-3 leading-tight">
                         <a href="<?php the_permalink(); ?>" class="hover:text-gray-700 transition-colors">
                             <?php the_title(); ?>
                         </a>
                     </h3>
                     
                     <!-- Excerpt -->
-                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                    <p class="text-base text-gray-600 mb-6 leading-relaxed">
                         <?php 
                         if (has_excerpt()) {
-                            echo wp_trim_words(get_the_excerpt(), 20, '...');
+                            echo wp_trim_words(get_the_excerpt(), 25, '...');
                         } else {
-                            echo wp_trim_words(get_the_content(), 20, '...');
+                            echo wp_trim_words(get_the_content(), 25, '...');
                         }
                         ?>
                     </p>
