@@ -164,184 +164,201 @@
         </div>
 
 
-        <style>
-        /* Smooth Header Transitions - Ultra smooth */
-        .smooth-header-transition {
-            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            transition-property: background-color, color, box-shadow, margin-top, transform, opacity, position, top;
-        }
+<style>
+/* Smooth Header Transitions - Ultra smooth */
+.smooth-header-transition {
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition-property: background-color, color, box-shadow, margin-top, transform, opacity, position, top;
+}
 
-        .smooth-logo-transition {
-            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-            transition-property: opacity, transform;
-        }
+.smooth-logo-transition {
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    transition-property: opacity, transform;
+}
 
-        .smooth-icon-transition {
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transition-property: color, background-color, opacity, transform;
-        }
+.smooth-icon-transition {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-property: color, background-color, opacity, transform;
+}
 
-        .smooth-svg-transition path {
-            transition: stroke 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+.smooth-svg-transition path {
+    transition: stroke 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-        /* Enhanced hover effects with smooth transitions */
-        .smooth-icon-transition:hover {
-            transform: translateY(-1px);
-        }
+/* Enhanced hover effects with smooth transitions */
+.smooth-icon-transition:hover {
+    transform: translateY(-1px);
+}
 
-        /* Smooth scroll behavior for entire page */
-        html {
-            scroll-behavior: smooth;
-        }
+/* Smooth scroll behavior for entire page */
+html {
+    scroll-behavior: smooth;
+}
 
-        /* Header becomes sticky when scrolled */
-        .header.scrolled {
-            position: fixed !important;
-            top: 0 !important;
-            transform: translateY(0);
-            backdrop-filter: blur(10px);
-            margin-top: 0 !important;
-        }
+/* Header becomes sticky when scrolled - TOP SE SLIDE KARE */
+.header.scrolled {
+    position: fixed !important;
+    top: 0 !important;
+    backdrop-filter: blur(10px);
+    margin-top: 0 !important;
+    /* Initially header upar hidden rahega */
+    transform: translateY(-100%);
+    /* Smooth transition jab appear hoga */
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-        /* Mobile menu smooth transitions */
-        #mobile-menu {
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+/* Jab header visible hoga */
+.header.scrolled.show-header {
+    transform: translateY(0) !important;
+}
 
-        /* Desktop logo dimensions */
-        @media (min-width: 640px) {
-            .logo-consistent-dimensions {
-                width: 202px !important;
-                height: 48px !important; 
-            }
-        }
+/* Mobile menu smooth transitions */
+#mobile-menu {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
-        /* Mobile logo dimensions */
-        @media (max-width: 639px) {
-            .logo-consistent-dimensions {
-                width: 104px !important;
-                height: 30px !important; 
-            }
-        }
-        </style>
+/* Desktop logo dimensions */
+@media (min-width: 640px) {
+    .logo-consistent-dimensions {
+        width: 202px !important;
+        height: 48px !important; 
+    }
+}
 
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const header = document.getElementById("site-header");
-            const logo = document.querySelector(".header-logo");
-            
-            // Increased scroll trigger for later activation
-            const scrollTrigger = 150;
-            
-            let ticking = false;
+/* Mobile logo dimensions */
+@media (max-width: 639px) {
+    .logo-consistent-dimensions {
+        width: 104px !important;
+        height: 30px !important; 
+    }
+}
+</style>
 
-            const strokeWhite = "#FFFFFF";
-            const strokeBlack = "#0F0F0F";
 
-            const whiteHeader = <?= $white_header ? 'true' : 'false'; ?>;
 
-            function setStrokeColor(color) {
-              // Update both desktop and mobile SVG icons with ultra smooth transition
-              document.querySelectorAll(".header-icon-svg path").forEach(path => {
-                path.style.transition = "stroke 0.8s cubic-bezier(0.23, 1, 0.32, 1)";
-                path.setAttribute("stroke", color);
-              });
-            }
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.getElementById("site-header");
+  const logo = document.querySelector(".header-logo");
+  
+  // Increased scroll trigger for later activation
+  const scrollTrigger = 150;
+  
+  let ticking = false;
 
-            function updateHeader() {
-              if (window.scrollY > scrollTrigger) {
-                // Scrolled state - make header fixed/sticky with white background
-                header.classList.add("bg-white", "shadow-md", "text-black", "scrolled");
-                header.classList.remove("text-white", "mt-18");
-                header.style.position = "fixed";
-                header.style.top = "0";
+  const strokeWhite = "#FFFFFF";
+  const strokeBlack = "#0F0F0F";
 
-                // Ultra smooth logo transition
-                if (logo) {
-                  logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-                  logo.style.opacity = "0.9";
-                  setTimeout(() => {
-                    if (logo.dataset.sticky && logo.dataset.sticky !== '') {
-                      logo.src = logo.dataset.sticky;
-                    } else if (logo.dataset.black) {
-                      logo.src = logo.dataset.black;
-                    }
-                    logo.style.opacity = "1";
-                  }, 150);
-                }
+  const whiteHeader = <?= $white_header ? 'true' : 'false'; ?>;
 
-                setStrokeColor(strokeBlack);
-              } else {
-                // Top of page - header is not sticky, use absolute positioning
-                header.classList.remove("bg-white", "shadow-md", "text-black", "scrolled");
-                header.classList.add("mt-18");
-                header.style.position = "absolute";
-                header.style.top = "0";
+  function setStrokeColor(color) {
+    // Update both desktop and mobile SVG icons with ultra smooth transition
+    document.querySelectorAll(".header-icon-svg path").forEach(path => {
+      path.style.transition = "stroke 0.8s cubic-bezier(0.23, 1, 0.32, 1)";
+      path.setAttribute("stroke", color);
+    });
+  }
 
-                if (whiteHeader) {
-                  header.classList.add("text-white");
-                  // Ultra smooth logo transition for white header
-                  if (logo && logo.dataset.white) {
-                    logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-                    logo.style.opacity = "0.9";
-                    setTimeout(() => {
-                      logo.src = logo.dataset.white;
-                      logo.style.opacity = "1";
-                    }, 150);
-                  }
-                  setStrokeColor(strokeWhite);
-                } else {
-                  header.classList.add("text-black");
-                  // Ultra smooth logo transition for black header
-                  if (logo && logo.dataset.black) {
-                    logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-                    logo.style.opacity = "0.9";
-                    setTimeout(() => {
-                      logo.src = logo.dataset.black;
-                      logo.style.opacity = "1";
-                    }, 150);
-                  }
-                  setStrokeColor(strokeBlack);
-                }
-              }
-              ticking = false;
-            }
+  function updateHeader() {
+    if (window.scrollY > scrollTrigger) {
+      // Scrolled state - make header fixed/sticky with white background
+      header.classList.add("bg-white", "shadow-md", "text-black", "scrolled");
+      header.classList.remove("text-white", "mt-18");
+      header.style.position = "fixed";
+      header.style.top = "0";
+      
+      // Short delay then show header from top
+      setTimeout(() => {
+        header.classList.add("show-header");
+      }, 50);
 
-            function requestHeaderUpdate() {
-              if (!ticking) {
-                requestAnimationFrame(updateHeader);
-                ticking = true;
-              }
-            }
-
-            // Use throttled scroll for better performance
-            window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
-            
-            // Run once on page load
-            updateHeader();
-          });
-
-          // Enhanced mobile menu toggle with smooth transitions
-          function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const isHidden = menu.style.display === 'none' || menu.classList.contains('hidden');
-            
-            if (isHidden) {
-              menu.style.display = 'block';
-              menu.classList.remove('hidden');
-              // Add smooth slide-in effect
-              setTimeout(() => {
-                menu.style.transform = 'translateX(0)';
-                menu.style.opacity = '1';
-              }, 10);
-            } else {
-              menu.style.transform = 'translateX(-100%)';
-              menu.style.opacity = '0';
-              setTimeout(() => {
-                menu.style.display = 'none';
-                menu.classList.add('hidden');
-              }, 400);
-            }
+      // Ultra smooth logo transition
+      if (logo) {
+        logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+        logo.style.opacity = "0.9";
+        setTimeout(() => {
+          if (logo.dataset.sticky && logo.dataset.sticky !== '') {
+            logo.src = logo.dataset.sticky;
+          } else if (logo.dataset.black) {
+            logo.src = logo.dataset.black;
           }
-        </script>
+          logo.style.opacity = "1";
+        }, 150);
+      }
+
+      setStrokeColor(strokeBlack);
+    } else {
+      // Top of page - header is not sticky, use absolute positioning
+      header.classList.remove("bg-white", "shadow-md", "text-black", "scrolled", "show-header");
+      header.classList.add("mt-18");
+      header.style.position = "absolute";
+      header.style.top = "0";
+      // PEHLA HEADER WAHIN RAHE JAHAN THA - NO TRANSFORM
+      header.style.transform = "none";
+
+      if (whiteHeader) {
+        header.classList.add("text-white");
+        // Ultra smooth logo transition for white header
+        if (logo && logo.dataset.white) {
+          logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+          logo.style.opacity = "0.9";
+          setTimeout(() => {
+            logo.src = logo.dataset.white;
+            logo.style.opacity = "1";
+          }, 150);
+        }
+        setStrokeColor(strokeWhite);
+      } else {
+        header.classList.add("text-black");
+        // Ultra smooth logo transition for black header
+        if (logo && logo.dataset.black) {
+          logo.style.transition = "opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
+          logo.style.opacity = "0.9";
+          setTimeout(() => {
+            logo.src = logo.dataset.black;
+            logo.style.opacity = "1";
+          }, 150);
+        }
+        setStrokeColor(strokeBlack);
+      }
+    }
+    ticking = false;
+  }
+
+  function requestHeaderUpdate() {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }
+
+  // Use throttled scroll for better performance
+  window.addEventListener("scroll", requestHeaderUpdate, { passive: true });
+  
+  // Run once on page load
+  updateHeader();
+});
+
+// Enhanced mobile menu toggle with smooth transitions
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const isHidden = menu.style.display === 'none' || menu.classList.contains('hidden');
+  
+  if (isHidden) {
+    menu.style.display = 'block';
+    menu.classList.remove('hidden');
+    // Add smooth slide-in effect
+    setTimeout(() => {
+      menu.style.transform = 'translateX(0)';
+      menu.style.opacity = '1';
+    }, 10);
+  } else {
+    menu.style.transform = 'translateX(-100%)';
+    menu.style.opacity = '0';
+    setTimeout(() => {
+      menu.style.display = 'none';
+      menu.classList.add('hidden');
+    }, 400);
+  }
+}
+</script>

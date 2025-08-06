@@ -29,7 +29,7 @@ get_header();
       </div> 
  
       <!-- Right Image --> 
-      <div class="rounded-2xl overflow-hidden shadow-sm"> 
+      <div class="overflow-hidden shadow-sm"> 
         <img  
           src="http://localhost/zahrabatool/wp-content/uploads/2025/07/wed.jpg"  
           alt="Beautiful bride in elegant wedding dress"  

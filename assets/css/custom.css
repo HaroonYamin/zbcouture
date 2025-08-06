@@ -1008,6 +1008,13 @@ body.no-scroll {
     text-decoration: none;
 }
 
+.sbi_header_text {
+    display: none !important;
+}
+#sbi_load {
+    display: none !important;
+}
+
 /* MEDIA QUERIES */
 @media screen and (min-width: 1024px) {
     .hover-icons {
