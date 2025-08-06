@@ -1,129 +1,341 @@
-<?php 
-/* 
- * Single page - Wedding Testimonial
- * Author: Haroon Yamin 
- * Author URL: https://www.linkedin.com/in/haroon-webdev/ 
-**/ 
-get_header(); 
-?> 
- 
-     <!-- Main Container --> 
-  <main class="max-w-screen-xl mx-auto px-6 sm:px-8 sm:py-24 py-12 mt-24"> 
- 
-    <!-- Top Bar --> 
-    <div class="flex justify-between items-start mb-6"> 
-      <p class="text-sm font-medium text-gray-600">Real Love, Real Stories</p> 
-      <p class="text-sm text-gray-600">June 15, 2024</p> 
-    </div> 
- 
-    <!-- Headline + Image --> 
-    <div class="grid md:grid-cols-2 items-center gap-8 mb-16"> 
-      <!-- Left Text --> 
-      <div> 
-        <h1 class="text-4xl sm:text-6xl font-medium text-gray-900 leading-tight mb-6 font-primary"> 
-          A Dream Wedding Dress Journey with Zahra 
-        </h1> 
-        <p class="text-xl font-medium text-gray-800"> 
-          Jennifer's Perfect NYC Wedding Experience 
-        </p> 
-      </div> 
- 
-      <!-- Right Image --> 
-      <div class="overflow-hidden shadow-sm"> 
-        <img  
-          src="http://localhost/zahrabatool/wp-content/uploads/2025/07/wed.jpg"  
-          alt="Beautiful bride in elegant wedding dress"  
-          class="w-full h-auto object-cover" 
-        > 
-      </div> 
-    </div> 
+<?php get_header(); ?>
 
- 
-  </main> 
- 
-  <!-- Quote Section --> 
- <section class="bg-[#F5F5F0]">
-  <div class="max-w-screen-xl mx-auto px-4 py-24 grid xl:grid-cols-5 gap-0">
-    
-    <!-- Left Empty Space: 20% on xl -->
-    <div class="hidden xl:block"></div>
-    
-    <!-- Center Content: 60% on xl (3 columns out of 5) -->
-    <div class="col-span-full xl:col-span-3">
-      
-      <!-- Quote -->
-      <p class="text-lg sm:text-xl font-medium leading-relaxed mb-12 max-w-3xl">
-        "I'm so happy with my gorgeous dress! Zahra has made my dream come true. 
-        I'll be wearing a piece of art, so unique and beautiful. I also really appreciated 
-        Zahra's communication along the entire process, from the first message, and her 
-        efforts to make things easy and comfortable for me."
-      </p>
+<style>
+    /* Optional: Scoped styles for non-Tailwind adjustments */
+    .breadcrumb {
+        background: white;
+        padding: 1rem 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
 
-      <!-- Bride Image -->
-      <div class="mb-12">
-        <img  
-          src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"  
-          alt="Bride in beautiful wedding dress"  
-          class="rounded-2xl w-full max-w-2xl object-cover"
-        > 
-      </div>
+    .breadcrumb-nav {
+        font-size: 0.9rem;
+        color: #27221E;
+    }
 
-      <!-- Client Name -->
-      <div class="mb-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-2 font-primary">Jennifer Ritz</h3>
-        <p class="text-gray-600">NYC Wedding</p>
-      </div>
+    .breadcrumb-nav a {
+        color: #27221E;
+        text-decoration: none;
+        font-weight: 600;
+    }
 
-      <!-- Story Paragraphs -->
-      <p class="text-base sm:text-lg leading-relaxed max-w-3xl mb-8">
-        Jennifer's journey with Zahra began months before her special day. From the initial 
-        consultation to the final fitting, every detail was carefully crafted to bring her 
-        vision to life. The dress became more than just a garment—it was a reflection of 
-        her personality, her style, and her love story.
-      </p>
+    .breadcrumb-nav a:hover {
+        opacity: 0.7;
+    }
 
-      <p class="text-base sm:text-lg leading-relaxed max-w-3xl">
-        What made the experience truly special was Zahra's attention to detail and personal 
-        touch. Every adjustment, every embellishment, and every conversation was focused on 
-        making Jennifer feel like the most beautiful version of herself on her wedding day.
-      </p>
-      
+    /* Main Content */
+    .main-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        margin: 3rem 0;
+    }
+
+    .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #27221E;
+        opacity: 0.8;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .article-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #27221E;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .article-excerpt {
+        font-size: 1.1rem;
+        color: #27221E;
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+
+    .article-content {
+        padding-top: 2rem;
+    }
+
+    .article-content h2 {
+        color: #27221E;
+        margin: 2rem 0 1rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .article-content p {
+        margin-bottom: 1.5rem;
+        font-size: 18px;
+        color: #27221E;
+    }
+
+    .content-image-container {
+        background-color: #F5F5F0;
+        padding: 2rem;
+        margin: 2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content-image {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+    }
+
+    .highlight-box {
+        background: #27221E;
+        color: white;
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: sticky;
+        top: 7rem;
+        height: fit-content;
+    }
+
+    .sidebar-widget {
+        background: white;
+        padding: 1.5rem;
+        border: 1px solid #e0e0e0;
+    }
+
+    .recent-post-image {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .widget-title {
+        font-size: 1.3rem;
+        font-weight: medium;
+        margin-bottom: 1rem;
+        color: #27221E;
+        border-bottom: 2px solid #27221E;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .main-content {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .article-title {
+            font-size: 2rem;
+        }
+
+        .container {
+            padding: 0 15px;
+        }
+
+        .content-image-container {
+            padding: 1rem;
+        }
+
+        .content-image {
+            max-height: 300px;
+        }
+
+        .sidebar {
+            position: relative;
+            top: auto;
+        }
+    }
+</style>
+
+<!-- Breadcrumb -->
+<section class="breadcrumb">
+    <div class="container mx-auto px-4 max-w-[1320px] mt-32">
+        <nav class="breadcrumb-nav">
+            <a href="<?php echo home_url(); ?>">Home</a> / 
+            <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>">Blog</a> / 
+            <?php the_title(); ?>
+        </nav>
     </div>
-
-    <!-- Right Empty Space: 20% on xl -->
-    <div class="hidden xl:block"></div>
-
-  </div>
 </section>
- 
 
-  
-  <!-- Final Quote Section --> 
-  <section class="py-24"> 
-    <div class="max-w-3xl mx-auto px-4 text-center"> 
-      <blockquote class="text-2xl font-medium text-gray-900 leading-relaxed mb-6"> 
-        "Working with Zahra was like having a fairy godmother. She didn't just create a dress; 
-        she created a dream." 
-      </blockquote> 
-      <p class="text-lg text-gray-600">- Jennifer Ritz, Bride</p> 
-    </div> 
-  </section> 
-
-   
-
-<section class="bg-[#f3f3ef] flex items-center justify-center mb-8 mt-8 sm:py-32 py-16">
-  <div class="container text-center px-4">
-    <div class="text-[#212121] max-w-[523px] mx-auto" data-aos="fade-up" data-aos-delay="50">
-      <h1 class="sm:text-5xl text-4xl text-center font-primary font-normal max-w-[490px] lh-normal italic">Book a complimentary 30-minute online consultation</h1>
-      <div class="mt-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="150"></div>
+<!-- Main Content -->
+<main class="max-w-screen-xl mx-auto px-4 mt-12">
+    
+<!-- Headline + Image -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16 mb-16">
+    
+    <!-- Left Text -->
+    <div class="w-full md:w-1/2">
+        <!-- Top Bar -->
+        <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center gap-4 text-sm text-gray-600">
+                <div class="flex items-center gap-2">
+                    <span>👤</span>
+                    <span>Author <?php echo get_the_author(); ?></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>🏷️</span>
+                    <span>
+                        <?php 
+                            $categories = get_the_category();
+                            echo $categories ? esc_html($categories[0]->name) : 'Blog';
+                        ?>
+                    </span>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600"><?php echo get_the_date('F j, Y'); ?></p>
+        </div>
+        <h1 class="sm:text-5xl text-4xl font-primary lh-normal italic mb-6">
+            <?php the_title(); ?>
+        </h1>
+        <p class="text-xl font-normal text-[#27221E]">
+            <?php 
+                if (has_excerpt()) {
+                    echo get_the_excerpt();
+                } else {
+                    echo wp_trim_words(get_the_content(), 30, '...');
+                }
+            ?>
+        </p>
     </div>
-    <div class="mt-8" data-aos="fade-up" data-aos-delay="150">
-      <div class="btn-aware-wrapper relative inline-block">
-        <a href="#" class="btn-aware btn-aware-black relative inline-block px-8 py-3 text-base font-medium border border-black rounded-xl overflow-hidden backdrop-blur-[2px] z-10 hover:bg-black hover:text-white transition">
-          Book Consultation</a>
-      </div>
+
+    <!-- Right Image -->
+    <div class="w-full md:w-[500px] h-[750px] overflow-hidden">
+        <?php if (has_post_thumbnail()) : ?>
+            <img  
+                src="<?php the_post_thumbnail_url('full'); ?>"  
+                alt="<?php the_title(); ?>"  
+                class="w-full h-full object-cover"
+            >
+        <?php else : ?>
+            <img  
+                src="http://localhost/zahrabatool/wp-content/uploads/2025/07/wed.jpg"  
+                alt="<?php the_title(); ?>"  
+                class="w-full h-full object-cover"
+            >
+        <?php endif; ?>
     </div>
-  </div>
-</section>
-     
+</div>
+
+
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Article Content -->
+        <article class="md:col-span-2 overflow-hidden">
+            <!-- Article Content with Paragraphs and Images -->
+            <div class="article-content">
+
+                <h2>Choose the Right Fabric</h2>
+                <p>The foundation of comfort lies in your dress fabric. Natural fibers like silk, cotton, and linen are breathable and move with your body. If you're getting married in warmer weather, avoid heavy fabrics like thick satin or multiple layers of tulle that can trap heat.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Kissing-Rose-9-840x1260-1.webp" alt="Wedding dress fabric textures" class="content-image">
+                </div>
+
+                <p>Modern wedding dress fabrics often combine elegance with stretch and breathability. Ask your designer about fabric blends that offer both beauty and comfort. This ensures you'll look stunning while feeling at ease throughout your celebration.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/08/Blue.jpg" alt="Designer working with wedding dress fabric" class="content-image">
+                </div>
+
+                <h2>Perfect Fit is Everything</h2>
+                <p>A well-fitted dress not only looks better but feels infinitely more comfortable. Schedule multiple fittings and don't rush this process. Your dress should allow you to move your arms freely, let you sit down without restriction, enable you to dance comfortably, and not dig into your skin anywhere.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Symphony-of-peony.webp" alt="Bride at dress fitting session" class="content-image">
+                </div>
+
+                <h2>The Importance of Professional Alterations</h2>
+                <p>Even if you buy a dress in your size, alterations are usually necessary. A skilled seamstress can adjust not just the length and bust, but also ensure the dress moves with your body naturally. Professional alterations make all the difference in achieving the perfect fit.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Symphony-of-Rose.webp" alt="Seamstress working on wedding dress alterations" class="content-image">
+                </div>        
+
+                <h2>Break in Your Shoes</h2>
+                <p>Your wedding shoes should be broken in well before your big day. Start wearing them for short periods weeks in advance. Consider gel insoles for extra cushioning, a lower heel if you're not used to high heels, and a backup pair of comfortable flats for the reception.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Kissing-Rose-5-840x1260-1.webp" alt="Beautiful bridal shoes" class="content-image">
+                </div>
+
+                <h2>Plan for Weather and Venue</h2>
+                <p>Consider your wedding location and season when choosing your dress style. Beach weddings call for lighter fabrics and simpler silhouettes, while indoor winter ceremonies can accommodate heavier, more elaborate designs.</p>
+
+                <div class="content-image-container">
+                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Accessories.webp" alt="Beach wedding dress style" class="content-image">
+                </div>
+
+            </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Recent Posts -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Recent Posts</h3>
+                <?php
+                    $recent_posts = wp_get_recent_posts(['numberposts' => 3]);
+                    foreach( $recent_posts as $post ) : 
+                ?>
+                    <div class="flex gap-4 mb-4 border-b border-gray-200 pb-4 last:border-none last:pb-0">
+                        <?php if (has_post_thumbnail($post['ID'])) : ?>
+                            <?php echo get_the_post_thumbnail($post['ID'], 'thumbnail', ['class' => 'recent-post-image']); ?>
+                        <?php else : ?>
+                            <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/wed.jpg" alt="Default post image" class="recent-post-image">
+                        <?php endif; ?>
+                        <div class="flex-1">
+                            <h4 class="text-sm leading-snug mb-1">
+                                <a href="<?php echo get_permalink($post['ID']); ?>" class="text-[#27221E] hover:opacity-70 transition-opacity">
+                                    <?php echo esc_html($post['post_title']); ?>
+                                </a>
+                            </h4>
+                            <div class="text-xs text-gray-600"><?php echo get_the_date('F j, Y', $post['ID']); ?></div>
+                        </div>
+                    </div>
+                <?php endforeach; wp_reset_query(); ?>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Categories</h3>
+                <div class="flex flex-wrap gap-2">
+                    <?php
+                        $categories = get_categories();
+                        foreach( $categories as $cat ) :
+                    ?>
+                        <a href="<?php echo get_category_link($cat->term_id); ?>" class="bg-[#27221E] text-white text-xs px-3 py-1 rounded-full hover:opacity-80 transition-opacity">
+                            <?php echo esc_html($cat->name); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
 <?php get_footer(); ?>

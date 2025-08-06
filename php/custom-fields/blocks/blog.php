@@ -37,14 +37,14 @@
                         <a href="<?php the_permalink(); ?>">
                             <img src="<?php the_post_thumbnail_url('medium_large'); ?>" 
                                  alt="<?php the_title(); ?>" 
-                                 class="w-160 h-80 object-cover rounded-2xl hover:opacity-90 transition-opacity">
+                                 class="w-160 h-62 object-cover hover:opacity-90 transition-opacity">
                         </a>
                     <?php else : ?>
                         <!-- Default placeholder image if no featured image -->
                         <a href="<?php the_permalink(); ?>">
                             <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                                  alt="<?php the_title(); ?>" 
-                                 class="w-160 h-80 object-cover rounded-2xl hover:opacity-90 transition-opacity">
+                                 class="w-160 h-62 object-cover hover:opacity-90 transition-opacity">
                         </a>
                     <?php endif; ?>
                 </div>
