@@ -4,14 +4,25 @@
 
     <!-- Page Header -->
     <div class="text-center mb-16">
-        <p class="text-sm font-medium text-gray-600 mb-4">Stories & Inspiration</p>
-        <h1 class="text-4xl sm:text-5xl font-meduim text-gray-900 leading-tight mb-6 font-primary">
-            Our Blog
-        </h1>
-        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
-            Discover the latest trends, real bride stories, and behind-the-scenes insights from the world of luxury bridal couture
-        </p>
+        <?php if ($label = get_field('blog_top_label')) : ?>
+            <p class="text-sm font-medium text-gray-600 mb-4">
+                <?php echo esc_html($label); ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if ($heading = get_field('blog_heading')) : ?>
+            <h1 class="text-4xl sm:text-5xl font-medium text-gray-900 leading-tight mb-6 font-primary">
+                <?php echo esc_html($heading); ?>
+            </h1>
+        <?php endif; ?>
+
+        <?php if ($desc = get_field('blog_description')) : ?>
+            <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+                <?php echo nl2br(esc_html($desc)); ?>
+            </p>
+        <?php endif; ?>
     </div>
+
 
     <!-- Blog Cards Container - CSS Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
