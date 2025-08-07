@@ -223,7 +223,7 @@
     </div>
 
     <!-- Right Image -->
-    <div class="w-full md:w-[500px] h-[750px] overflow-hidden">
+    <div class="w-full md:w-[550px] h-[750px] overflow-hidden">
         <?php if (has_post_thumbnail()) : ?>
             <img  
                 src="<?php the_post_thumbnail_url('full'); ?>"  
@@ -249,47 +249,7 @@
             <!-- Article Content with Paragraphs and Images -->
             <div class="article-content">
 
-                <h2>Choose the Right Fabric</h2>
-                <p>The foundation of comfort lies in your dress fabric. Natural fibers like silk, cotton, and linen are breathable and move with your body. If you're getting married in warmer weather, avoid heavy fabrics like thick satin or multiple layers of tulle that can trap heat.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Kissing-Rose-9-840x1260-1.webp" alt="Wedding dress fabric textures" class="content-image">
-                </div>
-
-                <p>Modern wedding dress fabrics often combine elegance with stretch and breathability. Ask your designer about fabric blends that offer both beauty and comfort. This ensures you'll look stunning while feeling at ease throughout your celebration.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/08/Blue.jpg" alt="Designer working with wedding dress fabric" class="content-image">
-                </div>
-
-                <h2>Perfect Fit is Everything</h2>
-                <p>A well-fitted dress not only looks better but feels infinitely more comfortable. Schedule multiple fittings and don't rush this process. Your dress should allow you to move your arms freely, let you sit down without restriction, enable you to dance comfortably, and not dig into your skin anywhere.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Symphony-of-peony.webp" alt="Bride at dress fitting session" class="content-image">
-                </div>
-
-                <h2>The Importance of Professional Alterations</h2>
-                <p>Even if you buy a dress in your size, alterations are usually necessary. A skilled seamstress can adjust not just the length and bust, but also ensure the dress moves with your body naturally. Professional alterations make all the difference in achieving the perfect fit.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Symphony-of-Rose.webp" alt="Seamstress working on wedding dress alterations" class="content-image">
-                </div>        
-
-                <h2>Break in Your Shoes</h2>
-                <p>Your wedding shoes should be broken in well before your big day. Start wearing them for short periods weeks in advance. Consider gel insoles for extra cushioning, a lower heel if you're not used to high heels, and a backup pair of comfortable flats for the reception.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Kissing-Rose-5-840x1260-1.webp" alt="Beautiful bridal shoes" class="content-image">
-                </div>
-
-                <h2>Plan for Weather and Venue</h2>
-                <p>Consider your wedding location and season when choosing your dress style. Beach weddings call for lighter fabrics and simpler silhouettes, while indoor winter ceremonies can accommodate heavier, more elaborate designs.</p>
-
-                <div class="content-image-container">
-                    <img src="http://localhost/zahrabatool/wp-content/uploads/2025/07/Accessories.webp" alt="Beach wedding dress style" class="content-image">
-                </div>
-
+                <?php the_content(); ?>
             </div>
         </article>
 
@@ -324,13 +284,13 @@
             <div class="sidebar-widget">
                 <h3 class="widget-title">Categories</h3>
                 <div class="flex flex-wrap gap-2">
-                    <?php
+                    <?php   
                         $categories = get_categories();
                         foreach( $categories as $cat ) :
                     ?>
-                        <a href="<?php echo get_category_link($cat->term_id); ?>" class="bg-[#27221E] text-white text-xs px-3 py-1 rounded-full hover:opacity-80 transition-opacity">
+                        <p <?php echo get_category_link($cat->term_id); ?> class="bg-[#F5F5F0] text-[#535353] text-xs px-3 py-1 rounded-full">
                             <?php echo esc_html($cat->name); ?>
-                        </a>
+                        </p>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -339,3 +299,64 @@
 </main>
 
 <?php get_footer(); ?>
+
+
+
+
+<script>
+        // Function to wrap images in styled containers
+        function wrapImagesInContainers() {
+            // Get all images inside the article content
+            const articleContent = document.querySelector('.article-content');
+            if (!articleContent) return;
+
+            // Find all images that are not already wrapped
+            const images = articleContent.querySelectorAll('img:not(.content-image)');
+            
+            images.forEach(img => {
+                // Skip if image is already wrapped
+                if (img.parentElement.classList.contains('content-image-container')) {
+                    return;
+                }
+
+                // Create the wrapper container
+                const container = document.createElement('div');
+                container.className = 'content-image-container';
+                
+                // Add the content-image class to the image
+                img.classList.add('content-image');
+                
+                // Insert container before the image
+                img.parentNode.insertBefore(container, img);
+                
+                // Move the image into the container
+                container.appendChild(img);
+            });
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', wrapImagesInContainers);
+
+        // Also run if content is loaded dynamically (for WordPress AJAX)
+        document.addEventListener('content-loaded', wrapImagesInContainers);
+
+        // For demonstration: Add a new image dynamically
+        function addNewImage() {
+            const articleContent = document.querySelector('.article-content');
+            const newImg = document.createElement('img');
+            newImg.src = 'https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?w=500&h=300&fit=crop';
+            newImg.alt = 'New wedding image';
+            
+            articleContent.appendChild(newImg);
+            
+            // Wrap the new image
+            wrapImagesInContainers();
+        }
+
+        // Demo button (remove this in production)
+        const demoButton = document.createElement('button');
+        demoButton.textContent = 'Add New Image (Demo)';
+        demoButton.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 10px; background: #27221E; color: white; border: none; cursor: pointer;';
+        demoButton.onclick = addNewImage;
+        document.body.appendChild(demoButton);
+    </script>
