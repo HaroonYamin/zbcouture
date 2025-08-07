@@ -296,6 +296,90 @@
             </div>
         </aside>
     </div>
+
+
+    <!-- More Stories Section -->
+<section class="mt-24">
+    <h2 class="text-4xl sm:text-5xl font-medium text-gray-900 leading-tight mb-6 font-primary text-center">More Stories</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <?php
+        // Custom query to fetch 3 recent posts excluding current post
+        $related_posts = new WP_Query(array(
+            'post_type' => 'post',
+            'posts_per_page' => 3,
+            'post__not_in' => array(get_the_ID()),
+            'orderby' => 'date',
+            'order' => 'DESC'
+        ));
+
+        if ($related_posts->have_posts()) :
+            while ($related_posts->have_posts()) : $related_posts->the_post();
+        ?>
+            <article class="bg-white overflow-hidden">
+                <div class="relative mb-6">
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php the_post_thumbnail_url('medium_large'); ?>" alt="<?php the_title(); ?>" class="w-full h-64 object-cover">
+                        <?php else : ?>
+                            <img src="https://via.placeholder.com/600x400" alt="<?php the_title(); ?>" class="w-full h-64 object-cover">
+                        <?php endif; ?>
+                    </a>
+                </div>
+
+                <!-- Content -->
+            <div class="px-1">
+                <!-- Category as Top Badge -->
+                <?php
+                $category = get_the_category();
+                if ($category && !is_wp_error($category)) :
+                ?>
+                    <div class="mb-3">
+                        <span class="inline-block bg-[#F5F5F0] text-[#535353] text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wide">
+                            <?php echo esc_html($category[0]->name); ?>
+                        </span>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Title -->
+                <h3 class="text-lg font-medium text-gray-900 mb-3 leading-tight">
+                    <a href="<?php the_permalink(); ?>" class="hover:text-gray-700 transition-colors">
+                        <?php the_title(); ?>
+                    </a>
+                </h3>
+                
+                <!-- Excerpt -->
+                <p class="text-base text-[#535353] mb-4 leading-relaxed">
+                    <?php 
+                    if (has_excerpt()) {
+                        echo wp_trim_words(get_the_excerpt(), 20, '...');
+                    } else {
+                        echo wp_trim_words(get_the_content(), 20, '...');
+                    }
+                    ?>
+                </p>
+
+                <!-- Author & Date at Bottom -->
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium text-gray-900">
+                        <?php echo get_the_author(); ?>
+                    </span>
+                    <span class="text-sm text-[#535353]">
+                        <?php echo get_the_date('j M Y'); ?>
+                    </span>
+                </div>
+            </div>
+            </article>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+        ?>
+            <p class="text-center text-gray-500">No more posts found.</p>
+        <?php endif; ?>
+    </div>
+</section>
+
 </main>
 
 <?php get_footer(); ?>
@@ -360,3 +444,9 @@
         demoButton.onclick = addNewImage;
         document.body.appendChild(demoButton);
     </script>
+
+
+
+
+
+

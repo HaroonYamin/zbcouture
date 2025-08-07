@@ -21,7 +21,7 @@
                 <?php echo nl2br(esc_html($desc)); ?>
             </p>
         <?php endif; ?>
-    </div>
+    </div>      
 
 
     <!-- Blog Cards Container - CSS Grid -->
