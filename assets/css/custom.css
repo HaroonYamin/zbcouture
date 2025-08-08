@@ -443,6 +443,7 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
     border: 2px solid #c2c2c2;
     border-radius: 4px;
     width: fit-content;
+    margin-bottom: 12px;
 }
 .qty-btn {
     width: 46px;
@@ -476,7 +477,7 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
     outline: none;
 }
 form.cart:has(.quantity-wrapper) {
-    display: flex;
+    /* display: flex; */
     gap: 24px;
 }
 
