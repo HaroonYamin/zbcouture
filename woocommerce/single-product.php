@@ -150,7 +150,7 @@ get_header( 'shop' ); ?>
                     <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
 
                     <?php if ( $product->get_short_description() ) : ?>
-                        <div class="text-gray-600 sm:text-xl text-lg leading-relaxed">
+                        <div class="text-gray-600 sm:text-xl text-lg leading-relaxed max-w-[470px]">
                             <?php echo $product->get_short_description(); ?>
                         </div>
                     <?php endif; ?>
