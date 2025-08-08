@@ -30,7 +30,6 @@
     transition: all 0.3s ease;
     position: absolute;
     top: 100%;
-    left: -18px;
     width: max-content;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
