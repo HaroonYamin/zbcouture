@@ -40,7 +40,7 @@ get_header();
         <img 
           src="<?php echo esc_url($hero_image['url']); ?>" 
           alt="<?php echo esc_attr($hero_image['alt']); ?>" 
-          class="w-full h-auto object-cover"
+          class="w-full h-[400px] object-cover"
         >
       <?php endif; ?>
     </div> 
@@ -67,7 +67,7 @@ get_header();
           <img 
             src="<?php echo esc_url($bride_image['url']); ?>" 
             alt="<?php echo esc_attr($bride_image['alt']); ?>" 
-            class="w-full max-w-2xl object-cover"
+            class="w-full max-w-[650px] h-[450px] object-cover"
           >
         <?php endif; ?>
       </div>
