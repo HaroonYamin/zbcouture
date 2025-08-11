@@ -48,7 +48,10 @@ if ($social_media || $text): ?>
                 <div>
                     <!-- Right side: ENG and USD -->
                     <div class="flex flex-row items-center gap-4">
-                        <?php echo do_shortcode('[woocs sd=1]'); ?>
+                        <div>
+                            <?php echo do_shortcode('[woocs sd=1]'); ?>
+                        </div>
+                        
                         <div class="text-white cursor-pointer flex items-center gap-1 text-base font-medium underline">
                             ENG <span class="text-xs"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg></span>
                         </div>
@@ -62,19 +65,3 @@ if ($social_media || $text): ?>
     </section>
 
 <?php endif; ?>
-
-
-
-<style>
-    .selectron23-option-title {
-  color: white !important;                  /* text-white */
-  cursor: pointer !important;               /* cursor-pointer */
-  display: flex !important;                  /* flex */
-  align-items: center !important;           /* items-center */
-  gap: 0.25rem !important;                   /* gap-1 → 4px = 0.25rem */
-  font-size: 1rem !important;                /* text-base */
-  font-weight: 500 !important;               /* font-medium */
-  text-decoration: underline !important;    /* underline */
-}
-
-</style>
