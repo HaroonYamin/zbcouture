@@ -62,3 +62,19 @@ if ($social_media || $text): ?>
     </section>
 
 <?php endif; ?>
+
+
+
+<style>
+    .selectron23-option-title {
+  color: white;                  /* text-white */
+  cursor: pointer;               /* cursor-pointer */
+  display: flex;                  /* flex */
+  align-items: center;           /* items-center */
+  gap: 0.25rem;                   /* gap-1 → 4px = 0.25rem */
+  font-size: 1rem;                /* text-base */
+  font-weight: 500;               /* font-medium */
+  text-decoration: underline;    /* underline */
+}
+
+</style>
