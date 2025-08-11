@@ -48,7 +48,7 @@ if ($social_media || $text): ?>
                 <div>
                     <!-- Right side: ENG and USD -->
                     <div class="flex flex-row items-center gap-4">
-                        <div>
+                        <div id="currency-switcher">
                             <?php echo do_shortcode('[woocs sd=1]'); ?>
                         </div>
                         
