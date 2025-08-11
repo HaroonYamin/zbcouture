@@ -48,10 +48,10 @@ if ($social_media || $text): ?>
                 <div>
                     <!-- Right side: ENG and USD -->
                     <div class="flex flex-row items-center gap-4">
-                        <div id="language-switcher" class="text-white cursor-pointer flex items-center gap-1 text-base font-medium underline">
+                        <div id="language-switcher" class="text-white cursor-pointer flex items-center gap-1 text-base font-medium underline bg-primary">
                             <?php echo do_shortcode('[gtranslate]'); ?>
                         </div>
-                        <div id="currency-switcher">
+                        <div id="currency-switcher" class="text-white cursor-pointer flex items-center gap-1 text-base font-medium underline bg-primary">
                             <?php echo do_shortcode('[woocs sd=1]'); ?>
                         </div>
                         
