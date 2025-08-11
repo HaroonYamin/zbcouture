@@ -48,7 +48,7 @@ if ($social_media || $text): ?>
                 <div>
                     <!-- Right side: ENG and USD -->
                     <div class="flex flex-row items-center gap-4">
-                        <div id="language-switcher" class="text-white">
+                        <div id="language-switcher" class="text-white cursor-pointer flex items-center gap-1 text-base font-medium underline bg-primary">
                             <?php echo do_shortcode('[gtranslate]'); ?>
                         </div>
                         <div id="currency-switcher">
