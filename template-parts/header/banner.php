@@ -40,7 +40,7 @@ if ($social_media || $text): ?>
                 <?php endif; ?>
 
                 <?php if( $text ) : ?>
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                         <p class="text-white font-medium"><?= esc_html($text); ?></p>
                     </div>
                 <?php endif; ?>
