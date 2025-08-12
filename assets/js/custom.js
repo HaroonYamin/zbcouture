@@ -609,3 +609,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, 100);
 });
+
+
+
+
+// legal page editor
+ document.addEventListener("DOMContentLoaded", function () {
+    // Select all images inside .legal-image-editor
+    const images = document.querySelectorAll(".legal-image-editor img");
+
+    images.forEach(function (img) {
+        // Create a wrapper div
+        const wrapper = document.createElement("div");
+
+        // Add styling to wrapper
+        wrapper.style.backgroundColor = "#F5F5F0";
+        wrapper.style.display = "flex";
+        wrapper.style.justifyContent = "center";
+        wrapper.style.alignItems = "center";
+
+        // Set image width
+        img.style.width = "380px";
+        img.style.height = "auto";
+
+        // Wrap the image
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+    });
+});

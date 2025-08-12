@@ -128,12 +128,10 @@
     }
 
     .widget-title {
-        font-size: 1.3rem;
-        font-weight: medium;
+        font-size: 18px;
+        font-weight: 500;
         margin-bottom: 1rem;
         color: #27221E;
-        border-bottom: 2px solid #27221E;
-        padding-bottom: 0.5rem;
     }
 
     /* Responsive Design */
