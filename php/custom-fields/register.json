@@ -105,6 +105,13 @@
         "keywords": "main-collection, section, webpage"
     },
     {
+        "name": "book-appointment",
+        "title": "Book Appointment Section",
+        "description": "This is the book-appointment section of a webpage.",
+        "template": "book-appointment",
+        "keywords": "book-appointment, section, webpage"
+    },
+    {
         "name": "title",
         "title": "Title Section",
         "description": "This is the title section of a webpage.",
