@@ -93,7 +93,7 @@
         width: 100vw;
         position: relative;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-80%);
         box-sizing: border-box;
     }
 
