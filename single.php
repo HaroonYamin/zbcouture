@@ -85,18 +85,13 @@
         padding: 2rem;
         margin: 2rem 0;
         display: flex;
-        justify-content: center; /* Yeh image ko horizontally (daayein-baayein) center karta hai */
-        align-items: center;     /* Yeh image ko vertically (upar-neeche) center karta hai */
+        justify-content: center; 
+        align-items: center;   
     }
 
     .content-image {
-        /* Image ko container se bahar jane se rokein */
         max-width: 100%;
-        
-        /* Image ki maximum height set karein taake woh bahut lambi na ho jaye */
         max-height: 500px;
-
-        /* In properties se image ki aspect ratio kharab nahi hogi */
         width: auto;
         height: auto;
         object-fit: contain;
