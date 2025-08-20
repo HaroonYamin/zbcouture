@@ -80,7 +80,30 @@
         color: #27221E;
     }
 
-    .content-image-container
+    .content-image-container {
+        background-color: #F5F5F0;
+        padding: 2rem 0; /* Padding sirf upar aur neeche */
+        margin: 2rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Yeh lines container ko full-width banayengi */
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+    }
+
+    .content-image {
+        width: auto;
+        height: auto;
+        /* Image ki max-width set karein taake woh zyada na phaile */
+        max-width: min(100%, 900px); 
+        max-height: 500px;
+        object-fit: contain;
+    }
 
     .highlight-box {
         background: #27221E;
