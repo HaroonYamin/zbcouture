@@ -80,22 +80,7 @@
         color: #27221E;
     }
 
-    .content-image-container {
-        background-color: #F5F5F0;
-        padding: 2rem;
-        margin: 2rem 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .content-image {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 500px;
-        object-fit: contain;
-    }
+    .content-image-container
 
     .highlight-box {
         background: #27221E;
@@ -442,9 +427,3 @@
         demoButton.onclick = addNewImage;
         document.body.appendChild(demoButton);
     </script>
-
-
-
-
-
-
