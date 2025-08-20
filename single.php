@@ -79,7 +79,7 @@
         font-size: 18px;
         color: #27221E;
     }
-    
+
 
     .content-image-container {
         background-color: #F5F5F0;
