@@ -4,8 +4,7 @@
  *
  * @package YourThemeName
  * @version 1.0.0
- * @author Haroon Yamin
- * @link https://www.linkedin.com/in/haroon-webdev/
+ * @author Asjad
  */
 
 get_header(); ?>

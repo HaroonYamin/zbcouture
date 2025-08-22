@@ -1,5 +1,5 @@
 {
-  "name": "zb-couture",
+  "name": "amino-marketing",
   "version": "1.0.0",
   "description": "A modern, flexible, and performance-optimized WordPress theme template designed for scalable web development.",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Haroon Yamin",
+  "author": "Asjad",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.21",

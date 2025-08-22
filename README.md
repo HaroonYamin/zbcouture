@@ -99,7 +99,6 @@ This theme is licensed under the MIT License - see the LICENSE.md file for detai
 
 For technical support or customization inquiries, please reach out through:
 
--   LinkedIn: [Haroon Yamin](https://www.linkedin.com/in/haroon-webdev/)
 
 ## Contributing
 
@@ -107,8 +106,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-# © 2024 Haroon Yamin. All rights reserved.
+# © 2024 Asjad. All rights reserved.
 
-# zbcouture
+# aminomarketing
 
-This is the E-Commerce site for ZB Couture. This project is associated with Diginest. The client name is Zara Batool.
+This is the Marketing site for Amino Marketing. This project is associated with Diginest. The client name is Danish Aslam.

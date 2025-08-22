@@ -248,4 +248,3 @@ function add_size_guide_next_to_sizes() {
    </div>
     <?php
 }
-

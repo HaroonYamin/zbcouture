@@ -2,10 +2,9 @@
 /**
  * Theme Functions and Definitions
  *
- * @package ZB Couture
+ * @package Amino Marketing
  * @version 1.0.0
- * @author Haroon Yamin
- * @link https://www.linkedin.com/in/haroon-webdev/
+ * @author Asjad
  * 
  * This file contains the core functionality for the WordPress theme.
  * It handles theme setup, asset management, custom post types,

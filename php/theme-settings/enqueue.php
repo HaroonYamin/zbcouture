@@ -18,10 +18,6 @@ if (!defined('ABSPATH')) {
  */
 define('THEME_ASSETS', [
     'css' => [
-        'BeigeCulture' => [
-            'path' => '/assets/fonts/BeigeCulture/stylesheet.css',
-            'deps' => []
-        ],
         'Avenir' => [
             'path' => '/assets/fonts/Avenir/stylesheet.css',
             'deps' => []
