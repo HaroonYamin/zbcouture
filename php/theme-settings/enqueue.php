@@ -30,6 +30,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/MessinaSans/stylesheet.css',
             'deps' => []
         ],
+        'Gilroy' => [
+            'path' => '/assets/fonts/Gilroy/stylesheet.css',
+            'deps' => []
+        ],
         'aos' => [
             'path' => '/node_modules/aos/dist/aos.css',
             'deps' => []
