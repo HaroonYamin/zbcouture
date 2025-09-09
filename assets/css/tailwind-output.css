@@ -77,7 +77,7 @@
     --color-hover: rgba(0, 0, 0, 0.3);
     --font-primary: "BeigeCulture";
     --font-secondary: "Avenir";
-    --font-tertiary: "Gilroy", sans-serif";
+    --font-tertiary: "Gilroy";
   }
 }
 @layer base {
