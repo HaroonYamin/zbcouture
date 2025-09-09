@@ -15,7 +15,7 @@
 ?>
 
 <section class="sm:py-24 py-12 w-full">
-    <div class="container mx-auto sm:px-4">
+    <div class="mx-auto sm:px-8">
         <div class="flex flex-wrap gap-y-6 items-center">
           
             <div class="hidden xl:block w-1/12 order-1"></div>
@@ -59,7 +59,7 @@
             <div class="lg:w-5/12 w-full lg:order-4 order-1" data-aos="fade-left" data-aos-delay="300">
                 <?php
                     if( $image ) {
-                        echo get_image($image, 'w-full h-auto object-cover');
+                        echo get_image($image, 'w-[575px] h-[860px] object-cover');
                     }
                 ?>
             </div>
