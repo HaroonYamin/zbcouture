@@ -10,7 +10,7 @@
 
 if ($social_media || $text): ?>
 
-    <section class="bg-black">
+    <section class="bg-black/90">
         <div class="py-1 px-4 lg:px-24">
             <div class="flex flex-row items-center justify-between relative">
                 <?php if( $social_media ) : ?>
