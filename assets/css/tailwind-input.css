@@ -7,8 +7,10 @@
 
     --font-primary: "BeigeCulture";
 
-    --font-secondary: "Avenir";
-    --default-font-family: "Avenir", sans-serif;
+    /* --font-secondary: "Avenir"; */
+    /* --default-font-family: "Avenir", sans-serif; */
 
     --font-tertiary: "Gilroy";
+    --default-font-family: "Gilroy", sans-serif;
+
 }

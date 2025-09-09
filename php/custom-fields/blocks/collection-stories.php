@@ -14,7 +14,7 @@
 ?>
 
 <section class="sm:py-32 py-16">
-  <div class="container mx-auto px-4">
+  <div class="px-24">
 
     <div class="text-center">
       <?php if( $label ) : ?>
