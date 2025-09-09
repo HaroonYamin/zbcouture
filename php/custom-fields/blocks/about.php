@@ -15,7 +15,7 @@
 ?>
 
 <section class="sm:py-24 py-12 w-full">
-    <div class="mx-auto sm:px-8">
+    <div class="mx-auto sm:px-4">
         <div class="flex flex-wrap gap-y-6 items-center">
           
             <div class="hidden xl:block w-1/12 order-1"></div>
