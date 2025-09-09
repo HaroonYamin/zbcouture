@@ -36,7 +36,7 @@
     <div class="overflow-x-auto xl:overflow-visible scroll-smooth touch-auto sm:touch-none">
       
       <!-- Flex Layout -->
-      <div class="flex xl:justify-center gap-[16px] mt-[50px] w-max xl:w-full">
+      <div class="flex justify-between gap-[16px] mt-[50px] w-max xl:w-full">
 
         <?php if( $collection ) :
           foreach( $collection as $i => $collect ) :
