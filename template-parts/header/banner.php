@@ -10,7 +10,7 @@
 
 if ($social_media || $text): ?>
 
-    <section class="bg-primary">
+    <section class="bg-black">
         <div class="py-1 px-4 lg:px-24">
             <div class="flex flex-row items-center justify-between relative">
                 <?php if( $social_media ) : ?>
@@ -41,13 +41,13 @@ if ($social_media || $text): ?>
 
                 <?php if( $text ) : ?>
                     <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <p class="text-white font-medium"><?= esc_html($text); ?></p>
+                        <p class="text-white font-medium font-tertiary"><?= esc_html($text); ?></p>
                     </div>
                 <?php endif; ?>
 
                 <div>
                     <!-- Right side: ENG and USD -->
-                    <div class="flex flex-row items-center gap-4">
+                    <div class="flex flex-row items-center gap-4 font-tertiary uppercase tracking-widest">
                         <div id="language-switcher" class="text-white">
                             <?php echo do_shortcode('[gtranslate]'); ?>
                         </div>

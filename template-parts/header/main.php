@@ -31,7 +31,7 @@
         
         <!-- Left Menu (Desktop) -->
         <?php if( !is_checkout() ) : ?>
-        <div class="hidden lg:block font-tertiary text-sm font-medium tracking-wide uppercase">
+        <div class="hidden lg:block font-tertiary uppercase tracking-widest">
             <?php wp_nav_menu(['theme_location' => 'left-header-menu']); ?>
         </div>
         <?php endif; ?>
@@ -54,7 +54,7 @@
 
         <!-- Right Menu & Icons (Desktop) -->
         <?php if( !is_checkout() ) : ?>
-        <div class="hidden lg:flex flex-row items-center gap-5"> 
+        <div class="hidden lg:flex flex-row items-center gap-5 font-tertiary uppercase tracking-widest"> 
             <div> 
                 <?php wp_nav_menu(['theme_location' => 'right-header-menu']); ?> 
             </div> 
