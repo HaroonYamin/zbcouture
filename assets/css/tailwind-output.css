@@ -2606,6 +2606,11 @@
       width: calc(4/12 * 100%);
     }
   }
+  .xl\:w-\[calc\(33\.33\%-11px\)\] {
+    @media (width >= 80rem) {
+      width: calc(33.33% - 11px);
+    }
+  }
   .xl\:w-full {
     @media (width >= 80rem) {
       width: 100%;
