@@ -26,6 +26,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/Avenir/stylesheet.css',
             'deps' => []
         ],
+        'MessinaSans' => [
+            'path' => '/assets/fonts/MessinaSans/stylesheet.css',
+            'deps' => []
+        ],
         'aos' => [
             'path' => '/node_modules/aos/dist/aos.css',
             'deps' => []
