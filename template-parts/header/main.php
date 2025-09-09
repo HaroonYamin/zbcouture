@@ -31,7 +31,7 @@
         
         <!-- Left Menu (Desktop) -->
         <?php if( !is_checkout() ) : ?>
-        <div class="hidden lg:block">
+        <div class="hidden lg:block font-tertiary text-sm font-medium tracking-wide uppercase">
             <?php wp_nav_menu(['theme_location' => 'left-header-menu']); ?>
         </div>
         <?php endif; ?>
