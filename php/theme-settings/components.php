@@ -256,7 +256,7 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<p class="text-base max-w-[490px] %s">%s</p>',
+            '<p class="mt-8 text-base max-w-[490px] %s">%s</p>',
             $class,
             $text
         );
