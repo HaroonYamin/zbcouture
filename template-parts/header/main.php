@@ -23,9 +23,6 @@
 
 ?> 
 
-<!-- ======================================================== -->
-<!-- HTML SECTION (Mobile Layout Updated) -->
-<!-- ======================================================== -->
 <header id="site-header" class="absolute top-0 left-0 right-0 w-full z-50 h-auto py-2 mt-12 header smooth-header-transition <?= $text_class; ?> <?= $header_nav; ?>"> 
      <div class="flex justify-between items-center px-4 lg:pr-23 lg:pl-21 py-2"> 
         

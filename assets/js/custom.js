@@ -441,10 +441,14 @@ const swiperCollection = new Swiper(".hy-collection-swiper", {
 
 const bannerSwiper = new Swiper(".swiper-banner", {
     loop: true,
-    speed: 1500,
+    speed: 1500, // This speed will now apply to the fade transition
     autoplay: {
         delay: 4000,
         disableOnInteraction: false,
+    },
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true 
     },
     pagination: {
         el: ".banner-pagination",

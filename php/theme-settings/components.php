@@ -168,7 +168,7 @@ class HY_UI {
         
         return sprintf(
             '<div class="btn-aware-wrapper relative inline-block">
-                <a href="%s" target="%s" class="btn-aware btn-aware-white relative inline-block px-8 py-3 text-base font-medium border border-white rounded-xl overflow-hidden backdrop-blur-[2px] z-10 %s">
+                <a href="%s" target="%s" class="btn-aware btn-aware-white relative inline-block px-8 py-3 text-base font-medium border border-white rounded-xl overflow-hidden backdrop-blur-[200px] %s">
                     %s
                     <span class="btn-aware-circle"></span>
                 </a>
@@ -256,7 +256,7 @@ class HY_UI {
         $class = esc_attr( $class );
         
         return sprintf(
-            '<p class="sm:text-xl text-base max-w-[490px] %s">%s</p>',
+            '<p class="text-base max-w-[490px] %s">%s</p>',
             $class,
             $text
         );
