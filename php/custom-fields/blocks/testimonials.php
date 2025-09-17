@@ -78,7 +78,7 @@ if( !$enable ) return;
                 <!-- Text Side -->
                 <div class="text-left lg:mt-[32px] mt-[64px] slide-content">
                   <?php if( $paragraph ) : ?>
-                    <?= $ui->large_paragraph(  $paragraph, 'max-w-[648px] font-normal font-secondary mx-auto lg:mx-0' ); ?>
+                    <p class="max-w-[648px] text-xl mb-6 font-normal font-secondary mx-auto lg:mx-0"><?= $paragraph; ?></p>
                   <?php endif; ?>
 
                   <?php if( $customer ) : ?>
@@ -88,31 +88,11 @@ if( !$enable ) return;
                   <?php if( $role ) : ?>
                     <p class="text-base font-medium font-secondary text-[#535353]"><?= $role; ?></p>
                   <?php endif; ?>
-
                 
-                  <div class="flex justify-between">
-                    <!-- Read More Button -->
-                    <div class="mt-5">
-                      <?= $ui->black_button( 'Read More', $permalink ); ?>
-                    </div>  
-                    <!-- Navigation Arrows -->
-                    <div class="flex justify-center gap-6 mt-8">
-                      <button id="testimonial-arrow-left" class="z-4 hover:opacity-50 transition-all duration-300 hover:scale-110">
-                        <!-- SVG Left -->
-                        <svg width="28px" height="28px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="#000000"/>
-                        </svg>
-                      </button>
-
-                      <button id="testimonial-arrow-right" class="z-4 hover:opacity-50 transition-all duration-300 hover:scale-110">
-                        <!-- SVG Right -->
-                        <svg width="28px" height="28px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="#000000"/>
-                        </svg>
-                      </button>
-                    </div>
+                  <!-- Read More Button -->
+                  <div class="mt-5">
+                    <?= $ui->black_button( 'Read More', $permalink ); ?>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -120,6 +100,22 @@ if( !$enable ) return;
         </div>
       </div>
 
+      <!-- Navigation Arrows - MOVED OUTSIDE SWIPER LOOP -->
+      <div class="flex justify-center gap-6 mt-8">
+        <button id="testimonial-arrow-left" class="z-4 hover:opacity-50 transition-all duration-300"> 
+          <!-- SVG Left -->
+          <svg width="28px" height="28px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="#000000"/>
+          </svg>
+        </button>
+
+        <button id="testimonial-arrow-right" class="z-4 hover:opacity-50 transition-all duration-300"> 
+          <!-- SVG Right -->
+          <svg width="28px" height="28px" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="#000000"/>
+          </svg>
+        </button>
+      </div>
       
     <?php endif; ?>
 

@@ -507,16 +507,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const swiper = new Swiper('.testimonials-swiper', {
     slidesPerView: 1,
     spaceBetween: 30,
-    loop: false,
+    loop: false, 
     speed: 800,
-    effect: 'slide',
+    effect: 'slide', 
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
     on: {
       slideChangeTransitionStart: function () {
-        // Reset all slides to initial state
         const allSlides = this.slides;
         allSlides.forEach(slide => {
           const image = slide.querySelector('.slide-image');
@@ -535,13 +534,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       },
       slideChangeTransitionEnd: function () {
-        // Animate active slide with AOS-like timing
         const activeSlide = this.slides[this.activeIndex];
         if (activeSlide) {
           const image = activeSlide.querySelector('.slide-image');
           const content = activeSlide.querySelector('.slide-content');
           
-          // Image zoom-in animation (like AOS zoom-in with delay 200ms)
           setTimeout(() => {
             if (image) {
               image.style.transform = 'scale(1)';
@@ -549,7 +546,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }, 200);
           
-          // Text fade-left animation (like AOS fade-left with delay 300ms)
           setTimeout(() => {
             if (content) {
               content.style.transform = 'translateX(0)';
@@ -565,25 +561,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('click', function(e) {
     if (e.target.closest('#testimonial-arrow-left')) {
       e.preventDefault();
-      
-      const arrow = e.target.closest('#testimonial-arrow-left');
-      arrow.style.transform = 'scale(0.9)';
-      setTimeout(() => {
-        arrow.style.transform = 'scale(1)';
-      }, 150);
-      
       swiper.slidePrev();
     }
     
     if (e.target.closest('#testimonial-arrow-right')) {
       e.preventDefault();
-      
-      const arrow = e.target.closest('#testimonial-arrow-right');
-      arrow.style.transform = 'scale(0.9)';
-      setTimeout(() => {
-        arrow.style.transform = 'scale(1)';
-      }, 150);
-      
       swiper.slideNext();
     }
   });
@@ -595,7 +577,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const image = firstSlide.querySelector('.slide-image');
       const content = firstSlide.querySelector('.slide-content');
       
-      // Image zoom-in with delay 200ms
       setTimeout(() => {
         if (image) {
           image.style.transform = 'scale(1)';
@@ -603,7 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }, 200);
       
-      // Text fade-left with delay 300ms  
       setTimeout(() => {
         if (content) {
           content.style.transform = 'translateX(0)';
