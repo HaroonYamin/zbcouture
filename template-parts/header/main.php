@@ -114,9 +114,6 @@
     </div>
 </header>
 
-<!-- ======================================================== -->
-<!-- NAYA MOBILE MENU PANEL (YAHAN ADD KIYA GAYA HAI) -->
-<!-- ======================================================== -->
 <div id="mobile-menu" class="lg:hidden hidden fixed inset-0 z-40 bg-white text-black overflow-y-auto w-full max-w-[300px] shadow-lg">
     <div class="flex justify-end p-4">
         <button onclick="toggleMobileMenu()" class="hover:text-gray-500 text-3xl font-bold">
@@ -149,86 +146,6 @@
 </div>
 
 
-<!-- ======================================================== -->
-<!-- STYLE SECTION (MOBILE MENU KE LIYE STYLES ADD KIYE HAIN) -->
-<!-- ======================================================== -->
-<style>
-#site-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    will-change: background-color, color, box-shadow;
-}
-
-#site-header.is-sticky {
-    position: fixed;
-    top: 0;
-}
-
-.smooth-header-transition {
-    transition: background-color 0.6s ease-in-out,
-                color 0.6s ease-in-out,
-                box-shadow 0.6s ease-in-out;
-}
-
-.smooth-icon-transition {
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.smooth-svg-transition path {
-    transition: stroke 0.6s ease-in-out;
-}
-
-.smooth-icon-transition:hover {
-    transform: translateY(-1px);
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-#mobile-menu {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateX(-100%); /* Shuru mein screen se bahar */
-}
-
-#mobile-menu:not(.hidden) {
-    transform: translateX(0); /* Jab hidden class na ho to screen par layein */
-}
-
-/* MOBILE MENU KE LIYE NAYE STYLES */
-#mobile-menu .mobile-nav-menu a {
-    display: block;
-    padding: 8px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-#mobile-menu .mobile-nav-menu a:hover {
-    color: #555; /* Hover par halka grey color */
-}
-
-@media (min-width: 640px) {
-    .logo-consistent-dimensions {
-        width: 202px !important;
-        height: 48px !important; 
-    }
-}
-
-@media (max-width: 639px) {
-    .logo-consistent-dimensions {
-        width: 104px !important;
-        height: 30px !important; 
-    }
-}
-</style>
-
-
-<!-- ======================================================== -->
-<!-- SCRIPT SECTION (toggleMobileMenu FUNCTION UPDATED) -->
-<!-- ======================================================== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const header = document.getElementById("site-header");

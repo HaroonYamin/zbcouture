@@ -69,6 +69,7 @@ jQuery(document).ready(function ($) {
     });
 });
 
+
 /* HEADER & NAVIGATION */
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById("mobile-menu");

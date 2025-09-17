@@ -8,29 +8,30 @@ get_header();
 ?> 
  
 <!-- Main Container --> 
-<main class="max-w-screen-xl mx-auto px-6 sm:px-8 sm:py-24 py-12 mt-24"> 
+<main class="max-w-screen-xl mx-auto mt-32 px-4"> 
  
-  <!-- Top Bar --> 
-  <div class="flex justify-between items-start mb-6"> 
-    <p class="text-sm font-medium text-gray-600">
-      <?php the_field('top_label'); ?>
-    </p> 
-    <p class="text-sm text-gray-600">
-      <?php the_field('testimonial_date'); ?>
-    </p> 
-  </div> 
+  
  
   <!-- Headline + Image --> 
-  <div class="grid md:grid-cols-2 items-center gap-8 mb-16"> 
+  <div class="grid md:grid-cols-2 items-center gap-8"> 
     <!-- Left Text --> 
-    <div> 
+    <div class="max-w-xl">
+      <!-- Top Bar --> 
+      <div class="flex justify-between items-start mb-6"> 
+        <p class="text-sm font-medium text-gray-600">
+          <?php the_field('top_label'); ?>
+        </p> 
+        <p class="text-sm text-gray-600">
+          <?php the_field('testimonial_date'); ?>
+        </p> 
+      </div>  
       <h1 class="text-4xl sm:text-6xl font-medium text-gray-900 leading-tight mb-6 font-primary"> 
         <?php the_field('testimonial_heading'); ?>
       </h1> 
       <p class="text-xl font-medium text-gray-800"> 
         <?php the_field('testimonial_subheading'); ?>
       </p> 
-    </div> 
+    </div>
  
     <!-- Right Image --> 
     <div class="overflow-hidden shadow-sm"> 
@@ -40,7 +41,7 @@ get_header();
         <img 
           src="<?php echo esc_url($hero_image['url']); ?>" 
           alt="<?php echo esc_attr($hero_image['alt']); ?>" 
-          class="w-full h-[400px] object-cover"
+          class="w-full md:h-[780px] h-auto object-cover"
         >
       <?php endif; ?>
     </div> 
@@ -53,7 +54,7 @@ get_header();
     
     <div class="hidden xl:block"></div> <!-- Left Empty Space -->
 
-    <div class="col-span-full xl:col-span-3">
+    <div class="col-span-full xl:col-span-3 max-w-3xl">
       <!-- Quote -->
       <p class="text-lg sm:text-xl font-medium leading-relaxed mb-12 max-w-3xl">
         <?php the_field('quote_text'); ?>
@@ -67,14 +68,14 @@ get_header();
           <img 
             src="<?php echo esc_url($bride_image['url']); ?>" 
             alt="<?php echo esc_attr($bride_image['alt']); ?>" 
-            class="w-full max-w-[650px] h-[450px] object-cover"
+            class="w-full h-[450px] object-cover"
           >
         <?php endif; ?>
       </div>
 
       <!-- Bride Info -->
       <div class="mb-8">
-        <h3 class="text-2xl font-bold text-gray-900 mb-2 font-primary">
+        <h3 class="text-2xl font-medium text-gray-900 mb-2 font-primary">
           <?php the_field('bride_name'); ?>
         </h3>
         <p class="text-gray-600">
