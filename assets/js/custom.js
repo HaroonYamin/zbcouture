@@ -469,36 +469,64 @@ if (progressSelectors.length > 0) {
     }, 4000);
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const swiperConfigs = [
-        { selector: ".card-swiper-1", delay: 0 },
-        { selector: ".card-swiper-2", delay: 1500 },     // 1.5 second baad
-        { selector: ".card-swiper-3", delay: 3000 },     // 3 second baad
-    ]
+    // Collect all swiper elements dynamically
+    const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
+    
+    swiperContainers.forEach((swiperEl, index) => {
+        // Use a simple index for a class to ensure uniqueness if needed,
+        // though the PHP loop already generates unique classes like card-swiper-1, card-swiper-2 etc.
+        const selector = `.card-swiper-${index + 1}`; 
+        
+        // Initialize Swiper without autoplay or pagination
+        const mySwiper = new Swiper(swiperEl, {
+            loop: true,
+            speed: 600, // Smooth transition
+            effect: 'fade', // Optional: adds a fade effect
+            fadeEffect: {
+                crossFade: true
+            },
+            // No autoplay or pagination settings here
+            on: {
+                init: () => {
+                    swiperEl.classList.add("initialized");
+                },
+            },
+        });
 
-    swiperConfigs.forEach(({ selector, delay }) => {
-        setTimeout(() => {
-            const swiperEl = document.querySelector(selector);
-            if (!swiperEl) return;
+        // Add event listeners for hover functionality
+        swiperEl.addEventListener('mouseenter', () => {
+            mySwiper.autoplay.start(); // Start autoplay on hover
+        });
 
-            new Swiper(selector, {
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: `${selector} .swiper-pagination`,
-                    clickable: true,
-                },
-                on: {
-                    init: () => {
-                        swiperEl.classList.add("initialized");
-                    },
-                },
-            });
-        }, delay);
+        swiperEl.addEventListener('mouseleave', () => {
+            mySwiper.autoplay.stop(); // Stop autoplay on mouse leave
+        });
     });
+
+    // You can keep the scroll arrow logic if it's separate from Swiper functionality
+    const scrollWrapper = document.querySelector('.overflow-x-auto');
+    const scrollArrowLeft = document.getElementById('scroll-arrow-left');
+    const scrollArrowRight = document.getElementById('scroll-arrow-right');
+
+    if (scrollWrapper && scrollArrowLeft && scrollArrowRight) {
+      scrollArrowLeft.addEventListener('click', () => {
+        scrollWrapper.scrollBy({
+          left: -300, // Adjust scroll amount as needed
+          behavior: 'smooth'
+        });
+      });
+
+      scrollArrowRight.addEventListener('click', () => {
+        scrollWrapper.scrollBy({
+          left: 300, // Adjust scroll amount as needed
+          behavior: 'smooth'
+        });
+      });
+    }
 });
 
 

@@ -120,7 +120,6 @@
 
 
 
-
 <?php
     $enable = get_field('enable');
 
@@ -188,7 +187,7 @@
                    data-aos="zoom-in"
                    data-aos-delay="<?= $delay; ?>">
 
-                <div class="swiper card-swiper-1 h-full pointer-events-none xl:pointer-events-auto">
+                <div class="swiper card-swiper-<?= $i+1; ?> h-full pointer-events-none xl:pointer-events-auto">
                   <div class="swiper-wrapper">
                     <?php if ( $products ) :
                       foreach ( $products as $product ) :
@@ -216,7 +215,7 @@
                     <?php endif; ?>
                   </div>
 
-                  <div class="swiper-pagination absolute bottom-3 left-0 w-full z-30 flex justify-start pl-4 mb-2"></div>
+                  <!-- Removed the swiper-pagination div entirely -->
                 </div>
               </div>
 
