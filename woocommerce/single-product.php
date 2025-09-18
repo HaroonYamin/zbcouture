@@ -288,7 +288,7 @@ get_header( 'shop' ); ?>
 
 <section class="mt-44 pb-14">
     <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-medium text-[#27221E] mb-8 font-tertiary">You May Also Like</h2>
+        <h2 class="text-3xl font-medium text-[#27221E] mb-8 font-primary">You May Also Like</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             <?php $args = array(
