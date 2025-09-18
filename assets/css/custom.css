@@ -1286,7 +1286,7 @@ body.no-scroll {
     font-weight: 400;
 }
 
-.woocommerce h2::after {
+/* .woocommerce h2::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -1296,7 +1296,7 @@ body.no-scroll {
     height: 2px;
     background: linear-gradient(90deg, #000, #555);
     border-radius: 2px;
-}
+} */
 
 .form-row {
     margin-bottom: 1.5rem;
