@@ -562,7 +562,7 @@ form.cart:has(.quantity-wrapper) {
 .wc-block-components-checkout-place-order-button,
 .wc-block-cart__submit-button,
 .single_add_to_cart_button {
-    padding: 12px 132px;
+    padding: 12px 150px;
 }
 .wc-block-components-button[aria-disabled="true"],
 .single_add_to_cart_button.disabled {

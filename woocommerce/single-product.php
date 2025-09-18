@@ -181,7 +181,7 @@ get_header( 'shop' ); ?>
                         $rush_orders = $features['rush_orders'] ?? null;
                     ?>
 
-                    <div class="mt-12 max-w-[424px]">
+                    <div class="mt-12 max-w-[470px]">
                         <?php if( $material_and_content ) : ?>
                             <div class="mb-[24px]">
                                 <h3 class="text-[20px] text-[#252525] font-medium mb-2 font-secondary">Material and Content</h3>
