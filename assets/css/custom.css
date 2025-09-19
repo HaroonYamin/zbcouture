@@ -1289,14 +1289,18 @@ body.no-scroll {
 .fox-currency-loader,
 .fox-loader,
 .currency-switcher-loader,
+.woocs_loader,
+.woocs-loader,
 [class*="fox"][class*="loader"] {
     display: none !important;
+    opacity: 0 !important;
     visibility: hidden !important;
+    pointer-events: none !important;
 }
 
-/* Agar specific loader class hai to ye try karein */
-.woocs_loader,
-.woocs-loader {
+/* Backup method */
+body .fox-currency-loader,
+body .currency-switcher-loader {
     display: none !important;
 }
 
