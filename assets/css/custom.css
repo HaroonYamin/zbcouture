@@ -1285,7 +1285,18 @@ body.no-scroll {
     font-weight: 400;
 }
 
-.woocs_front_loader {
+/* FOX Currency Switcher Loader Hide */
+.fox-currency-loader,
+.fox-loader,
+.currency-switcher-loader,
+[class*="fox"][class*="loader"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Agar specific loader class hai to ye try karein */
+.woocs_loader,
+.woocs-loader {
     display: none !important;
 }
 
