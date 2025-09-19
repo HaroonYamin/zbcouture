@@ -650,3 +650,14 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper.appendChild(img);
     });
 });
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loaders = document.querySelectorAll('.woocs-lds-ellipsis');
+    loaders.forEach(loader => loader.remove());
+});

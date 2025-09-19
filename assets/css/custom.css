@@ -1500,3 +1500,53 @@ body.no-scroll {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Method 1: Hide the loader completely */
+.woocs-lds-ellipsis {
+    display: none !important;
+}
+
+/* Method 2: Make loader invisible but keep space */
+.woocs-lds-ellipsis {
+    visibility: hidden !important;
+}
+
+/* Method 3: Remove loader animation and dots */
+.woocs-lds-ellipsis,
+.woocs-lds-ellipsis div {
+    display: none !important;
+}
+
+/* Method 4: Speed up animation to make it disappear quickly */
+.woocs-lds-ellipsis div {
+    animation-duration: 0.1s !important;
+}
+
+/* Method 5: Hide entire currency switcher until loaded */
+div[data-woocs-sd] .woocs-lds-ellipsis {
+    display: none !important;
+}
+
+/* Alternative: Hide the whole currency switcher container during loading */
+div[data-woocs-sd]:has(.woocs-lds-ellipsis) {
+    display: none !important;
+}
+
+/* Show currency switcher only when selectron23 is present (fully loaded) */
+div[data-woocs-sd]:has(.selectron23) {
+    display: block !important;
+}

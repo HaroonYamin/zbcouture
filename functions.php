@@ -48,3 +48,14 @@ require_once THEME_DIR . '/php/theme-settings/components.php';
  * Custom Post Types
  */
 require_once THEME_DIR . '/php/custom-post-types/config.php';
+
+
+
+
+
+function remove_woocs_loader() {
+    echo '<style>
+        .woocs-lds-ellipsis { display: none !important; }
+    </style>';
+}
+add_action('wp_head', 'remove_woocs_loader');
