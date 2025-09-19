@@ -650,30 +650,3 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper.appendChild(img);
     });
 });
-
-
-
-
-
-
-
-jQuery(document).ready(function($) {
-    // Loader elements ko hide karein
-    $('.fox-currency-loader, .fox-loader, .currency-switcher-loader').hide();
-    
-    // Agar loader dynamically add hota hai
-    setTimeout(function() {
-        $('[class*="fox"][class*="loader"]').remove();
-    }, 100);
-    
-    // Additional methods
-    $('.woocs_loader, .woocs-loader').remove();
-    
-    // Agar koi specific loader ID hai
-    $('#fox-loader, #currency-loader').hide();
-});
-
-// Page load pe immediate hide karein
-$(window).on('load', function() {
-    $('[class*="fox"][class*="loader"]').fadeOut(0);
-});

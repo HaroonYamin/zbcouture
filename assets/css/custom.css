@@ -1285,24 +1285,6 @@ body.no-scroll {
     font-weight: 400;
 }
 
-/* FOX Currency Switcher Loader Hide */
-.fox-currency-loader,
-.fox-loader,
-.currency-switcher-loader,
-.woocs_loader,
-.woocs-loader,
-[class*="fox"][class*="loader"] {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-}
-
-/* Backup method */
-body .fox-currency-loader,
-body .currency-switcher-loader {
-    display: none !important;
-}
 
 
 /* .woocommerce h2::after {
