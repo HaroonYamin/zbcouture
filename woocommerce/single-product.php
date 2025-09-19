@@ -150,7 +150,7 @@ get_header( 'shop' ); ?>
                     <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
 
                     <?php if ( $product->get_short_description() ) : ?>
-                        <div class="text-gray-600 text-xl leading-relaxed max-w-[470px]">
+                        <div class="text-gray-600 text-lg leading-relaxed max-w-[470px]">
                             <?php echo $product->get_short_description(); ?>
                         </div>
                     <?php endif; ?>
@@ -234,7 +234,7 @@ get_header( 'shop' ); ?>
                     <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                    <div class="pt-4 sm:text-xl text-lg">
+                    <div class="pt-4 text-lg">
                         <?php the_content(); ?>
                     </div>
                     </div>
@@ -251,7 +251,7 @@ get_header( 'shop' ); ?>
                         <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                        <div class="pt-4 sm:text-xl text-lg">
+                        <div class="pt-4 text-lg">
                             <?= $global_product_page_content['delivery_policy']; ?>
                         </div>
                     </div>
@@ -265,7 +265,7 @@ get_header( 'shop' ); ?>
                         <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                     </button>
                     <div class="faq-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-base leading-[1.2] text-black font-normal">
-                        <div class="pt-4 sm:text-xl text-lg">
+                        <div class="pt-4 text-lg">
                             <?= $global_product_page_content['how_it_works']; ?>
                         </div>
                     </div>
@@ -273,7 +273,7 @@ get_header( 'shop' ); ?>
             <?php endif; ?>
 
             <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
-                <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
+                <span class="sm:text-[24px] text-xl font-medium text-black">Size Guide</span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
