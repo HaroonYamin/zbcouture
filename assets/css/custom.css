@@ -1285,14 +1285,8 @@ body.no-scroll {
     font-weight: 400;
 }
 
-/* FOX Currency Switcher loader hide */
-.woo-multi-currency-loader,
-.woo-multi-currency-loading,
-.woocs_preloader,
-.woocs-loader {
+.woocs_front_loader {
     display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
 }
 
 
