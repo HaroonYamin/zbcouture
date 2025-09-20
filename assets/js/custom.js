@@ -444,7 +444,7 @@ const bannerSwiper = new Swiper(".swiper-banner", {
     loop: true,
     speed: 1500, // This speed will now apply to the fade transition
     autoplay: {
-        delay: 4000,
+        delay: 8000,
         disableOnInteraction: false,
     },
     effect: 'fade',
@@ -467,7 +467,7 @@ if (progressSelectors.length > 0) {
         progressSelectors.forEach((progress) => {
             progress.classList.add("changed");
         });
-    }, 4000);
+    }, 8000);
 }
 
 
@@ -483,7 +483,7 @@ document.addEventListener("DOMContentLoaded", function () {
       effect: 'fade',
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 400,           // hover ke dauraan fast change
+        delay: 700,           // hover ke dauraan fast change
         disableOnInteraction: false,
         enabled: false        // ⭐ autoplay off by default
       },
@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Hover events → autoplay sirf hover par chalay
     swiperEl.addEventListener('mouseenter', () => {
-      mySwiper.params.autoplay.delay = 300; // 0.3 sec between slides
+      mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
       mySwiper.autoplay.start();            // start scrolling
     });
 

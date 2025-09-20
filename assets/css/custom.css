@@ -442,10 +442,10 @@ form:has(.hy-form-wrapper) .wpcf7-response-output {
     transition: none;
 }
 .banner-pagination .swiper-pagination-bullet-active .progress {
-    animation: bulletProgress 3.8s linear forwards;
+    animation: bulletProgress 8s linear forwards;
 }
 .banner-pagination.changed .swiper-pagination-bullet-active .progress {
-    animation: bulletProgress 5.3s linear forwards;
+    animation: bulletProgress 8s linear forwards;
 }
 @keyframes bulletProgress {
     from {
@@ -1062,11 +1062,10 @@ body.no-scroll {
 }
 #hy-contact-stock h3 {
     font-size: 24px;
-    margin: 8px 0 16px 0;
     font-weight: 500;
 }
 #hy-contact-stock p {
-    margin: 16px 0;
+    margin: 4px 0;
     font-size: 18px;
 }
 #hy-contact-stock a {

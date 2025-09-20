@@ -51,8 +51,14 @@
             </div>
         <?php endif; ?>
 
-        <?php if( $stocklist) : ?>
-            <div class="flex flex-wrap lg:mt-24 mt-12" id="hy-contact-stock">
+       <?php if( $stocklist ) : ?>
+            <?php if( $stockist_heading = get_field('stockist_heading') ) : ?>
+                <h2 class="font-primary text-center text-4xl italic font-medium text-[#27221E] lg:mt-24 mt-8 aos-init aos-animate" data-aos="fade-in">
+                    <?= esc_html( $stockist_heading ); ?>
+                </h2>
+            <?php endif; ?>
+
+            <div class="flex flex-wrap mt-12" id="hy-contact-stock">
                 <?php foreach( $stocklist as $i => $place ) :
                     if( $place['editor'] ) : ?>
                         <?php
@@ -69,5 +75,6 @@
                 endforeach; ?>
             </div>
         <?php endif; ?>
+
     </div>
 </section>
