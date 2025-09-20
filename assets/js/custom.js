@@ -482,30 +482,28 @@ document.addEventListener("DOMContentLoaded", function () {
       speed: 600,
       effect: 'fade',
       fadeEffect: { crossFade: true },
-      // ---- Add autoplay with default disabled ----
       autoplay: {
-        delay: 3000, // default delay (won’t run until we start it)
-        disableOnInteraction: false
+        delay: 300,           // hover ke dauraan fast change
+        disableOnInteraction: false,
+        enabled: false        // ⭐ autoplay off by default
       },
       on: {
         init: () => swiperEl.classList.add("initialized"),
       },
     });
 
-    // Hover events
+    // Hover events → autoplay sirf hover par chalay
     swiperEl.addEventListener('mouseenter', () => {
-      // fast autoplay when hover
-      mySwiper.params.autoplay.delay = 300;  // 0.3 sec between slides
-      mySwiper.autoplay.start();
+      mySwiper.params.autoplay.delay = 300; // 0.3 sec between slides
+      mySwiper.autoplay.start();            // start scrolling
     });
 
     swiperEl.addEventListener('mouseleave', () => {
-      mySwiper.autoplay.stop();              // stop on leave
-      mySwiper.params.autoplay.delay = 3000; // reset normal delay if needed
+      mySwiper.autoplay.stop();             // stop scrolling
     });
   });
 
-  // Scroll arrows (unchanged)
+  // Scroll arrows (same as before)
   const scrollWrapper = document.querySelector('.overflow-x-auto');
   const left = document.getElementById('scroll-arrow-left');
   const right = document.getElementById('scroll-arrow-right');
@@ -518,6 +516,7 @@ document.addEventListener("DOMContentLoaded", function () {
     );
   }
 });
+
 
 
 
