@@ -474,61 +474,51 @@ if (progressSelectors.length > 0) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Collect all swiper elements dynamically
-    const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
-    
-    swiperContainers.forEach((swiperEl, index) => {
-        // Use a simple index for a class to ensure uniqueness if needed,
-        // though the PHP loop already generates unique classes like card-swiper-1, card-swiper-2 etc.
-        const selector = `.card-swiper-${index + 1}`; 
-        
-        // Initialize Swiper without autoplay or pagination
-        const mySwiper = new Swiper(swiperEl, {
-            loop: true,
-            speed: 600, // Smooth transition
-            effect: 'fade', // Optional: adds a fade effect
-            fadeEffect: {
-                crossFade: true
-            },
-            // No autoplay or pagination settings here
-            on: {
-                init: () => {
-                    swiperEl.classList.add("initialized");
-                },
-            },
-        });
+  const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
 
-        // Add event listeners for hover functionality
-        swiperEl.addEventListener('mouseenter', () => {
-            mySwiper.autoplay.start(); // Start autoplay on hover
-        });
-
-        swiperEl.addEventListener('mouseleave', () => {
-            mySwiper.autoplay.stop(); // Stop autoplay on mouse leave
-        });
+  swiperContainers.forEach((swiperEl) => {
+    const mySwiper = new Swiper(swiperEl, {
+      loop: true,
+      speed: 600,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      // ---- Add autoplay with default disabled ----
+      autoplay: {
+        delay: 3000, // default delay (won’t run until we start it)
+        disableOnInteraction: false
+      },
+      on: {
+        init: () => swiperEl.classList.add("initialized"),
+      },
     });
 
-    // You can keep the scroll arrow logic if it's separate from Swiper functionality
-    const scrollWrapper = document.querySelector('.overflow-x-auto');
-    const scrollArrowLeft = document.getElementById('scroll-arrow-left');
-    const scrollArrowRight = document.getElementById('scroll-arrow-right');
+    // Hover events
+    swiperEl.addEventListener('mouseenter', () => {
+      // fast autoplay when hover
+      mySwiper.params.autoplay.delay = 300;  // 0.3 sec between slides
+      mySwiper.autoplay.start();
+    });
 
-    if (scrollWrapper && scrollArrowLeft && scrollArrowRight) {
-      scrollArrowLeft.addEventListener('click', () => {
-        scrollWrapper.scrollBy({
-          left: -300, // Adjust scroll amount as needed
-          behavior: 'smooth'
-        });
-      });
+    swiperEl.addEventListener('mouseleave', () => {
+      mySwiper.autoplay.stop();              // stop on leave
+      mySwiper.params.autoplay.delay = 3000; // reset normal delay if needed
+    });
+  });
 
-      scrollArrowRight.addEventListener('click', () => {
-        scrollWrapper.scrollBy({
-          left: 300, // Adjust scroll amount as needed
-          behavior: 'smooth'
-        });
-      });
-    }
+  // Scroll arrows (unchanged)
+  const scrollWrapper = document.querySelector('.overflow-x-auto');
+  const left = document.getElementById('scroll-arrow-left');
+  const right = document.getElementById('scroll-arrow-right');
+  if (scrollWrapper && left && right) {
+    left.addEventListener('click', () =>
+      scrollWrapper.scrollBy({ left: -300, behavior: 'smooth' })
+    );
+    right.addEventListener('click', () =>
+      scrollWrapper.scrollBy({ left: 300, behavior: 'smooth' })
+    );
+  }
 });
+
 
 
 // Testimonials Swiper with fade effect
