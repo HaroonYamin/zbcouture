@@ -483,7 +483,7 @@ document.addEventListener("DOMContentLoaded", function () {
       effect: 'fade',
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 300,           // hover ke dauraan fast change
+        delay: 400,           // hover ke dauraan fast change
         disableOnInteraction: false,
         enabled: false        // ⭐ autoplay off by default
       },
