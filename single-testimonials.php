@@ -56,7 +56,7 @@ get_header();
 
     <div class="col-span-full xl:col-span-3 max-w-3xl">
       <!-- Quote -->
-      <p class="text-lg sm:text-xl font-medium leading-relaxed mb-12 max-w-3xl">
+      <p class="text-lg sm:text-xl font-medium italic leading-relaxed mb-12 max-w-3xl">
         <?php the_field('quote_text'); ?>
       </p>
 
