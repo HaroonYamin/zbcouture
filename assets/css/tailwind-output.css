@@ -71,12 +71,12 @@
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    --default-font-family: "Gilroy", sans-serif;
+    --default-font-family: "Outfit", sans-serif;
     --default-mono-font-family: var(--font-mono);
     --color-primary: #211a1d;
     --color-hover: rgba(0, 0, 0, 0.3);
     --font-primary: "BeigeCulture";
-    --font-tertiary: "Gilroy";
+    --font-tertiary: "Outfit";
   }
 }
 @layer base {

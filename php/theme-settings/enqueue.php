@@ -34,6 +34,10 @@ define('THEME_ASSETS', [
             'path' => '/assets/fonts/Gilroy/stylesheet.css',
             'deps' => []
         ],
+        'Outfit' => [
+            'path' => '/assets/fonts/Outfit/stylesheet.css',
+            'deps' => []
+        ],
         'aos' => [
             'path' => '/node_modules/aos/dist/aos.css',
             'deps' => []
