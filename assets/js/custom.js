@@ -643,10 +643,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const loaders = document.querySelectorAll('.woocs-lds-ellipsis');
+    loaders.forEach(loader => loader.remove());
+});
+
+
+
 
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const loaders = document.querySelectorAll('.woocs-lds-ellipsis');
-    loaders.forEach(loader => loader.remove());
+    // Sort dropdown functionality
+    const sortBtn = document.getElementById('sort-dropdown-btn');
+    const sortDropdown = document.getElementById('sort-dropdown');
+
+    // Category dropdown functionality
+    const categoryBtn = document.getElementById('category-dropdown-btn');
+    const categoryDropdown = document.getElementById('category-dropdown');
+
+    // Toggle sort dropdown
+    sortBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        sortDropdown.classList.toggle('hidden');
+        
+        // Close category dropdown if open
+        categoryDropdown.classList.add('hidden');
+    });
+
+    // Toggle category dropdown
+    categoryBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        categoryDropdown.classList.toggle('hidden');
+        
+        // Close sort dropdown if open
+        sortDropdown.classList.add('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!sortBtn.contains(e.target) && !sortDropdown.contains(e.target)) {
+            sortDropdown.classList.add('hidden');
+        }
+        
+        if (!categoryBtn.contains(e.target) && !categoryDropdown.contains(e.target)) {
+            categoryDropdown.classList.add('hidden');
+        }
+    });
+
+    // Close dropdowns on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            sortDropdown.classList.add('hidden');
+            categoryDropdown.classList.add('hidden');
+        }
+    });
 });
