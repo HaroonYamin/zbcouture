@@ -703,3 +703,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+
+
+
+  // Function to wrap images in styled containers
+        function wrapImagesInContainers() {
+            // Get all images inside the article content
+            const articleContent = document.querySelector('.article-content');
+            if (!articleContent) return;
+
+            // Find all images that are not already wrapped
+            const images = articleContent.querySelectorAll('img:not(.content-image)');
+            
+            images.forEach(img => {
+                // Skip if image is already wrapped
+                if (img.parentElement.classList.contains('content-image-container')) {
+                    return;
+                }
+
+                // Create the wrapper container
+                const container = document.createElement('div');
+                container.className = 'content-image-container';
+                
+                // Add the content-image class to the image
+                img.classList.add('content-image');
+                
+                // Insert container before the image
+                img.parentNode.insertBefore(container, img);
+                
+                // Move the image into the container
+                container.appendChild(img);
+            });
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', wrapImagesInContainers);
+
+        // Also run if content is loaded dynamically (for WordPress AJAX)
+        document.addEventListener('content-loaded', wrapImagesInContainers);
+
+        // For demonstration: Add a new image dynamically
+        function addNewImage() {
+            const articleContent = document.querySelector('.article-content');
+            const newImg = document.createElement('img');
+            newImg.src = 'https://images.unsplash.com/photo-1511406361295-0a1ff814c0ce?w=500&h=300&fit=crop';
+            newImg.alt = 'New wedding image';
+            
+            articleContent.appendChild(newImg);
+            
+            // Wrap the new image
+            wrapImagesInContainers();
+        }
