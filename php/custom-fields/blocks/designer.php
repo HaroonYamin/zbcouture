@@ -19,10 +19,16 @@
 
     <!-- Image (left) -->
     <div class="sm:flex justify-center hidden" data-aos="zoom-in" data-aos-delay="100">
-      <?php if( $image ) {
-        echo get_image($image, 'sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover');
-      } ?>
+      <?php 
+        if( $image ) {
+          echo get_image(
+            $image,
+            'sm:w-[527px] sm:h-[738px] w-[345px] h-[434px] object-cover transition duration-300 filter grayscale hover:grayscale-0'
+          );
+        } 
+      ?>
     </div>
+
 
     <!-- Text Area -->
     <div class="w-full xl:basis-2/6 text-left">
