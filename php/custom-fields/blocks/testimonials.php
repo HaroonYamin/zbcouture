@@ -93,7 +93,7 @@ if( !$enable ) return;
                   <div class="mt-5">
                     <a href="<?= esc_url( $permalink ); ?>" 
                       class="text-[#27221E] underline transition font-medium hover:opacity-50 duration-300">
-                      Skip the rack
+                      Read More
                     </a>
                   </div>
                 </div>

@@ -60,18 +60,28 @@ get_header();
         <?php the_field('quote_text'); ?>
       </p>
 
-      <!-- Bride Image -->
+      <!-- Uniform Responsive Image Gallery -->
       <div class="mb-12">
-        <?php 
-        $bride_image = get_field('bride_image'); 
-        if ($bride_image): ?>
-          <img 
-            src="<?php echo esc_url($bride_image['url']); ?>" 
-            alt="<?php echo esc_attr($bride_image['alt']); ?>" 
-            class="w-full h-[450px] object-cover"
-          >
-        <?php endif; ?>
+          <?php 
+          $images = get_field('testimonial_image_gallery');
+          if ( $images ) : ?>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <?php foreach ( $images as $image ) : 
+                      $img_url = esc_url( $image['sizes']['large'] );
+                      $img_alt = esc_attr( $image['alt'] );
+                  ?>
+                      <div class="overflow-hidden">
+                          <img
+                              src="<?php echo $img_url; ?>"
+                              alt="<?php echo $img_alt; ?>"
+                              class="w-full h-48 sm:h-56 md:h-64 object-cover"
+                          />
+                      </div>
+                  <?php endforeach; ?>
+              </div>
+          <?php endif; ?>
       </div>
+
 
       <!-- Bride Info -->
       <div class="mb-8">
