@@ -631,8 +631,8 @@ document.addEventListener('DOMContentLoaded', function() {
         wrapper.style.alignItems = "center";
 
         // Set image width
-        img.style.width = "380px";
-        img.style.height = "auto";
+        img.style.width = "480px";
+        img.style.height = "650px";
 
         // Wrap the image
         img.parentNode.insertBefore(wrapper, img);
