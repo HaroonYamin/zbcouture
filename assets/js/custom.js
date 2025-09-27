@@ -633,6 +633,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set image width
         img.style.width = "480px";
         img.style.height = "650px";
+        img.style.objectFit = "cover"; 
+
 
         // Wrap the image
         img.parentNode.insertBefore(wrapper, img);
