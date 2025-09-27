@@ -22,32 +22,32 @@
 
             <div class="xl:w-4/12 lg:w-6/12 w-full lg:order-2 order-2 px-4 sm:px-0">
                 <?php if( $label ) : ?>
-                    <div data-aos="fade-right">
+                    <div>
                         <?= $ui->label( $label, 'text-[#6D6D6D] mb-4' ); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if( $heading ) : ?>
-                    <div data-aos="fade-right" data-aos-delay="200">
+                    <div>
                         <?= $ui->section_heading( $heading, 'sm:mb-8 mb-8 max-w-[600px]' ); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if( $first ) : ?>
-                    <div data-aos="fade-right" data-aos-delay="400">
+                    <div>
                         <?= $ui->paragraph( $first, 'text-[#121212] mt-[18px] max-w-[414px]' ); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if( $second ) : ?>
-                    <div data-aos="fade-right" data-aos-delay="400">
+                    <div>
                         <?= $ui->paragraph( $second, 'text-[#121212] mt-[18px] max-w-[414px]' ); ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if( $button ) : ?>
                     <div class="sm:mt-11 mt-6">
-                        <div data-aos="fade-right" data-aos-delay="600">
+                        <div>
                             <?= $ui->black_button( $button['title'], $button['url'], $button['target'] ); ?>
                         </div>
                     </div>
