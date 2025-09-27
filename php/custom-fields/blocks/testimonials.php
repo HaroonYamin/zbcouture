@@ -81,6 +81,15 @@ if( !$enable ) return;
                     <p class="max-w-[648px] text-xl mb-6 font-normal font-secondary mx-auto lg:mx-0"><?= $paragraph; ?></p>
                   <?php endif; ?>
 
+
+                  <!-- Read More Link -->
+                  <div class="my-5">
+                    <a href="<?= esc_url( $permalink ); ?>" 
+                      class="text-[#27221E] hover:underline transition font-medium">
+                      Read More
+                    </a>
+                  </div>
+
                   <?php if( $customer ) : ?>
                     <p class="italic font-primary text-2xl font-normal text-[#27221E] mb-1"><?= $customer; ?></p>
                   <?php endif; ?>
@@ -89,13 +98,6 @@ if( !$enable ) return;
                     <p class="text-base font-medium font-secondary text-[#535353]"><?= $role; ?></p>
                   <?php endif; ?>
                 
-                  <!-- Read More Link -->
-                  <div class="mt-5">
-                    <a href="<?= esc_url( $permalink ); ?>" 
-                      class="text-[#27221E] underline transition font-medium hover:opacity-50 duration-300">
-                      Read More
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
