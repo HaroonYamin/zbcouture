@@ -56,9 +56,11 @@ get_header();
 
     <div class="col-span-full xl:col-span-3 max-w-3xl">
       <!-- Quote -->
-      <p class="text-lg sm:text-xl font-medium italic leading-relaxed mb-12 max-w-3xl">
-        <?php the_field('quote_text'); ?>
-      </p>
+      <div class="relative pl-6 py-4 mb-12 bg-[#eeece6] border-l-4 border-[#cbc9c3]">
+          <p class="text-xl font-normal italic leading-relaxed max-w-3xl">
+              <?php the_field('quote_text'); ?>
+          </p>
+      </div>
 
       <!-- Uniform Responsive Image Gallery -->
       <div class="mb-12">
