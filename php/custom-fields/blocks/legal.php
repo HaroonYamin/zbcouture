@@ -9,7 +9,7 @@
 ?>
 
 <section class="lg:mt-[96px] mt-12 py-12">
-    <div class="max-w-[1024px] mx-auto px-5">
+    <div class="max-w-[920px] mx-auto px-5">
 
        <div class="mb-24">
     <div class="flex justify-center legal-nav-container">
@@ -48,7 +48,7 @@
                         if( !$title ) { return; } ?>
 
                             <div id="<?= 'legal-link-' . $i; ?>" data-aos="fade-in">
-                                <h2 class="text-2xl"><?= $title; ?></h2>
+                                <h2 class="text-xl"><?= $title; ?></h2>
         
                                 <div class="flex gap-x-10 legal-image-editor">
                                     <?php if( $editor ) : ?>

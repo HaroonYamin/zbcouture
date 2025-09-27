@@ -82,7 +82,7 @@
 
                   <div class="absolute bottom-5 left-5 text-white z-20 pointer-events-none">
                     <?php if( $name ) : ?>
-                      <h5 class="uppercase sm:text-base text-sm font-medium font-secondary tracking-widest"><?= $name; ?></h5>
+                      <h5 class="uppercase text-sm font-normal font-secondary tracking-widest"><?= $name; ?></h5>
                     <?php endif; ?>
 
                     <?php if( $term->name ) : ?>

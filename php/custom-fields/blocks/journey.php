@@ -41,7 +41,7 @@
                             <?php endif; ?>
 
                             <?php if( $paragraph ) : ?>
-                                <?= $ui->small_paragraph( $paragraph, 'text-black text-lg mb-5' ); ?>
+                                <?= $ui->small_paragraph( $paragraph, 'text-black text-base mb-5' ); ?>
                             <?php endif; ?>
 
                             <?php if( $button ) : ?>
