@@ -3,9 +3,9 @@
     $cards = get_field('cards');
 ?>
 
-<section class="lg:my-24 mt-24 mb-12 lg:py-18">
+<section class="lg:my-24 mt-24 mb-12 lg:py-18 bg-[#f5f5f0] py-12">
     <div class="container mx-auto px-5">
-        <h2 class="font-primary text-[#27221E] text-[40px] italic max-w-xl mx-auto mb-18 text-center" data-aos="fade-up">
+        <h2 class="font-primary text-[#27221E] text-[40px] italic max-w-xl mx-auto mb-18 text-center leading-tight" data-aos="fade-up">
             <?= $heading; ?>
         </h2>
 
@@ -18,8 +18,8 @@
 
                         <div class="xl:w-1/4 sm:w-1/2 w-full">
                             <div class="sm:px-5" data-aos="fade-up" data-aos-delay="<?= $i * 200; ?>">
-                                <h3 class="text-[#27221E] text-2xl/tight font-meduim mb-4 text-center mx-auto"><?= $title; ?></h3>
-                                <p class="text-[#27221E] text-lg font-light mb-4 text-center"><?= $paragraph; ?></p>
+                                <h3 class="text-[#27221E] text-xl font-normal mb-4 text-center mx-auto"><?= $title; ?></h3>
+                                <p class="text-[#27221E] text-base font-light mb-4 text-center"><?= $paragraph; ?></p>
                             </div>
                         </div>
 

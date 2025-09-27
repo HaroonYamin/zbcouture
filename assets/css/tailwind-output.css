@@ -27,6 +27,7 @@
     --container-xs: 20rem;
     --container-sm: 24rem;
     --container-md: 28rem;
+    --container-lg: 32rem;
     --container-xl: 36rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
@@ -783,6 +784,9 @@
   .max-w-full {
     max-width: 100%;
   }
+  .max-w-lg {
+    max-width: var(--container-lg);
+  }
   .max-w-md {
     max-width: var(--container-md);
   }
@@ -1090,6 +1094,9 @@
   }
   .bg-\[\#f3f3ef\] {
     background-color: #f3f3ef;
+  }
+  .bg-\[\#f5f5f0\] {
+    background-color: #f5f5f0;
   }
   .bg-\[eeece6\] {
     background-color: eeece6;
