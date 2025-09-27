@@ -9,31 +9,31 @@
 ?>
 
 <section class="lg:mt-[96px] mt-12 py-12">
-    <div class="max-w-[920px] mx-auto px-5">
+    <div class="max-w-[768px] mx-auto px-5">
 
        <div class="mb-24">
-    <div class="flex justify-center legal-nav-container">
-        <?php foreach( $sections as $i => $single ) :
-            if( $single ) :
-                $title = $single['content']['title'];
-                if( !$title ) { continue; } ?>
-                <a href="<?= '#legal-link-' . $i; ?>" 
-                   class="legal-nav-link text-xl uppercase mx-4" 
-                   data-target-id="<?= 'legal-link-' . $i; ?>" 
-                   data-aos="fade-in" 
-                   data-aos-delay="<?= $i * 200; ?>">
-                    <h2 class="text-gray-500 hover:text-black"><?= $title; ?></h2>
-                </a>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </div>
-    
-    <!-- This will be the single continuous line container -->
-    <div class="relative w-full h-1 bg-gray-300 mt-2">
-        <!-- This is the active line indicator -->
-        <div class="absolute top-0 left-0 h-full bg-black transition-all duration-300 ease-in-out" id="active-line-indicator"></div>
-    </div>
-</div>
+            <div class="flex justify-center legal-nav-container">
+                <?php foreach( $sections as $i => $single ) :
+                    if( $single ) :
+                        $title = $single['content']['title'];
+                        if( !$title ) { continue; } ?>
+                        <a href="<?= '#legal-link-' . $i; ?>"
+                           class="legal-nav-link text-xl uppercase mx-4 pb-2"
+                           data-target-id="<?= 'legal-link-' . $i; ?>"
+                           data-aos="fade-in"
+                           data-aos-delay="<?= $i * 200; ?>">
+
+                            <!-- Title with underline INSIDE -->
+                            <h2 class="text-gray-500 hover:text-black relative inline-block pb-1">
+                                <?= $title; ?>
+                                <span class="active-line-individual absolute bottom-0 left-0 h-1 bg-black transition-all duration-300 ease-in-out w-0"></span>
+                            </h2>
+
+                        </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
 
 
         
@@ -72,96 +72,65 @@
 
 
 
-
 <script>
 jQuery(document).ready(function ($) {
+    const $navLinks = $('.legal-nav-link');
+    const $individualActiveLines = $('.active-line-individual');
+    const $legalContentSections = $('.legal-content-section');
+    const $legalDividers = $('.legal-divider');
+
     // Hide all content sections initially
-    $('.legal-content-section').addClass('hidden');
-    $('.legal-divider').addClass('hidden');
+    $legalContentSections.addClass('hidden');
+    $legalDividers.addClass('hidden');
 
+    function updateActiveState($activeLink) {
+        $navLinks.find('h2').removeClass('text-black').addClass('text-gray-500');
 
-    // Function to update active state
-    function updateActiveState(targetId) {
-        // Remove active class from all nav links
-        $('.legal-nav-link h2').removeClass('text-black').addClass('text-gray-500');
-        $('.legal-nav-link .line').removeClass('bg-black').addClass('bg-gray-300');
+        // Hide all individual lines
+        $individualActiveLines.css({
+            width: '0',
+            transform: 'translateX(0)'
+        });
 
-        // Add active class to the clicked nav link
-        $(`a[data-target-id="${targetId}"] h2`).removeClass('text-gray-500').addClass('text-black');
-        $(`a[data-target-id="${targetId}"] .line`).removeClass('bg-gray-300').addClass('bg-black');
+        // Activate the clicked link
+        $activeLink.find('h2').removeClass('text-gray-500').addClass('text-black');
 
-        // Hide all content sections and dividers
-        $('.legal-content-section').addClass('hidden');
-        $('.legal-divider').addClass('hidden');
+        const $h2 = $activeLink.find('h2');
+        const $currentActiveLine = $activeLink.find('.active-line-individual');
 
-        // Show the target content section and its subsequent divider
+        $currentActiveLine.css({
+            width: `${$h2.outerWidth()}px`,
+            transform: 'translateX(0)'
+        });
+
+        // Show the correct content
+        $legalContentSections.addClass('hidden');
+        $legalDividers.addClass('hidden');
+
+        const targetId = $activeLink.attr('data-target-id');
         $(targetId).removeClass('hidden');
         $(targetId).next('.legal-divider').removeClass('hidden');
     }
 
-    // Legal link click handling
-    $('.legal-nav-link').on("click", function (e) {
-        e.preventDefault();
-        const targetId = $(this).attr("data-target-id");
-        updateActiveState(targetId);
-    });
-
-    // Set initial active state (first section by default)
-    if ($('.legal-nav-link').length > 0) {
-        const firstTargetId = $('.legal-nav-link').first().attr('data-target-id');
-        updateActiveState(firstTargetId);
+    // Set first link active on load
+    if ($navLinks.length > 0) {
+        updateActiveState($navLinks.first());
     }
-});
-</script>
 
+    // Click event
+    $navLinks.on('click', function (event) {
+        event.preventDefault();
+        const $this = $(this);
+        updateActiveState($this);
 
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.legal-nav-link');
-        const activeLineIndicator = document.getElementById('active-line-indicator');
-
-        // Function to update the active state and line position
-        function updateActiveState(activeLink) {
-            navLinks.forEach(link => {
-                link.querySelector('h2').classList.remove('text-black');
-                link.querySelector('h2').classList.add('text-gray-500');
-            });
-
-            activeLink.querySelector('h2').classList.remove('text-gray-500');
-            activeLink.querySelector('h2').classList.add('text-black');
-
-            // Position and size the active line indicator
-            const containerRect = document.querySelector('.legal-nav-container').getBoundingClientRect();
-            const linkRect = activeLink.getBoundingClientRect();
-
-            // Calculate position relative to the start of the container or parent
-            const offsetLeft = linkRect.left - containerRect.left; 
-
-            activeLineIndicator.style.width = `${linkRect.width}px`;
-            activeLineIndicator.style.transform = `translateX(${offsetLeft}px)`;
+        // Optional scroll
+        const targetId = $this.attr('data-target-id');
+        const $targetElement = $(targetId);
+        if ($targetElement.length) {
+            $('html, body').animate({
+                scrollTop: $targetElement.offset().top - 100
+            }, 500);
         }
-
-        // Set initial active link (e.g., the first one)
-        if (navLinks.length > 0) {
-            updateActiveState(navLinks[0]);
-        }
-
-        // Add click event listeners
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior if you're using JS for scrolling
-                updateActiveState(this);
-
-                // Optional: Scroll to target ID if needed
-                const targetId = this.getAttribute('data-target-id');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Smooth scroll or just instant jump
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
     });
+});
 </script>

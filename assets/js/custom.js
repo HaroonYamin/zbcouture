@@ -615,8 +615,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// legal page editor
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Select all images inside .legal-image-editor
     const images = document.querySelectorAll(".legal-image-editor img");
 
@@ -627,14 +626,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add styling to wrapper
         wrapper.style.backgroundColor = "#F5F5F0";
         wrapper.style.display = "flex";
-        wrapper.style.justifyContent = "center";
-        wrapper.style.alignItems = "center";
+        wrapper.style.justifyContent = "center"; // Keeps image centered if it doesn't fill
+        wrapper.style.alignItems = "center";     // Keeps image centered if it doesn't fill
+        
+        // Make the wrapper take full width of its parent
+        wrapper.style.width = "100%"; 
+        // Set a fixed height for the wrapper (adjust as needed for your design)
+        // This is crucial for the image to have something to fill vertically.
+        wrapper.style.height = "650px"; // Example fixed height for the background container
 
-        // Set image width
-        img.style.width = "480px";
-        img.style.height = "650px";
-        img.style.objectFit = "cover"; 
-
+        // Ensure the image fills its parent wrapper
+        img.style.width = "100%";
+        img.style.height = "100%";
+        img.style.objectFit = "cover"; // This will make the image cover the area without distorting aspect ratio
+                                       // If you want it to stretch and potentially distort, use "fill"
 
         // Wrap the image
         img.parentNode.insertBefore(wrapper, img);
