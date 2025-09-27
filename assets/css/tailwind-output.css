@@ -1138,6 +1138,18 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .bg-\[url\(\'\/noise\.png\'\)\] {
+    background-image: url('/noise.png');
+  }
+  .bg-\[url\(\'http\:\/\/localhost\/zahrabatool\/wp-content\/uploads\/2025\/09\/nnoise\.jpg\'\)\] {
+    background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/09/nnoise.jpg');
+  }
+  .bg-\[url\(\'http\:\/\/localhost\/zahrabatool\/wp-content\/uploads\/2025\/09\/noise\.png\'\)\] {
+    background-image: url('http://localhost/zahrabatool/wp-content/uploads/2025/09/noise.png');
+  }
+  .bg-\[url\(\'https\:\/\/darkgoldenrod-dinosaur-500813\.hostingersite\.com\/wp-content\/uploads\/2025\/09\/noise\.png\'\)\] {
+    background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/09/noise.png');
+  }
   .bg-cover {
     background-size: cover;
   }
@@ -1484,11 +1496,17 @@
   .opacity-0 {
     opacity: 0%;
   }
+  .opacity-20 {
+    opacity: 20%;
+  }
   .opacity-60 {
     opacity: 60%;
   }
   .opacity-100 {
     opacity: 100%;
+  }
+  .mix-blend-overlay {
+    mix-blend-mode: overlay;
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));

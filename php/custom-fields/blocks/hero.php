@@ -90,7 +90,10 @@
                             data-aos-delay="0"
                             data-aos-duration="700">
 
-                            <!-- Overlay (Middle Layer) -->
+                            <!-- Noise overlay (bottom overlay) -->
+                            <div class="absolute inset-0 bg-[url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/09/noise.png')] opacity-20 mix-blend-overlay z-0 pointer-events-none"></div>
+
+                            <!-- Dark overlay (middle overlay) -->
                             <div class="absolute inset-0 bg-black/40 z-10"></div>
 
                             <!-- Foreground Content (Top Layer) -->
