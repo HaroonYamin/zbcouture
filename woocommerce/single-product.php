@@ -90,7 +90,7 @@ get_header( 'shop' ); ?>
 
                         <?php if( get_the_content() ) : ?>
                             <div class="py-4">
-                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] text-black cursor-pointer">
                                     Description
                                 <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
                                 </button>
@@ -107,7 +107,7 @@ get_header( 'shop' ); ?>
                         <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
 
                             <div class="py-4">
-                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] text-black cursor-pointer">
                                     Delivery Policy
                                     <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                                 </button>
@@ -121,7 +121,7 @@ get_header( 'shop' ); ?>
 
                         <?php if( $global_product_page_content && !empty($global_product_page_content['how_it_works']) ) : ?>
                             <div class="py-4">
-                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium cursor-pointer">
+                                <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] cursor-pointer">
                                     How it works
                                     <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                                 </button>
@@ -134,7 +134,7 @@ get_header( 'shop' ); ?>
                         <?php endif; ?>
 
                         <div class="py-4 flex justify-between items-center cursor-pointer" id="sizeGuideBtn2">
-                            <span class="sm:text-[24px] text-[20px] font-medium text-black">Size Guide</span>
+                            <span class="sm:text-[24px] text-[20px] font-normal text-black">Size Guide</span>
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                             </svg>
@@ -147,7 +147,7 @@ get_header( 'shop' ); ?>
                 
 
                 <div class="space-y-6">
-                    <h1 class="text-[32px] font-medium text-[#27221E] font-secondary"><?php the_title(); ?></h1>
+                    <h1 class="text-[32px] font-normal text-[#27221E] font-secondary"><?php the_title(); ?></h1>
 
                     <?php if ( $product->get_short_description() ) : ?>
                         <div class="text-gray-600 text-lg leading-relaxed max-w-[470px]">
@@ -229,7 +229,7 @@ get_header( 'shop' ); ?>
 
             <?php if( get_the_content() ) : ?>
                 <div class="py-4">
-                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-normal text-black cursor-pointer">
                         Description
                     <span class="toggle-icon text-[24px] width-[24px] height-[24px] transition-transform duration-300">+</span>
                     </button>
@@ -246,7 +246,7 @@ get_header( 'shop' ); ?>
             <?php if( $global_product_page_content && !empty($global_product_page_content['delivery_policy']) ) : ?>
 
                 <div class="py-4">
-                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] font-medium text-black cursor-pointer">
+                    <button type="button" class="faq-toggle flex justify-between items-center w-full text-left sm:text-[24px] text-[20px] text-black cursor-pointer">
                         Delivery Policy
                         <span class="toggle-icon text-[24px] transition-transform duration-300">+</span>
                     </button>

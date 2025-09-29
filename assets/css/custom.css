@@ -1277,9 +1277,8 @@ body.no-scroll {
 }
 
 .woocommerce h2 {
-    font-size: 1.8rem;
+    font-size: 32px;
     color: #000;
-    text-align: center;
     margin-bottom: 2rem;
     font-weight: 400;
 }
