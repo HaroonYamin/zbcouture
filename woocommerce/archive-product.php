@@ -128,7 +128,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		</div>
 
 		<!-- Product Grid -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4 gap-y-12 sm:mt-[99px] mt-32px mb-12">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-8 sm:mt-[99px] mt-32px mb-12">
 
 			<?php if ( wc_get_loop_prop( 'total' ) ) : 
 				$i = 0;
