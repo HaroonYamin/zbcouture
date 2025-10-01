@@ -147,9 +147,9 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						 <div class="image-container relative">
 							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
 								 <?php if ( $product_image ) : ?>
-									 <?= get_image($product_image, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[520px]'); ?>
+									 <?= get_image($product_image, 'object-cover w-full h-auto sm:h-[520px] md:h-[400px] lg:h-[435px]'); ?>
 								 <?php else : ?>
-									 <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[520px] bg-gray-200 flex items-center justify-center text-gray-500">
+									 <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
 										 No Image
 									 </div>
 								 <?php endif; ?>
