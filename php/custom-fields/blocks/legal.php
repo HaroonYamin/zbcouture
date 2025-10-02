@@ -12,13 +12,13 @@
     <div class="max-w-[768px] mx-auto px-5">
 
        <div class="lg:mb-24 mb-12">
-            <div class="flex justify-center legal-nav-container">
+            <div class="flex flex-col md:flex-row justify-center legal-nav-container">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
                         $title = $single['content']['title'];
                         if( !$title ) { continue; } ?>
                         <a href="<?= '#legal-link-' . $i; ?>"
-                           class="legal-nav-link lg:text-lg text-xs uppercase lg:mx-4 mx-1 pb-2 tracking-widest"
+                           class="legal-nav-link lg:text-lg text-base uppercase lg:mx-4 mx-1 pb-2 tracking-widest"
                            data-target-id="<?= 'legal-link-' . $i; ?>"
                            data-aos="fade-in"
                            data-aos-delay="<?= $i * 200; ?>">
