@@ -11,14 +11,14 @@
 <section class="lg:mt-[96px] mt-12 py-12">
     <div class="max-w-[768px] mx-auto px-5">
 
-       <div class="mb-24">
+       <div class="lg:mb-24 mb-12">
             <div class="flex justify-center legal-nav-container">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
                         $title = $single['content']['title'];
                         if( !$title ) { continue; } ?>
                         <a href="<?= '#legal-link-' . $i; ?>"
-                           class="legal-nav-link text-lg uppercase mx-4 pb-2 tracking-widest"
+                           class="legal-nav-link lg:text-lg text-xs uppercase lg:mx-4 mx-1 pb-2 tracking-widest"
                            data-target-id="<?= 'legal-link-' . $i; ?>"
                            data-aos="fade-in"
                            data-aos-delay="<?= $i * 200; ?>">
@@ -69,68 +69,3 @@
 
     </div>
 </section>
-
-
-
-<script>
-jQuery(document).ready(function ($) {
-    const $navLinks = $('.legal-nav-link');
-    const $individualActiveLines = $('.active-line-individual');
-    const $legalContentSections = $('.legal-content-section');
-    const $legalDividers = $('.legal-divider');
-
-    // Hide all content sections initially
-    $legalContentSections.addClass('hidden');
-    $legalDividers.addClass('hidden');
-
-    function updateActiveState($activeLink) {
-        $navLinks.find('h2').removeClass('text-black').addClass('text-gray-500');
-
-        // Hide all individual lines
-        $individualActiveLines.css({
-            width: '0',
-            transform: 'translateX(0)'
-        });
-
-        // Activate the clicked link
-        $activeLink.find('h2').removeClass('text-gray-500').addClass('text-black');
-
-        const $h2 = $activeLink.find('h2');
-        const $currentActiveLine = $activeLink.find('.active-line-individual');
-
-        $currentActiveLine.css({
-            width: `${$h2.outerWidth()}px`,
-            transform: 'translateX(0)'
-        });
-
-        // Show the correct content
-        $legalContentSections.addClass('hidden');
-        $legalDividers.addClass('hidden');
-
-        const targetId = $activeLink.attr('data-target-id');
-        $(targetId).removeClass('hidden');
-        $(targetId).next('.legal-divider').removeClass('hidden');
-    }
-
-    // Set first link active on load
-    if ($navLinks.length > 0) {
-        updateActiveState($navLinks.first());
-    }
-
-    // Click event
-    $navLinks.on('click', function (event) {
-        event.preventDefault();
-        const $this = $(this);
-        updateActiveState($this);
-
-        // Optional scroll
-        const targetId = $this.attr('data-target-id');
-        const $targetElement = $(targetId);
-        if ($targetElement.length) {
-            $('html, body').animate({
-                scrollTop: $targetElement.offset().top - 100
-            }, 500);
-        }
-    });
-});
-</script>

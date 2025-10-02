@@ -616,34 +616,80 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Select all images inside .legal-image-editor
-    const images = document.querySelectorAll(".legal-image-editor img");
+  // Select all images inside .legal-image-editor
+  const images = document.querySelectorAll(".legal-image-editor img");
 
-    images.forEach(function (img) {
-        // Create a wrapper div
-        const wrapper = document.createElement("div");
+  images.forEach(function (img) {
+    // Create a wrapper div
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("legal-image-wrapper"); // CSS class apply
 
-        // Add styling to wrapper
-        wrapper.style.backgroundColor = "#F5F5F0";
-        wrapper.style.display = "flex";
-        wrapper.style.justifyContent = "center"; // Keeps image centered if it doesn't fill
-        wrapper.style.alignItems = "center";     // Keeps image centered if it doesn't fill
-        
-        // Make the wrapper take full width of its parent
-        wrapper.style.width = "100%"; 
-        // Set a fixed height for the wrapper (adjust as needed for your design)
-        // This is crucial for the image to have something to fill vertically.
-        wrapper.style.height = "650px"; // Example fixed height for the background container
+    // Wrap the image
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+  });
+});
 
-        // Ensure the image fills its parent wrapper
-        img.style.width = "100%";
-        img.style.height = "100%";
-        img.style.objectFit = "cover"; // This will make the image cover the area without distorting aspect ratio
-                                       // If you want it to stretch and potentially distort, use "fill"
 
-        // Wrap the image
-        img.parentNode.insertBefore(wrapper, img);
-        wrapper.appendChild(img);
+
+jQuery(document).ready(function ($) {
+    const $navLinks = $('.legal-nav-link');
+    const $individualActiveLines = $('.active-line-individual');
+    const $legalContentSections = $('.legal-content-section');
+    const $legalDividers = $('.legal-divider');
+
+    // Hide all content sections initially
+    $legalContentSections.addClass('hidden');
+    $legalDividers.addClass('hidden');
+
+    function updateActiveState($activeLink) {
+        $navLinks.find('h2').removeClass('text-black').addClass('text-gray-500');
+
+        // Hide all individual lines
+        $individualActiveLines.css({
+            width: '0',
+            transform: 'translateX(0)'
+        });
+
+        // Activate the clicked link
+        $activeLink.find('h2').removeClass('text-gray-500').addClass('text-black');
+
+        const $h2 = $activeLink.find('h2');
+        const $currentActiveLine = $activeLink.find('.active-line-individual');
+
+        $currentActiveLine.css({
+            width: `${$h2.outerWidth()}px`,
+            transform: 'translateX(0)'
+        });
+
+        // Show the correct content
+        $legalContentSections.addClass('hidden');
+        $legalDividers.addClass('hidden');
+
+        const targetId = $activeLink.attr('data-target-id');
+        $(targetId).removeClass('hidden');
+        $(targetId).next('.legal-divider').removeClass('hidden');
+    }
+
+    // Set first link active on load
+    if ($navLinks.length > 0) {
+        updateActiveState($navLinks.first());
+    }
+
+    // Click event
+    $navLinks.on('click', function (event) {
+        event.preventDefault();
+        const $this = $(this);
+        updateActiveState($this);
+
+        // Optional scroll
+        const targetId = $this.attr('data-target-id');
+        const $targetElement = $(targetId);
+        if ($targetElement.length) {
+            $('html, body').animate({
+                scrollTop: $targetElement.offset().top - 100
+            }, 500);
+        }
     });
 });
 

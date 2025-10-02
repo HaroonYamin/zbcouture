@@ -1502,7 +1502,27 @@ body.no-scroll {
 
 
 
+ .legal-image-wrapper {
+    width: 100%;
+    height: 650px; /* Default height for large screens */
+    background-color: #F5F5F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .legal-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Mobile screens (below 768px) */
+  @media (max-width: 768px) {
+    .legal-image-wrapper {
+      height: 400px; /* Mobile height */
+    }
+  }
 
 
 
