@@ -5,7 +5,7 @@
  * Handles the efficient loading of CSS and JavaScript files
  * with proper versioning and dependency management.
  *
- * @package TheTriibe
+ * @package ZBCouture
  * @version 1.0.0
  */
 
