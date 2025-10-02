@@ -61,11 +61,11 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		<!-- Page Title -->
 		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="200">Shop</h1>
 
-		<!-- Sort & Filter -->
-		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600 relative z-50" data-aos="fade-in" data-aos-delay="400">
+		
+		<!-- <div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600 relative z-50" data-aos="fade-in" data-aos-delay="400">
 			<div class="flex flex-wrap items-center gap-x-16 gap-y-3">
 
-				<!-- Sort Dropdown -->
+			
 				<div class="relative flex items-center gap-2">
 					<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p> 
 					<div class="relative">
@@ -83,7 +83,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 					</div>
 				</div>
 				
-				<!-- Category Filter Dropdown -->
+				
 				<div class="relative flex items-center gap-2">
 					<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p> 
 					<div class="relative">
@@ -91,7 +91,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 							<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
 						</button>
 						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max font-secondary">
-							<!-- All Categories Option -->
+							
 							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
 							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 font-secondary<?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
 								All Categories
@@ -125,7 +125,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 				<p class="font-medium text-[16px] text-[#797878] font-secondary"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
 			</div>
 
-		</div>
+		</div> -->
 
 		<!-- Product Grid -->
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-8 sm:mt-[99px] mt-32px mb-12">
