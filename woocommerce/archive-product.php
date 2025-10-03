@@ -1,7 +1,23 @@
 <?php
+/**
+ * The Template for displaying archive product pages
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce/Templates
+ * @version 3.4.0
+ */
+
 defined( 'ABSPATH' ) || exit;
 
-echo '<!-- Archive-product.php loaded -->'; // Debug line
+// echo '<!-- Archive-product.php loaded -->'; // Debug line - uncomment if needed
 
 get_header( 'shop' );
 
@@ -39,16 +55,14 @@ $sort_labels = apply_filters( 'woocommerce_catalog_orderby', array(
 $simple_sort_labels = array(
     'menu_order' => 'Default',
     'popularity' => 'Popularity',
-    'rating' => 'Average rating',
-    'date' => 'Latest',
-    'price' => 'Price: low to high',
+    'rating'     => 'Average rating',
+    'date'       => 'Latest',
+    'price'      => 'Price: low to high',
     'price-desc' => 'Price: high to low'
 );
 
 $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple_sort_labels[ $current_orderby ] : 'Default';
 ?>
-
-<!-- archive-product.php (or equivalent template) -->
 
 <section class="py-16">
   <div class="container mx-auto px-4">
@@ -62,71 +76,71 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 		<h1 class="text-3xl font-medium font-secondary text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="200">Shop</h1>
 
 		<!-- Sort & Filter -->
-		<?php if ( is_shop() ) : ?>
-	<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600 relative z-50" data-aos="fade-in" data-aos-delay="400">
-		<div class="flex flex-wrap items-center gap-x-16 gap-y-3">
+		<?php if ( is_shop() || is_product_category() || is_product_tag() ) : // Ensure filters show on relevant archive pages ?>
+		<div class="flex flex-wrap gap-x-4 gap-y-3 items-center justify-between mb-8 text-sm text-gray-600 relative z-50" data-aos="fade-in" data-aos-delay="400">
+			<div class="flex flex-wrap items-center gap-x-16 gap-y-3">
 
-			<!-- Sort Dropdown -->
-			<div class="relative flex items-center gap-2">
-				<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p> 
-				<div class="relative">
-					<button id="sort-dropdown-btn" class="text-[#121212] font-secondary font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
-						<span id="current-sort"><?php echo esc_html( $current_sort_label ); ?></span>
-					</button>
-					<div id="sort-dropdown" class="font-secondary absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
-						<?php foreach ( $simple_sort_labels as $key => $label ) : ?>
-							<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>" 
-							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_orderby === $key ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
-								<?php echo esc_html( $label ); ?>
-							</a>
-						<?php endforeach; ?>
+				<!-- Sort Dropdown -->
+				<div class="relative flex items-center gap-2">
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p> 
+					<div class="relative">
+						<button id="sort-dropdown-btn" class="text-[#121212] font-secondary font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
+							<span id="current-sort"><?php echo esc_html( $current_sort_label ); ?></span>
+						</button>
+						<div id="sort-dropdown" class="font-secondary absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
+							<?php foreach ( $simple_sort_labels as $key => $label ) : ?>
+								<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>" 
+									class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_orderby === $key ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+									<?php echo esc_html( $label ); ?>
+								</a>
+							<?php endforeach; ?>
+						</div>
 					</div>
 				</div>
+				
+				<!-- Category Filter Dropdown -->
+				<div class="relative flex items-center gap-2">
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p> 
+					<div class="relative">
+						<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors font-secondary">
+							<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
+						</button>
+						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max font-secondary">
+							<!-- All Categories Option -->
+							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
+								class="block px-4 py-2 text-[14px] hover:bg-gray-50 font-secondary<?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+								All Categories
+							</a>
+							<?php
+							$product_categories = get_terms( array(
+								'taxonomy' => 'product_cat',
+								'hide_empty' => true,
+								'exclude' => array( get_option( 'default_product_cat' ) ), // Exclude uncategorized
+							) );
+							
+							if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) :
+								foreach ( $product_categories as $category ) :
+							?>
+								<a href="<?php echo esc_url( add_query_arg( 'product_cat', $category->slug ) ); ?>" 
+									class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_category === $category->slug ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
+									<?php echo esc_html( $category->name ); ?>
+									<span class="text-xs text-gray-400 ml-1">(<?php echo $category->count; ?>)</span>
+								</a>
+							<?php 
+								endforeach;
+							endif;
+							?>
+						</div>
+					</div>
+				</div>
+
 			</div>
-			
-			<!-- Category Filter Dropdown -->
-			<div class="relative flex items-center gap-2">
-				<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p> 
-				<div class="relative">
-					<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors font-secondary">
-						<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
-					</button>
-					<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max font-secondary">
-						<!-- All Categories Option -->
-						<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
-						   class="block px-4 py-2 text-[14px] hover:bg-gray-50 font-secondary<?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
-							All Categories
-						</a>
-						<?php
-						$product_categories = get_terms( array(
-							'taxonomy' => 'product_cat',
-							'hide_empty' => true,
-							'exclude' => array( get_option( 'default_product_cat' ) ), // Exclude uncategorized
-						) );
-						
-						if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) :
-							foreach ( $product_categories as $category ) :
-						?>
-							<a href="<?php echo esc_url( add_query_arg( 'product_cat', $category->slug ) ); ?>" 
-							   class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_category === $category->slug ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
-								<?php echo esc_html( $category->name ); ?>
-								<span class="text-xs text-gray-400 ml-1">(<?php echo $category->count; ?>)</span>
-							</a>
-						<?php 
-							endforeach;
-						endif;
-						?>
-					</div>
-				</div>
+
+			<div>
+				<p class="font-medium text-[16px] text-[#797878] font-secondary"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
 			</div>
 
 		</div>
-
-		<div>
-			<p class="font-medium text-[16px] text-[#797878] font-secondary"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
-		</div>
-
-	</div>
 <?php endif; ?>
 
 
@@ -142,24 +156,50 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						$product_id = $product->get_id();
 						$product_title = get_the_title( $product_id );
 						$product_link = get_permalink( $product_id );
-						$product_image = get_post_thumbnail_id( $product_id );
+						
+						// --- START MODIFIED CODE FOR IMAGE RETRIEVAL ---
+                        $product_image_ids = array();
+                        if ( has_post_thumbnail( $product_id ) ) {
+                            $product_image_ids[] = get_post_thumbnail_id( $product_id );
+                        }
+                        $gallery_image_ids = $product->get_gallery_image_ids();
+                        if ( ! empty( $gallery_image_ids ) ) {
+                            $product_image_ids = array_merge( $product_image_ids, $gallery_image_ids );
+                        }
+                        // Remove duplicates if the featured image is also in the gallery
+                        $product_image_ids = array_unique( $product_image_ids );
+
+                        // Fallback: If no images at all, add a placeholder flag
+                        if ( empty( $product_image_ids ) ) {
+                            $product_image_ids[] = false; // Flag to render a 'No Image' placeholder
+                        }
+                        // --- END MODIFIED CODE FOR IMAGE RETRIEVAL ---
 					?>
 
 					<div class="group w-full" data-aos="zoom-in" data-aos-delay="<?= $i * 100; ?>">
-						<!-- Product Image -->
-						 <div class="image-container relative">
-							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden">
-								 <?php if ( $product_image ) : ?>
-									 <?= get_image($product_image, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
-								 <?php else : ?>
-									 <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
-										 No Image
+						<!-- Product Image Container - MODIFIED for slider -->
+						 <div class="image-container relative product-hover-slider">
+							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden product-images-wrapper">
+								 <?php foreach ( $product_image_ids as $img_id ) : ?>
+									 <div class="product-image-slide">
+										 <?php if ( $img_id ) : ?>
+											 <?php // Using your custom get_image function, assuming it exists ?>
+											 <?= get_image($img_id, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
+											 <?php
+											 // ALTERNATIVE: If get_image() doesn't exist, use WordPress/WooCommerce built-in:
+											 // echo wp_get_attachment_image($img_id, 'woocommerce_thumbnail', false, array('class' => 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'));
+											 ?>
+										 <?php else : ?>
+											 <div class="w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[435px] bg-gray-200 flex items-center justify-center text-gray-500">
+												 No Image
+											 </div>
+										 <?php endif; ?>
 									 </div>
-								 <?php endif; ?>
+								 <?php endforeach; ?>
 							 </a>
 							<div class="absolute top-4 right-4 flex flex-col gap-2 hover-icons">
 								<div class="p-2 bg-white rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-200">
-									<?php hy_shared_btn( $product_title, $product_link, '', '' ); ?>
+									<?php hy_shared_btn( $product_title, $product_link, '', '' ); // Assuming hy_shared_btn exists ?>
 								</div>
 
 								<div class="p-2 bg-white rounded-full shadow-lg hover:bg-blue-100 transition-colors duration-200 yith-text-none">
@@ -191,7 +231,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 		</div>
 
-		<!-- Pagination/Load More -->
+		<!-- Pagination/Load More - Pagination is hidden by design here, only "Load More" button appears -->
 		<div class="text-center">
 			<?php
 			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;

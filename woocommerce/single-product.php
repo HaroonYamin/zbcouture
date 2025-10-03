@@ -22,14 +22,6 @@ get_header( 'shop' ); ?>
                 <a href="<?php echo home_url(); ?>" class="hover:underline">Home</a> / 
                 <a href="<?php echo get_permalink( wc_get_page_id( 'shop' ) ); ?>" class="hover:underline">Shop</a> / 
                 <span><?php the_title(); ?></span>
-
-                <div class="max-w-[427px] lg:ml-[350px] mb-6 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
-                    <?php if( $description ) : ?>
-                        <p class="text-sm text-[#6C6C6C] font-normal font-secondary leading-relaxed mb-4">
-                            <?= $description; ?>
-                        </p>
-                    <?php endif; ?>
-                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">

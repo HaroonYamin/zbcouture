@@ -809,3 +809,70 @@ document.addEventListener('DOMContentLoaded', function() {
             // Wrap the new image
             wrapImagesInContainers();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        jQuery(document).ready(function($) {
+
+    // --- Product Hover Slider Functionality ---
+    $('.product-hover-slider').each(function() {
+        var $slider = $(this);
+        var $slides = $slider.find('.product-image-slide');
+        var totalSlides = $slides.length;
+        var currentSlide = 0;
+        var slideInterval;
+        var intervalTime = 2000;
+
+        // Only enable slider if there's more than one image
+        if (totalSlides > 1) {
+            // Initially, ensure only the first slide is visible
+            $slides.stop().css({ 'opacity': 0, 'position': 'absolute' }); // Set all to hidden and absolute
+            $slides.eq(0).css({ 'opacity': 1, 'position': 'relative' }); // Make first one visible and relative for layout
+
+            $slider.on('mouseenter', function() {
+                // Clear any existing interval to prevent multiple timers
+                clearInterval(slideInterval);
+
+                // Reset to first slide visually and logically
+                $slides.stop().css('opacity', 0); // Hide all slides immediately
+                currentSlide = 0;
+                $slides.eq(currentSlide).stop().css({ 'opacity': 1, 'position': 'relative' }); // Show first slide
+
+                // Start the interval for sliding
+                slideInterval = setInterval(function() {
+                    // Fade out current slide
+                    $slides.eq(currentSlide).stop().animate({ opacity: 0 }, 200, function() {
+                         $(this).css('position', 'absolute'); // After fade out, reset position
+                    });
+
+                    // Move to next slide
+                    currentSlide = (currentSlide + 1) % totalSlides;
+
+                    // Fade in next slide
+                    $slides.eq(currentSlide).stop().css('position', 'relative').animate({ opacity: 1 }, 200);
+
+                }, intervalTime); // Change image every intervalTime milliseconds
+            }).on('mouseleave', function() {
+                clearInterval(slideInterval); // Stop sliding on mouse leave
+
+                // Reset to the first image and hide others
+                $slides.stop().css('opacity', 0); // Hide all
+                currentSlide = 0; // Reset slide index
+                $slides.eq(currentSlide).stop().css({ 'opacity': 1, 'position': 'relative' }); // Show first
+            });
+        }
+    });
+
+});
