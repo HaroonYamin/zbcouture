@@ -1,15 +1,5 @@
 <?php
 /**
- * The Template for displaying archive product pages
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/archive-product.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
  * @version 3.4.0
@@ -233,19 +223,28 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 		<!-- Pagination/Load More - Pagination is hidden by design here, only "Load More" button appears -->
 		<div class="text-center">
-			<?php
-			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-			$per_page = wc_get_loop_prop( 'per_page' );
-			$total = wc_get_loop_prop( 'total' );
-			$current_showing = min( $paged * $per_page, $total );
-			$max_pages = wc_get_loop_prop( 'total_pages' );
-			?>
-			<p class="font-medium text-[16px] text-[#797878] font-secondary">Showing <?php echo $current_showing; ?> of <?php echo $total; ?> Products</p>
-			
-			<?php if ( $paged < $max_pages ) : ?>
-				<a href="<?php echo get_pagenum_link( $paged + 1 ); ?>" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out">Load More</a>
-			<?php endif; ?>
-		</div>
+    <?php
+    $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+    $per_page = wc_get_loop_prop( 'per_page' );
+    $total = wc_get_loop_prop( 'total' );
+    $current_showing = min( $paged * $per_page, $total );
+    $max_pages = wc_get_loop_prop( 'total_pages' );
+    ?>
+    <p class="font-medium text-[16px] text-[#797878] font-secondary">
+        Showing <span id="current-showing"><?php echo $current_showing; ?></span> of <span id="total-products"><?php echo $total; ?></span> Products
+    </p>
+
+    <?php if ( $paged < $max_pages ) : ?>
+        <a href="#" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out woocommerce-load-more"
+           data-page="<?php echo $paged; ?>"
+           data-max-pages="<?php echo $max_pages; ?>"
+           data-per-page="<?php echo $per_page; ?>"
+           data-total-products="<?php echo $total; ?>"
+           id="load-more-button">
+            Load More
+        </a>
+    <?php endif; ?>
+</div>
 	</div>
 </section>
 
