@@ -1,7 +1,5 @@
 <?php
-/**
- * The Template for displaying product archives, including the shop page.
- *
+/*
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
  * @version 3.4.0
@@ -74,14 +72,14 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 				<!-- Sort Dropdown -->
 				<div class="relative flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p>
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Sort by:</p> 
 					<div class="relative">
 						<button id="sort-dropdown-btn" class="text-[#121212] font-secondary font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors">
 							<span id="current-sort"><?php echo esc_html( $current_sort_label ); ?></span>
 						</button>
 						<div id="sort-dropdown" class="font-secondary absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max">
 							<?php foreach ( $simple_sort_labels as $key => $label ) : ?>
-								<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>"
+								<a href="<?php echo esc_url( add_query_arg( 'orderby', $key ) ); ?>" 
 									class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_orderby === $key ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
 									<?php echo esc_html( $label ); ?>
 								</a>
@@ -89,17 +87,17 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						</div>
 					</div>
 				</div>
-
+				
 				<!-- Category Filter Dropdown -->
 				<div class="relative flex items-center gap-2">
-					<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p>
+					<p class="font-medium text-[16px] text-[#797878] font-secondary">Filter by:</p> 
 					<div class="relative">
 						<button id="category-dropdown-btn" class="text-[#121212] font-medium text-[16px] cursor-pointer hover:text-[#797878] transition-colors font-secondary">
 							<span id="current-category"><?php echo esc_html( $category_name ); ?></span>
 						</button>
 						<div id="category-dropdown" class="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 min-w-[200px] hidden size-max font-secondary">
 							<!-- All Categories Option -->
-							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>"
+							<a href="<?php echo esc_url( remove_query_arg( 'product_cat' ) ); ?>" 
 								class="block px-4 py-2 text-[14px] hover:bg-gray-50 font-secondary<?php echo empty( $current_category ) ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
 								All Categories
 							</a>
@@ -109,16 +107,16 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 								'hide_empty' => true,
 								'exclude' => array( get_option( 'default_product_cat' ) ), // Exclude uncategorized
 							) );
-
-							if ( ! empty ( $product_categories ) && ! is_wp_error( $product_categories ) ) :
+							
+							if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) :
 								foreach ( $product_categories as $category ) :
 							?>
-								<a href="<?php echo esc_url( add_query_arg( 'product_cat', $category->slug ) ); ?>"
+								<a href="<?php echo esc_url( add_query_arg( 'product_cat', $category->slug ) ); ?>" 
 									class="block px-4 py-2 text-[14px] hover:bg-gray-50 <?php echo $current_category === $category->slug ? 'text-[#121212] font-medium' : 'text-[#797878]'; ?>">
 									<?php echo esc_html( $category->name ); ?>
 									<span class="text-xs text-gray-400 ml-1">(<?php echo $category->count; ?>)</span>
 								</a>
-							<?php
+							<?php 
 								endforeach;
 							endif;
 							?>
@@ -129,7 +127,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 			</div>
 
 			<div>
-				<p class="font-medium text-[16px] text-[#797878] font-secondary"><span id="total-product-count"><?php echo wc_get_loop_prop( 'total' ); ?></span> Products</p>
+				<p class="font-medium text-[16px] text-[#797878] font-secondary"><?php echo wc_get_loop_prop( 'total' ); ?> Products</p>
 			</div>
 
 		</div>
@@ -137,9 +135,9 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 
 		<!-- Product Grid -->
-		<div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-8 sm:mt-[99px] mt-32px mb-12">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-8 sm:mt-[99px] mt-32px mb-12">
 
-			<?php if ( wc_get_loop_prop( 'total' ) ) :
+			<?php if ( wc_get_loop_prop( 'total' ) ) : 
 				$i = 0;
 				while ( have_posts() ) : the_post(); ?>
 
@@ -148,7 +146,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						$product_id = $product->get_id();
 						$product_title = get_the_title( $product_id );
 						$product_link = get_permalink( $product_id );
-
+						
 						// --- START MODIFIED CODE FOR IMAGE RETRIEVAL ---
                         $product_image_ids = array();
                         if ( has_post_thumbnail( $product_id ) ) {
@@ -216,7 +214,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 				<?php $i++;
 				endwhile; ?>
 			<?php else : ?>
-				<div class="col-span-full text-center py-16" id="no-products-message">
+				<div class="col-span-full text-center py-16">
 					<p class="text-gray-500">No products found.</p>
 				</div>
 			<?php endif; ?>
@@ -225,30 +223,19 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 		<!-- Pagination/Load More - Pagination is hidden by design here, only "Load More" button appears -->
 		<div class="text-center">
-    <?php
-    $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    $per_page = wc_get_loop_prop( 'per_page' );
-    $total = wc_get_loop_prop( 'total' );
-    $current_showing = min( $paged * $per_page, $total );
-    $max_pages = wc_get_loop_prop( 'total_pages' );
-    ?>
-    <p class="font-medium text-[16px] text-[#797878] font-secondary">
-        Showing <span id="current-showing"><?php echo $current_showing; ?></span> of <span id="total-products"><?php echo $total; ?></span> Products
-    </p>
-
-    <?php if ( $paged < $max_pages ) : ?>
-        <button type="button" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out woocommerce-load-more"
-           data-page="<?php echo $paged; ?>"
-           data-max-pages="<?php echo $max_pages; ?>"
-           data-per-page="<?php echo $per_page; ?>"
-           data-total-products="<?php echo $total; ?>"
-           data-current-orderby="<?php echo esc_attr($current_orderby); ?>"
-           data-current-category="<?php echo esc_attr($current_category); ?>"
-           id="load-more-button">
-            Load More
-        </button>
-    <?php endif; ?>
-</div>
+			<?php
+			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+			$per_page = wc_get_loop_prop( 'per_page' );
+			$total = wc_get_loop_prop( 'total' );
+			$current_showing = min( $paged * $per_page, $total );
+			$max_pages = wc_get_loop_prop( 'total_pages' );
+			?>
+			<p class="font-medium text-[16px] text-[#797878] font-secondary">Showing <?php echo $current_showing; ?> of <?php echo $total; ?> Products</p>
+			
+			<?php if ( $paged < $max_pages ) : ?>
+				<a href="<?php echo get_pagenum_link( $paged + 1 ); ?>" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out">Load More</a>
+			<?php endif; ?>
+		</div>
 	</div>
 </section>
 
@@ -266,11 +253,11 @@ if( $enable ) :
 							$border = $i % 4 !== 0 ? 'md:border-l border-[#D1D1D1]' : '';
 							$delay = 100 * $i; // Stagger delay by 100ms per card
 							?>
-
+							
 							<div class="px-6 md:px-4 flex flex-col items-center <?= $border; ?> <?= $i > 3 ? 'mt-8' : ''; ?>"
-								data-aos="fade-up"
+								data-aos="fade-up" 
 								data-aos-delay="<?= $delay; ?>">
-
+								
 								<?php if( $card['title'] ) : ?>
 									<h3 class="text-xl font-medium font-secondary mb-2"><?= $card['title']; ?></h3>
 								<?php endif; ?>
@@ -300,14 +287,14 @@ if( $enable ) :
 		<div class="container mx-auto px-4">
 
 			<?php if( $label ) : ?>
-				<h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center"
-					data-aos="fade-up"
+				<h5 class="text-sm font-normal uppercase font-secondary tracking-widest text-[#27221E] mb-[25px] text-center" 
+					data-aos="fade-up" 
 					data-aos-delay="50"><?= $label; ?></h5>
 			<?php endif; ?>
 
 			<?php if( $heading ) : ?>
 				<h2 class="text-[40px] font-light font-primary italic leading-tight text-[#27221E] mb-[47px] max-w-[530px] mx-auto text-center"
-					data-aos="fade-up"
+					data-aos="fade-up" 
 					data-aos-delay="100">
 					<?= $heading; ?>
 				</h2>
@@ -326,7 +313,7 @@ if( $enable ) :
 							<div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]"
 								data-aos="fade-up"
 								data-aos-delay="<?= $delay; ?>">
-
+								
 								<?php if( $title ) : ?>
 									<h3 class="text-2xl font-medium font-secondary mb-[20px] text-black"><?= $title; ?></h3>
 								<?php endif; ?>
@@ -338,7 +325,7 @@ if( $enable ) :
 								<?php endif; ?>
 
 								<?php if( $button ) : ?>
-									<a href="<?= $button['url']; ?>"
+									<a href="<?= $button['url']; ?>" 
 										class="inline-block font-medium text-base font-secondary bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
 										target="<?= $button['target']; ?>">
 
@@ -347,221 +334,12 @@ if( $enable ) :
 								<?php endif; ?>
 							</div>
 
-						<?php endif;
-					foreach($cards as $i => $card) : // Add this closing bracket
-						if($card) : // Add this closing bracket
-							$title = $card['title']; // Add this closing bracket
-							$paragraph = $card['paragraph']; // Add this closing bracket
-							$button = $card['button']; // Add this closing bracket
-							$delay = 200 + ($i * 100); // 200ms, 300ms, 400ms... // Add this closing bracket
-							?>
-
-							<div class="bg-[#FFFFFF] border border-[#D1D1D1] sm:py-[55px] sm:px-[60px] p-[32px] w-full max-w-[560px]"
-								data-aos="fade-up"
-								data-aos-delay="<?= $delay; ?>">
-
-								<?php if($title) : // Add this closing bracket
-									?>
-									<h3 class="text-2xl font-medium font-secondary mb-[20px] text-black"><?= $title; ?></h3>
-								<?php endif; // Add this closing bracket
-								?>
-
-								<?php if($paragraph) : // Add this closing bracket
-									?>
-									<p class="text-black text-lg font-secondary mb-[20px]">
-										<?= $paragraph; ?>
-									</p>
-								<?php endif; // Add this closing bracket
-								?>
-
-								<?php if($button) : // Add this closing bracket
-									?>
-									<a href="<?= $button['url']; ?>"
-										class="inline-block font-medium text-base font-secondary bg-white border border-[#27221E] rounded-[12px] text-[#27221E] px-[26px] py-[12px] hover:bg-[#27221E] hover:text-white transition"
-										target="<?= $button['target']; ?>">
-
-										<?= $button['title']; ?>
-									</a>
-								<?php endif; // Add this closing bracket
-								?>
-							</div>
-
-						<?php endif; // Add this closing bracket
-					endforeach; // Add this closing bracket
-				endif; // Add this closing bracket
-				?>
+						<?php endif; 
+					endforeach; 
+				endif; ?>
 			</div>
 		</div>
 	</section>
-<?php endif; // Add this closing bracket
-?>
+<?php endif; ?>
 
-<?php get_footer( 'shop' ); // Add this closing bracket
-?>
-
-
-
-
-
-
-
-<script>
-	jQuery(document).ready(function($) {
-
-    // --- Sort & Filter Dropdown Logic ---
-    function setupDropdown(buttonId, dropdownId) {
-        const button = $(`#${buttonId}`);
-        const dropdown = $(`#${dropdownId}`);
-
-        if (button.length && dropdown.length) {
-            button.on('click', function() {
-                dropdown.toggleClass('hidden');
-                // Close other dropdown if open
-                if (buttonId === 'sort-dropdown-btn') {
-                    $('#category-dropdown').addClass('hidden');
-                } else {
-                    $('#sort-dropdown').addClass('hidden');
-                }
-            });
-
-            // Close dropdown when clicking outside
-            $(document).on('click', function(event) {
-                if (!$(event.target).closest(`#${buttonId}, #${dropdownId}`).length) {
-                    dropdown.addClass('hidden');
-                }
-            });
-        }
-    }
-
-    setupDropdown('sort-dropdown-btn', 'sort-dropdown');
-    setupDropdown('category-dropdown-btn', 'category-dropdown');
-
-    // --- Product Image Slider on Hover ---
-    function initializeProductHoverSlider(container) {
-        container.find('.product-hover-slider').not('.initialized-slider').each(function() {
-            const slider = $(this);
-            const slides = slider.find('.product-image-slide');
-            let currentSlide = 0;
-            let slideInterval;
-
-            if (slides.length > 1) {
-                function showSlide(index) {
-                    slides.addClass('hidden').removeClass('block');
-                    $(slides[index]).removeClass('hidden').addClass('block');
-                }
-
-                function startSlider() {
-                    clearInterval(slideInterval); // Clear any existing interval
-                    slideInterval = setInterval(function() {
-                        currentSlide = (currentSlide + 1) % slides.length;
-                        showSlide(currentSlide);
-                    }, 1500); // Change image every 1.5 seconds
-                }
-
-                function stopSlider() {
-                    clearInterval(slideInterval);
-                    currentSlide = 0; // Reset to first image
-                    showSlide(currentSlide);
-                }
-
-                // Initial display
-                showSlide(currentSlide);
-
-                slider.on('mouseenter', startSlider).on('mouseleave', stopSlider);
-            }
-            slider.addClass('initialized-slider'); // Mark as initialized
-        });
-    }
-
-    // Initialize sliders for initially loaded products
-    initializeProductHoverSlider($('body'));
-
-
-    // --- AJAX Load More Products ---
-    const loadMoreButton = $('#load-more-button');
-    const productsContainer = $('#products-container');
-    const totalProductCountSpan = $('#total-product-count');
-    const currentShowingSpan = $('#current-showing');
-    const totalProductsSpan = $('#total-products');
-    const noProductsMessage = $('#no-products-message'); // Element for "No products found." message
-
-    if (loadMoreButton.length) {
-        loadMoreButton.on('click', function(e) {
-            e.preventDefault();
-
-            const button = $(this);
-            let page = parseInt(button.data('page'));
-            const maxPages = parseInt(button.data('max-pages'));
-            const perPage = parseInt(button.data('per-page'));
-            const currentOrderby = button.data('current-orderby');
-            const currentCategory = button.data('current-category');
-
-            page++; // Increment page for the next request
-
-            button.text('Loading...');
-            button.prop('disabled', true); // Disable button during loading
-
-            $.ajax({
-                url: hy_ajax.ajax_url, // WordPress AJAX URL from wp_localize_script
-                type: 'POST',
-                data: {
-                    action: 'load_more_products', // This matches the AJAX hook in functions.php
-                    page: page,
-                    orderby: currentOrderby,
-                    product_cat: currentCategory,
-                    per_page: perPage,
-                },
-                success: function(response) {
-                    if (response.success) {
-                        const newProductsHtml = $(response.data.products_html);
-                        productsContainer.append(newProductsHtml);
-
-                        // Update button data and text
-                        button.data('page', page);
-                        button.text('Load More');
-                        button.prop('disabled', false);
-
-                        // Update product count display
-                        const totalProducts = parseInt(totalProductsSpan.text());
-                        const newCurrentShowing = Math.min(page * perPage, totalProducts);
-                        currentShowingSpan.text(newCurrentShowing);
-
-                        // If all products are loaded, hide the button
-                        if (page >= maxPages) {
-                            button.hide();
-                        }
-
-                        // Re-initialize hover sliders for the newly added products
-                        initializeProductHoverSlider(newProductsHtml);
-
-                    } else {
-                        // Handle error or no more products
-                        console.log('AJAX Response Error:', response.data);
-                        button.text('No more products');
-                        button.prop('disabled', true);
-                        button.hide(); // Hide button if no more products
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('AJAX Request Error:', textStatus, errorThrown, jqXHR);
-                    button.text('Error loading');
-                    button.prop('disabled', true);
-                }
-            });
-        });
-    }
-
-    // --- Initial checks on page load ---
-    const initialTotalProducts = parseInt(totalProductCountSpan.text());
-    const initialCurrentShowing = parseInt(currentShowingSpan.text());
-    const initialMaxPages = parseInt(loadMoreButton.data('max-pages'));
-    const initialPage = parseInt(loadMoreButton.data('page'));
-
-    if (initialTotalProducts === 0 && noProductsMessage.length) {
-        noProductsMessage.show(); // Ensure "No products found." message is visible
-        loadMoreButton.hide(); // Hide load more button if no products
-    } else if (initialPage >= initialMaxPages || initialTotalProducts <= initialCurrentShowing) {
-        loadMoreButton.hide(); // Hide if all products are already showing on initial load or no more pages
-    }
-});
-</script>
+<?php get_footer( 'shop' ); ?>
