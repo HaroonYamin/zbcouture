@@ -13,11 +13,13 @@
 
 <section class="container mx-auto px-4 lg:my-[140px] my-16">
     <div class="flex flex-col lg:flex-row justify-between items-start mb-12">
-        <?php if( $name ) : ?>
-            <h2 class="text-[32px] font-medium text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
-                <?= $name; ?>
-            </h2>
-        <?php endif; ?>
+        <div>
+            <?php if( $name ) : ?>
+                <h2 class="text-[32px] font-medium text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
+                    <?= $name; ?>
+                </h2>
+            <?php endif; ?>
+        </div>
 
         <div class="mb-6 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
             <?php if( $description ) : ?>
