@@ -7,10 +7,15 @@
 
     --font-primary: "BeigeCulture";
 
+
     /* --font-secondary: "Avenir"; */
     /* --default-font-family: "Avenir", sans-serif; */
 
     --font-tertiary: "Outfit";
     --default-font-family: "Outfit", sans-serif;
 
+}
+.font-primary {
+  font-family: var(--font-primary);
+  font-style: italic;
 }

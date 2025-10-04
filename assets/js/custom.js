@@ -645,21 +645,20 @@ jQuery(document).ready(function ($) {
     function updateActiveState($activeLink) {
         $navLinks.find('h2').removeClass('text-black').addClass('text-gray-500');
 
-        // Hide all individual lines
+        // Reset all individual lines
         $individualActiveLines.css({
-            width: '0',
-            transform: 'translateX(0)'
+            width: '0' // Make the line disappear
         });
 
         // Activate the clicked link
         $activeLink.find('h2').removeClass('text-gray-500').addClass('text-black');
 
-        const $h2 = $activeLink.find('h2');
         const $currentActiveLine = $activeLink.find('.active-line-individual');
 
+        // Set the active line to be visible as a left border
         $currentActiveLine.css({
-            width: `${$h2.outerWidth()}px`,
-            transform: 'translateX(0)'
+            width: '4px', // Width of the left border
+            height: '100%' // Full height
         });
 
         // Show the correct content
@@ -692,7 +691,6 @@ jQuery(document).ready(function ($) {
         }
     });
 });
-
 
 
 

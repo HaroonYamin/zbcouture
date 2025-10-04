@@ -12,7 +12,7 @@
     <div class="max-w-7xl mx-auto px-5 flex gap-x-10 items-start"> <!-- Added items-start -->
 
        <div class="lg:mb-24 mb-12 w-[30%] sticky top-0"> 
-            <div class="flex flex-col legal-nav-container">
+            <div class="flex flex-col legal-nav-container gap-3">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
                         $title = $single['content']['title'];
@@ -24,9 +24,11 @@
                            data-aos-delay="<?= $i * 200; ?>">
 
                             <!-- Title with underline INSIDE -->
-                            <h2 class="text-gray-500 hover:text-black relative inline-block pb-2">
+                            <!-- Added pl-2 (padding-left: 0.5rem) to h2 -->
+                            <h2 class="text-gray-500 hover:text-black relative inline-block pl-2">
                                 <?= $title; ?>
-                                <span class="active-line-individual absolute bottom-0 left-0 h-[2px] bg-black transition-all duration-300 ease-in-out w-0"></span>
+                                <!-- Adjusted left-0 to left-0 (it's already correct, just ensure it's at the start) -->
+                                <span class="active-line-individual absolute top-0 left-0 h-full bg-black"></span>
                             </h2>
 
                         </a>
