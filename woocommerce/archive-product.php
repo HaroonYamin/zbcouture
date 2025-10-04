@@ -223,31 +223,23 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 
 		<!-- Pagination/Load More - Pagination is hidden by design here, only "Load More" button appears -->
 		<div class="text-center">
-    <?php
-    $paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-    $per_page = wc_get_loop_prop( 'per_page' );
-    $total = wc_get_loop_prop( 'total' );
-    $current_showing = min( $paged * $per_page, $total );
-    $max_pages = wc_get_loop_prop( 'total_pages' );
-    ?>
-    <p class="font-medium text-[16px] text-[#797878] font-secondary">Showing <span id="current-showing"><?php echo $current_showing; ?></span> of <span id="total-products"><?php echo $total; ?></span> Products</p>
-    
-    <?php if ( $paged < $max_pages ) : ?>
-        <button id="load-more-products" 
-                class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out"
-                data-page="<?php echo $paged; ?>"
-                data-max-pages="<?php echo $max_pages; ?>"
-                data-per-page="<?php echo $per_page; ?>"
-                data-action="load_more_products">
-            Load More
-        </button>
-    <?php endif; ?>
-</div>
+			<?php
+			$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+			$per_page = wc_get_loop_prop( 'per_page' );
+			$total = wc_get_loop_prop( 'total' );
+			$current_showing = min( $paged * $per_page, $total );
+			$max_pages = wc_get_loop_prop( 'total_pages' );
+			?>
+			<p class="font-medium text-[16px] text-[#797878] font-secondary">Showing <?php echo $current_showing; ?> of <?php echo $total; ?> Products</p>
+			
+			<?php if ( $paged < $max_pages ) : ?>
+				<a href="<?php echo get_pagenum_link( $paged + 1 ); ?>" class="inline-block font-medium text-[16px] mt-6 bg-transparent border border-[#27221E] rounded-[12px] text-[#27221E] px-8 py-[12px] hover:bg-[#27221E] hover:text-white transition duration-300 ease-in-out">Load More</a>
+			<?php endif; ?>
+		</div>
 
-<div id="products-container" class="products columns-<?php echo wc_get_loop_prop( 'columns' ); ?>">
-    <?php // Initial products will be loaded here by WooCommerce ?>
-</div>
-	</div>
+		<div id="products-container" class="products columns-<?php echo wc_get_loop_prop( 'columns' ); ?>">
+				<?php // Initial products will be loaded here by WooCommerce ?>
+		</div>
 </section>
 
 <?php $stories = get_field('hy_global_stories', 'option');
@@ -352,9 +344,5 @@ if( $enable ) :
 		</div>
 	</section>
 <?php endif; ?>
-
-
-
-
 
 <?php get_footer( 'shop' ); ?>

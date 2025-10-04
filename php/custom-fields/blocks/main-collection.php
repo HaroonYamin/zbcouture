@@ -12,14 +12,14 @@
 ?>
 
 <section class="container mx-auto px-4 lg:my-[140px] my-16">
-    <div class="flex flex-col lg:flex-row items-start mb-12">
+    <div class="flex flex-col lg:flex-row justify-between items-start mb-12">
         <?php if( $name ) : ?>
             <h2 class="text-[32px] font-medium text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
                 <?= $name; ?>
             </h2>
         <?php endif; ?>
 
-        <div class="max-w-[427px] lg:ml-[350px] mb-6 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
+        <div class="mb-6 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
             <?php if( $description ) : ?>
                 <p class="text-sm text-[#6C6C6C] font-normal font-secondary leading-relaxed mb-4">
                     <?= $description; ?>
@@ -34,6 +34,7 @@
             <?php endif; ?> -->
         </div>
     </div>
+
 
     <div class="relative">
         <div class="swiper hy-collection-swiper mobile-overflow-visible">
