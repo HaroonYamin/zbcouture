@@ -13,7 +13,7 @@
 
        <!-- Changed structure: removed flex-affecting classes -->
        <div class="w-[30%]">
-            <div class="fixed top-[220px] lg:mb-24 mb-12"> <!-- Moved sticky here -->
+            <div class="sticky top-0 lg:mb-24 mb-12"> <!-- Moved sticky here -->
                 <div class="flex flex-col legal-nav-container gap-3">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :
