@@ -9,10 +9,10 @@
 ?>
 
 <section class="lg:mt-[96px] mt-12 py-12">
-    <div class="max-w-[768px] mx-auto px-5">
+    <div class="max-w-7xl mx-auto px-5 flex gap-x-10 items-start"> <!-- Added items-start -->
 
-       <div class="lg:mb-24 mb-12">
-            <div class="flex flex-col md:flex-row justify-center legal-nav-container">
+       <div class="lg:mb-24 mb-12 w-[30%] sticky top-0"> 
+            <div class="flex flex-col legal-nav-container">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
                         $title = $single['content']['title'];
@@ -36,23 +36,20 @@
         </div>
 
 
-        
-
-            
-        <div class="w-full">
+        <div class="w-[50%]">
             <div class="mt-2">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
                         $title = $single['content']['title'];
                         $editor = $single['editor'];
-                        if( !$title ) { return; } ?>
+                        if( !$title ) { continue; } ?>
 
                             <div id="<?= 'legal-link-' . $i; ?>" data-aos="fade-in">
                                 <h2 class="text-xl"><?= $title; ?></h2>
-        
+
                                 <div class="flex gap-x-10 legal-image-editor">
                                     <?php if( $editor ) : ?>
-                                        <div id="col-legal-page">
+                                        <div id="col-legal-page" class="w-full">
                                             <?= $editor; ?>
                                         </div>
                                     <?php endif; ?>

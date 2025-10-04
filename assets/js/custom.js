@@ -696,6 +696,9 @@ jQuery(document).ready(function ($) {
 
 
 
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const loaders = document.querySelectorAll('.woocs-lds-ellipsis');
     loaders.forEach(loader => loader.remove());
@@ -833,7 +836,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var totalSlides = $slides.length;
         var currentSlide = 0;
         var slideInterval;
-        var intervalTime = 2000;
+        var intervalTime = 1000;
 
         // Only enable slider if there's more than one image
         if (totalSlides > 1) {
