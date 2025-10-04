@@ -13,7 +13,8 @@
 
 <section class="container mx-auto px-4 lg:my-[140px] my-16">
     <div class="flex flex-col lg:flex-row justify-between items-start mb-12">
-        <div>
+        <!-- Name Section -->
+        <div class="mb-6 lg:mb-0 lg:w-1/2"> <!-- Added lg:w-1/2 to give it some defined width on larger screens -->
             <?php if( $name ) : ?>
                 <h2 class="text-[32px] font-medium text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
                     <?= $name; ?>
@@ -21,19 +22,21 @@
             <?php endif; ?>
         </div>
 
-        <div class="mb-6 lg:mt-0" data-aos="fade-up" data-aos-delay="300">
+        <!-- Description & Link Section -->
+        <div class="lg:w-1/2 lg:pl-8" data-aos="fade-up" data-aos-delay="300"> <!-- Added lg:w-1/2 and lg:pl-8 for spacing -->
             <?php if( $description ) : ?>
                 <p class="text-sm text-[#6C6C6C] font-normal font-secondary leading-relaxed mb-4">
                     <?= $description; ?>
                 </p>
             <?php endif; ?>
 
-            <!-- <?php if( $link ) : ?>
-                <a href="<?= $link; ?>" 
+            <!-- Removed the PHP comment tags if you want the link to be active -->
+            <?php if( $link ) : ?>
+                <a href="<?= $link; ?>"
                     class="inline-block border border-black px-[22px] py-[12px] rounded-[12px] font-secondary text-base font-medium hover:bg-black hover:text-white transition-all mt-4" data-aos="fade-in" data-aos-delay="1000">
                     Explore Collection
                 </a>
-            <?php endif; ?> -->
+            <?php endif; ?>
         </div>
     </div>
 
