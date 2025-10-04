@@ -31,12 +31,12 @@
             <?php endif; ?>
 
             <!-- Removed the PHP comment tags if you want the link to be active -->
-            <?php if( $link ) : ?>
+            <!-- <?php if( $link ) : ?>
                 <a href="<?= $link; ?>"
                     class="inline-block border border-black px-[22px] py-[12px] rounded-[12px] font-secondary text-base font-medium hover:bg-black hover:text-white transition-all mt-4" data-aos="fade-in" data-aos-delay="1000">
                     Explore Collection
                 </a>
-            <?php endif; ?>
+            <?php endif; ?> -->
         </div>
     </div>
 
