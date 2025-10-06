@@ -23,7 +23,7 @@ if ($social_media || $text): ?>
                                     </a>
                                 <?php endif; ?>
 
-                                <?php if( $item === 'in' && $instagram ) : ?>
+                                <?php if( $item === 'ig' && $instagram ) : ?>
                                     <a href="<?= esc_url($instagram); ?>" target="_blank" rel="noopener noreferrer" class="hover:bg-stone-600 rounded">
                                         <?= get_svg( 'instagram', 'instagram', 'w-24' ); ?>
                                     </a>
