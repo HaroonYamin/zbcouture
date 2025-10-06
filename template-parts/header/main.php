@@ -146,3 +146,75 @@
 </div>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("site-header");
+    const logo = document.querySelector(".header-logo");
+    const scrollTrigger = 50; 
+    let ticking = false;
+
+    const whiteHeader = <?= $white_header ? 'true' : 'false'; ?>;
+    const strokeWhite = "#FFFFFF";
+    const strokeBlack = "#0F0F0F";
+    const whiteLogoUrl = logo.dataset.white;
+    const blackLogoUrl = logo.dataset.black;
+    const stickyLogoUrl = logo.dataset.sticky && logo.dataset.sticky !== '' ? logo.dataset.sticky : blackLogoUrl;
+
+    function setStrokeColor(color) {
+        document.querySelectorAll(".header-icon-svg path").forEach(path => {
+            path.setAttribute("stroke", color);
+        });
+    }
+
+    function updateHeaderOnScroll() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > scrollTrigger) {
+            header.classList.add("is-sticky", "bg-white", "shadow-md");
+            header.classList.remove("text-white");
+            header.classList.add("text-black");
+            header.classList.remove("mt-12"); 
+
+            if (logo.src !== stickyLogoUrl) {
+                logo.src = stickyLogoUrl;
+            }
+            setStrokeColor(strokeBlack);
+
+        } else {
+            header.classList.remove("is-sticky", "bg-white", "shadow-md");
+            header.classList.add("mt-12"); 
+            
+            if (whiteHeader) {
+                header.classList.add("text-white");
+                header.classList.remove("text-black");
+                if (logo.src !== whiteLogoUrl) logo.src = whiteLogoUrl;
+                setStrokeColor(strokeWhite);
+            } else {
+                header.classList.add("text-black");
+                header.classList.remove("text-white");
+                if (logo.src !== blackLogoUrl) logo.src = blackLogoUrl;
+                setStrokeColor(strokeBlack);
+            }
+        }
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeaderOnScroll);
+            ticking = true;
+        }
+    }, { passive: true });
+    
+    updateHeaderOnScroll();
+});
+
+// WORKING MOBILE MENU FUNCTION
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+        // 'hidden' class ko toggle karein taake CSS transition kaam kare
+        menu.classList.toggle('hidden');
+    }
+}
+</script>

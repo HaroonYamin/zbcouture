@@ -12,7 +12,7 @@
     <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-8 lg:gap-x-10 items-start relative">
 
        <div class="w-full lg:w-[30%]">
-            <div class="lg:sticky lg:top-24 lg:mb-24 mb-12">
+            <div class="sticky top-24 lg:mb-24 mb-12">
                 <div class="flex flex-col legal-nav-container gap-3">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :
