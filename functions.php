@@ -62,3 +62,23 @@ add_action('wp_head', 'remove_woocs_loader');
 
 
 
+
+
+add_filter( 'woocommerce_product_variations_attribute_options', 'sort_numeric_product_variations_by_size', 10, 3 );
+
+function sort_numeric_product_variations_by_size( $options, $product, $attribute ) {
+    // Only apply to the 'pa_size' attribute
+    if ( 'pa_size' === $attribute ) {
+        // Remove any empty values if they exist
+        $options = array_filter($options);
+
+        // Sort numerically
+        usort( $options, 'sort_by_numeric_value' );
+    }
+    return $options;
+}
+
+// Custom comparison function for numeric sorting
+function sort_by_numeric_value( $a, $b ) {
+    return (int)$a - (int)$b;
+}
