@@ -151,6 +151,7 @@
 
 #mobile-menu:not(.hidden) {
     transform: translateX(0); /* Jab hidden class na ho to screen par layein */
+    z-index: 51;
 }
 
 /* MOBILE MENU KE LIYE NAYE STYLES */
