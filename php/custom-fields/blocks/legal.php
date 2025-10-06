@@ -9,18 +9,17 @@
 ?>
 
 <section class="lg:mt-[96px] mt-12 py-12">
-    <div class="max-w-7xl mx-auto px-5 flex gap-x-10 items-start relative">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-8 lg:gap-x-10 items-start relative">
 
-       <!-- Changed structure: removed flex-affecting classes -->
-       <div class="w-[30%]">
-            <div class="sticky top-24 lg:mb-24 mb-12"> <!-- Moved sticky here -->
+       <div class="w-full lg:w-[30%]">
+            <div class="lg:sticky lg:top-24 lg:mb-24 mb-12">
                 <div class="flex flex-col legal-nav-container gap-3">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :
                             $title = $single['content']['title'];
                             if( !$title ) { continue; } ?>
                             <a href="<?= '#legal-link-' . $i; ?>"
-                               class="legal-nav-link lg:text-lg text-base uppercase lg:mx-4 mx-1 pb-2 tracking-widest"
+                               class="legal-nav-link text-base lg:text-lg uppercase lg:mx-4 mx-1 pb-2 tracking-widest"
                                data-target-id="<?= 'legal-link-' . $i; ?>"
                                data-aos="fade-in"
                                data-aos-delay="<?= $i * 200; ?>">
@@ -37,8 +36,7 @@
             </div>
         </div>
 
-
-        <div class="w-[50%]"> <!-- Changed from w-[50%] to w-[70%] to use remaining space -->
+        <div class="w-full lg:w-[50%]">
             <div class="mt-2">
                 <?php foreach( $sections as $i => $single ) :
                     if( $single ) :
@@ -49,7 +47,7 @@
                             <div id="<?= 'legal-link-' . $i; ?>" data-aos="fade-in">
                                 <h2 class="text-xl"><?= $title; ?></h2>
 
-                                <div class="flex gap-x-10 legal-image-editor">
+                                <div class="flex flex-col legal-image-editor">
                                     <?php if( $editor ) : ?>
                                         <div id="col-legal-page" class="w-full">
                                             <?= $editor; ?>
