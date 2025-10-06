@@ -11,7 +11,7 @@
 if ($social_media || $text): ?>
 
     <section class="bg-black/90">
-        <div class="py-1 px-4 lg:px-24">
+        <div class="px-4 lg:px-24">
             <div class="flex flex-row items-center justify-between relative">
                 <?php if( $social_media ) : ?>
                     <div class="flex flex-row gap-1">
@@ -41,7 +41,7 @@ if ($social_media || $text): ?>
 
                 <?php if( $text ) : ?>
                     <div class="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <p class="text-white font-medium font-tertiary"><?= esc_html($text); ?></p>
+                        <p class="text-white font-medium font-tertiary tracking-widest"><?= esc_html($text); ?></p>
                     </div>
                 <?php endif; ?>
 
