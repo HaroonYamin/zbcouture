@@ -475,26 +475,29 @@ if (progressSelectors.length > 0) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
-  const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches; // Check for touch devices
+  // Check for mobile devices (e.g., screen width less than a certain breakpoint)
+  // You might want to adjust this breakpoint to match your CSS breakpoints (e.g., Tailwind's 'sm' breakpoint)
+  const isMobile = window.innerWidth < 640; // Example: 640px is Tailwind's 'sm' breakpoint
 
   swiperContainers.forEach((swiperEl) => {
-    const mySwiper = new Swiper(swiperEl, {
-      loop: true,
-      speed: 600,
-      effect: 'fade',
-      fadeEffect: { crossFade: true },
-      autoplay: {
-        delay: 700,
-        disableOnInteraction: false,
-        enabled: false // Autoplay is always off by default
-      },
-      on: {
-        init: () => swiperEl.classList.add("initialized"),
-      },
-    });
+    // Only initialize Swiper for non-mobile devices
+    if (!isMobile) {
+      const mySwiper = new Swiper(swiperEl, {
+        loop: true,
+        speed: 600,
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+        autoplay: {
+          delay: 700,
+          disableOnInteraction: false,
+          enabled: false // Autoplay is off by default
+        },
+        on: {
+          init: () => swiperEl.classList.add("initialized"),
+        },
+      });
 
-    // Only add hover effects for non-touch devices
-    if (!isTouchDevice) {
+      // Add hover events for non-mobile devices
       swiperEl.addEventListener('mouseenter', () => {
         mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
         mySwiper.autoplay.start();            // start scrolling
@@ -503,11 +506,22 @@ document.addEventListener("DOMContentLoaded", function () {
       swiperEl.addEventListener('mouseleave', () => {
         mySwiper.autoplay.stop();             // stop scrolling
       });
+    } else {
+      // On mobile, ensure that only the first slide is visible and remove Swiper-related styling that might hide others.
+      // This part might need further CSS adjustments depending on how Swiper's initialization affects the layout.
+      // A simple approach is to ensure only the first slide is not 'absolute' or 'hidden'.
+      const firstSlide = swiperEl.querySelector('.swiper-slide:first-child');
+      if (firstSlide) {
+        firstSlide.style.position = 'relative'; // Override absolute positioning if needed
+        firstSlide.style.opacity = '1';         // Ensure it's visible
+        firstSlide.style.zIndex = 'auto';       // Reset z-index
+      }
+      // You might also want to remove `swiper-wrapper` and `swiper-slide` classes on mobile if they cause issues.
+      // Or simply, if Swiper doesn't initialize, the original HTML structure should just show the first image.
     }
-    // For touch devices, manual swipe will naturally work because autoplay is off by default
   });
 
-  // Scroll arrows (same as before)
+  // Scroll arrows (same as before) - these will still control the main horizontal scroll
   const scrollWrapper = document.querySelector('.overflow-x-auto');
   const left = document.getElementById('scroll-arrow-left');
   const right = document.getElementById('scroll-arrow-right');
