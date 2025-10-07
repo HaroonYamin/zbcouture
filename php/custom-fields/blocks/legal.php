@@ -8,8 +8,8 @@
     $last_key = array_key_last($sections);
 ?>
 
-<section class="lg:mt-[96px] mt-12 py-12">
-    <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-8 lg:gap-x-10 items-start relative">
+<section class="lg:mt-[96px] mt-24 py-12">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-2 lg:gap-x-10 items-start relative">
 
        <div class="w-full lg:w-[30%]">
             <div class="sticky top-24 lg:mb-24 mb-12">
