@@ -117,7 +117,7 @@ get_header();
       <?php the_field('final_quote'); ?>
     </blockquote> 
     <p class="text-lg text-gray-600">
-      - <?php the_field('final_quote_author'); ?>
+      <?php the_field('final_quote_author'); ?>
     </p> 
   </div> 
 </section> 
