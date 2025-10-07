@@ -25,6 +25,6 @@
             <span><?= esc_html($title); ?></span>
         </div>
 
-		<h1 class="text-3xl font-medium text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="500"><?= $title; ?></h1>
+		<h1 class="text-2xl font-normal text-[#27221E] mb-[36px]" data-aos="fade-in" data-aos-delay="500"><?= $title; ?></h1>
 	</div>
 </section>
