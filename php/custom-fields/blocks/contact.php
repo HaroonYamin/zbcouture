@@ -20,7 +20,7 @@
             <?php if( $address) : ?>
                 <div class="md:w-1/3 w-full md:px-5">
                     <div class="shadow w-full px-5 py-7" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-2xl mb-5 font-medium text-center">Our Address</h3>
+                        <h3 class="text-2xl mb-5 font-normal text-center">Our Address</h3>
                         <p class="text-lg text-center"><?= $address; ?></p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
             <?php if( $email) : ?>
                 <div class="md:w-1/3 w-full md:px-5">
                     <div class="shadow w-full px-5 py-7" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="text-2xl mb-5 font-medium text-center">Our Email</h3>
+                        <h3 class="text-2xl mb-5 font-normal text-center">Our Email</h3>
                         <p class="text-lg text-center"><?= $email; ?></p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
             <?php if( $phone) : ?>
                 <div class="md:w-1/3 w-full md:px-5">
                     <div class="shadow w-full px-5 py-7" data-aos="fade-up" data-aos-delay="600">
-                        <h3 class="text-2xl mb-5 font-medium text-center">Our Phone</h3>
+                        <h3 class="text-2xl mb-5 font-normal text-center">Our Phone</h3>
                         <p class="text-lg text-center"><?= $phone; ?></p>
                     </div>
                 </div>
