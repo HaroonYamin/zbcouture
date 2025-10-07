@@ -16,7 +16,7 @@
 <section class="sm:py-32 py-16">
   <div class="container mx-auto pl-4">
 
-    <div class="text-center px-4">
+    <div class="text-center pr-4">
       <?php if( $label ) : ?>
         <?= $ui->label( $label, 'text-[#27221E] mb-4 text-center' ) ?>
       <?php endif; ?>

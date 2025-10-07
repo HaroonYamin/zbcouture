@@ -20,12 +20,12 @@
         <?php endif; ?>
 
         <!-- Responsive layout: scroll below lg, grid on lg and up -->
-        <div class="flex lg:grid lg:grid-cols-6 gap-x-10 lg:gap-x-20 gap-y-4 overflow-x-auto lg:overflow-visible pb-2">
+        <div class="flex lg:grid lg:grid-cols-6 gap-x-10 lg:gap-x-20 gap-y-6 overflow-x-auto lg:overflow-visible pb-2">
             <?php if( $gallery ) :
                 foreach( $gallery as $i => $image ) :
                     if( $image ) :
                         $delay = 100 + ($i * 50); ?>
-                        <div class="shrink-0 sm:w-[146px] w-[80px] h-[54px] flex items-center justify-center"
+                        <div class="shrink-0 sm:w-[146px] w-[90px] h-[54px] flex items-center justify-center"
                              data-aos="zoom-in" data-aos-delay="<?= $delay; ?>">
                             <?= get_image($image, '', 'h-[54px] max-h-24 w-[146px] object-contain'); ?>
                         </div>
