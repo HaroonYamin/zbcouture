@@ -16,7 +16,7 @@
         <!-- Name Section -->
         <div class="mb-6 lg:mb-0 lg:w-1/2"> <!-- Added lg:w-1/2 to give it some defined width on larger screens -->
             <?php if( $name ) : ?>
-                <h2 class="text-[32px] font-medium text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
+                <h2 class="text-3xl font-normal text-[#27221E] font-secondary" data-aos="fade-in" data-aos-delay="0">
                     <?= $name; ?>
                 </h2>
             <?php endif; ?>
