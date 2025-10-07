@@ -1622,5 +1622,5 @@ div[data-woocs-sd]:has(.selectron23) {
     max-width: 50px;
 }
 .gtranslate_selector {
-  width: 100%;
+   width: 100% !important;
 }
