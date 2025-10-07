@@ -304,8 +304,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initAOS();
     window.addEventListener("resize", initAOS);
+});
 
-
+document.addEventListener("DOMContentLoaded", function () {
 
     // Image skeleton loader
     const containers = document.querySelectorAll(".image-with-skeleton");
