@@ -1992,6 +1992,11 @@
       width: 48%;
     }
   }
+  .sm\:w-\[146px\] {
+    @media (width >= 40rem) {
+      width: 146px;
+    }
+  }
   .sm\:w-\[193px\] {
     @media (width >= 40rem) {
       width: 193px;
