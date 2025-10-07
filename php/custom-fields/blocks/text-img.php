@@ -10,7 +10,7 @@
     $editor = get_field('content')['text']['editor'];
 ?>
 
-<section class="lg:my-24 my-12">
+<section class="lg:my-24 my-12 lg:mt-0 mt-48">
     <div class="container mx-auto px-5">
         <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-12">
             <div data-aos="zoom-in" data-aos-delay="100">
