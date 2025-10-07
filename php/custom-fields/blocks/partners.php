@@ -25,7 +25,7 @@
                 foreach( $gallery as $i => $image ) :
                     if( $image ) :
                         $delay = 100 + ($i * 50); ?>
-                        <div class="shrink-0 sm:w-[146px] w-[90px] h-[54px] flex items-center justify-center"
+                        <div class="shrink-0 sm:w-[146px] w-[82px] h-[54px] flex items-center justify-center"
                              data-aos="zoom-in" data-aos-delay="<?= $delay; ?>">
                             <?= get_image($image, '', 'h-[54px] max-h-24 w-[146px] object-contain'); ?>
                         </div>
