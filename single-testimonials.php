@@ -111,7 +111,7 @@ get_header();
 </section>
 
 <!-- Final Quote Section --> 
-<section class="py-24"> 
+<!-- <section class="py-24"> 
   <div class="max-w-3xl mx-auto px-4 text-center"> 
     <blockquote class="text-2xl font-medium text-gray-900 leading-relaxed mb-6"> 
       <?php the_field('final_quote'); ?>
@@ -120,7 +120,7 @@ get_header();
       <?php the_field('final_quote_author'); ?>
     </p> 
   </div> 
-</section> 
+</section>  -->
 
 
 
