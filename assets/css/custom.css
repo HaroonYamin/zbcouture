@@ -1523,9 +1523,6 @@ body.no-scroll {
     .legal-image-wrapper {
       height: 400px; /* Mobile height */
     }
-    .overflow-visible {
-      overflow: visible !important;
-    }
   }
 
 
