@@ -9,7 +9,7 @@
     $ui = new HY_UI();
 ?>
 
-<section class="relative sm:h-[calc(100vh-62px)] h-[calc(100vh-78px)]">
+<section class="relative sm:h-[calc(100vh-62px)] h-[600px]">
     <div class="swiper swiper-banner h-full">
         <div class="swiper-wrapper">
             <?php
