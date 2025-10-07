@@ -9,10 +9,10 @@
 ?>
 
 <section class="lg:mt-[96px] mt-24 py-12">
-    <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-2 lg:gap-x-10 items-start relative">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col lg:flex-row gap-y-2 lg:gap-x-10 items-stretch">
 
-       <div class="w-full lg:w-[30%]">
-            <div class="sticky top-24 lg:mb-24 mb-12">
+       <div class="w-full lg:w-[30%] pr-3 custom-scrollbar">
+            <div class="sticky top-24">
                 <div class="flex flex-col legal-nav-container gap-3">
                     <?php foreach( $sections as $i => $single ) :
                         if( $single ) :
