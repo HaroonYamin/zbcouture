@@ -77,7 +77,7 @@
                                     <div class="sm:h-[435px] bg-gray-200 relative group image-container overflow-hidden">
                                         <?php 
                                             if( $image_id ) {
-                                                echo get_image($image_id, 'object-cover w-full h-full transition-transform duration-300 group-hover:scale-105');
+                                                echo get_image($image_id, 'object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 sm:h-[435px]');
                                             }
                                         ?>
     
