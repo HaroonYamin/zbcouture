@@ -49,7 +49,7 @@ if ($social_media || $text): ?>
                     <!-- Right side: ENG and USD -->
                     <div class="flex flex-row items-center gap-4 font-tertiary uppercase tracking-widest">
                         <div id="language-switcher" class="text-white">
-                            <?php echo do_shortcode('[gtranslate widget_look="lang_names"]'); ?>
+                            <?php echo do_shortcode('[gtranslate]'); ?>
                         </div>
                         <div id="currency-switcher">
                             <?php echo do_shortcode('[woocs sd=1]'); ?>
