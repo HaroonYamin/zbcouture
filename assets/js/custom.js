@@ -291,11 +291,21 @@ document.addEventListener("keydown", function (event) {
 
 /* IMAGE & LOADING FUNCTIONALITY */
 document.addEventListener("DOMContentLoaded", function () {
-    // AOS initialization
-    AOS.init({
-        duration: 1500,
-        once: true,
-    });
+    function initAOS() {
+        if (window.innerWidth > 768) {
+            AOS.init({
+                duration: 1500,
+                once: true,
+            });
+        } else {
+            AOS.refreshHard(); // reset AOS if already active
+        }
+    }
+
+    initAOS();
+    window.addEventListener("resize", initAOS);
+
+
 
     // Image skeleton loader
     const containers = document.querySelectorAll(".image-with-skeleton");
