@@ -901,3 +901,73 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 });
+
+
+
+
+
+
+(function () {
+  const nameMap = {
+    dutch: "NL", english: "EN", french: "FR", german: "DE",
+    italian: "IT", portuguese: "PT", russian: "RU", spanish: "ES"
+  };
+
+  function normalizeLangFromValue(val) {
+    if (!val) return null;
+    // value formats: "en|pt", "en|zh-CN", maybe just "pt"
+    const part = val.includes("|") ? val.split("|")[1] : val;
+    if (!part) return null;
+    return part.split(/[-_]/)[0].toUpperCase();
+  }
+
+  function setLanguageCodes(selector = ".gt_selector") {
+    const sel = document.querySelector(selector);
+    if (!sel) return false;
+
+    // replace option text
+    Array.from(sel.options).forEach(opt => {
+      const val = (opt.value || "").trim();
+      // keep "Select Language" or empty value as-is
+      if (!val) return;
+      const codeFromValue = normalizeLangFromValue(val);
+      if (codeFromValue) {
+        opt.textContent = codeFromValue;
+        return;
+      }
+      // fallback: use name map (case-insensitive)
+      const key = (opt.textContent || "").trim().toLowerCase();
+      if (nameMap[key]) opt.textContent = nameMap[key];
+    });
+
+    return true;
+  }
+
+  // Run immediately (useful when pasting in console)
+  const done = setLanguageCodes();
+
+  if (!done) {
+    // If select not found, observe the DOM until it's added, then run once and stop.
+    const docObserver = new MutationObserver((mutations, obs) => {
+      if (setLanguageCodes()) obs.disconnect();
+    });
+    docObserver.observe(document.documentElement || document.body, { childList: true, subtree: true });
+  } else {
+    // If select exists, also observe it for option changes (GTranslate reloads options sometimes)
+    const sel = document.querySelector(".gt_selector");
+    try {
+      const selectObserver = new MutationObserver(() => setLanguageCodes());
+      selectObserver.observe(sel, { childList: true, subtree: true });
+    } catch (e) { /* ignore if observe fails */ }
+  }
+
+  // helper: call manually from console if needed
+  window.gtranslateSetCodes = setLanguageCodes;
+
+  // helpful note if nothing was found (could be in an iframe)
+  if (!document.querySelector(".gt_selector")) {
+    console.warn("gtranslate: .gt_selector not found in parent document. If the widget is inside an iframe (cross-origin), you can't modify it from here.");
+  } else {
+    console.info("gtranslate: language codes applied. Call gtranslateSetCodes() to re-run.");
+  }
+})();
