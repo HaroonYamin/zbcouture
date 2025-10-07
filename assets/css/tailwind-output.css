@@ -265,9 +265,6 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .top-1 {
-    top: calc(var(--spacing) * 1);
-  }
   .top-1\/2 {
     top: calc(1/2 * 100%);
   }
@@ -303,9 +300,6 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
-  }
-  .left-1 {
-    left: calc(var(--spacing) * 1);
   }
   .left-1\/2 {
     left: calc(1/2 * 100%);
@@ -351,12 +345,6 @@
   }
   .col-span-1 {
     grid-column: span 1 / span 1;
-  }
-  .col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-  .col-span-7 {
-    grid-column: span 7 / span 7;
   }
   .col-span-12 {
     grid-column: span 12 / span 12;
@@ -644,9 +632,6 @@
   .max-h-\[750px\] {
     max-height: 750px;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/12 {
     width: calc(1/12 * 100%);
   }
@@ -667,15 +652,6 @@
   }
   .w-50 {
     width: calc(var(--spacing) * 50);
-  }
-  .w-\[30\%\] {
-    width: 30%;
-  }
-  .w-\[50\%\] {
-    width: 50%;
-  }
-  .w-\[70\%\] {
-    width: 70%;
   }
   .w-\[90px\] {
     width: 90px;
@@ -791,9 +767,6 @@
   .max-w-md {
     max-width: var(--container-md);
   }
-  .max-w-none {
-    max-width: none;
-  }
   .max-w-screen-2xl {
     max-width: var(--breakpoint-2xl);
   }
@@ -812,31 +785,17 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-none {
-    flex: none;
-  }
   .flex-shrink {
     flex-shrink: 1;
   }
   .shrink-0 {
     flex-shrink: 0;
   }
-  .flex-grow {
-    flex-grow: 1;
-  }
   .border-collapse {
     border-collapse: collapse;
   }
-  .-translate-x-1 {
-    --tw-translate-x: calc(var(--spacing) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -855,17 +814,11 @@
   .touch-auto {
     touch-action: auto;
   }
-  .resize {
-    resize: both;
-  }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .grid-cols-10 {
-    grid-template-columns: repeat(10, minmax(0, 1fr));
   }
   .grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -884,9 +837,6 @@
   }
   .items-center {
     align-items: center;
-  }
-  .items-end {
-    align-items: flex-end;
   }
   .items-start {
     align-items: flex-start;
@@ -996,6 +946,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-visible {
+    overflow: visible;
   }
   .overflow-x-auto {
     overflow-x: auto;
@@ -1171,12 +1124,6 @@
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-\[url\(\'https\:\/\/darkgoldenrod-dinosaur-500813\.hostingersite\.com\/wp-content\/uploads\/2025\/09\/noise\.png\'\)\] {
-    background-image: url('https://darkgoldenrod-dinosaur-500813.hostingersite.com/wp-content/uploads/2025/09/noise.png');
-  }
-  .bg-\[url\(\'https\:\/\/zbcouture\.diginest\.co\/wp-content\/uploads\/2025\/09\/noise\.png\'\)\] {
-    background-image: url('https://zbcouture.diginest.co/wp-content/uploads/2025/09/noise.png');
-  }
   .bg-cover {
     background-size: cover;
   }
@@ -1285,14 +1232,8 @@
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
   }
-  .pt-8 {
-    padding-top: calc(var(--spacing) * 8);
-  }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
-  }
-  .pr-8 {
-    padding-right: calc(var(--spacing) * 8);
   }
   .pb-0 {
     padding-bottom: calc(var(--spacing) * 0);
@@ -1303,17 +1244,11 @@
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
-  .pb-8 {
-    padding-bottom: calc(var(--spacing) * 8);
-  }
   .pb-14 {
     padding-bottom: calc(var(--spacing) * 14);
   }
   .pl-2 {
     padding-left: calc(var(--spacing) * 2);
-  }
-  .pl-8 {
-    padding-left: calc(var(--spacing) * 8);
   }
   .pl-\[12px\] {
     padding-left: 12px;
@@ -1946,11 +1881,6 @@
       margin-top: 99px;
     }
   }
-  .sm\:mb-0 {
-    @media (width >= 40rem) {
-      margin-bottom: calc(var(--spacing) * 0);
-    }
-  }
   .sm\:mb-6 {
     @media (width >= 40rem) {
       margin-bottom: calc(var(--spacing) * 6);
@@ -2079,11 +2009,6 @@
   .sm\:max-w-sm {
     @media (width >= 40rem) {
       max-width: var(--container-sm);
-    }
-  }
-  .sm\:touch-none {
-    @media (width >= 40rem) {
-      touch-action: none;
     }
   }
   .sm\:grid-cols-2 {
@@ -2379,16 +2304,6 @@
       line-height: var(--tw-leading, var(--text-xl--line-height));
     }
   }
-  .lg\:sticky {
-    @media (width >= 64rem) {
-      position: sticky;
-    }
-  }
-  .lg\:top-24 {
-    @media (width >= 64rem) {
-      top: calc(var(--spacing) * 24);
-    }
-  }
   .lg\:order-2 {
     @media (width >= 64rem) {
       order: 2;
@@ -2512,11 +2427,6 @@
   .lg\:w-\[50\%\] {
     @media (width >= 64rem) {
       width: 50%;
-    }
-  }
-  .lg\:w-\[70\%\] {
-    @media (width >= 64rem) {
-      width: 70%;
     }
   }
   .lg\:w-\[362px\] {
@@ -2738,11 +2648,6 @@
   .xl\:justify-center {
     @media (width >= 80rem) {
       justify-content: center;
-    }
-  }
-  .xl\:overflow-visible {
-    @media (width >= 80rem) {
-      overflow: visible;
     }
   }
 }
