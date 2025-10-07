@@ -33,7 +33,7 @@
     </div>
 
     <!-- Scroll Wrapper -->
-    <div class="overflow-x-auto overflow-visible scroll-smooth touch-auto sm:touch-none">
+    <div class="overflow-x-auto xl:overflow-visible scroll-smooth touch-auto sm:touch-none">
       
       <!-- Flex Layout -->
       <!-- Adjusted gap and responsive width classes -->
@@ -59,26 +59,26 @@
               $delay = 200 + ($i * 100); // stagger delay
         ?>
               <div class="relative group overflow-hidden sm:w-[425px] w-[290px] shrink-0 xl:w-[calc(33.33%-11px)] aspect-w-2 aspect-h-3"
-                  data-aos="zoom-in"
-                  data-aos-delay="<?= $delay; ?>">
+                   data-aos="zoom-in"
+                   data-aos-delay="<?= $delay; ?>">
 
-                <!-- Remove pointer-events-none if you want touch to work on all screen sizes -->
-                <div class="swiper card-swiper-<?= $i+1; ?> h-full"> 
+                <div class="swiper card-swiper-<?= $i+1; ?> h-full pointer-events-none xl:pointer-events-auto">
                   <div class="swiper-wrapper">
                     <?php if ( $products ) :
                       foreach ( $products as $product ) :
                         $thumbnail_id = get_post_thumbnail_id( $product->ID );
                         $product_url = get_permalink( $product->ID );
-                        echo '<div class="swiper-slide absolute inset-0">';
+                        echo '<div class="swiper-slide absolute inset-0">'; // Added absolute inset-0
                           echo '<a href="' . $product_url . '" class="block w-full h-full cursor-pointer relative z-10">';
+                            // get_image already applies w-full h-full object-cover, which handles max-width/height
                             echo get_image( $thumbnail_id, 'w-full h-full object-cover' );
                           echo '</a>';
                         echo '</div>';
                       endforeach;
                     endif; ?>
                   </div>
-                  <!-- Overlay for darkening, keep this as pointer-events-none -->
-                  <div class="absolute inset-0 bg-black/20 z-5 pointer-events-none"></div> 
+
+                  <div class="absolute inset-0 bg-black/20 z-5 pointer-events-none"></div>
 
                   <div class="absolute bottom-5 left-5 text-white z-20 pointer-events-none">
                     <?php if( $name ) : ?>
@@ -89,6 +89,8 @@
                       <h2 class="sm:text-[40px] text-[32px] font-primary font-normal mb-2"><?= $term->name; ?></h2>
                     <?php endif; ?>
                   </div>
+
+                  <!-- Removed the swiper-pagination div entirely -->
                 </div>
               </div>
 
