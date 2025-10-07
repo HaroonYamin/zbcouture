@@ -412,6 +412,9 @@
   .my-24 {
     margin-block: calc(var(--spacing) * 24);
   }
+  .my-48 {
+    margin-block: calc(var(--spacing) * 48);
+  }
   .ms-auto {
     margin-inline-start: auto;
   }
@@ -2385,6 +2388,11 @@
   .lg\:my-\[140px\] {
     @media (width >= 64rem) {
       margin-block: 140px;
+    }
+  }
+  .lg\:mt-0 {
+    @media (width >= 64rem) {
+      margin-top: calc(var(--spacing) * 0);
     }
   }
   .lg\:mt-24 {

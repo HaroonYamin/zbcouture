@@ -10,7 +10,7 @@
     $stocklist = get_field('stocklist');
 ?>
 
-<section class="lg:my-24 my-12">
+<section class="lg:my-24 my-12 lg:mt-0 mt-24">
     <div class="max-w-[1300px] mx-auto px-5">
         <?php if( $heading ) : ?>
             <h2 class="font-primary text-center text-4xl italic font-medium text-[#27221E] mb-12" data-aos="fade-in"><?= $heading; ?></h2>
