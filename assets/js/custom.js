@@ -475,6 +475,7 @@ if (progressSelectors.length > 0) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
+  const isTouchDevice = window.matchMedia("(hover: none) and (pointer: coarse)").matches; // Check for touch devices
 
   swiperContainers.forEach((swiperEl) => {
     const mySwiper = new Swiper(swiperEl, {
@@ -483,24 +484,27 @@ document.addEventListener("DOMContentLoaded", function () {
       effect: 'fade',
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 700,           // hover ke dauraan fast change
+        delay: 700,
         disableOnInteraction: false,
-        enabled: false        // ⭐ autoplay off by default
+        enabled: false // Autoplay is always off by default
       },
       on: {
         init: () => swiperEl.classList.add("initialized"),
       },
     });
 
-    // Hover events → autoplay sirf hover par chalay
-    swiperEl.addEventListener('mouseenter', () => {
-      mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
-      mySwiper.autoplay.start();            // start scrolling
-    });
+    // Only add hover effects for non-touch devices
+    if (!isTouchDevice) {
+      swiperEl.addEventListener('mouseenter', () => {
+        mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
+        mySwiper.autoplay.start();            // start scrolling
+      });
 
-    swiperEl.addEventListener('mouseleave', () => {
-      mySwiper.autoplay.stop();             // stop scrolling
-    });
+      swiperEl.addEventListener('mouseleave', () => {
+        mySwiper.autoplay.stop();             // stop scrolling
+      });
+    }
+    // For touch devices, manual swipe will naturally work because autoplay is off by default
   });
 
   // Scroll arrows (same as before)
