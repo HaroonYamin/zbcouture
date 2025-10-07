@@ -483,23 +483,39 @@ document.addEventListener("DOMContentLoaded", function () {
       effect: 'fade',
       fadeEffect: { crossFade: true },
       autoplay: {
-        delay: 700,           // hover ke dauraan fast change
+        delay: 700,
         disableOnInteraction: false,
-        enabled: false        // ⭐ autoplay off by default
+        enabled: false
       },
+      // ⭐ Add these for explicit touch control on mobile
+      simulateTouch: true, 
+      touchRatio: 1,        
+      // If you want to disable autoplay on touch start, you can also add:
+      // on: {
+      //   touchStart: function() {
+      //     this.autoplay.stop();
+      //   },
+      //   init: () => swiperEl.classList.add("initialized"),
+      // },
       on: {
         init: () => swiperEl.classList.add("initialized"),
       },
     });
 
-    // Hover events → autoplay sirf hover par chalay
+    // Hover events → autoplay sirf hover par chalay (for desktop)
+    // On mobile, these events might not fire or are less relevant for manual swipe
     swiperEl.addEventListener('mouseenter', () => {
-      mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
-      mySwiper.autoplay.start();            // start scrolling
+      // Check if it's not a touch device or larger screen to apply hover autoplay
+      if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+         mySwiper.params.autoplay.delay = 900;
+         mySwiper.autoplay.start();
+      }
     });
 
     swiperEl.addEventListener('mouseleave', () => {
-      mySwiper.autoplay.stop();             // stop scrolling
+      if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+        mySwiper.autoplay.stop();
+      }
     });
   });
 
