@@ -548,51 +548,76 @@ document.addEventListener('DOMContentLoaded', function() {
     spaceBetween: 30,
     loop: false, 
     speed: 800,
-    effect: 'slide', 
+    effect: 'fade', // Changed to 'fade'
+    fadeEffect: {    // Add fadeEffect options
+      crossFade: true,
+    },
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
     },
+    // Remove or simplify your custom slideChangeTransitionStart/End if you just want a fade
+    // If you want custom animations *on top* of the fade, you'll need a different approach
+    // or very carefully timed CSS transitions based on Swiper's classes (swiper-slide-active, swiper-slide-prev, etc.)
+    // For a simple fade, these custom event handlers are often not needed.
     on: {
-      slideChangeTransitionStart: function () {
-        const allSlides = this.slides;
-        allSlides.forEach(slide => {
-          const image = slide.querySelector('.slide-image');
-          const content = slide.querySelector('.slide-content');
-          
-          if (image) {
-            image.style.transform = 'scale(0.8)';
-            image.style.opacity = '0';
-            image.style.transitionDelay = '0s';
-          }
-          if (content) {
-            content.style.transform = 'translateX(50px)';
-            content.style.opacity = '0';
-            content.style.transitionDelay = '0s';
-          }
-        });
-      },
-      slideChangeTransitionEnd: function () {
-        const activeSlide = this.slides[this.activeIndex];
-        if (activeSlide) {
-          const image = activeSlide.querySelector('.slide-image');
-          const content = activeSlide.querySelector('.slide-content');
-          
-          setTimeout(() => {
-            if (image) {
-              image.style.transform = 'scale(1)';
-              image.style.opacity = '1';
+        init: function() {
+            // Initial animation for the first slide on load
+            const firstSlide = this.slides[this.activeIndex];
+            if (firstSlide) {
+                const image = firstSlide.querySelector('.slide-image');
+                const content = firstSlide.querySelector('.slide-content');
+                if (image) {
+                    image.style.transition = 'transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s';
+                    image.style.transform = 'scale(1)';
+                    image.style.opacity = '1';
+                }
+                if (content) {
+                    content.style.transition = 'transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s';
+                    content.style.transform = 'translateX(0)';
+                    content.style.opacity = '1';
+                }
             }
-          }, 200);
-          
-          setTimeout(() => {
-            if (content) {
-              content.style.transform = 'translateX(0)';
-              content.style.opacity = '1';
+        },
+        slideChangeTransitionStart: function() {
+            // Reset styles for all slides before the new one becomes active
+            this.slides.forEach(slide => {
+                const image = slide.querySelector('.slide-image');
+                const content = slide.querySelector('.slide-content');
+                if (image) {
+                    image.style.transition = 'none'; // Disable transition during reset
+                    image.style.transform = 'scale(0.8)';
+                    image.style.opacity = '0';
+                }
+                if (content) {
+                    content.style.transition = 'none'; // Disable transition during reset
+                    content.style.transform = 'translateX(50px)';
+                    content.style.opacity = '0';
+                }
+            });
+        },
+        slideChangeTransitionEnd: function() {
+            // Apply entrance animations to the active slide
+            const activeSlide = this.slides[this.activeIndex];
+            if (activeSlide) {
+                const image = activeSlide.querySelector('.slide-image');
+                const content = activeSlide.querySelector('.slide-content');
+                
+                if (image) {
+                    // Re-enable transition and apply active styles
+                    image.style.transition = 'transform 0.5s ease-out 0.2s, opacity 0.5s ease-out 0.2s';
+                    image.style.transform = 'scale(1)';
+                    image.style.opacity = '1';
+                }
+                
+                if (content) {
+                    // Re-enable transition and apply active styles
+                    content.style.transition = 'transform 0.5s ease-out 0.3s, opacity 0.5s ease-out 0.3s';
+                    content.style.transform = 'translateX(0)';
+                    content.style.opacity = '1';
+                }
             }
-          }, 300);
         }
-      }
     }
   });
 
@@ -609,7 +634,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Initialize first slide with AOS-like animations
+  // Initial animation on page load for the first slide
+  // This can now be handled by the 'init' event in Swiper
+  // So, this block can be removed:
+  /*
   setTimeout(() => {
     const firstSlide = document.querySelector('.swiper-slide-active');
     if (firstSlide) {
@@ -631,6 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     }
   }, 100);
+  */
 });
 
 
