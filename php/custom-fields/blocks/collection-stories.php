@@ -33,7 +33,7 @@
     </div>
 
     <!-- Scroll Wrapper -->
-    <div class="overflow-x-auto xl:overflow-visible scroll-smooth touch-auto sm:touch-none">
+    <div class="overflow-x-auto overflow-visible scroll-smooth touch-auto">
       
       <!-- Flex Layout -->
       <!-- Adjusted gap and responsive width classes -->
