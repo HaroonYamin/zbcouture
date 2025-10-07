@@ -112,6 +112,9 @@ function hy_convert_variation_dropdown_to_buttons( $html, $args ) {
     
     if ( empty( $options ) ) return $html;
     
+    // ADD THIS LINE TO FORCE NUMERICAL SORTING
+    sort( $options, SORT_NUMERIC );
+    
     $buttons = '<div class="hy-variation-buttons" data-attribute_name="attribute_' . esc_attr( $attribute ) . '">';
     
     foreach ( $options as $option ) {
@@ -127,49 +130,6 @@ function hy_convert_variation_dropdown_to_buttons( $html, $args ) {
     return $html;
 }
 
-// Enqueue JavaScript
-add_action( 'wp_enqueue_scripts', 'hy_enqueue_variation_button_script' );
-function hy_enqueue_variation_button_script() {
-    if ( is_product() ) {
-        wp_add_inline_script( 'wc-add-to-cart-variation', '
-            jQuery(document).ready(function($) {
-                // Handle button clicks
-                $(document).on("click", ".hy-variation-button", function() {
-                    var $button = $(this);
-                    var value = $button.data("value");
-                    var $container = $button.closest(".hy-variation-buttons");
-                    var attributeName = $container.data("attribute_name");
-                    
-                    // Update button states
-                    $container.find(".hy-variation-button").removeClass("selected");
-                    $button.addClass("selected");
-                    
-                    // Update hidden select
-                    var $select = $container.siblings(".hy-hidden-dropdown").find("select");
-                    $select.val(value).trigger("change");
-                });
-                
-                // Sync buttons when variation form updates (for linked attributes)
-                $(".variations_form").on("woocommerce_update_variation_values", function() {
-                    $(".hy-variation-buttons").each(function() {
-                        var $container = $(this);
-                        var $select = $container.siblings(".hy-hidden-dropdown").find("select");
-                        var selectedValue = $select.val();
-                        
-                        $container.find(".hy-variation-button").each(function() {
-                            var $btn = $(this);
-                            if ($btn.data("value") == selectedValue) {
-                                $btn.addClass("selected");
-                            } else {
-                                $btn.removeClass("selected");
-                            }
-                        });
-                    });
-                });
-            });
-        ' );
-    }
-}
 
 // Add ACF Menu Item
 add_filter('wp_nav_menu_objects', 'add_acf_to_menu_items', 10, 2);
