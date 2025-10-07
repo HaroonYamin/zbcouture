@@ -125,7 +125,7 @@ get_header();
 
 
 
-<section class="bg-[#f3f3ef] flex items-center justify-center mb-8 mt-8 sm:py-32 py-16">
+<section class="bg-[#f3f3ef] flex items-center justify-center mb-8 sm:py-32 py-16">
   <div class="container text-center px-4">
     <div class="text-[#212121] max-w-[523px] mx-auto" data-aos="fade-up" data-aos-delay="50">
       <h1 class="sm:text-5xl text-4xl text-center font-primary font-normal max-w-[490px] lh-normal italic">Book a complimentary 30-minute online consultation</h1>
