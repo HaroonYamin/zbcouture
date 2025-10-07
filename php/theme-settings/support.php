@@ -104,71 +104,24 @@ function hy_convert_variation_dropdown_to_buttons( $html, $args ) {
     $name      = esc_attr( $attribute );
     $id        = esc_attr( $attribute );
     $selected  = isset( $args['selected'] ) ? $args['selected'] : '';
-    
+
     if ( empty( $options ) && ! empty( $product ) && ! empty( $attribute ) ) {
         $attributes = $product->get_variation_attributes();
         $options    = $attributes[ $attribute ];
     }
-    
+
     if ( empty( $options ) ) return $html;
-    
+
     $buttons = '<div class="hy-variation-buttons" data-attribute_name="attribute_' . esc_attr( $attribute ) . '">';
-    
     foreach ( $options as $option ) {
         $selected_class = sanitize_title( $selected ) === sanitize_title( $option ) ? ' selected' : '';
         $buttons .= '<button type="button" class="hy-variation-button' . $selected_class . '" data-value="' . esc_attr( $option ) . '">' . esc_html( $option ) . '</button>';
     }
-    
     $buttons .= '</div>';
-    
-    // Keep original dropdown hidden for WooCommerce functionality
-    $html = '<div class="hy-hidden-dropdown" style="display:none;">' . $html . '</div>' . $buttons;
-    
-    return $html;
-}
 
-// Enqueue JavaScript
-add_action( 'wp_enqueue_scripts', 'hy_enqueue_variation_button_script' );
-function hy_enqueue_variation_button_script() {
-    if ( is_product() ) {
-        wp_add_inline_script( 'wc-add-to-cart-variation', '
-            jQuery(document).ready(function($) {
-                // Handle button clicks
-                $(document).on("click", ".hy-variation-button", function() {
-                    var $button = $(this);
-                    var value = $button.data("value");
-                    var $container = $button.closest(".hy-variation-buttons");
-                    var attributeName = $container.data("attribute_name");
-                    
-                    // Update button states
-                    $container.find(".hy-variation-button").removeClass("selected");
-                    $button.addClass("selected");
-                    
-                    // Update hidden select
-                    var $select = $container.siblings(".hy-hidden-dropdown").find("select");
-                    $select.val(value).trigger("change");
-                });
-                
-                // Sync buttons when variation form updates (for linked attributes)
-                $(".variations_form").on("woocommerce_update_variation_values", function() {
-                    $(".hy-variation-buttons").each(function() {
-                        var $container = $(this);
-                        var $select = $container.siblings(".hy-hidden-dropdown").find("select");
-                        var selectedValue = $select.val();
-                        
-                        $container.find(".hy-variation-button").each(function() {
-                            var $btn = $(this);
-                            if ($btn.data("value") == selectedValue) {
-                                $btn.addClass("selected");
-                            } else {
-                                $btn.removeClass("selected");
-                            }
-                        });
-                    });
-                });
-            });
-        ' );
-    }
+    // Hide original dropdown (for fallback/accessibility)
+    $html = '<div class="hy-hidden-dropdown" style="display:none;">' . $html . '</div>' . $buttons;
+    return $html;
 }
 
 // Add ACF Menu Item
@@ -295,8 +248,4 @@ function add_size_guide_next_to_sizes() {
    </div>
     <?php
 }
-
-
-
-
 
