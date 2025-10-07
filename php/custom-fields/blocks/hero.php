@@ -9,7 +9,7 @@
     $ui = new HY_UI();
 ?>
 
-<section class="relative sm:h-[calc(100vh-62px)] h-[calc(100vh-78px)]">
+<section class="relative min-h-screen lg:h-[calc(100vh-62px)] md:h-[calc(100vh-78px)]">
     <div class="swiper swiper-banner h-full">
         <div class="swiper-wrapper">
             <?php
@@ -34,55 +34,55 @@
                     // Determine desktop flexbox classes and padding based on content_position
                     switch ($content_position) {
                         case 'top-left':
-                            $desktop_justify_class = 'sm:justify-start';
-                            $desktop_align_class = 'sm:items-start';
-                            $desktop_padding_class = 'sm:pt-12 sm:pl-12 lg:pt-16 lg:pl-16';
+                            $desktop_justify_class = 'md:justify-start';
+                            $desktop_align_class = 'md:items-start';
+                            $desktop_padding_class = 'md:pt-12 md:pl-12 lg:pt-16 lg:pl-16';
                             break;
                         case 'top-center':
-                            $desktop_justify_class = 'sm:justify-start';
-                            $desktop_align_class = 'sm:items-center';
-                            $desktop_padding_class = 'sm:pt-12 sm:px-8 lg:pt-16 lg:px-12';
+                            $desktop_justify_class = 'md:justify-start';
+                            $desktop_align_class = 'md:items-center';
+                            $desktop_padding_class = 'md:pt-12 md:px-8 lg:pt-16 lg:px-12';
                             break;
                         case 'top-right':
-                            $desktop_justify_class = 'sm:justify-start';
-                            $desktop_align_class = 'sm:items-end';
-                            $desktop_padding_class = 'sm:pt-12 sm:pr-12 lg:pt-16 lg:pr-16';
+                            $desktop_justify_class = 'md:justify-start';
+                            $desktop_align_class = 'md:items-end';
+                            $desktop_padding_class = 'md:pt-12 md:pr-12 lg:pt-16 lg:pr-16';
                             break;
                         case 'middle-left':
-                            $desktop_justify_class = 'sm:justify-center';
-                            $desktop_align_class = 'sm:items-start';
-                            $desktop_padding_class = 'sm:pl-12 sm:py-8 lg:pl-32 lg:py-12';
+                            $desktop_justify_class = 'md:justify-center';
+                            $desktop_align_class = 'md:items-start';
+                            $desktop_padding_class = 'md:pl-12 md:py-8 lg:pl-32 lg:py-12';
                             break;
                         case 'middle-center':
-                            $desktop_justify_class = 'sm:justify-center';
-                            $desktop_align_class = 'sm:items-center';
-                            $desktop_padding_class = 'sm:p-8 lg:p-12';
+                            $desktop_justify_class = 'md:justify-center';
+                            $desktop_align_class = 'md:items-center';
+                            $desktop_padding_class = 'md:p-8 lg:p-12';
                             break;
                         case 'middle-right':
-                            $desktop_justify_class = 'sm:justify-center';
-                            $desktop_align_class = 'sm:items-end';
-                            $desktop_padding_class = 'sm:pr-12 sm:py-8 lg:pr-32 lg:py-12';
+                            $desktop_justify_class = 'md:justify-center';
+                            $desktop_align_class = 'md:items-end';
+                            $desktop_padding_class = 'md:pr-12 md:py-8 lg:pr-32 lg:py-12';
                             break;
                         case 'bottom-left':
-                            $desktop_justify_class = 'sm:justify-end';
-                            $desktop_align_class = 'sm:items-start';
-                            $desktop_padding_class = 'sm:pb-12 sm:pl-12 lg:pb-16 lg:pl-16';
+                            $desktop_justify_class = 'md:justify-end';
+                            $desktop_align_class = 'md:items-start';
+                            $desktop_padding_class = 'md:pb-12 md:pl-12 lg:pb-16 lg:pl-16';
                             break;
                         case 'bottom-center':
-                            $desktop_justify_class = 'sm:justify-end';
-                            $desktop_align_class = 'sm:items-center';
-                            $desktop_padding_class = 'sm:pb-12 sm:px-8 lg:pb-16 lg:px-12';
+                            $desktop_justify_class = 'md:justify-end';
+                            $desktop_align_class = 'md:items-center';
+                            $desktop_padding_class = 'md:pb-12 md:px-8 lg:pb-16 lg:px-12';
                             break;
                         case 'bottom-right':
-                            $desktop_justify_class = 'sm:justify-end';
-                            $desktop_align_class = 'sm:items-end';
-                            $desktop_padding_class = 'sm:pb-12 sm:pr-12 lg:pb-16 lg:pr-16';
+                            $desktop_justify_class = 'md:justify-end';
+                            $desktop_align_class = 'md:items-end';
+                            $desktop_padding_class = 'md:pb-12 md:pr-12 lg:pb-16 lg:pr-16';
                             break;
                         default:
                             // Fallback for any unhandled case or if field is not set for desktop
-                            $desktop_justify_class = 'sm:justify-center';
-                            $desktop_align_class = 'sm:items-center';
-                            $desktop_padding_class = 'sm:p-8 lg:p-12';
+                            $desktop_justify_class = 'md:justify-center';
+                            $desktop_align_class = 'md:items-center';
+                            $desktop_padding_class = 'md:p-8 lg:p-12';
                             break;
                     }
             ?>
@@ -110,7 +110,7 @@
                                     <?php endif; ?>
 
                                     <?php if( $paragraph ) : ?>
-                                        <?= $ui->paragraph( $paragraph, 'sm:mt-6 mt-3' ); ?>
+                                        <?= $ui->paragraph( $paragraph, 'md:mt-6 mt-3' ); ?>
                                     <?php endif; ?>
 
                                     <?php if( $button ) : ?>
@@ -127,7 +127,7 @@
         </div>
     </div>
     <!-- Positioned Pagination -->
-    <div class="absolute sm:bottom-8 bottom-5 left-1/2 transform -translate-x-1/2 z-10 slider-timer">
+    <div class="absolute md:bottom-8 bottom-5 left-1/2 transform -translate-x-1/2 z-10 slider-timer">
         <div class="banner-pagination slider-timer"></div>
     </div>
 </section>
