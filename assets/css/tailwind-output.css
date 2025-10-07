@@ -662,6 +662,9 @@
   .w-50 {
     width: calc(var(--spacing) * 50);
   }
+  .w-\[80px\] {
+    width: 80px;
+  }
   .w-\[82px\] {
     width: 82px;
   }
@@ -954,6 +957,9 @@
   }
   .gap-y-3 {
     row-gap: calc(var(--spacing) * 3);
+  }
+  .gap-y-4 {
+    row-gap: calc(var(--spacing) * 4);
   }
   .gap-y-6 {
     row-gap: calc(var(--spacing) * 6);
