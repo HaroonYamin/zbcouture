@@ -1173,6 +1173,9 @@ body.no-scroll {
     .newsletter-form p::after {
         right: 6px;
     }
+    .menu-item-acf {
+        display: none !important;
+    }
 }
 
 
