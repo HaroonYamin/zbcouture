@@ -475,53 +475,56 @@ if (progressSelectors.length > 0) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const swiperContainers = document.querySelectorAll('.swiper[class*="card-swiper-"]');
-  // Check for mobile devices (e.g., screen width less than a certain breakpoint)
-  // You might want to adjust this breakpoint to match your CSS breakpoints (e.g., Tailwind's 'sm' breakpoint)
-  const isMobile = window.innerWidth < 640; // Example: 640px is Tailwind's 'sm' breakpoint
+  const isMobile = window.innerWidth < 640; // Adjust breakpoint as needed
 
   swiperContainers.forEach((swiperEl) => {
-    // Only initialize Swiper for non-mobile devices
-    if (!isMobile) {
-      const mySwiper = new Swiper(swiperEl, {
-        loop: true,
-        speed: 600,
-        effect: 'fade',
-        fadeEffect: { crossFade: true },
-        autoplay: {
-          delay: 700,
-          disableOnInteraction: false,
-          enabled: false // Autoplay is off by default
-        },
-        on: {
-          init: () => swiperEl.classList.add("initialized"),
-        },
-      });
+    let autoplaySettings = {
+      delay: 700,
+      disableOnInteraction: false,
+      enabled: false
+    };
 
-      // Add hover events for non-mobile devices
+    let swiperConfig = {
+      loop: true,
+      speed: 600,
+      effect: 'fade',
+      fadeEffect: { crossFade: true },
+      autoplay: autoplaySettings,
+      on: {
+        init: () => swiperEl.classList.add("initialized"),
+      },
+      // ⭐ NEW: Add these for mobile touch conflict resolution
+      touchEventsTarget: 'wrapper', // Ensures touch is handled by the Swiper wrapper
+      touchReleaseOnEdges: true,    // Allows touches on edges to propagate up
+      threshold: 5,                 // Minimum distance in px for a touch to be recognized as a swipe
+      // It might also be useful to disable Swiper's own touch control on mobile if you only want autoplay
+      // allowTouchMove: !isMobile // Disables manual swiping of internal images on mobile
+    };
+
+
+    if (isMobile) {
+      autoplaySettings.enabled = true;
+      autoplaySettings.delay = 3000; // Autoplay every 3 seconds on mobile
+      // ⭐ If you want NO manual swiping within the card on mobile, just autoplay:
+      swiperConfig.allowTouchMove = false; // Disable manual swipe for internal images on mobile
+    }
+
+    const mySwiper = new Swiper(swiperEl, swiperConfig);
+
+    // Add hover events ONLY for non-mobile devices
+    if (!isMobile) {
       swiperEl.addEventListener('mouseenter', () => {
-        mySwiper.params.autoplay.delay = 900; // 0.9 sec between slides
-        mySwiper.autoplay.start();            // start scrolling
+        mySwiper.params.autoplay.delay = 900;
+        mySwiper.autoplay.start();
       });
 
       swiperEl.addEventListener('mouseleave', () => {
-        mySwiper.autoplay.stop();             // stop scrolling
+        mySwiper.autoplay.stop();
       });
-    } else {
-      // On mobile, ensure that only the first slide is visible and remove Swiper-related styling that might hide others.
-      // This part might need further CSS adjustments depending on how Swiper's initialization affects the layout.
-      // A simple approach is to ensure only the first slide is not 'absolute' or 'hidden'.
-      const firstSlide = swiperEl.querySelector('.swiper-slide:first-child');
-      if (firstSlide) {
-        firstSlide.style.position = 'relative'; // Override absolute positioning if needed
-        firstSlide.style.opacity = '1';         // Ensure it's visible
-        firstSlide.style.zIndex = 'auto';       // Reset z-index
-      }
-      // You might also want to remove `swiper-wrapper` and `swiper-slide` classes on mobile if they cause issues.
-      // Or simply, if Swiper doesn't initialize, the original HTML structure should just show the first image.
     }
   });
 
-  // Scroll arrows (same as before) - these will still control the main horizontal scroll
+  // Scroll arrows (still control the main horizontal scroll)
   const scrollWrapper = document.querySelector('.overflow-x-auto');
   const left = document.getElementById('scroll-arrow-left');
   const right = document.getElementById('scroll-arrow-right');
