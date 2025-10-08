@@ -256,3 +256,20 @@ function add_size_guide_next_to_sizes() {
     <?php
 }
 
+
+
+
+// EMERGENCY FIX - Add at the end of functions.php
+add_filter('woocommerce_available_variation', 'emergency_fix_empty_price_html', 99999, 3);
+function emergency_fix_empty_price_html($data, $product, $variation) {
+    if (empty($data['price_html']) && !empty($data['display_price'])) {
+        $price = wc_price($data['display_price']);
+        $regular = !empty($data['display_regular_price']) ? wc_price($data['display_regular_price']) : '';
+        
+        if ($regular && $data['display_regular_price'] > $data['display_price']) {
+            $data['price_html'] = '<del>' . $regular . '</del> <ins>' . $price . '</ins>';
+        } else {
+            $data['price_html'] = '<span class="price">' . $price . '</span>';
+        }
+    }
+    return $data;
