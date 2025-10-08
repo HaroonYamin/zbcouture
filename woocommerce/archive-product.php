@@ -171,7 +171,7 @@ $current_sort_label = isset( $simple_sort_labels[ $current_orderby ] ) ? $simple
 						 <div class="image-container relative product-hover-slider">
 							 <a href="<?php echo esc_url( $product_link ); ?>" class="block overflow-hidden product-images-wrapper">
 								 <?php foreach ( $product_image_ids as $img_id ) : ?>
-									 <div class="k">
+									 <div class="product-image-slide">
 										 <?php if ( $img_id ) : ?>
 											 <?php // Using your custom get_image function, assuming it exists ?>
 											 <?= get_image($img_id, 'object-cover w-full h-auto sm:h-[350px] md:h-[400px] lg:h-[435px]'); ?>
