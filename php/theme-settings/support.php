@@ -273,3 +273,4 @@ function emergency_fix_empty_price_html($data, $product, $variation) {
         }
     }
     return $data;
+}
