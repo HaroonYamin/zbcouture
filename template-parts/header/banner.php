@@ -52,7 +52,7 @@ if ($social_media || $text): ?>
                             <?php echo do_shortcode('[gtranslate]'); ?>
                         </div>
                         <div id="currency-switcher">
-                            <?php echo do_shortcode('[woocs sd=1]'); ?>
+                            <?php echo do_shortcode('[currency_code]'); ?>
                         </div>
                     </div>
                 </div>

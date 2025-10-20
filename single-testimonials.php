@@ -125,6 +125,20 @@ get_header();
 
 
 
+<section class="bg-[#f3f3ef] flex items-center justify-center mb-8 sm:py-32 py-16">
+  <div class="container text-center px-4">
+    <div class="text-[#212121] max-w-[523px] mx-auto" data-aos="fade-up" data-aos-delay="50">
+      <h1 class="sm:text-5xl text-4xl text-center font-primary font-normal max-w-[490px] lh-normal italic">Book a complimentary 30-minute online consultation</h1>
+      <div class="mt-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="150"></div>
+    </div>
+    <div class="mt-8" data-aos="fade-up" data-aos-delay="150">
+      <div class="btn-aware-wrapper relative inline-block">
+        <a href="https://darkgoldenrod-dinosaur-500813.hostingersite.com/contact/" class="btn-aware btn-aware-black relative inline-block px-8 py-3 text-base font-medium border border-black rounded-xl overflow-hidden backdrop-blur-[2px] z-10 hover:bg-black hover:text-white transition">
+          Book Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <?php get_footer(); ?>
