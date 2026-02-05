@@ -52,9 +52,34 @@
         <!-- Right Menu & Icons (Desktop) -->
         <?php if( !is_checkout() ) : ?>
         <div class="hidden lg:flex flex-row items-center gap-5 font-tertiary uppercase tracking-widest"> 
-            <div> 
-                <?php wp_nav_menu(['theme_location' => 'right-header-menu']); ?> 
-            </div> 
+
+        <!-- Booking Modal -->
+<div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
+    <div class="bg-white max-w-[600px] w-full mx-4 p-6 relative rounded-lg">
+
+        <!-- Close Button -->
+        <button onclick="toggleBookingModal()" class="absolute right-4 top-4 text-2xl cursor-pointer">
+            &times;
+        </button>
+
+        <!-- Booking Shortcode -->
+        <div class="mt-6">
+            <?php echo do_shortcode('[ssa_booking]'); ?>
+        </div>
+
+    </div>
+</div>
+
+          <div>
+    <?php 
+    wp_nav_menu([
+        'theme_location' => 'right-header-menu',
+        'menu_class' => 'booking-menu',
+        'container' => false
+    ]);
+    ?>
+</div>
+
             <div class="flex flex-row gap-1"> 
                 <?php if( $wishlist ) : ?> 
                     <a href="<?= esc_url($wishlist); ?>" class="<?= $header_icon; ?> block p-1.5 rounded smooth-icon-transition"> 
@@ -217,4 +242,23 @@ function toggleMobileMenu() {
         menu.classList.toggle('hidden');
     }
 }
+</script>
+
+
+
+<script>
+function toggleBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('flex');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.booking-menu a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); // page navigation rok de
+            toggleBookingModal();
+        });
+    });
+});
 </script>
